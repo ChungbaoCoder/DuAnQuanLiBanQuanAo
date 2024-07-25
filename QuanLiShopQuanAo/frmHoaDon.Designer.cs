@@ -59,17 +59,9 @@
             grpSuaHoaDon = new GroupBox();
             btnSua = new Button();
             btnTaiLaiDanhSach = new Button();
-            msDashBoard = new MenuStrip();
-            tslDashBoard = new ToolStripLabel();
-            tsmiSanPham = new ToolStripMenuItem();
-            tsmiKho = new ToolStripMenuItem();
-            tsmiHoaDon = new ToolStripMenuItem();
-            tsmiNhanVien = new ToolStripMenuItem();
-            tsmiNhaCungCap = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvHoaDonDaTao).BeginInit();
             grpTaoHoaDon.SuspendLayout();
             grpSuaHoaDon.SuspendLayout();
-            msDashBoard.SuspendLayout();
             SuspendLayout();
             // 
             // dgvHoaDonDaTao
@@ -78,9 +70,11 @@
             dgvHoaDonDaTao.AllowUserToDeleteRows = false;
             dgvHoaDonDaTao.AllowUserToResizeColumns = false;
             dgvHoaDonDaTao.AllowUserToResizeRows = false;
+            dgvHoaDonDaTao.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvHoaDonDaTao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHoaDonDaTao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHoaDonDaTao.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBox, dgvhMaHoaDonLap, dgvhTenKhach, dgvhNgayTao, dgvhTongTien, dgvhTrangThai, dgvhNhanVien });
-            dgvHoaDonDaTao.Location = new Point(175, 12);
+            dgvHoaDonDaTao.Location = new Point(28, 12);
             dgvHoaDonDaTao.Name = "dgvHoaDonDaTao";
             dgvHoaDonDaTao.RowHeadersVisible = false;
             dgvHoaDonDaTao.RowHeadersWidth = 51;
@@ -95,7 +89,6 @@
             dgvhCheckBox.Name = "dgvhCheckBox";
             dgvhCheckBox.Resizable = DataGridViewTriState.True;
             dgvhCheckBox.SortMode = DataGridViewColumnSortMode.Automatic;
-            dgvhCheckBox.Width = 25;
             // 
             // dgvhMaHoaDonLap
             // 
@@ -104,7 +97,6 @@
             dgvhMaHoaDonLap.Name = "dgvhMaHoaDonLap";
             dgvhMaHoaDonLap.ReadOnly = true;
             dgvhMaHoaDonLap.Resizable = DataGridViewTriState.True;
-            dgvhMaHoaDonLap.Width = 175;
             // 
             // dgvhTenKhach
             // 
@@ -112,7 +104,6 @@
             dgvhTenKhach.MinimumWidth = 6;
             dgvhTenKhach.Name = "dgvhTenKhach";
             dgvhTenKhach.ReadOnly = true;
-            dgvhTenKhach.Width = 225;
             // 
             // dgvhNgayTao
             // 
@@ -120,7 +111,6 @@
             dgvhNgayTao.MinimumWidth = 6;
             dgvhNgayTao.Name = "dgvhNgayTao";
             dgvhNgayTao.ReadOnly = true;
-            dgvhNgayTao.Width = 200;
             // 
             // dgvhTongTien
             // 
@@ -128,7 +118,6 @@
             dgvhTongTien.MinimumWidth = 6;
             dgvhTongTien.Name = "dgvhTongTien";
             dgvhTongTien.ReadOnly = true;
-            dgvhTongTien.Width = 175;
             // 
             // dgvhTrangThai
             // 
@@ -136,7 +125,6 @@
             dgvhTrangThai.MinimumWidth = 6;
             dgvhTrangThai.Name = "dgvhTrangThai";
             dgvhTrangThai.ReadOnly = true;
-            dgvhTrangThai.Width = 175;
             // 
             // dgvhNhanVien
             // 
@@ -144,10 +132,10 @@
             dgvhNhanVien.MinimumWidth = 6;
             dgvhNhanVien.Name = "dgvhNhanVien";
             dgvhNhanVien.ReadOnly = true;
-            dgvhNhanVien.Width = 200;
             // 
             // lblSuaHoaDon
             // 
+            lblSuaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaHoaDon.AutoSize = true;
             lblSuaHoaDon.Font = new Font("Segoe UI", 14F);
             lblSuaHoaDon.Location = new Point(6, 30);
@@ -158,6 +146,7 @@
             // 
             // lblTaoHoaDon
             // 
+            lblTaoHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTaoHoaDon.AutoSize = true;
             lblTaoHoaDon.Font = new Font("Segoe UI", 14F);
             lblTaoHoaDon.Location = new Point(6, 30);
@@ -168,6 +157,7 @@
             // 
             // lblTenKhach
             // 
+            lblTenKhach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTenKhach.AutoSize = true;
             lblTenKhach.Font = new Font("Segoe UI", 13F);
             lblTenKhach.Location = new Point(6, 80);
@@ -178,6 +168,7 @@
             // 
             // txtTenKhach
             // 
+            txtTenKhach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTenKhach.Location = new Point(220, 80);
             txtTenKhach.Name = "txtTenKhach";
             txtTenKhach.Size = new Size(350, 34);
@@ -185,6 +176,7 @@
             // 
             // lblNgayLap
             // 
+            lblNgayLap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblNgayLap.AutoSize = true;
             lblNgayLap.Font = new Font("Segoe UI", 13F);
             lblNgayLap.Location = new Point(6, 128);
@@ -195,6 +187,7 @@
             // 
             // dtpNgayLap
             // 
+            dtpNgayLap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtpNgayLap.CustomFormat = "dd-MM-yyyy";
             dtpNgayLap.Location = new Point(220, 128);
             dtpNgayLap.Name = "dtpNgayLap";
@@ -203,7 +196,8 @@
             // 
             // btnChonTatCa
             // 
-            btnChonTatCa.Location = new Point(175, 439);
+            btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnChonTatCa.Location = new Point(28, 439);
             btnChonTatCa.Name = "btnChonTatCa";
             btnChonTatCa.Size = new Size(150, 45);
             btnChonTatCa.TabIndex = 19;
@@ -212,7 +206,8 @@
             // 
             // btnXoaHoaDon
             // 
-            btnXoaHoaDon.Location = new Point(331, 439);
+            btnXoaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnXoaHoaDon.Location = new Point(184, 439);
             btnXoaHoaDon.Name = "btnXoaHoaDon";
             btnXoaHoaDon.Size = new Size(150, 45);
             btnXoaHoaDon.TabIndex = 18;
@@ -221,6 +216,7 @@
             // 
             // grpTaoHoaDon
             // 
+            grpTaoHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grpTaoHoaDon.Controls.Add(btnLapHoaDon);
             grpTaoHoaDon.Controls.Add(dateTimePicker1);
             grpTaoHoaDon.Controls.Add(lblNgayLapHDMoi);
@@ -231,7 +227,7 @@
             grpTaoHoaDon.Controls.Add(lblTenKhachMua);
             grpTaoHoaDon.Controls.Add(lblTaoHoaDon);
             grpTaoHoaDon.Controls.Add(lblMaHoaDon);
-            grpTaoHoaDon.Location = new Point(756, 415);
+            grpTaoHoaDon.Location = new Point(609, 415);
             grpTaoHoaDon.Name = "grpTaoHoaDon";
             grpTaoHoaDon.Size = new Size(597, 372);
             grpTaoHoaDon.TabIndex = 20;
@@ -239,6 +235,7 @@
             // 
             // btnLapHoaDon
             // 
+            btnLapHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLapHoaDon.Font = new Font("Segoe UI", 14F);
             btnLapHoaDon.Location = new Point(341, 292);
             btnLapHoaDon.Name = "btnLapHoaDon";
@@ -249,6 +246,7 @@
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dateTimePicker1.CustomFormat = "dd-MM-yyyy";
             dateTimePicker1.Location = new Point(241, 226);
             dateTimePicker1.Name = "dateTimePicker1";
@@ -257,6 +255,7 @@
             // 
             // lblNgayLapHDMoi
             // 
+            lblNgayLapHDMoi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblNgayLapHDMoi.AutoSize = true;
             lblNgayLapHDMoi.Font = new Font("Segoe UI", 13F);
             lblNgayLapHDMoi.Location = new Point(6, 230);
@@ -267,6 +266,7 @@
             // 
             // txtSDT
             // 
+            txtSDT.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSDT.Location = new Point(241, 177);
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(350, 34);
@@ -274,6 +274,7 @@
             // 
             // txtTenKhachMua
             // 
+            txtTenKhachMua.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTenKhachMua.Location = new Point(241, 126);
             txtTenKhachMua.Name = "txtTenKhachMua";
             txtTenKhachMua.Size = new Size(350, 34);
@@ -281,6 +282,7 @@
             // 
             // txtMaHoaDon
             // 
+            txtMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtMaHoaDon.Location = new Point(241, 77);
             txtMaHoaDon.Name = "txtMaHoaDon";
             txtMaHoaDon.ReadOnly = true;
@@ -289,6 +291,7 @@
             // 
             // lblSDT
             // 
+            lblSDT.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSDT.AutoSize = true;
             lblSDT.Font = new Font("Segoe UI", 13F);
             lblSDT.Location = new Point(6, 179);
@@ -299,6 +302,7 @@
             // 
             // lblTenKhachMua
             // 
+            lblTenKhachMua.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTenKhachMua.AutoSize = true;
             lblTenKhachMua.Font = new Font("Segoe UI", 13F);
             lblTenKhachMua.Location = new Point(6, 128);
@@ -309,6 +313,7 @@
             // 
             // lblMaHoaDon
             // 
+            lblMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblMaHoaDon.AutoSize = true;
             lblMaHoaDon.Font = new Font("Segoe UI", 13F);
             lblMaHoaDon.Location = new Point(6, 77);
@@ -319,6 +324,7 @@
             // 
             // lblTrangThai
             // 
+            lblTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTrangThai.AutoSize = true;
             lblTrangThai.Font = new Font("Segoe UI", 13F);
             lblTrangThai.Location = new Point(6, 178);
@@ -329,6 +335,7 @@
             // 
             // cmbTrangThai
             // 
+            cmbTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cmbTrangThai.Font = new Font("Segoe UI", 11F);
             cmbTrangThai.FormattingEnabled = true;
             cmbTrangThai.Items.AddRange(new object[] { "Chưa Thanh Toán", "Đã Thanh Toán" });
@@ -340,6 +347,7 @@
             // 
             // grpSuaHoaDon
             // 
+            grpSuaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             grpSuaHoaDon.Controls.Add(btnSua);
             grpSuaHoaDon.Controls.Add(txtTenKhach);
             grpSuaHoaDon.Controls.Add(cmbTrangThai);
@@ -348,7 +356,7 @@
             grpSuaHoaDon.Controls.Add(lblSuaHoaDon);
             grpSuaHoaDon.Controls.Add(lblNgayLap);
             grpSuaHoaDon.Controls.Add(lblTenKhach);
-            grpSuaHoaDon.Location = new Point(174, 490);
+            grpSuaHoaDon.Location = new Point(27, 490);
             grpSuaHoaDon.Name = "grpSuaHoaDon";
             grpSuaHoaDon.Size = new Size(576, 297);
             grpSuaHoaDon.TabIndex = 23;
@@ -356,6 +364,7 @@
             // 
             // btnSua
             // 
+            btnSua.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSua.Font = new Font("Segoe UI", 13F);
             btnSua.Location = new Point(445, 179);
             btnSua.Name = "btnSua";
@@ -366,85 +375,19 @@
             // 
             // btnTaiLaiDanhSach
             // 
-            btnTaiLaiDanhSach.Location = new Point(487, 439);
+            btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnTaiLaiDanhSach.Location = new Point(340, 439);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
             btnTaiLaiDanhSach.Size = new Size(180, 45);
             btnTaiLaiDanhSach.TabIndex = 50;
             btnTaiLaiDanhSach.Text = "Tải Lại Danh Sách";
             btnTaiLaiDanhSach.UseVisualStyleBackColor = true;
             // 
-            // msDashBoard
-            // 
-            msDashBoard.AutoSize = false;
-            msDashBoard.Dock = DockStyle.Left;
-            msDashBoard.ImageScalingSize = new Size(20, 20);
-            msDashBoard.Items.AddRange(new ToolStripItem[] { tslDashBoard, tsmiSanPham, tsmiKho, tsmiHoaDon, tsmiNhanVien, tsmiNhaCungCap });
-            msDashBoard.Location = new Point(0, 0);
-            msDashBoard.Name = "msDashBoard";
-            msDashBoard.Padding = new Padding(5, 2, 0, 2);
-            msDashBoard.Size = new Size(172, 802);
-            msDashBoard.TabIndex = 51;
-            msDashBoard.Text = "menuStrip1";
-            // 
-            // tslDashBoard
-            // 
-            tslDashBoard.Font = new Font("Segoe UI", 17F);
-            tslDashBoard.Name = "tslDashBoard";
-            tslDashBoard.Size = new Size(166, 40);
-            tslDashBoard.Text = "Dash Board";
-            tslDashBoard.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiSanPham
-            // 
-            tsmiSanPham.Font = new Font("Segoe UI", 11F);
-            tsmiSanPham.Margin = new Padding(0, 10, 0, 10);
-            tsmiSanPham.Name = "tsmiSanPham";
-            tsmiSanPham.Size = new Size(166, 29);
-            tsmiSanPham.Text = "Sản Phẩm";
-            tsmiSanPham.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiKho
-            // 
-            tsmiKho.Font = new Font("Segoe UI", 11F);
-            tsmiKho.Margin = new Padding(0, 0, 0, 10);
-            tsmiKho.Name = "tsmiKho";
-            tsmiKho.Size = new Size(166, 29);
-            tsmiKho.Text = "Kho";
-            tsmiKho.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiHoaDon
-            // 
-            tsmiHoaDon.Font = new Font("Segoe UI", 11F);
-            tsmiHoaDon.Margin = new Padding(0, 0, 0, 10);
-            tsmiHoaDon.Name = "tsmiHoaDon";
-            tsmiHoaDon.Size = new Size(166, 29);
-            tsmiHoaDon.Text = "Hoá Đơn";
-            tsmiHoaDon.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiNhanVien
-            // 
-            tsmiNhanVien.Font = new Font("Segoe UI", 11F);
-            tsmiNhanVien.Margin = new Padding(0, 0, 0, 10);
-            tsmiNhanVien.Name = "tsmiNhanVien";
-            tsmiNhanVien.Size = new Size(166, 29);
-            tsmiNhanVien.Text = "Nhân Viên";
-            tsmiNhanVien.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiNhaCungCap
-            // 
-            tsmiNhaCungCap.Font = new Font("Segoe UI", 11F);
-            tsmiNhaCungCap.Margin = new Padding(0, 0, 0, 10);
-            tsmiNhaCungCap.Name = "tsmiNhaCungCap";
-            tsmiNhaCungCap.Size = new Size(166, 29);
-            tsmiNhaCungCap.Text = "Nhà Cung Cấp";
-            tsmiNhaCungCap.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1366, 802);
-            Controls.Add(msDashBoard);
+            ClientSize = new Size(1245, 802);
             Controls.Add(btnTaiLaiDanhSach);
             Controls.Add(btnChonTatCa);
             Controls.Add(btnXoaHoaDon);
@@ -460,8 +403,6 @@
             grpTaoHoaDon.PerformLayout();
             grpSuaHoaDon.ResumeLayout(false);
             grpSuaHoaDon.PerformLayout();
-            msDashBoard.ResumeLayout(false);
-            msDashBoard.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -497,12 +438,5 @@
         private GroupBox grpSuaHoaDon;
         private Button btnSua;
         private Button btnTaiLaiDanhSach;
-        private MenuStrip msDashBoard;
-        private ToolStripLabel tslDashBoard;
-        private ToolStripMenuItem tsmiSanPham;
-        private ToolStripMenuItem tsmiKho;
-        private ToolStripMenuItem tsmiHoaDon;
-        private ToolStripMenuItem tsmiNhanVien;
-        private ToolStripMenuItem tsmiNhaCungCap;
     }
 }

@@ -71,14 +71,17 @@ namespace QuanLiShopQuanAo
 
         private void ClearTextValue()
         {
-            foreach (Control gb in this.Controls)
-            {
-                if (gb is GroupBox)
+            try {
+                foreach (Control gb in this.Controls)
                 {
-                    foreach (Control tb in gb.Controls)
-                        ((TextBox)tb).Text = string.Empty;
+                    if (gb is GroupBox)
+                    {
+                        foreach (Control tb in gb.Controls)
+                            ((TextBox)tb).Text = string.Empty;
+                    }
                 }
             }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void OpenFile()
@@ -211,35 +214,39 @@ namespace QuanLiShopQuanAo
 
         private void btnLuuThemSanPham_Click(object sender, EventArgs e)
         {
-            string trangThai = "";
-            if (rdoThemDangBan.Checked)
-                trangThai = "Đang bán";
-            else
-                trangThai = "Chưa bán";
-
-            if (MessageBox.Show("Bạn có muốn lưu thông tin sản phẩm", "Lưu thông tin sản phẩm?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                SanPham SanPham = new SanPham()
-                {
-                    TenSanPham = txtThemTenSanPham.Text,
-                    LoaiSanPham = txtThemLoaiSanPham.Text,
-                    HinhAnh = txtThemHinhAnhSanPham.Text,
-                    SoLuong = int.Parse(txtThemSoLuongSanPham.Text),
-                    Gia = float.Parse(txtThemGiaSanPham.Text),
-                    TrangThai = trangThai,
-                    MaNhaCungCap = cmbThemNhaCungCap.Text,
-                };
-                if (BUS_SanPham.QueryData(SanPham, "insert"))
-                    MessageBox.Show("Thêm thông tin sản phẩm thành công");
+                string trangThai = "";
+                if (rdoThemDangBan.Checked)
+                    trangThai = "Đang bán";
                 else
-                    MessageBox.Show("Không cập nhật được thông tin sản phẩm có tên " + SanPham.TenSanPham);
+                    trangThai = "Chưa bán";
 
-                HideTextControl();
-                HideButtonControl();
-                dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
-                LoadComboBox();
+                if (MessageBox.Show("Bạn có muốn lưu thông tin sản phẩm", "Lưu thông tin sản phẩm?",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    SanPham SanPham = new SanPham()
+                    {
+                        TenSanPham = txtThemTenSanPham.Text,
+                        LoaiSanPham = txtThemLoaiSanPham.Text,
+                        HinhAnh = txtThemHinhAnhSanPham.Text,
+                        SoLuong = int.Parse(txtThemSoLuongSanPham.Text),
+                        Gia = float.Parse(txtThemGiaSanPham.Text),
+                        TrangThai = trangThai,
+                        MaNhaCungCap = cmbThemNhaCungCap.Text,
+                    };
+                    if (BUS_SanPham.QueryData(SanPham, "insert"))
+                        MessageBox.Show("Thêm thông tin sản phẩm thành công");
+                    else
+                        MessageBox.Show("Không cập nhật được thông tin sản phẩm có tên " + SanPham.TenSanPham);
+
+                    HideTextControl();
+                    HideButtonControl();
+                    dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
+                    LoadComboBox();
+                }
             }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void btnLuuSuaSanPham_Click(object sender, EventArgs e)

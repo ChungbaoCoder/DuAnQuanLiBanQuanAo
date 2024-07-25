@@ -28,13 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            msDashBoard = new MenuStrip();
-            tslDashBoard = new ToolStripLabel();
-            tsmiSanPham = new ToolStripMenuItem();
-            tsmiKho = new ToolStripMenuItem();
-            tsmiHoaDon = new ToolStripMenuItem();
-            tsmiNhanVien = new ToolStripMenuItem();
-            tsmiNhaCungCap = new ToolStripMenuItem();
             btnXoaNhaCungCap = new Button();
             btnSuaNhaCungCap = new Button();
             btnTaiLaiDanhSach = new Button();
@@ -74,81 +67,14 @@
             dgvhTenNhaCungCap = new DataGridViewTextBoxColumn();
             dgvhDiaChiNhaCungCap = new DataGridViewTextBoxColumn();
             dgvhSDTNhaCungCap = new DataGridViewTextBoxColumn();
-            msDashBoard.SuspendLayout();
             grpThemNhaCungCap.SuspendLayout();
             grpSuaNhaCungCap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNhaCungCap).BeginInit();
             SuspendLayout();
             // 
-            // msDashBoard
-            // 
-            msDashBoard.AutoSize = false;
-            msDashBoard.Dock = DockStyle.Left;
-            msDashBoard.ImageScalingSize = new Size(20, 20);
-            msDashBoard.Items.AddRange(new ToolStripItem[] { tslDashBoard, tsmiSanPham, tsmiKho, tsmiHoaDon, tsmiNhanVien, tsmiNhaCungCap });
-            msDashBoard.Location = new Point(0, 0);
-            msDashBoard.Name = "msDashBoard";
-            msDashBoard.Padding = new Padding(5, 2, 0, 2);
-            msDashBoard.Size = new Size(172, 700);
-            msDashBoard.TabIndex = 37;
-            msDashBoard.Text = "menuStrip1";
-            // 
-            // tslDashBoard
-            // 
-            tslDashBoard.Font = new Font("Segoe UI", 17F);
-            tslDashBoard.Name = "tslDashBoard";
-            tslDashBoard.Size = new Size(166, 40);
-            tslDashBoard.Text = "Dash Board";
-            tslDashBoard.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiSanPham
-            // 
-            tsmiSanPham.Font = new Font("Segoe UI", 11F);
-            tsmiSanPham.Margin = new Padding(0, 10, 0, 10);
-            tsmiSanPham.Name = "tsmiSanPham";
-            tsmiSanPham.Size = new Size(166, 29);
-            tsmiSanPham.Text = "Sản Phẩm";
-            tsmiSanPham.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiKho
-            // 
-            tsmiKho.Font = new Font("Segoe UI", 11F);
-            tsmiKho.Margin = new Padding(0, 0, 0, 10);
-            tsmiKho.Name = "tsmiKho";
-            tsmiKho.Size = new Size(166, 29);
-            tsmiKho.Text = "Kho";
-            tsmiKho.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiHoaDon
-            // 
-            tsmiHoaDon.Font = new Font("Segoe UI", 11F);
-            tsmiHoaDon.Margin = new Padding(0, 0, 0, 10);
-            tsmiHoaDon.Name = "tsmiHoaDon";
-            tsmiHoaDon.Size = new Size(166, 29);
-            tsmiHoaDon.Text = "Hoá Đơn";
-            tsmiHoaDon.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiNhanVien
-            // 
-            tsmiNhanVien.Font = new Font("Segoe UI", 11F);
-            tsmiNhanVien.Margin = new Padding(0, 0, 0, 10);
-            tsmiNhanVien.Name = "tsmiNhanVien";
-            tsmiNhanVien.Size = new Size(166, 29);
-            tsmiNhanVien.Text = "Nhân Viên";
-            tsmiNhanVien.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiNhaCungCap
-            // 
-            tsmiNhaCungCap.Font = new Font("Segoe UI", 11F);
-            tsmiNhaCungCap.Margin = new Padding(0, 0, 0, 10);
-            tsmiNhaCungCap.Name = "tsmiNhaCungCap";
-            tsmiNhaCungCap.Size = new Size(166, 29);
-            tsmiNhaCungCap.Text = "Nhà Cung Cấp";
-            tsmiNhaCungCap.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // btnXoaNhaCungCap
             // 
-            btnXoaNhaCungCap.Location = new Point(327, 327);
+            btnXoaNhaCungCap.Location = new Point(174, 327);
             btnXoaNhaCungCap.Name = "btnXoaNhaCungCap";
             btnXoaNhaCungCap.Size = new Size(140, 45);
             btnXoaNhaCungCap.TabIndex = 68;
@@ -158,7 +84,7 @@
             // 
             // btnSuaNhaCungCap
             // 
-            btnSuaNhaCungCap.Location = new Point(327, 378);
+            btnSuaNhaCungCap.Location = new Point(174, 378);
             btnSuaNhaCungCap.Name = "btnSuaNhaCungCap";
             btnSuaNhaCungCap.Size = new Size(140, 45);
             btnSuaNhaCungCap.TabIndex = 67;
@@ -168,7 +94,7 @@
             // 
             // btnTaiLaiDanhSach
             // 
-            btnTaiLaiDanhSach.Location = new Point(473, 327);
+            btnTaiLaiDanhSach.Location = new Point(320, 327);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
             btnTaiLaiDanhSach.Size = new Size(180, 45);
             btnTaiLaiDanhSach.TabIndex = 66;
@@ -178,8 +104,9 @@
             // 
             // btnTimNhaCungCap
             // 
+            btnTimNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnTimNhaCungCap.Font = new Font("Segoe UI", 12F);
-            btnTimNhaCungCap.Location = new Point(1044, 332);
+            btnTimNhaCungCap.Location = new Point(891, 332);
             btnTimNhaCungCap.Name = "btnTimNhaCungCap";
             btnTimNhaCungCap.Size = new Size(90, 34);
             btnTimNhaCungCap.TabIndex = 61;
@@ -189,14 +116,16 @@
             // 
             // txtTimKiemNhaCungCap
             // 
+            txtTimKiemNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             txtTimKiemNhaCungCap.Font = new Font("Segoe UI", 12F);
-            txtTimKiemNhaCungCap.Location = new Point(659, 332);
+            txtTimKiemNhaCungCap.Location = new Point(506, 332);
             txtTimKiemNhaCungCap.Name = "txtTimKiemNhaCungCap";
             txtTimKiemNhaCungCap.Size = new Size(379, 34);
             txtTimKiemNhaCungCap.TabIndex = 65;
             // 
             // grpThemNhaCungCap
             // 
+            grpThemNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             grpThemNhaCungCap.Controls.Add(cmbThemMaSanPham);
             grpThemNhaCungCap.Controls.Add(lblThemMaSanPham);
             grpThemNhaCungCap.Controls.Add(lblThemSDTNhaCungCap);
@@ -208,7 +137,7 @@
             grpThemNhaCungCap.Controls.Add(txtThemTenNhaCungCap);
             grpThemNhaCungCap.Controls.Add(lblThemTenNhaCungCap);
             grpThemNhaCungCap.Controls.Add(lblThemDiaChiNhaCungCap);
-            grpThemNhaCungCap.Location = new Point(181, 423);
+            grpThemNhaCungCap.Location = new Point(28, 423);
             grpThemNhaCungCap.Name = "grpThemNhaCungCap";
             grpThemNhaCungCap.Size = new Size(462, 261);
             grpThemNhaCungCap.TabIndex = 64;
@@ -322,7 +251,7 @@
             // 
             // btnChonTatCa
             // 
-            btnChonTatCa.Location = new Point(181, 327);
+            btnChonTatCa.Location = new Point(28, 327);
             btnChonTatCa.Name = "btnChonTatCa";
             btnChonTatCa.Size = new Size(140, 45);
             btnChonTatCa.TabIndex = 62;
@@ -332,6 +261,7 @@
             // 
             // grpSuaNhaCungCap
             // 
+            grpSuaNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grpSuaNhaCungCap.Controls.Add(cmbSuaMaSanPham);
             grpSuaNhaCungCap.Controls.Add(lblSuaMaSanPham);
             grpSuaNhaCungCap.Controls.Add(btnClearSuaNhaCungCap);
@@ -346,7 +276,7 @@
             grpSuaNhaCungCap.Controls.Add(btnLuuSuaNhaCungCap);
             grpSuaNhaCungCap.Controls.Add(lblSuaSDTNhaCungCap);
             grpSuaNhaCungCap.Font = new Font("Segoe UI", 12F);
-            grpSuaNhaCungCap.Location = new Point(649, 378);
+            grpSuaNhaCungCap.Location = new Point(496, 378);
             grpSuaNhaCungCap.Name = "grpSuaNhaCungCap";
             grpSuaNhaCungCap.Size = new Size(485, 306);
             grpSuaNhaCungCap.TabIndex = 63;
@@ -364,6 +294,7 @@
             // 
             // lblSuaMaSanPham
             // 
+            lblSuaMaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaMaSanPham.AutoSize = true;
             lblSuaMaSanPham.Font = new Font("Segoe UI", 13F);
             lblSuaMaSanPham.Location = new Point(6, 257);
@@ -385,6 +316,7 @@
             // 
             // lblSuaNhaCungCap
             // 
+            lblSuaNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaNhaCungCap.AutoSize = true;
             lblSuaNhaCungCap.Font = new Font("Segoe UI", 14F);
             lblSuaNhaCungCap.Location = new Point(10, 21);
@@ -395,6 +327,7 @@
             // 
             // txtSuaTenNhaCungCap
             // 
+            txtSuaTenNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaTenNhaCungCap.Font = new Font("Segoe UI", 12F);
             txtSuaTenNhaCungCap.Location = new Point(229, 123);
             txtSuaTenNhaCungCap.Name = "txtSuaTenNhaCungCap";
@@ -403,6 +336,7 @@
             // 
             // lblSuaMaNhaCungCap
             // 
+            lblSuaMaNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaMaNhaCungCap.AutoSize = true;
             lblSuaMaNhaCungCap.Font = new Font("Segoe UI", 13F);
             lblSuaMaNhaCungCap.Location = new Point(6, 79);
@@ -413,6 +347,7 @@
             // 
             // txtSuaMaNhaCungCap
             // 
+            txtSuaMaNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaMaNhaCungCap.Font = new Font("Segoe UI", 12F);
             txtSuaMaNhaCungCap.Location = new Point(228, 79);
             txtSuaMaNhaCungCap.Name = "txtSuaMaNhaCungCap";
@@ -422,6 +357,7 @@
             // 
             // lblSuaTenNhaCungCap
             // 
+            lblSuaTenNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaTenNhaCungCap.AutoSize = true;
             lblSuaTenNhaCungCap.Font = new Font("Segoe UI", 13F);
             lblSuaTenNhaCungCap.Location = new Point(6, 123);
@@ -432,6 +368,7 @@
             // 
             // txtSuaDiaChiNhaCungCap
             // 
+            txtSuaDiaChiNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaDiaChiNhaCungCap.Font = new Font("Segoe UI", 12F);
             txtSuaDiaChiNhaCungCap.Location = new Point(229, 211);
             txtSuaDiaChiNhaCungCap.Name = "txtSuaDiaChiNhaCungCap";
@@ -440,6 +377,7 @@
             // 
             // lblSuaDiaChiNhaCungCap
             // 
+            lblSuaDiaChiNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaDiaChiNhaCungCap.AutoSize = true;
             lblSuaDiaChiNhaCungCap.Font = new Font("Segoe UI", 13F);
             lblSuaDiaChiNhaCungCap.Location = new Point(6, 213);
@@ -450,6 +388,7 @@
             // 
             // txtSuaSDTNhaCungCap
             // 
+            txtSuaSDTNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaSDTNhaCungCap.Font = new Font("Segoe UI", 12F);
             txtSuaSDTNhaCungCap.Location = new Point(229, 167);
             txtSuaSDTNhaCungCap.Name = "txtSuaSDTNhaCungCap";
@@ -469,6 +408,7 @@
             // 
             // lblSuaSDTNhaCungCap
             // 
+            lblSuaSDTNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaSDTNhaCungCap.AutoSize = true;
             lblSuaSDTNhaCungCap.Font = new Font("Segoe UI", 13F);
             lblSuaSDTNhaCungCap.Location = new Point(6, 169);
@@ -479,7 +419,7 @@
             // 
             // btnThemNhaCungCap
             // 
-            btnThemNhaCungCap.Location = new Point(181, 378);
+            btnThemNhaCungCap.Location = new Point(28, 378);
             btnThemNhaCungCap.Name = "btnThemNhaCungCap";
             btnThemNhaCungCap.Size = new Size(140, 45);
             btnThemNhaCungCap.TabIndex = 69;
@@ -491,9 +431,11 @@
             // 
             dgvNhaCungCap.AllowUserToAddRows = false;
             dgvNhaCungCap.AllowUserToDeleteRows = false;
+            dgvNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dgvNhaCungCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhaCungCap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNhaCungCap.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxNhaCungCap, dgvhMaNhaCungCap, dgvhTenNhaCungCap, dgvhDiaChiNhaCungCap, dgvhSDTNhaCungCap });
-            dgvNhaCungCap.Location = new Point(181, 12);
+            dgvNhaCungCap.Location = new Point(28, 12);
             dgvNhaCungCap.Name = "dgvNhaCungCap";
             dgvNhaCungCap.RowHeadersVisible = false;
             dgvNhaCungCap.RowHeadersWidth = 51;
@@ -505,7 +447,6 @@
             dgvhCheckBoxNhaCungCap.HeaderText = "";
             dgvhCheckBoxNhaCungCap.MinimumWidth = 6;
             dgvhCheckBoxNhaCungCap.Name = "dgvhCheckBoxNhaCungCap";
-            dgvhCheckBoxNhaCungCap.Width = 25;
             // 
             // dgvhMaNhaCungCap
             // 
@@ -513,7 +454,6 @@
             dgvhMaNhaCungCap.MinimumWidth = 6;
             dgvhMaNhaCungCap.Name = "dgvhMaNhaCungCap";
             dgvhMaNhaCungCap.ReadOnly = true;
-            dgvhMaNhaCungCap.Width = 200;
             // 
             // dgvhTenNhaCungCap
             // 
@@ -521,7 +461,6 @@
             dgvhTenNhaCungCap.MinimumWidth = 6;
             dgvhTenNhaCungCap.Name = "dgvhTenNhaCungCap";
             dgvhTenNhaCungCap.ReadOnly = true;
-            dgvhTenNhaCungCap.Width = 250;
             // 
             // dgvhDiaChiNhaCungCap
             // 
@@ -529,7 +468,6 @@
             dgvhDiaChiNhaCungCap.MinimumWidth = 6;
             dgvhDiaChiNhaCungCap.Name = "dgvhDiaChiNhaCungCap";
             dgvhDiaChiNhaCungCap.ReadOnly = true;
-            dgvhDiaChiNhaCungCap.Width = 250;
             // 
             // dgvhSDTNhaCungCap
             // 
@@ -537,13 +475,12 @@
             dgvhSDTNhaCungCap.MinimumWidth = 6;
             dgvhSDTNhaCungCap.Name = "dgvhSDTNhaCungCap";
             dgvhSDTNhaCungCap.ReadOnly = true;
-            dgvhSDTNhaCungCap.Width = 225;
             // 
             // frmNhaCungCap
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1151, 700);
+            ClientSize = new Size(1018, 700);
             Controls.Add(btnThemNhaCungCap);
             Controls.Add(btnXoaNhaCungCap);
             Controls.Add(btnSuaNhaCungCap);
@@ -554,14 +491,11 @@
             Controls.Add(btnChonTatCa);
             Controls.Add(grpSuaNhaCungCap);
             Controls.Add(dgvNhaCungCap);
-            Controls.Add(msDashBoard);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
             Name = "frmNhaCungCap";
             Text = "Quản Lí Nhà Cung Cấp";
             Load += frmNhaCungCap_Load;
-            msDashBoard.ResumeLayout(false);
-            msDashBoard.PerformLayout();
             grpThemNhaCungCap.ResumeLayout(false);
             grpThemNhaCungCap.PerformLayout();
             grpSuaNhaCungCap.ResumeLayout(false);
@@ -572,14 +506,6 @@
         }
 
         #endregion
-
-        private MenuStrip msDashBoard;
-        private ToolStripLabel tslDashBoard;
-        private ToolStripMenuItem tsmiSanPham;
-        private ToolStripMenuItem tsmiKho;
-        private ToolStripMenuItem tsmiHoaDon;
-        private ToolStripMenuItem tsmiNhanVien;
-        private ToolStripMenuItem tsmiNhaCungCap;
         private Button btnXoaNhaCungCap;
         private Button btnSuaNhaCungCap;
         private Button btnTaiLaiDanhSach;
