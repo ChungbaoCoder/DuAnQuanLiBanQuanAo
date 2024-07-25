@@ -46,6 +46,9 @@
             panel4 = new Panel();
             pictureBox3 = new PictureBox();
             btn_Kho = new Button();
+            panel10 = new Panel();
+            pictureBox7 = new PictureBox();
+            btn_Ncc = new Button();
             panel1 = new Panel();
             label1 = new Label();
             pictureBox6 = new PictureBox();
@@ -53,9 +56,6 @@
             lb_Chao = new Label();
             lb_username = new Label();
             panel9 = new Panel();
-            panel10 = new Panel();
-            pictureBox7 = new PictureBox();
-            btn_Ncc = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel7.SuspendLayout();
             panel2.SuspendLayout();
@@ -68,11 +68,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel8.SuspendLayout();
-            panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -258,6 +258,35 @@
             btn_Kho.UseVisualStyleBackColor = true;
             btn_Kho.Click += btn_Kho_Click;
             // 
+            // panel10
+            // 
+            panel10.Controls.Add(pictureBox7);
+            panel10.Controls.Add(btn_Ncc);
+            panel10.Location = new Point(3, 369);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(185, 53);
+            panel10.TabIndex = 10;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Location = new Point(3, 3);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(48, 45);
+            pictureBox7.TabIndex = 0;
+            pictureBox7.TabStop = false;
+            // 
+            // btn_Ncc
+            // 
+            btn_Ncc.AutoSize = true;
+            btn_Ncc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_Ncc.Location = new Point(3, 3);
+            btn_Ncc.Name = "btn_Ncc";
+            btn_Ncc.Size = new Size(234, 45);
+            btn_Ncc.TabIndex = 1;
+            btn_Ncc.Text = "Nhà Cung Cấp";
+            btn_Ncc.UseVisualStyleBackColor = true;
+            btn_Ncc.Click += button1_Click;
+            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveBorder;
@@ -275,9 +304,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(92, 19);
             label1.Name = "label1";
-            label1.Size = new Size(78, 32);
+            label1.Size = new Size(123, 32);
             label1.TabIndex = 4;
-            label1.Text = "label1";
+            label1.Text = "Trang Chủ";
             // 
             // pictureBox6
             // 
@@ -331,35 +360,6 @@
             panel9.Size = new Size(667, 442);
             panel9.TabIndex = 2;
             // 
-            // panel10
-            // 
-            panel10.Controls.Add(pictureBox7);
-            panel10.Controls.Add(btn_Ncc);
-            panel10.Location = new Point(3, 369);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(185, 53);
-            panel10.TabIndex = 10;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.Location = new Point(3, 3);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(48, 45);
-            pictureBox7.TabIndex = 0;
-            pictureBox7.TabStop = false;
-            // 
-            // btn_Ncc
-            // 
-            btn_Ncc.AutoSize = true;
-            btn_Ncc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_Ncc.Location = new Point(3, 3);
-            btn_Ncc.Name = "btn_Ncc";
-            btn_Ncc.Size = new Size(234, 45);
-            btn_Ncc.TabIndex = 1;
-            btn_Ncc.Text = "Nhà Cung Cấp";
-            btn_Ncc.UseVisualStyleBackColor = true;
-            btn_Ncc.Click += button1_Click;
-            // 
             // frmMainMenu
             // 
             AutoScaleDimensions = new SizeF(13F, 31F);
@@ -391,14 +391,14 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 

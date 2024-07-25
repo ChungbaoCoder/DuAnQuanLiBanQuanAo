@@ -8,6 +8,6 @@ namespace QuanLiShopQuanAo.DataBaseConnection
 {
     public static class DBConnection
     {
-        public static string ConnectionString = @"Server=ADMIN-PC;Initial Catalog=QuanLiCuaHang; Integrated Security=True; TrustServerCertificate=True";
+        public static string ConnectionString = @"=Data Source=LOGINUS\SQLEXPRESS;Initial Catalog=QuanLyCuaHang;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
     }
 }
