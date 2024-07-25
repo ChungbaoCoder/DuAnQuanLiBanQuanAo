@@ -42,6 +42,7 @@
             // 
             // lblUserName
             // 
+            lblUserName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Segoe UI Light", 12F);
             lblUserName.Location = new Point(255, 129);
@@ -52,6 +53,7 @@
             // 
             // lblPassWord
             // 
+            lblPassWord.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblPassWord.AutoSize = true;
             lblPassWord.Font = new Font("Segoe UI Light", 12F);
             lblPassWord.Location = new Point(255, 211);
@@ -62,6 +64,7 @@
             // 
             // txtUserName
             // 
+            txtUserName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtUserName.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
             txtUserName.Location = new Point(255, 160);
             txtUserName.Name = "txtUserName";
@@ -72,6 +75,7 @@
             // txtPassWord
             // 
             txtPassWord.AccessibleDescription = "";
+            txtPassWord.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPassWord.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
             txtPassWord.ForeColor = Color.Black;
             txtPassWord.Location = new Point(255, 242);
@@ -84,6 +88,7 @@
             // 
             // linklblQuenMK
             // 
+            linklblQuenMK.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             linklblQuenMK.AutoSize = true;
             linklblQuenMK.Location = new Point(255, 307);
             linklblQuenMK.Name = "linklblQuenMK";
@@ -95,6 +100,7 @@
             // 
             // btnLogin
             // 
+            btnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnLogin.BackColor = Color.FromArgb(64, 64, 64);
             btnLogin.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
@@ -108,9 +114,9 @@
             // 
             // picIcon1
             // 
-            picIcon1.Location = new Point(165, 144);
+            picIcon1.Location = new Point(174, 144);
             picIcon1.Name = "picIcon1";
-            picIcon1.Size = new Size(84, 61);
+            picIcon1.Size = new Size(65, 61);
             picIcon1.SizeMode = PictureBoxSizeMode.StretchImage;
             picIcon1.TabIndex = 8;
             picIcon1.TabStop = false;

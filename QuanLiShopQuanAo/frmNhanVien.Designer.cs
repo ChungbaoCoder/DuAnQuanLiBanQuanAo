@@ -56,13 +56,6 @@
             dgvhLuongNV = new DataGridViewTextBoxColumn();
             dgvhEmailNV = new DataGridViewTextBoxColumn();
             dgvhTrangThaiNV = new DataGridViewTextBoxColumn();
-            msDashBoard = new MenuStrip();
-            tslDashBoard = new ToolStripLabel();
-            tsmiSanPham = new ToolStripMenuItem();
-            tsmiKho = new ToolStripMenuItem();
-            tsmiHoaDon = new ToolStripMenuItem();
-            tsmiNhanVien = new ToolStripMenuItem();
-            tsmiNhaCungCap = new ToolStripMenuItem();
             grpSuaNhanVien = new GroupBox();
             lblSuaEmailNhanVien = new Label();
             btnMoFileSua = new Button();
@@ -90,13 +83,13 @@
             btnThemNhanVien = new Button();
             grpThemNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).BeginInit();
-            msDashBoard.SuspendLayout();
             grpSuaNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAnhNhanVien).BeginInit();
             SuspendLayout();
             // 
             // grpThemNhanVien
             // 
+            grpThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             grpThemNhanVien.Controls.Add(btnMoFileThem);
             grpThemNhanVien.Controls.Add(txtThemHinhAnhNhanVien);
             grpThemNhanVien.Controls.Add(lblThemAnhNhanVien);
@@ -113,7 +106,7 @@
             grpThemNhanVien.Controls.Add(lblThemTenNhanVien);
             grpThemNhanVien.Controls.Add(lblThemChucVuNhanVien);
             grpThemNhanVien.Controls.Add(lblThemLuong);
-            grpThemNhanVien.Location = new Point(452, 524);
+            grpThemNhanVien.Location = new Point(289, 524);
             grpThemNhanVien.Name = "grpThemNhanVien";
             grpThemNhanVien.Size = new Size(496, 346);
             grpThemNhanVien.TabIndex = 42;
@@ -121,6 +114,7 @@
             // 
             // btnMoFileThem
             // 
+            btnMoFileThem.Anchor = AnchorStyles.Right;
             btnMoFileThem.Location = new Point(377, 167);
             btnMoFileThem.Name = "btnMoFileThem";
             btnMoFileThem.Size = new Size(106, 34);
@@ -130,6 +124,7 @@
             // 
             // txtThemHinhAnhNhanVien
             // 
+            txtThemHinhAnhNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtThemHinhAnhNhanVien.Font = new Font("Segoe UI", 12F);
             txtThemHinhAnhNhanVien.Location = new Point(183, 167);
             txtThemHinhAnhNhanVien.Name = "txtThemHinhAnhNhanVien";
@@ -158,6 +153,7 @@
             // 
             // btnClearThemNhanVien
             // 
+            btnClearThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnClearThemNhanVien.Location = new Point(317, 297);
             btnClearThemNhanVien.Name = "btnClearThemNhanVien";
             btnClearThemNhanVien.Size = new Size(80, 34);
@@ -168,6 +164,7 @@
             // 
             // txtThemLuong
             // 
+            txtThemLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtThemLuong.Font = new Font("Segoe UI", 12F);
             txtThemLuong.Location = new Point(183, 209);
             txtThemLuong.Name = "txtThemLuong";
@@ -176,6 +173,7 @@
             // 
             // cmbThemChucVuNhanVien
             // 
+            cmbThemChucVuNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             cmbThemChucVuNhanVien.Font = new Font("Segoe UI", 11F);
             cmbThemChucVuNhanVien.FormattingEnabled = true;
             cmbThemChucVuNhanVien.Items.AddRange(new object[] { "Nhân Viên", "Quản Trị" });
@@ -197,6 +195,7 @@
             // 
             // txtThemTrangThai
             // 
+            txtThemTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtThemTrangThai.Font = new Font("Segoe UI", 12F);
             txtThemTrangThai.Location = new Point(183, 253);
             txtThemTrangThai.Name = "txtThemTrangThai";
@@ -205,6 +204,7 @@
             // 
             // txtThemEmailNhanVien
             // 
+            txtThemEmailNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtThemEmailNhanVien.Font = new Font("Segoe UI", 12F);
             txtThemEmailNhanVien.Location = new Point(183, 121);
             txtThemEmailNhanVien.Name = "txtThemEmailNhanVien";
@@ -223,6 +223,7 @@
             // 
             // txtThemTenNhanVien
             // 
+            txtThemTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtThemTenNhanVien.Font = new Font("Segoe UI", 12F);
             txtThemTenNhanVien.Location = new Point(183, 77);
             txtThemTenNhanVien.Name = "txtThemTenNhanVien";
@@ -231,6 +232,7 @@
             // 
             // btnLuuThemNhanVien
             // 
+            btnLuuThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnLuuThemNhanVien.Location = new Point(403, 297);
             btnLuuThemNhanVien.Name = "btnLuuThemNhanVien";
             btnLuuThemNhanVien.Size = new Size(80, 34);
@@ -271,7 +273,7 @@
             // 
             // btnSuaNhanVien
             // 
-            btnSuaNhanVien.Location = new Point(351, 478);
+            btnSuaNhanVien.Location = new Point(188, 478);
             btnSuaNhanVien.Name = "btnSuaNhanVien";
             btnSuaNhanVien.Size = new Size(170, 45);
             btnSuaNhanVien.TabIndex = 40;
@@ -281,7 +283,7 @@
             // 
             // btnChonTatCa
             // 
-            btnChonTatCa.Location = new Point(175, 427);
+            btnChonTatCa.Location = new Point(12, 427);
             btnChonTatCa.Name = "btnChonTatCa";
             btnChonTatCa.Size = new Size(170, 45);
             btnChonTatCa.TabIndex = 39;
@@ -291,7 +293,7 @@
             // 
             // btnXoaNhanVien
             // 
-            btnXoaNhanVien.Location = new Point(351, 427);
+            btnXoaNhanVien.Location = new Point(188, 427);
             btnXoaNhanVien.Name = "btnXoaNhanVien";
             btnXoaNhanVien.Size = new Size(170, 45);
             btnXoaNhanVien.TabIndex = 38;
@@ -305,9 +307,11 @@
             dgvNhanVien.AllowUserToDeleteRows = false;
             dgvNhanVien.AllowUserToResizeColumns = false;
             dgvNhanVien.AllowUserToResizeRows = false;
+            dgvNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNhanVien.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxNV, dgvhMaNV, dgvhTenNV, dgvhChucVuNV, dgvhLuongNV, dgvhEmailNV, dgvhTrangThaiNV });
-            dgvNhanVien.Location = new Point(175, 12);
+            dgvNhanVien.Location = new Point(12, 12);
             dgvNhanVien.MultiSelect = false;
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersVisible = false;
@@ -320,7 +324,6 @@
             dgvhCheckBoxNV.HeaderText = "";
             dgvhCheckBoxNV.MinimumWidth = 6;
             dgvhCheckBoxNV.Name = "dgvhCheckBoxNV";
-            dgvhCheckBoxNV.Width = 25;
             // 
             // dgvhMaNV
             // 
@@ -328,7 +331,6 @@
             dgvhMaNV.MinimumWidth = 6;
             dgvhMaNV.Name = "dgvhMaNV";
             dgvhMaNV.ReadOnly = true;
-            dgvhMaNV.Width = 200;
             // 
             // dgvhTenNV
             // 
@@ -336,7 +338,6 @@
             dgvhTenNV.MinimumWidth = 6;
             dgvhTenNV.Name = "dgvhTenNV";
             dgvhTenNV.ReadOnly = true;
-            dgvhTenNV.Width = 250;
             // 
             // dgvhChucVuNV
             // 
@@ -344,7 +345,6 @@
             dgvhChucVuNV.MinimumWidth = 6;
             dgvhChucVuNV.Name = "dgvhChucVuNV";
             dgvhChucVuNV.ReadOnly = true;
-            dgvhChucVuNV.Width = 200;
             // 
             // dgvhLuongNV
             // 
@@ -352,7 +352,6 @@
             dgvhLuongNV.MinimumWidth = 6;
             dgvhLuongNV.Name = "dgvhLuongNV";
             dgvhLuongNV.ReadOnly = true;
-            dgvhLuongNV.Width = 175;
             // 
             // dgvhEmailNV
             // 
@@ -360,7 +359,6 @@
             dgvhEmailNV.MinimumWidth = 6;
             dgvhEmailNV.Name = "dgvhEmailNV";
             dgvhEmailNV.ReadOnly = true;
-            dgvhEmailNV.Width = 225;
             // 
             // dgvhTrangThaiNV
             // 
@@ -368,76 +366,10 @@
             dgvhTrangThaiNV.MinimumWidth = 6;
             dgvhTrangThaiNV.Name = "dgvhTrangThaiNV";
             dgvhTrangThaiNV.ReadOnly = true;
-            dgvhTrangThaiNV.Width = 200;
-            // 
-            // msDashBoard
-            // 
-            msDashBoard.AutoSize = false;
-            msDashBoard.Dock = DockStyle.Left;
-            msDashBoard.ImageScalingSize = new Size(20, 20);
-            msDashBoard.Items.AddRange(new ToolStripItem[] { tslDashBoard, tsmiSanPham, tsmiKho, tsmiHoaDon, tsmiNhanVien, tsmiNhaCungCap });
-            msDashBoard.Location = new Point(0, 0);
-            msDashBoard.Name = "msDashBoard";
-            msDashBoard.Padding = new Padding(5, 2, 0, 2);
-            msDashBoard.Size = new Size(172, 882);
-            msDashBoard.TabIndex = 36;
-            msDashBoard.Text = "menuStrip1";
-            // 
-            // tslDashBoard
-            // 
-            tslDashBoard.Font = new Font("Segoe UI", 17F);
-            tslDashBoard.Name = "tslDashBoard";
-            tslDashBoard.Size = new Size(166, 40);
-            tslDashBoard.Text = "Dash Board";
-            tslDashBoard.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiSanPham
-            // 
-            tsmiSanPham.Font = new Font("Segoe UI", 11F);
-            tsmiSanPham.Margin = new Padding(0, 10, 0, 10);
-            tsmiSanPham.Name = "tsmiSanPham";
-            tsmiSanPham.Size = new Size(166, 29);
-            tsmiSanPham.Text = "Sản Phẩm";
-            tsmiSanPham.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiKho
-            // 
-            tsmiKho.Font = new Font("Segoe UI", 11F);
-            tsmiKho.Margin = new Padding(0, 0, 0, 10);
-            tsmiKho.Name = "tsmiKho";
-            tsmiKho.Size = new Size(166, 29);
-            tsmiKho.Text = "Kho";
-            tsmiKho.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiHoaDon
-            // 
-            tsmiHoaDon.Font = new Font("Segoe UI", 11F);
-            tsmiHoaDon.Margin = new Padding(0, 0, 0, 10);
-            tsmiHoaDon.Name = "tsmiHoaDon";
-            tsmiHoaDon.Size = new Size(166, 29);
-            tsmiHoaDon.Text = "Hoá Đơn";
-            tsmiHoaDon.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiNhanVien
-            // 
-            tsmiNhanVien.Font = new Font("Segoe UI", 11F);
-            tsmiNhanVien.Margin = new Padding(0, 0, 0, 10);
-            tsmiNhanVien.Name = "tsmiNhanVien";
-            tsmiNhanVien.Size = new Size(166, 29);
-            tsmiNhanVien.Text = "Nhân Viên";
-            tsmiNhanVien.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiNhaCungCap
-            // 
-            tsmiNhaCungCap.Font = new Font("Segoe UI", 11F);
-            tsmiNhaCungCap.Margin = new Padding(0, 0, 0, 10);
-            tsmiNhaCungCap.Name = "tsmiNhaCungCap";
-            tsmiNhaCungCap.Size = new Size(166, 29);
-            tsmiNhaCungCap.Text = "Nhà Cung Cấp";
-            tsmiNhaCungCap.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // grpSuaNhanVien
             // 
+            grpSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grpSuaNhanVien.Controls.Add(lblSuaEmailNhanVien);
             grpSuaNhanVien.Controls.Add(btnMoFileSua);
             grpSuaNhanVien.Controls.Add(textBox1);
@@ -457,7 +389,7 @@
             grpSuaNhanVien.Controls.Add(cmbSuaChucVuNhanVien);
             grpSuaNhanVien.Controls.Add(lblSuaTrangThaiNhanVien);
             grpSuaNhanVien.Font = new Font("Segoe UI", 12F);
-            grpSuaNhanVien.Location = new Point(954, 478);
+            grpSuaNhanVien.Location = new Point(791, 478);
             grpSuaNhanVien.Name = "grpSuaNhanVien";
             grpSuaNhanVien.Size = new Size(499, 392);
             grpSuaNhanVien.TabIndex = 41;
@@ -475,6 +407,7 @@
             // 
             // btnMoFileSua
             // 
+            btnMoFileSua.Anchor = AnchorStyles.Right;
             btnMoFileSua.Location = new Point(381, 213);
             btnMoFileSua.Name = "btnMoFileSua";
             btnMoFileSua.Size = new Size(106, 34);
@@ -484,6 +417,7 @@
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.Font = new Font("Segoe UI", 12F);
             textBox1.Location = new Point(187, 167);
             textBox1.Name = "textBox1";
@@ -492,6 +426,7 @@
             // 
             // btnClearSuaNhanVien
             // 
+            btnClearSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnClearSuaNhanVien.Font = new Font("Segoe UI", 12F);
             btnClearSuaNhanVien.Location = new Point(329, 342);
             btnClearSuaNhanVien.Name = "btnClearSuaNhanVien";
@@ -503,6 +438,7 @@
             // 
             // txtSuaHinhAnhNhanVien
             // 
+            txtSuaHinhAnhNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaHinhAnhNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaHinhAnhNhanVien.Location = new Point(187, 213);
             txtSuaHinhAnhNhanVien.Name = "txtSuaHinhAnhNhanVien";
@@ -531,6 +467,7 @@
             // 
             // txtSuaTenNhanVien
             // 
+            txtSuaTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaTenNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaTenNhanVien.Location = new Point(187, 123);
             txtSuaTenNhanVien.Name = "txtSuaTenNhanVien";
@@ -549,6 +486,7 @@
             // 
             // txtSuaMaNhanVien
             // 
+            txtSuaMaNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaMaNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaMaNhanVien.Location = new Point(187, 77);
             txtSuaMaNhanVien.Name = "txtSuaMaNhanVien";
@@ -568,6 +506,7 @@
             // 
             // txtSuaLuongNhanVien
             // 
+            txtSuaLuongNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaLuongNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaLuongNhanVien.Location = new Point(191, 257);
             txtSuaLuongNhanVien.Name = "txtSuaLuongNhanVien";
@@ -576,6 +515,7 @@
             // 
             // btnLuuSuaNhanVien
             // 
+            btnLuuSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnLuuSuaNhanVien.Font = new Font("Segoe UI", 12F);
             btnLuuSuaNhanVien.Location = new Point(415, 343);
             btnLuuSuaNhanVien.Name = "btnLuuSuaNhanVien";
@@ -597,6 +537,7 @@
             // 
             // txtSuaTrangThaiNhanVien
             // 
+            txtSuaTrangThaiNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaTrangThaiNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaTrangThaiNhanVien.Location = new Point(191, 301);
             txtSuaTrangThaiNhanVien.Name = "txtSuaTrangThaiNhanVien";
@@ -615,6 +556,7 @@
             // 
             // cmbSuaChucVuNhanVien
             // 
+            cmbSuaChucVuNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             cmbSuaChucVuNhanVien.Font = new Font("Segoe UI", 11F);
             cmbSuaChucVuNhanVien.FormattingEnabled = true;
             cmbSuaChucVuNhanVien.Items.AddRange(new object[] { "Nhân Viên", "Quản Trị" });
@@ -636,16 +578,18 @@
             // 
             // txtTimKiemNhanVien
             // 
+            txtTimKiemNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             txtTimKiemNhanVien.Font = new Font("Segoe UI", 12F);
-            txtTimKiemNhanVien.Location = new Point(954, 432);
+            txtTimKiemNhanVien.Location = new Point(791, 432);
             txtTimKiemNhanVien.Name = "txtTimKiemNhanVien";
             txtTimKiemNhanVien.Size = new Size(353, 34);
             txtTimKiemNhanVien.TabIndex = 48;
             // 
             // btnTimNhanVien
             // 
+            btnTimNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnTimNhanVien.Font = new Font("Segoe UI", 12F);
-            btnTimNhanVien.Location = new Point(1313, 432);
+            btnTimNhanVien.Location = new Point(1150, 432);
             btnTimNhanVien.Name = "btnTimNhanVien";
             btnTimNhanVien.Size = new Size(140, 34);
             btnTimNhanVien.TabIndex = 35;
@@ -655,7 +599,7 @@
             // 
             // btnTaiLaiDanhSach
             // 
-            btnTaiLaiDanhSach.Location = new Point(527, 427);
+            btnTaiLaiDanhSach.Location = new Point(364, 427);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
             btnTaiLaiDanhSach.Size = new Size(180, 45);
             btnTaiLaiDanhSach.TabIndex = 49;
@@ -665,7 +609,8 @@
             // 
             // picAnhNhanVien
             // 
-            picAnhNhanVien.Location = new Point(175, 534);
+            picAnhNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            picAnhNhanVien.Location = new Point(12, 534);
             picAnhNhanVien.Name = "picAnhNhanVien";
             picAnhNhanVien.Size = new Size(251, 277);
             picAnhNhanVien.TabIndex = 29;
@@ -673,9 +618,10 @@
             // 
             // lblAnhNhanVien
             // 
+            lblAnhNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblAnhNhanVien.AutoSize = true;
             lblAnhNhanVien.Font = new Font("Segoe UI", 13F);
-            lblAnhNhanVien.Location = new Point(231, 820);
+            lblAnhNhanVien.Location = new Point(68, 820);
             lblAnhNhanVien.Name = "lblAnhNhanVien";
             lblAnhNhanVien.Size = new Size(157, 30);
             lblAnhNhanVien.TabIndex = 36;
@@ -683,7 +629,7 @@
             // 
             // btnThemNhanVien
             // 
-            btnThemNhanVien.Location = new Point(175, 478);
+            btnThemNhanVien.Location = new Point(12, 478);
             btnThemNhanVien.Name = "btnThemNhanVien";
             btnThemNhanVien.Size = new Size(170, 45);
             btnThemNhanVien.TabIndex = 50;
@@ -695,7 +641,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1469, 882);
+            ClientSize = new Size(1296, 882);
             Controls.Add(btnThemNhanVien);
             Controls.Add(lblAnhNhanVien);
             Controls.Add(picAnhNhanVien);
@@ -707,7 +653,6 @@
             Controls.Add(btnChonTatCa);
             Controls.Add(btnXoaNhanVien);
             Controls.Add(dgvNhanVien);
-            Controls.Add(msDashBoard);
             Controls.Add(grpSuaNhanVien);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
@@ -717,8 +662,6 @@
             grpThemNhanVien.ResumeLayout(false);
             grpThemNhanVien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
-            msDashBoard.ResumeLayout(false);
-            msDashBoard.PerformLayout();
             grpSuaNhanVien.ResumeLayout(false);
             grpSuaNhanVien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picAnhNhanVien).EndInit();
@@ -744,12 +687,6 @@
         private Button btnChonTatCa;
         private Button btnXoaNhanVien;
         private DataGridView dgvNhanVien;
-        private MenuStrip msDashBoard;
-        private ToolStripLabel tslDashBoard;
-        private ToolStripMenuItem tsmiSanPham;
-        private ToolStripMenuItem tsmiNhanVien;
-        private ToolStripMenuItem tsmiHoaDon;
-        private ToolStripMenuItem tsmiKho;
         private GroupBox grpSuaNhanVien;
         private Label lblSuaNhanVien;
         private TextBox txtSuaTenNhanVien;
@@ -768,7 +705,6 @@
         private Button btnTimNhanVien;
         private Button btnTaiLaiDanhSach;
         private Button btnClearSuaNhanVien;
-        private ToolStripMenuItem tsmiNhaCungCap;
         private DataGridViewTextBoxColumn dgvhCheckBoxNV;
         private DataGridViewTextBoxColumn dgvhMaNV;
         private DataGridViewTextBoxColumn dgvhTenNV;
