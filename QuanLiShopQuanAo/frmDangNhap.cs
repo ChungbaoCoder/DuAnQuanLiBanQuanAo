@@ -35,13 +35,12 @@ namespace QuanLiShopQuanAo.DataBaseConnection
             {
                 if (BUS_Account.Login(txtUserName.Text, txtPassWord.Text))
                 {
-                    frmMainMenu newf = new frmMainMenu();
-                    newf.Show();
-                    this.Hide();
+                    closed = true;
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Sai mat khau roi di tim mk moi di thang ngu ?");
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");
                 }
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
@@ -50,7 +49,10 @@ namespace QuanLiShopQuanAo.DataBaseConnection
 
         private void frmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
         {
-            closed = true;
+           if (closed == false)
+           {
+                Application.Exit();
+           }
         }
     }
 }
