@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangNhap));
             lblUserName = new Label();
             lblPassWord = new Label();
             txtUserName = new TextBox();
@@ -47,9 +48,9 @@
             lblUserName.Font = new Font("Segoe UI Light", 12F);
             lblUserName.Location = new Point(255, 129);
             lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(97, 28);
+            lblUserName.Size = new Size(92, 28);
             lblUserName.TabIndex = 1;
-            lblUserName.Text = "Username";
+            lblUserName.Text = "Tài Khoản";
             // 
             // lblPassWord
             // 
@@ -58,9 +59,9 @@
             lblPassWord.Font = new Font("Segoe UI Light", 12F);
             lblPassWord.Location = new Point(255, 211);
             lblPassWord.Name = "lblPassWord";
-            lblPassWord.Size = new Size(91, 28);
+            lblPassWord.Size = new Size(93, 28);
             lblPassWord.TabIndex = 2;
-            lblPassWord.Text = "Password";
+            lblPassWord.Text = "Mật Khẩu";
             // 
             // txtUserName
             // 
@@ -68,7 +69,7 @@
             txtUserName.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
             txtUserName.Location = new Point(255, 160);
             txtUserName.Name = "txtUserName";
-            txtUserName.PlaceholderText = "NHẬP USER NAME";
+            txtUserName.PlaceholderText = "NHẬP TÀI KHOẢN";
             txtUserName.Size = new Size(309, 30);
             txtUserName.TabIndex = 3;
             // 
@@ -81,7 +82,7 @@
             txtPassWord.Location = new Point(255, 242);
             txtPassWord.Name = "txtPassWord";
             txtPassWord.PasswordChar = '*';
-            txtPassWord.PlaceholderText = "NHẬP PASS WORD";
+            txtPassWord.PlaceholderText = "NHẬP MẬT KHẨU";
             txtPassWord.Size = new Size(309, 30);
             txtPassWord.TabIndex = 4;
             txtPassWord.Tag = "";
@@ -92,10 +93,10 @@
             linklblQuenMK.AutoSize = true;
             linklblQuenMK.Location = new Point(255, 307);
             linklblQuenMK.Name = "linklblQuenMK";
-            linklblQuenMK.Size = new Size(131, 20);
+            linklblQuenMK.Size = new Size(120, 20);
             linklblQuenMK.TabIndex = 6;
             linklblQuenMK.TabStop = true;
-            linklblQuenMK.Text = "Forgot password ?";
+            linklblQuenMK.Text = "Quên mật khẩu ?";
             linklblQuenMK.LinkClicked += linklblQuenMK_LinkClicked;
             // 
             // btnLogin
@@ -108,12 +109,13 @@
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(151, 48);
             btnLogin.TabIndex = 7;
-            btnLogin.Text = "Login";
+            btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
             // picIcon1
             // 
+            picIcon1.Image = (Image)resources.GetObject("picIcon1.Image");
             picIcon1.Location = new Point(174, 144);
             picIcon1.Name = "picIcon1";
             picIcon1.Size = new Size(65, 61);
@@ -123,6 +125,7 @@
             // 
             // picIcon2
             // 
+            picIcon2.Image = (Image)resources.GetObject("picIcon2.Image");
             picIcon2.Location = new Point(174, 211);
             picIcon2.Name = "picIcon2";
             picIcon2.Size = new Size(65, 61);

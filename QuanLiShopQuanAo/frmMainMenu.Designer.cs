@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel7 = new Panel();
             lb_Dashboard = new Label();
@@ -55,7 +56,9 @@
             panel8 = new Panel();
             lb_Chao = new Label();
             lb_username = new Label();
+            label2 = new Label();
             panel9 = new Panel();
+            pictureBox8 = new PictureBox();
             flowLayoutPanel1.SuspendLayout();
             panel7.SuspendLayout();
             panel2.SuspendLayout();
@@ -73,6 +76,8 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel8.SuspendLayout();
+            panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -124,9 +129,11 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(3, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(48, 45);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -153,9 +160,11 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(3, 3);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(48, 45);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
@@ -182,9 +191,11 @@
             // 
             // pictureBox4
             // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(3, 3);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(48, 45);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
             // 
@@ -211,9 +222,11 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(3, 3);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(48, 45);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 0;
             pictureBox5.TabStop = false;
             // 
@@ -240,9 +253,11 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(3, 3);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(48, 45);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
@@ -269,9 +284,11 @@
             // 
             // pictureBox7
             // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
             pictureBox7.Location = new Point(3, 3);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(48, 45);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 0;
             pictureBox7.TabStop = false;
             // 
@@ -301,6 +318,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Location = new Point(92, 19);
             label1.Name = "label1";
@@ -310,29 +328,33 @@
             // 
             // pictureBox6
             // 
+            pictureBox6.Anchor = AnchorStyles.Left;
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(6, 3);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(80, 65);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 3;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // panel8
             // 
-            panel8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel8.Anchor = AnchorStyles.Right;
             panel8.Controls.Add(lb_Chao);
             panel8.Controls.Add(lb_username);
-            panel8.Location = new Point(453, 7);
+            panel8.Location = new Point(453, 12);
             panel8.Name = "panel8";
             panel8.Size = new Size(214, 51);
             panel8.TabIndex = 2;
             // 
             // lb_Chao
             // 
-            lb_Chao.Anchor = AnchorStyles.None;
+            lb_Chao.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lb_Chao.AutoSize = true;
             lb_Chao.Font = new Font("Segoe UI Variable Display", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lb_Chao.ImageAlign = ContentAlignment.BottomLeft;
-            lb_Chao.Location = new Point(22, 8);
+            lb_Chao.Location = new Point(23, 8);
             lb_Chao.Name = "lb_Chao";
             lb_Chao.Size = new Size(70, 31);
             lb_Chao.TabIndex = 6;
@@ -341,24 +363,49 @@
             // 
             // lb_username
             // 
-            lb_username.Anchor = AnchorStyles.None;
+            lb_username.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lb_username.AutoSize = true;
             lb_username.Font = new Font("Segoe UI Variable Display", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lb_username.ImageAlign = ContentAlignment.BottomLeft;
-            lb_username.Location = new Point(115, 8);
+            lb_username.Location = new Point(88, 8);
             lb_username.Name = "lb_username";
             lb_username.Size = new Size(85, 31);
             lb_username.TabIndex = 5;
             lb_username.Text = "Admin";
             lb_username.TextAlign = ContentAlignment.TopCenter;
             // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top;
+            label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(224, 224, 224);
+            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 161);
+            label2.Location = new Point(99, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(441, 31);
+            label2.TabIndex = 5;
+            label2.Text = "Chào Mừng Đến Với Shop Quần Áo ABC";
+            // 
             // panel9
             // 
+            panel9.Controls.Add(label2);
+            panel9.Controls.Add(pictureBox8);
             panel9.Dock = DockStyle.Fill;
             panel9.Location = new Point(196, 71);
             panel9.Name = "panel9";
             panel9.Size = new Size(667, 442);
             panel9.TabIndex = 2;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Dock = DockStyle.Fill;
+            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new Point(0, 0);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(667, 442);
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox8.TabIndex = 0;
+            pictureBox8.TabStop = false;
             // 
             // frmMainMenu
             // 
@@ -399,6 +446,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ResumeLayout(false);
         }
 
@@ -432,5 +482,7 @@
         private Panel panel10;
         private PictureBox pictureBox7;
         private Button btn_Ncc;
+        private PictureBox pictureBox8;
+        private Label label2;
     }
 }

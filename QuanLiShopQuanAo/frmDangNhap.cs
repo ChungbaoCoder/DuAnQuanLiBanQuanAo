@@ -49,10 +49,10 @@ namespace QuanLiShopQuanAo.DataBaseConnection
 
         private void frmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
         {
-           if (closed == false)
-           {
+            if (closed == false)
+            {
                 Application.Exit();
-           }
+            }
         }
     }
 }

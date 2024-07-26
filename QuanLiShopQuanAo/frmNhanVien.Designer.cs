@@ -106,15 +106,15 @@
             grpThemNhanVien.Controls.Add(lblThemTenNhanVien);
             grpThemNhanVien.Controls.Add(lblThemChucVuNhanVien);
             grpThemNhanVien.Controls.Add(lblThemLuong);
-            grpThemNhanVien.Location = new Point(289, 524);
+            grpThemNhanVien.Location = new Point(269, 529);
             grpThemNhanVien.Name = "grpThemNhanVien";
-            grpThemNhanVien.Size = new Size(496, 346);
+            grpThemNhanVien.Size = new Size(516, 341);
             grpThemNhanVien.TabIndex = 42;
             grpThemNhanVien.TabStop = false;
             // 
             // btnMoFileThem
             // 
-            btnMoFileThem.Anchor = AnchorStyles.Right;
+            btnMoFileThem.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnMoFileThem.Location = new Point(377, 167);
             btnMoFileThem.Name = "btnMoFileThem";
             btnMoFileThem.Size = new Size(106, 34);
@@ -124,7 +124,7 @@
             // 
             // txtThemHinhAnhNhanVien
             // 
-            txtThemHinhAnhNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtThemHinhAnhNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemHinhAnhNhanVien.Font = new Font("Segoe UI", 12F);
             txtThemHinhAnhNhanVien.Location = new Point(183, 167);
             txtThemHinhAnhNhanVien.Name = "txtThemHinhAnhNhanVien";
@@ -133,6 +133,7 @@
             // 
             // lblThemAnhNhanVien
             // 
+            lblThemAnhNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemAnhNhanVien.AutoSize = true;
             lblThemAnhNhanVien.Font = new Font("Segoe UI", 13F);
             lblThemAnhNhanVien.Location = new Point(6, 171);
@@ -143,18 +144,21 @@
             // 
             // lblThemNhanVien
             // 
+            lblThemNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemNhanVien.AutoSize = true;
             lblThemNhanVien.Font = new Font("Segoe UI", 14F);
+            lblThemNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             lblThemNhanVien.Location = new Point(6, 21);
             lblThemNhanVien.Name = "lblThemNhanVien";
             lblThemNhanVien.Size = new Size(311, 32);
             lblThemNhanVien.TabIndex = 36;
             lblThemNhanVien.Text = "Thêm Thông Tin Nhân Viên";
+            lblThemNhanVien.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnClearThemNhanVien
             // 
             btnClearThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnClearThemNhanVien.Location = new Point(317, 297);
+            btnClearThemNhanVien.Location = new Point(317, -145);
             btnClearThemNhanVien.Name = "btnClearThemNhanVien";
             btnClearThemNhanVien.Size = new Size(80, 34);
             btnClearThemNhanVien.TabIndex = 48;
@@ -164,7 +168,7 @@
             // 
             // txtThemLuong
             // 
-            txtThemLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtThemLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemLuong.Font = new Font("Segoe UI", 12F);
             txtThemLuong.Location = new Point(183, 209);
             txtThemLuong.Name = "txtThemLuong";
@@ -177,7 +181,7 @@
             cmbThemChucVuNhanVien.Font = new Font("Segoe UI", 11F);
             cmbThemChucVuNhanVien.FormattingEnabled = true;
             cmbThemChucVuNhanVien.Items.AddRange(new object[] { "Nhân Viên", "Quản Trị" });
-            cmbThemChucVuNhanVien.Location = new Point(183, 297);
+            cmbThemChucVuNhanVien.Location = new Point(183, -118);
             cmbThemChucVuNhanVien.Name = "cmbThemChucVuNhanVien";
             cmbThemChucVuNhanVien.Size = new Size(128, 33);
             cmbThemChucVuNhanVien.TabIndex = 35;
@@ -185,6 +189,7 @@
             // 
             // lblThemEmailNhanVien
             // 
+            lblThemEmailNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemEmailNhanVien.AutoSize = true;
             lblThemEmailNhanVien.Font = new Font("Segoe UI", 13F);
             lblThemEmailNhanVien.Location = new Point(6, 125);
@@ -195,7 +200,7 @@
             // 
             // txtThemTrangThai
             // 
-            txtThemTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtThemTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemTrangThai.Font = new Font("Segoe UI", 12F);
             txtThemTrangThai.Location = new Point(183, 253);
             txtThemTrangThai.Name = "txtThemTrangThai";
@@ -204,7 +209,7 @@
             // 
             // txtThemEmailNhanVien
             // 
-            txtThemEmailNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtThemEmailNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemEmailNhanVien.Font = new Font("Segoe UI", 12F);
             txtThemEmailNhanVien.Location = new Point(183, 121);
             txtThemEmailNhanVien.Name = "txtThemEmailNhanVien";
@@ -213,6 +218,7 @@
             // 
             // lblThemTrangThaiNhanVien
             // 
+            lblThemTrangThaiNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemTrangThaiNhanVien.AutoSize = true;
             lblThemTrangThaiNhanVien.Font = new Font("Segoe UI", 13F);
             lblThemTrangThaiNhanVien.Location = new Point(6, 257);
@@ -223,7 +229,7 @@
             // 
             // txtThemTenNhanVien
             // 
-            txtThemTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtThemTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemTenNhanVien.Font = new Font("Segoe UI", 12F);
             txtThemTenNhanVien.Location = new Point(183, 77);
             txtThemTenNhanVien.Name = "txtThemTenNhanVien";
@@ -233,7 +239,7 @@
             // btnLuuThemNhanVien
             // 
             btnLuuThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnLuuThemNhanVien.Location = new Point(403, 297);
+            btnLuuThemNhanVien.Location = new Point(403, -91);
             btnLuuThemNhanVien.Name = "btnLuuThemNhanVien";
             btnLuuThemNhanVien.Size = new Size(80, 34);
             btnLuuThemNhanVien.TabIndex = 31;
@@ -243,6 +249,7 @@
             // 
             // lblThemTenNhanVien
             // 
+            lblThemTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemTenNhanVien.AutoSize = true;
             lblThemTenNhanVien.Font = new Font("Segoe UI", 13F);
             lblThemTenNhanVien.Location = new Point(6, 79);
@@ -253,6 +260,7 @@
             // 
             // lblThemChucVuNhanVien
             // 
+            lblThemChucVuNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemChucVuNhanVien.AutoSize = true;
             lblThemChucVuNhanVien.Font = new Font("Segoe UI", 13F);
             lblThemChucVuNhanVien.Location = new Point(6, 301);
@@ -263,6 +271,7 @@
             // 
             // lblThemLuong
             // 
+            lblThemLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemLuong.AutoSize = true;
             lblThemLuong.Font = new Font("Segoe UI", 13F);
             lblThemLuong.Location = new Point(6, 213);
@@ -273,31 +282,46 @@
             // 
             // btnSuaNhanVien
             // 
+            btnSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnSuaNhanVien.Font = new Font("Segoe UI", 10.8F);
+            btnSuaNhanVien.Image = Properties.Resources.icons8_update_30;
+            btnSuaNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnSuaNhanVien.Location = new Point(188, 478);
             btnSuaNhanVien.Name = "btnSuaNhanVien";
             btnSuaNhanVien.Size = new Size(170, 45);
             btnSuaNhanVien.TabIndex = 40;
             btnSuaNhanVien.Text = "Sửa Nhân Viên";
+            btnSuaNhanVien.TextAlign = ContentAlignment.MiddleRight;
             btnSuaNhanVien.UseVisualStyleBackColor = true;
             btnSuaNhanVien.Click += btnSuaNhanVien_Click;
             // 
             // btnChonTatCa
             // 
+            btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnChonTatCa.Font = new Font("Segoe UI", 10.8F);
+            btnChonTatCa.Image = Properties.Resources.icons8_all_30;
+            btnChonTatCa.ImageAlign = ContentAlignment.MiddleLeft;
             btnChonTatCa.Location = new Point(12, 427);
             btnChonTatCa.Name = "btnChonTatCa";
             btnChonTatCa.Size = new Size(170, 45);
             btnChonTatCa.TabIndex = 39;
             btnChonTatCa.Text = "Chọn Tất Cả";
+            btnChonTatCa.TextAlign = ContentAlignment.MiddleRight;
             btnChonTatCa.UseVisualStyleBackColor = true;
             btnChonTatCa.Click += btnChonTatCa_Click;
             // 
             // btnXoaNhanVien
             // 
+            btnXoaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnXoaNhanVien.Font = new Font("Segoe UI", 10.8F);
+            btnXoaNhanVien.Image = Properties.Resources.icons8_delete_30;
+            btnXoaNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnXoaNhanVien.Location = new Point(188, 427);
             btnXoaNhanVien.Name = "btnXoaNhanVien";
             btnXoaNhanVien.Size = new Size(170, 45);
             btnXoaNhanVien.TabIndex = 38;
             btnXoaNhanVien.Text = "Xoá Nhân Viên";
+            btnXoaNhanVien.TextAlign = ContentAlignment.MiddleRight;
             btnXoaNhanVien.UseVisualStyleBackColor = true;
             btnXoaNhanVien.Click += btnXoaNhanVien_Click;
             // 
@@ -307,7 +331,7 @@
             dgvNhanVien.AllowUserToDeleteRows = false;
             dgvNhanVien.AllowUserToResizeColumns = false;
             dgvNhanVien.AllowUserToResizeRows = false;
-            dgvNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dgvNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNhanVien.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxNV, dgvhMaNV, dgvhTenNV, dgvhChucVuNV, dgvhLuongNV, dgvhEmailNV, dgvhTrangThaiNV });
@@ -316,7 +340,7 @@
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersVisible = false;
             dgvNhanVien.RowHeadersWidth = 51;
-            dgvNhanVien.Size = new Size(1278, 400);
+            dgvNhanVien.Size = new Size(1256, 400);
             dgvNhanVien.TabIndex = 37;
             // 
             // dgvhCheckBoxNV
@@ -391,12 +415,13 @@
             grpSuaNhanVien.Font = new Font("Segoe UI", 12F);
             grpSuaNhanVien.Location = new Point(791, 478);
             grpSuaNhanVien.Name = "grpSuaNhanVien";
-            grpSuaNhanVien.Size = new Size(499, 392);
+            grpSuaNhanVien.Size = new Size(477, 392);
             grpSuaNhanVien.TabIndex = 41;
             grpSuaNhanVien.TabStop = false;
             // 
             // lblSuaEmailNhanVien
             // 
+            lblSuaEmailNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaEmailNhanVien.AutoSize = true;
             lblSuaEmailNhanVien.Font = new Font("Segoe UI", 13F);
             lblSuaEmailNhanVien.Location = new Point(10, 171);
@@ -407,8 +432,8 @@
             // 
             // btnMoFileSua
             // 
-            btnMoFileSua.Anchor = AnchorStyles.Right;
-            btnMoFileSua.Location = new Point(381, 213);
+            btnMoFileSua.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnMoFileSua.Location = new Point(359, 213);
             btnMoFileSua.Name = "btnMoFileSua";
             btnMoFileSua.Size = new Size(106, 34);
             btnMoFileSua.TabIndex = 54;
@@ -421,18 +446,21 @@
             textBox1.Font = new Font("Segoe UI", 12F);
             textBox1.Location = new Point(187, 167);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(300, 34);
+            textBox1.Size = new Size(278, 34);
             textBox1.TabIndex = 52;
             // 
             // btnClearSuaNhanVien
             // 
-            btnClearSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnClearSuaNhanVien.Font = new Font("Segoe UI", 12F);
-            btnClearSuaNhanVien.Location = new Point(329, 342);
+            btnClearSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnClearSuaNhanVien.Font = new Font("Segoe UI", 10.8F);
+            btnClearSuaNhanVien.Image = Properties.Resources.icons8_clear_30;
+            btnClearSuaNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClearSuaNhanVien.Location = new Point(303, 343);
             btnClearSuaNhanVien.Name = "btnClearSuaNhanVien";
-            btnClearSuaNhanVien.Size = new Size(80, 34);
+            btnClearSuaNhanVien.Size = new Size(95, 34);
             btnClearSuaNhanVien.TabIndex = 35;
-            btnClearSuaNhanVien.Text = "Clear";
+            btnClearSuaNhanVien.Text = "Xóa";
+            btnClearSuaNhanVien.TextAlign = ContentAlignment.MiddleRight;
             btnClearSuaNhanVien.UseVisualStyleBackColor = true;
             btnClearSuaNhanVien.Click += btnClearSuaNhanVien_Click;
             // 
@@ -447,6 +475,7 @@
             // 
             // lblSuaNhanVien
             // 
+            lblSuaNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaNhanVien.AutoSize = true;
             lblSuaNhanVien.Font = new Font("Segoe UI", 14F);
             lblSuaNhanVien.Location = new Point(10, 21);
@@ -457,6 +486,7 @@
             // 
             // lblSuaAnhNhanVien
             // 
+            lblSuaAnhNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaAnhNhanVien.AutoSize = true;
             lblSuaAnhNhanVien.Font = new Font("Segoe UI", 13F);
             lblSuaAnhNhanVien.Location = new Point(10, 217);
@@ -471,11 +501,12 @@
             txtSuaTenNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaTenNhanVien.Location = new Point(187, 123);
             txtSuaTenNhanVien.Name = "txtSuaTenNhanVien";
-            txtSuaTenNhanVien.Size = new Size(300, 34);
+            txtSuaTenNhanVien.Size = new Size(278, 34);
             txtSuaTenNhanVien.TabIndex = 32;
             // 
             // lblMaNhanVien
             // 
+            lblMaNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblMaNhanVien.AutoSize = true;
             lblMaNhanVien.Font = new Font("Segoe UI", 13F);
             lblMaNhanVien.Location = new Point(10, 81);
@@ -491,11 +522,12 @@
             txtSuaMaNhanVien.Location = new Point(187, 77);
             txtSuaMaNhanVien.Name = "txtSuaMaNhanVien";
             txtSuaMaNhanVien.ReadOnly = true;
-            txtSuaMaNhanVien.Size = new Size(300, 34);
+            txtSuaMaNhanVien.Size = new Size(278, 34);
             txtSuaMaNhanVien.TabIndex = 22;
             // 
             // lblTenNhanVien
             // 
+            lblTenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTenNhanVien.AutoSize = true;
             lblTenNhanVien.Font = new Font("Segoe UI", 13F);
             lblTenNhanVien.Location = new Point(10, 125);
@@ -510,23 +542,27 @@
             txtSuaLuongNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaLuongNhanVien.Location = new Point(191, 257);
             txtSuaLuongNhanVien.Name = "txtSuaLuongNhanVien";
-            txtSuaLuongNhanVien.Size = new Size(300, 34);
+            txtSuaLuongNhanVien.Size = new Size(278, 34);
             txtSuaLuongNhanVien.TabIndex = 23;
             // 
             // btnLuuSuaNhanVien
             // 
-            btnLuuSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnLuuSuaNhanVien.Font = new Font("Segoe UI", 12F);
-            btnLuuSuaNhanVien.Location = new Point(415, 343);
+            btnLuuSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnLuuSuaNhanVien.Font = new Font("Segoe UI", 10.8F);
+            btnLuuSuaNhanVien.Image = Properties.Resources.icons8_save_30;
+            btnLuuSuaNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLuuSuaNhanVien.Location = new Point(396, 343);
             btnLuuSuaNhanVien.Name = "btnLuuSuaNhanVien";
-            btnLuuSuaNhanVien.Size = new Size(80, 33);
+            btnLuuSuaNhanVien.Size = new Size(77, 33);
             btnLuuSuaNhanVien.TabIndex = 19;
             btnLuuSuaNhanVien.Text = "Lưu";
+            btnLuuSuaNhanVien.TextAlign = ContentAlignment.MiddleRight;
             btnLuuSuaNhanVien.UseVisualStyleBackColor = true;
             btnLuuSuaNhanVien.Click += btnLuuSuaNhanVien_Click;
             // 
             // lblSuaLuongNhanVien
             // 
+            lblSuaLuongNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaLuongNhanVien.AutoSize = true;
             lblSuaLuongNhanVien.Font = new Font("Segoe UI", 13F);
             lblSuaLuongNhanVien.Location = new Point(10, 259);
@@ -541,11 +577,12 @@
             txtSuaTrangThaiNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaTrangThaiNhanVien.Location = new Point(191, 301);
             txtSuaTrangThaiNhanVien.Name = "txtSuaTrangThaiNhanVien";
-            txtSuaTrangThaiNhanVien.Size = new Size(300, 34);
+            txtSuaTrangThaiNhanVien.Size = new Size(278, 34);
             txtSuaTrangThaiNhanVien.TabIndex = 25;
             // 
             // lblSuaChucVuNhanVien
             // 
+            lblSuaChucVuNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaChucVuNhanVien.AutoSize = true;
             lblSuaChucVuNhanVien.Font = new Font("Segoe UI", 13F);
             lblSuaChucVuNhanVien.Location = new Point(10, 347);
@@ -556,18 +593,19 @@
             // 
             // cmbSuaChucVuNhanVien
             // 
-            cmbSuaChucVuNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            cmbSuaChucVuNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             cmbSuaChucVuNhanVien.Font = new Font("Segoe UI", 11F);
             cmbSuaChucVuNhanVien.FormattingEnabled = true;
             cmbSuaChucVuNhanVien.Items.AddRange(new object[] { "Nhân Viên", "Quản Trị" });
             cmbSuaChucVuNhanVien.Location = new Point(191, 343);
             cmbSuaChucVuNhanVien.Name = "cmbSuaChucVuNhanVien";
-            cmbSuaChucVuNhanVien.Size = new Size(132, 33);
+            cmbSuaChucVuNhanVien.Size = new Size(117, 33);
             cmbSuaChucVuNhanVien.TabIndex = 27;
             cmbSuaChucVuNhanVien.Text = "Nhân Viên";
             // 
             // lblSuaTrangThaiNhanVien
             // 
+            lblSuaTrangThaiNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaTrangThaiNhanVien.AutoSize = true;
             lblSuaTrangThaiNhanVien.Font = new Font("Segoe UI", 13F);
             lblSuaTrangThaiNhanVien.Location = new Point(10, 303);
@@ -578,32 +616,40 @@
             // 
             // txtTimKiemNhanVien
             // 
-            txtTimKiemNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            txtTimKiemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTimKiemNhanVien.Font = new Font("Segoe UI", 12F);
-            txtTimKiemNhanVien.Location = new Point(791, 432);
+            txtTimKiemNhanVien.Location = new Point(815, 432);
             txtTimKiemNhanVien.Name = "txtTimKiemNhanVien";
             txtTimKiemNhanVien.Size = new Size(353, 34);
             txtTimKiemNhanVien.TabIndex = 48;
             // 
             // btnTimNhanVien
             // 
-            btnTimNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnTimNhanVien.Font = new Font("Segoe UI", 12F);
-            btnTimNhanVien.Location = new Point(1150, 432);
+            btnTimNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnTimNhanVien.Font = new Font("Segoe UI", 10.8F);
+            btnTimNhanVien.Image = Properties.Resources.icons8_find_30;
+            btnTimNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTimNhanVien.Location = new Point(1174, 432);
             btnTimNhanVien.Name = "btnTimNhanVien";
-            btnTimNhanVien.Size = new Size(140, 34);
+            btnTimNhanVien.Size = new Size(94, 34);
             btnTimNhanVien.TabIndex = 35;
             btnTimNhanVien.Text = "Tìm";
+            btnTimNhanVien.TextAlign = ContentAlignment.MiddleRight;
             btnTimNhanVien.UseVisualStyleBackColor = true;
             btnTimNhanVien.Click += btnTimNhanVien_Click;
             // 
             // btnTaiLaiDanhSach
             // 
+            btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnTaiLaiDanhSach.Font = new Font("Segoe UI", 10.8F);
+            btnTaiLaiDanhSach.Image = Properties.Resources.icons8_reload_30;
+            btnTaiLaiDanhSach.ImageAlign = ContentAlignment.MiddleLeft;
             btnTaiLaiDanhSach.Location = new Point(364, 427);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
             btnTaiLaiDanhSach.Size = new Size(180, 45);
             btnTaiLaiDanhSach.TabIndex = 49;
             btnTaiLaiDanhSach.Text = "Tải Lại Danh Sách";
+            btnTaiLaiDanhSach.TextAlign = ContentAlignment.MiddleRight;
             btnTaiLaiDanhSach.UseVisualStyleBackColor = true;
             btnTaiLaiDanhSach.Click += btnTaiLaiDanhSach_Click;
             // 
@@ -629,11 +675,16 @@
             // 
             // btnThemNhanVien
             // 
+            btnThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnThemNhanVien.Font = new Font("Segoe UI", 10.8F);
+            btnThemNhanVien.Image = Properties.Resources.icons8_add_30;
+            btnThemNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnThemNhanVien.Location = new Point(12, 478);
             btnThemNhanVien.Name = "btnThemNhanVien";
             btnThemNhanVien.Size = new Size(170, 45);
             btnThemNhanVien.TabIndex = 50;
             btnThemNhanVien.Text = "Thêm Nhân Viên";
+            btnThemNhanVien.TextAlign = ContentAlignment.MiddleRight;
             btnThemNhanVien.UseVisualStyleBackColor = true;
             btnThemNhanVien.Click += btnThemNhanVien_Click;
             // 

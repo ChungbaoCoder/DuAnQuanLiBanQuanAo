@@ -36,7 +36,7 @@ namespace QuanLiShopQuanAo
             {
                 cmbThemNhaCungCap.Items.Add(row[0]);
                 cmbSuaNhaCungCap.Items.Add(row[0]);
-            } 
+            }
         }
 
         private void HideTextControl()
@@ -71,7 +71,8 @@ namespace QuanLiShopQuanAo
 
         private void ClearTextValue()
         {
-            try {
+            try
+            {
                 foreach (Control gb in this.Controls)
                 {
                     if (gb is GroupBox)
@@ -81,7 +82,7 @@ namespace QuanLiShopQuanAo
                     }
                 }
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void OpenFile()
@@ -246,7 +247,7 @@ namespace QuanLiShopQuanAo
                     LoadComboBox();
                 }
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void btnLuuSuaSanPham_Click(object sender, EventArgs e)
@@ -312,5 +313,6 @@ namespace QuanLiShopQuanAo
                 LoadComboBox();
             }
         }
+
     }
 }

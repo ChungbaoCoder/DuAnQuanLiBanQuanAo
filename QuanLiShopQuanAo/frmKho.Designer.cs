@@ -105,12 +105,12 @@
             dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSanPham.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxSanPham, dgvhMaSanPham, dgvhTenSanPham, dgvhLoaiSanPham, dgvhSoLuong, dgvhGiaSanPham, dgvhMaNhaCC, dgvhTrangThai });
-            dgvSanPham.Location = new Point(29, 2);
+            dgvSanPham.Location = new Point(26, 2);
             dgvSanPham.Name = "dgvSanPham";
             dgvSanPham.RowHeadersVisible = false;
             dgvSanPham.RowHeadersWidth = 51;
             dgvSanPham.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSanPham.Size = new Size(1203, 400);
+            dgvSanPham.Size = new Size(1120, 357);
             dgvSanPham.TabIndex = 11;
             dgvSanPham.CellClick += dgvSanPham_CellClick;
             // 
@@ -171,33 +171,41 @@
             // 
             // btnTaiLaiDanhSach
             // 
-            btnTaiLaiDanhSach.Location = new Point(361, 417);
+            btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnTaiLaiDanhSach.Font = new Font("Segoe UI", 10.8F);
+            btnTaiLaiDanhSach.Image = Properties.Resources.icons8_reload_30;
+            btnTaiLaiDanhSach.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTaiLaiDanhSach.Location = new Point(346, 372);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
-            btnTaiLaiDanhSach.Size = new Size(180, 45);
+            btnTaiLaiDanhSach.Size = new Size(182, 40);
             btnTaiLaiDanhSach.TabIndex = 57;
             btnTaiLaiDanhSach.Text = "Tải Lại Danh Sách";
+            btnTaiLaiDanhSach.TextAlign = ContentAlignment.MiddleRight;
             btnTaiLaiDanhSach.UseVisualStyleBackColor = true;
             btnTaiLaiDanhSach.Click += btnTaiLaiDanhSach_Click;
             // 
             // btnTimSanPham
             // 
-            btnTimSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnTimSanPham.Font = new Font("Segoe UI", 12F);
-            btnTimSanPham.Location = new Point(1092, 422);
+            btnTimSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnTimSanPham.Font = new Font("Segoe UI", 10.8F);
+            btnTimSanPham.Image = Properties.Resources.icons8_find_30;
+            btnTimSanPham.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTimSanPham.Location = new Point(1019, 377);
             btnTimSanPham.Name = "btnTimSanPham";
-            btnTimSanPham.Size = new Size(140, 34);
+            btnTimSanPham.Size = new Size(97, 35);
             btnTimSanPham.TabIndex = 50;
             btnTimSanPham.Text = "Tìm";
+            btnTimSanPham.TextAlign = ContentAlignment.MiddleRight;
             btnTimSanPham.UseVisualStyleBackColor = true;
             btnTimSanPham.Click += btnTimSanPham_Click;
             // 
             // txtTimKiemSanPham
             // 
-            txtTimKiemSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            txtTimKiemSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTimKiemSanPham.Font = new Font("Segoe UI", 12F);
-            txtTimKiemSanPham.Location = new Point(748, 422);
+            txtTimKiemSanPham.Location = new Point(680, 377);
             txtTimKiemSanPham.Name = "txtTimKiemSanPham";
-            txtTimKiemSanPham.Size = new Size(338, 34);
+            txtTimKiemSanPham.Size = new Size(334, 34);
             txtTimKiemSanPham.TabIndex = 56;
             // 
             // grpThemSanPham
@@ -222,18 +230,18 @@
             grpThemSanPham.Controls.Add(lblThemTenSanPham);
             grpThemSanPham.Controls.Add(lblThemNhaCungCap);
             grpThemSanPham.Controls.Add(lblThemSoLuongSanPham);
-            grpThemSanPham.Location = new Point(29, 538);
+            grpThemSanPham.Location = new Point(26, 480);
             grpThemSanPham.Name = "grpThemSanPham";
-            grpThemSanPham.Size = new Size(472, 382);
+            grpThemSanPham.Size = new Size(429, 341);
             grpThemSanPham.TabIndex = 55;
             grpThemSanPham.TabStop = false;
             // 
             // btnMoFileThem
             // 
             btnMoFileThem.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnMoFileThem.Location = new Point(380, 141);
+            btnMoFileThem.Location = new Point(345, 141);
             btnMoFileThem.Name = "btnMoFileThem";
-            btnMoFileThem.Size = new Size(80, 34);
+            btnMoFileThem.Size = new Size(73, 34);
             btnMoFileThem.TabIndex = 56;
             btnMoFileThem.Text = "Mở File";
             btnMoFileThem.UseVisualStyleBackColor = true;
@@ -241,9 +249,10 @@
             // 
             // lblThemSanPham
             // 
+            lblThemSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemSanPham.AutoSize = true;
             lblThemSanPham.Font = new Font("Segoe UI", 14F);
-            lblThemSanPham.Location = new Point(6, 21);
+            lblThemSanPham.Location = new Point(5, 19);
             lblThemSanPham.Name = "lblThemSanPham";
             lblThemSanPham.Size = new Size(304, 32);
             lblThemSanPham.TabIndex = 55;
@@ -251,10 +260,11 @@
             // 
             // rdoThemChuaBan
             // 
+            rdoThemChuaBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rdoThemChuaBan.AutoSize = true;
-            rdoThemChuaBan.Location = new Point(294, 287);
+            rdoThemChuaBan.Location = new Point(267, 257);
             rdoThemChuaBan.Name = "rdoThemChuaBan";
-            rdoThemChuaBan.Size = new Size(115, 32);
+            rdoThemChuaBan.Size = new Size(108, 29);
             rdoThemChuaBan.TabIndex = 51;
             rdoThemChuaBan.TabStop = true;
             rdoThemChuaBan.Text = "Chưa Bán";
@@ -262,10 +272,11 @@
             // 
             // rdoThemDangBan
             // 
+            rdoThemDangBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rdoThemDangBan.AutoSize = true;
-            rdoThemDangBan.Location = new Point(160, 287);
+            rdoThemDangBan.Location = new Point(145, 256);
             rdoThemDangBan.Name = "rdoThemDangBan";
-            rdoThemDangBan.Size = new Size(117, 32);
+            rdoThemDangBan.Size = new Size(110, 29);
             rdoThemDangBan.TabIndex = 50;
             rdoThemDangBan.TabStop = true;
             rdoThemDangBan.Text = "Đang Bán";
@@ -273,9 +284,10 @@
             // 
             // lblThemTrangThaiSanPham
             // 
+            lblThemTrangThaiSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemTrangThaiSanPham.AutoSize = true;
             lblThemTrangThaiSanPham.Font = new Font("Segoe UI", 13F);
-            lblThemTrangThaiSanPham.Location = new Point(6, 288);
+            lblThemTrangThaiSanPham.Location = new Point(5, 257);
             lblThemTrangThaiSanPham.Name = "lblThemTrangThaiSanPham";
             lblThemTrangThaiSanPham.Size = new Size(113, 30);
             lblThemTrangThaiSanPham.TabIndex = 49;
@@ -284,36 +296,43 @@
             // btnClearThemSanPham
             // 
             btnClearThemSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnClearThemSanPham.Location = new Point(294, 333);
+            btnClearThemSanPham.Font = new Font("Segoe UI", 10.8F);
+            btnClearThemSanPham.Image = Properties.Resources.icons8_delete_30;
+            btnClearThemSanPham.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClearThemSanPham.Location = new Point(257, 292);
             btnClearThemSanPham.Name = "btnClearThemSanPham";
-            btnClearThemSanPham.Size = new Size(80, 34);
+            btnClearThemSanPham.Size = new Size(72, 37);
             btnClearThemSanPham.TabIndex = 48;
-            btnClearThemSanPham.Text = "Clear";
+            btnClearThemSanPham.Text = "Xóa";
+            btnClearThemSanPham.TextAlign = ContentAlignment.MiddleRight;
             btnClearThemSanPham.UseVisualStyleBackColor = true;
             btnClearThemSanPham.Click += btnClearThemSanPham_Click;
             // 
             // txtThemSoLuongSanPham
             // 
+            txtThemSoLuongSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemSoLuongSanPham.Font = new Font("Segoe UI", 12F);
-            txtThemSoLuongSanPham.Location = new Point(160, 201);
+            txtThemSoLuongSanPham.Location = new Point(145, 179);
             txtThemSoLuongSanPham.Name = "txtThemSoLuongSanPham";
-            txtThemSoLuongSanPham.Size = new Size(300, 34);
+            txtThemSoLuongSanPham.Size = new Size(273, 34);
             txtThemSoLuongSanPham.TabIndex = 47;
             // 
             // cmbThemNhaCungCap
             // 
+            cmbThemNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cmbThemNhaCungCap.Font = new Font("Segoe UI", 11F);
             cmbThemNhaCungCap.FormattingEnabled = true;
-            cmbThemNhaCungCap.Location = new Point(160, 333);
+            cmbThemNhaCungCap.Location = new Point(151, 296);
             cmbThemNhaCungCap.Name = "cmbThemNhaCungCap";
-            cmbThemNhaCungCap.Size = new Size(128, 33);
+            cmbThemNhaCungCap.Size = new Size(111, 33);
             cmbThemNhaCungCap.TabIndex = 35;
             // 
             // lblThemLoaiSanPham
             // 
+            lblThemLoaiSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemLoaiSanPham.AutoSize = true;
             lblThemLoaiSanPham.Font = new Font("Segoe UI", 13F);
-            lblThemLoaiSanPham.Location = new Point(6, 114);
+            lblThemLoaiSanPham.Location = new Point(5, 102);
             lblThemLoaiSanPham.Name = "lblThemLoaiSanPham";
             lblThemLoaiSanPham.Size = new Size(153, 30);
             lblThemLoaiSanPham.TabIndex = 46;
@@ -321,33 +340,37 @@
             // 
             // txtThemGiaSanPham
             // 
+            txtThemGiaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemGiaSanPham.Font = new Font("Segoe UI", 12F);
-            txtThemGiaSanPham.Location = new Point(160, 247);
+            txtThemGiaSanPham.Location = new Point(145, 221);
             txtThemGiaSanPham.Name = "txtThemGiaSanPham";
-            txtThemGiaSanPham.Size = new Size(300, 34);
+            txtThemGiaSanPham.Size = new Size(273, 34);
             txtThemGiaSanPham.TabIndex = 43;
             // 
             // txtThemLoaiSanPham
             // 
+            txtThemLoaiSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemLoaiSanPham.Font = new Font("Segoe UI", 12F);
-            txtThemLoaiSanPham.Location = new Point(160, 112);
+            txtThemLoaiSanPham.Location = new Point(145, 100);
             txtThemLoaiSanPham.Name = "txtThemLoaiSanPham";
-            txtThemLoaiSanPham.Size = new Size(300, 34);
+            txtThemLoaiSanPham.Size = new Size(273, 34);
             txtThemLoaiSanPham.TabIndex = 45;
             // 
             // txtThemHinhAnhSanPham
             // 
+            txtThemHinhAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemHinhAnhSanPham.Font = new Font("Segoe UI", 12F);
-            txtThemHinhAnhSanPham.Location = new Point(160, 158);
+            txtThemHinhAnhSanPham.Location = new Point(145, 141);
             txtThemHinhAnhSanPham.Name = "txtThemHinhAnhSanPham";
-            txtThemHinhAnhSanPham.Size = new Size(214, 34);
+            txtThemHinhAnhSanPham.Size = new Size(195, 34);
             txtThemHinhAnhSanPham.TabIndex = 36;
             // 
             // lblThemGiaSanPham
             // 
+            lblThemGiaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemGiaSanPham.AutoSize = true;
             lblThemGiaSanPham.Font = new Font("Segoe UI", 13F);
-            lblThemGiaSanPham.Location = new Point(6, 247);
+            lblThemGiaSanPham.Location = new Point(5, 221);
             lblThemGiaSanPham.Name = "lblThemGiaSanPham";
             lblThemGiaSanPham.Size = new Size(44, 30);
             lblThemGiaSanPham.TabIndex = 44;
@@ -355,9 +378,10 @@
             // 
             // lblThemHinhAnhSanPham
             // 
+            lblThemHinhAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemHinhAnhSanPham.AutoSize = true;
             lblThemHinhAnhSanPham.Font = new Font("Segoe UI", 13F);
-            lblThemHinhAnhSanPham.Location = new Point(6, 158);
+            lblThemHinhAnhSanPham.Location = new Point(5, 141);
             lblThemHinhAnhSanPham.Name = "lblThemHinhAnhSanPham";
             lblThemHinhAnhSanPham.Size = new Size(102, 30);
             lblThemHinhAnhSanPham.TabIndex = 35;
@@ -365,28 +389,34 @@
             // 
             // txtThemTenSanPham
             // 
+            txtThemTenSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtThemTenSanPham.Font = new Font("Segoe UI", 12F);
-            txtThemTenSanPham.Location = new Point(160, 66);
+            txtThemTenSanPham.Location = new Point(145, 59);
             txtThemTenSanPham.Name = "txtThemTenSanPham";
-            txtThemTenSanPham.Size = new Size(300, 34);
+            txtThemTenSanPham.Size = new Size(273, 34);
             txtThemTenSanPham.TabIndex = 41;
             // 
             // btnLuuThemSanPham
             // 
             btnLuuThemSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLuuThemSanPham.Location = new Point(380, 333);
+            btnLuuThemSanPham.Font = new Font("Segoe UI", 10.8F);
+            btnLuuThemSanPham.Image = Properties.Resources.icons8_add_30;
+            btnLuuThemSanPham.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLuuThemSanPham.Location = new Point(335, 292);
             btnLuuThemSanPham.Name = "btnLuuThemSanPham";
-            btnLuuThemSanPham.Size = new Size(80, 34);
+            btnLuuThemSanPham.Size = new Size(88, 38);
             btnLuuThemSanPham.TabIndex = 31;
             btnLuuThemSanPham.Text = "Thêm";
+            btnLuuThemSanPham.TextAlign = ContentAlignment.MiddleRight;
             btnLuuThemSanPham.UseVisualStyleBackColor = true;
             btnLuuThemSanPham.Click += btnLuuThemSanPham_Click;
             // 
             // lblThemTenSanPham
             // 
+            lblThemTenSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemTenSanPham.AutoSize = true;
             lblThemTenSanPham.Font = new Font("Segoe UI", 13F);
-            lblThemTenSanPham.Location = new Point(6, 70);
+            lblThemTenSanPham.Location = new Point(5, 62);
             lblThemTenSanPham.Name = "lblThemTenSanPham";
             lblThemTenSanPham.Size = new Size(148, 30);
             lblThemTenSanPham.TabIndex = 42;
@@ -394,9 +424,10 @@
             // 
             // lblThemNhaCungCap
             // 
+            lblThemNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemNhaCungCap.AutoSize = true;
             lblThemNhaCungCap.Font = new Font("Segoe UI", 13F);
-            lblThemNhaCungCap.Location = new Point(6, 332);
+            lblThemNhaCungCap.Location = new Point(5, 296);
             lblThemNhaCungCap.Name = "lblThemNhaCungCap";
             lblThemNhaCungCap.Size = new Size(153, 30);
             lblThemNhaCungCap.TabIndex = 40;
@@ -404,9 +435,10 @@
             // 
             // lblThemSoLuongSanPham
             // 
+            lblThemSoLuongSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblThemSoLuongSanPham.AutoSize = true;
             lblThemSoLuongSanPham.Font = new Font("Segoe UI", 13F);
-            lblThemSoLuongSanPham.Location = new Point(6, 203);
+            lblThemSoLuongSanPham.Location = new Point(5, 181);
             lblThemSoLuongSanPham.Name = "lblThemSoLuongSanPham";
             lblThemSoLuongSanPham.Size = new Size(105, 30);
             lblThemSoLuongSanPham.TabIndex = 38;
@@ -414,31 +446,46 @@
             // 
             // btnSuaSanPham
             // 
-            btnSuaSanPham.Location = new Point(195, 468);
+            btnSuaSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnSuaSanPham.Font = new Font("Segoe UI", 10.8F);
+            btnSuaSanPham.Image = Properties.Resources.icons8_update_30;
+            btnSuaSanPham.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSuaSanPham.Location = new Point(210, 418);
             btnSuaSanPham.Name = "btnSuaSanPham";
-            btnSuaSanPham.Size = new Size(160, 45);
+            btnSuaSanPham.Size = new Size(165, 40);
             btnSuaSanPham.TabIndex = 53;
             btnSuaSanPham.Text = "Sửa Sản Phẩm";
+            btnSuaSanPham.TextAlign = ContentAlignment.MiddleRight;
             btnSuaSanPham.UseVisualStyleBackColor = true;
             btnSuaSanPham.Click += btnSuaSanPham_Click;
             // 
             // btnChonTatCa
             // 
-            btnChonTatCa.Location = new Point(29, 417);
+            btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnChonTatCa.Font = new Font("Segoe UI", 10.8F);
+            btnChonTatCa.Image = Properties.Resources.icons8_all_30;
+            btnChonTatCa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnChonTatCa.Location = new Point(26, 372);
             btnChonTatCa.Name = "btnChonTatCa";
-            btnChonTatCa.Size = new Size(160, 45);
+            btnChonTatCa.Size = new Size(145, 40);
             btnChonTatCa.TabIndex = 52;
             btnChonTatCa.Text = "Chọn Tất Cả";
+            btnChonTatCa.TextAlign = ContentAlignment.MiddleRight;
             btnChonTatCa.UseVisualStyleBackColor = true;
             btnChonTatCa.Click += btnChonTatCa_Click;
             // 
             // btnXoaSanPham
             // 
-            btnXoaSanPham.Location = new Point(195, 417);
+            btnXoaSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnXoaSanPham.Font = new Font("Segoe UI", 10.8F);
+            btnXoaSanPham.Image = Properties.Resources.icons8_delete_30;
+            btnXoaSanPham.ImageAlign = ContentAlignment.MiddleLeft;
+            btnXoaSanPham.Location = new Point(177, 372);
             btnXoaSanPham.Name = "btnXoaSanPham";
-            btnXoaSanPham.Size = new Size(160, 45);
+            btnXoaSanPham.Size = new Size(158, 40);
             btnXoaSanPham.TabIndex = 51;
             btnXoaSanPham.Text = "Xoá Sản Phẩm";
+            btnXoaSanPham.TextAlign = ContentAlignment.MiddleRight;
             btnXoaSanPham.UseVisualStyleBackColor = true;
             btnXoaSanPham.Click += btnXoaSanPham_Click;
             // 
@@ -467,18 +514,19 @@
             grpSuaSanPham.Controls.Add(cmbSuaNhaCungCap);
             grpSuaSanPham.Controls.Add(lblSuaLoaiSanPham);
             grpSuaSanPham.Font = new Font("Segoe UI", 12F);
-            grpSuaSanPham.Location = new Point(748, 502);
+            grpSuaSanPham.Location = new Point(694, 448);
             grpSuaSanPham.Name = "grpSuaSanPham";
-            grpSuaSanPham.Size = new Size(484, 418);
+            grpSuaSanPham.Size = new Size(452, 373);
             grpSuaSanPham.TabIndex = 54;
             grpSuaSanPham.TabStop = false;
             // 
             // btnMoFileSua
             // 
             btnMoFileSua.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnMoFileSua.Location = new Point(387, 187);
+            btnMoFileSua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMoFileSua.Location = new Point(364, 181);
             btnMoFileSua.Name = "btnMoFileSua";
-            btnMoFileSua.Size = new Size(80, 34);
+            btnMoFileSua.Size = new Size(73, 34);
             btnMoFileSua.TabIndex = 59;
             btnMoFileSua.Text = "Mở File";
             btnMoFileSua.UseVisualStyleBackColor = true;
@@ -486,10 +534,10 @@
             // 
             // lblSuaNhaCungCap
             // 
-            lblSuaNhaCungCap.Anchor = AnchorStyles.None;
+            lblSuaNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaNhaCungCap.AutoSize = true;
             lblSuaNhaCungCap.Font = new Font("Segoe UI", 13F);
-            lblSuaNhaCungCap.Location = new Point(6, 376);
+            lblSuaNhaCungCap.Location = new Point(5, 336);
             lblSuaNhaCungCap.Name = "lblSuaNhaCungCap";
             lblSuaNhaCungCap.Size = new Size(153, 30);
             lblSuaNhaCungCap.TabIndex = 52;
@@ -497,19 +545,19 @@
             // 
             // txtSuaHinhAnhSanPham
             // 
-            txtSuaHinhAnhSanPham.Anchor = AnchorStyles.None;
+            txtSuaHinhAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaHinhAnhSanPham.Font = new Font("Segoe UI", 12F);
-            txtSuaHinhAnhSanPham.Location = new Point(187, 203);
+            txtSuaHinhAnhSanPham.Location = new Point(170, 181);
             txtSuaHinhAnhSanPham.Name = "txtSuaHinhAnhSanPham";
-            txtSuaHinhAnhSanPham.Size = new Size(194, 34);
+            txtSuaHinhAnhSanPham.Size = new Size(189, 34);
             txtSuaHinhAnhSanPham.TabIndex = 58;
             // 
             // lblSuaHinhAnhSanPham
             // 
-            lblSuaHinhAnhSanPham.Anchor = AnchorStyles.None;
+            lblSuaHinhAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaHinhAnhSanPham.AutoSize = true;
             lblSuaHinhAnhSanPham.Font = new Font("Segoe UI", 13F);
-            lblSuaHinhAnhSanPham.Location = new Point(6, 207);
+            lblSuaHinhAnhSanPham.Location = new Point(5, 185);
             lblSuaHinhAnhSanPham.Name = "lblSuaHinhAnhSanPham";
             lblSuaHinhAnhSanPham.Size = new Size(102, 30);
             lblSuaHinhAnhSanPham.TabIndex = 57;
@@ -517,9 +565,9 @@
             // 
             // rdoSuaChuaBan
             // 
-            rdoSuaChuaBan.Anchor = AnchorStyles.None;
+            rdoSuaChuaBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rdoSuaChuaBan.AutoSize = true;
-            rdoSuaChuaBan.Location = new Point(325, 333);
+            rdoSuaChuaBan.Location = new Point(295, 297);
             rdoSuaChuaBan.Name = "rdoSuaChuaBan";
             rdoSuaChuaBan.Size = new Size(115, 32);
             rdoSuaChuaBan.TabIndex = 54;
@@ -529,9 +577,9 @@
             // 
             // rdoSuaDangBan
             // 
-            rdoSuaDangBan.Anchor = AnchorStyles.None;
+            rdoSuaDangBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rdoSuaDangBan.AutoSize = true;
-            rdoSuaDangBan.Location = new Point(191, 333);
+            rdoSuaDangBan.Location = new Point(174, 297);
             rdoSuaDangBan.Name = "rdoSuaDangBan";
             rdoSuaDangBan.Size = new Size(117, 32);
             rdoSuaDangBan.TabIndex = 53;
@@ -541,19 +589,19 @@
             // 
             // txtSuaGiaSanPham
             // 
-            txtSuaGiaSanPham.Anchor = AnchorStyles.None;
+            txtSuaGiaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaGiaSanPham.Font = new Font("Segoe UI", 12F);
-            txtSuaGiaSanPham.Location = new Point(187, 288);
+            txtSuaGiaSanPham.Location = new Point(170, 257);
             txtSuaGiaSanPham.Name = "txtSuaGiaSanPham";
-            txtSuaGiaSanPham.Size = new Size(280, 34);
+            txtSuaGiaSanPham.Size = new Size(267, 34);
             txtSuaGiaSanPham.TabIndex = 36;
             // 
             // lblSuaTrangThaiSanPham
             // 
-            lblSuaTrangThaiSanPham.Anchor = AnchorStyles.None;
+            lblSuaTrangThaiSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaTrangThaiSanPham.AutoSize = true;
             lblSuaTrangThaiSanPham.Font = new Font("Segoe UI", 13F);
-            lblSuaTrangThaiSanPham.Location = new Point(6, 333);
+            lblSuaTrangThaiSanPham.Location = new Point(5, 297);
             lblSuaTrangThaiSanPham.Name = "lblSuaTrangThaiSanPham";
             lblSuaTrangThaiSanPham.Size = new Size(113, 30);
             lblSuaTrangThaiSanPham.TabIndex = 52;
@@ -562,21 +610,24 @@
             // btnClearSuaSanPham
             // 
             btnClearSuaSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnClearSuaSanPham.Font = new Font("Segoe UI", 12F);
-            btnClearSuaSanPham.Location = new Point(325, 375);
+            btnClearSuaSanPham.Font = new Font("Segoe UI", 10.8F);
+            btnClearSuaSanPham.Image = Properties.Resources.icons8_delete_30;
+            btnClearSuaSanPham.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClearSuaSanPham.Location = new Point(287, 328);
             btnClearSuaSanPham.Name = "btnClearSuaSanPham";
-            btnClearSuaSanPham.Size = new Size(70, 34);
+            btnClearSuaSanPham.Size = new Size(72, 37);
             btnClearSuaSanPham.TabIndex = 35;
-            btnClearSuaSanPham.Text = "Clear";
+            btnClearSuaSanPham.Text = "Xóa";
+            btnClearSuaSanPham.TextAlign = ContentAlignment.MiddleRight;
             btnClearSuaSanPham.UseVisualStyleBackColor = true;
             btnClearSuaSanPham.Click += btnClearSuaSanPham_Click;
             // 
             // lblSuaSanPham
             // 
-            lblSuaSanPham.Anchor = AnchorStyles.None;
+            lblSuaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaSanPham.AutoSize = true;
             lblSuaSanPham.Font = new Font("Segoe UI", 14F);
-            lblSuaSanPham.Location = new Point(10, 5);
+            lblSuaSanPham.Location = new Point(5, 18);
             lblSuaSanPham.Name = "lblSuaSanPham";
             lblSuaSanPham.Size = new Size(282, 32);
             lblSuaSanPham.TabIndex = 34;
@@ -584,19 +635,19 @@
             // 
             // txtSuaTenSanPham
             // 
-            txtSuaTenSanPham.Anchor = AnchorStyles.None;
+            txtSuaTenSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaTenSanPham.Font = new Font("Segoe UI", 12F);
-            txtSuaTenSanPham.Location = new Point(187, 114);
+            txtSuaTenSanPham.Location = new Point(170, 102);
             txtSuaTenSanPham.Name = "txtSuaTenSanPham";
-            txtSuaTenSanPham.Size = new Size(280, 34);
+            txtSuaTenSanPham.Size = new Size(267, 34);
             txtSuaTenSanPham.TabIndex = 32;
             // 
             // lblSuaMaSanPham
             // 
-            lblSuaMaSanPham.Anchor = AnchorStyles.None;
+            lblSuaMaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaMaSanPham.AutoSize = true;
             lblSuaMaSanPham.Font = new Font("Segoe UI", 13F);
-            lblSuaMaSanPham.Location = new Point(6, 72);
+            lblSuaMaSanPham.Location = new Point(5, 64);
             lblSuaMaSanPham.Name = "lblSuaMaSanPham";
             lblSuaMaSanPham.Size = new Size(145, 30);
             lblSuaMaSanPham.TabIndex = 18;
@@ -604,20 +655,20 @@
             // 
             // txtSuaMaSanPham
             // 
-            txtSuaMaSanPham.Anchor = AnchorStyles.None;
+            txtSuaMaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaMaSanPham.Font = new Font("Segoe UI", 12F);
-            txtSuaMaSanPham.Location = new Point(187, 70);
+            txtSuaMaSanPham.Location = new Point(170, 62);
             txtSuaMaSanPham.Name = "txtSuaMaSanPham";
             txtSuaMaSanPham.ReadOnly = true;
-            txtSuaMaSanPham.Size = new Size(280, 34);
+            txtSuaMaSanPham.Size = new Size(267, 34);
             txtSuaMaSanPham.TabIndex = 22;
             // 
             // lblSuaTenSanPham
             // 
-            lblSuaTenSanPham.Anchor = AnchorStyles.None;
+            lblSuaTenSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaTenSanPham.AutoSize = true;
             lblSuaTenSanPham.Font = new Font("Segoe UI", 13F);
-            lblSuaTenSanPham.Location = new Point(6, 116);
+            lblSuaTenSanPham.Location = new Point(5, 104);
             lblSuaTenSanPham.Name = "lblSuaTenSanPham";
             lblSuaTenSanPham.Size = new Size(148, 30);
             lblSuaTenSanPham.TabIndex = 33;
@@ -625,31 +676,34 @@
             // 
             // txtSuaSoLuongSanPham
             // 
-            txtSuaSoLuongSanPham.Anchor = AnchorStyles.None;
+            txtSuaSoLuongSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaSoLuongSanPham.Font = new Font("Segoe UI", 12F);
-            txtSuaSoLuongSanPham.Location = new Point(187, 247);
+            txtSuaSoLuongSanPham.Location = new Point(170, 221);
             txtSuaSoLuongSanPham.Name = "txtSuaSoLuongSanPham";
-            txtSuaSoLuongSanPham.Size = new Size(280, 34);
+            txtSuaSoLuongSanPham.Size = new Size(267, 34);
             txtSuaSoLuongSanPham.TabIndex = 23;
             // 
             // btnLuuSuaSanPham
             // 
             btnLuuSuaSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLuuSuaSanPham.Font = new Font("Segoe UI", 12F);
-            btnLuuSuaSanPham.Location = new Point(397, 376);
+            btnLuuSuaSanPham.Font = new Font("Segoe UI", 10.8F);
+            btnLuuSuaSanPham.Image = Properties.Resources.icons8_save_30;
+            btnLuuSuaSanPham.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLuuSuaSanPham.Location = new Point(364, 328);
             btnLuuSuaSanPham.Name = "btnLuuSuaSanPham";
-            btnLuuSuaSanPham.Size = new Size(70, 33);
+            btnLuuSuaSanPham.Size = new Size(73, 37);
             btnLuuSuaSanPham.TabIndex = 19;
             btnLuuSuaSanPham.Text = "Lưu";
+            btnLuuSuaSanPham.TextAlign = ContentAlignment.MiddleRight;
             btnLuuSuaSanPham.UseVisualStyleBackColor = true;
             btnLuuSuaSanPham.Click += btnLuuSuaSanPham_Click;
             // 
             // lblSuaSoLuongSanPham
             // 
-            lblSuaSoLuongSanPham.Anchor = AnchorStyles.None;
+            lblSuaSoLuongSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaSoLuongSanPham.AutoSize = true;
             lblSuaSoLuongSanPham.Font = new Font("Segoe UI", 13F);
-            lblSuaSoLuongSanPham.Location = new Point(6, 251);
+            lblSuaSoLuongSanPham.Location = new Point(5, 224);
             lblSuaSoLuongSanPham.Name = "lblSuaSoLuongSanPham";
             lblSuaSoLuongSanPham.Size = new Size(105, 30);
             lblSuaSoLuongSanPham.TabIndex = 24;
@@ -657,19 +711,19 @@
             // 
             // txtSuaLoaiSanPham
             // 
-            txtSuaLoaiSanPham.Anchor = AnchorStyles.None;
+            txtSuaLoaiSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaLoaiSanPham.Font = new Font("Segoe UI", 12F);
-            txtSuaLoaiSanPham.Location = new Point(187, 158);
+            txtSuaLoaiSanPham.Location = new Point(170, 141);
             txtSuaLoaiSanPham.Name = "txtSuaLoaiSanPham";
-            txtSuaLoaiSanPham.Size = new Size(280, 34);
+            txtSuaLoaiSanPham.Size = new Size(267, 34);
             txtSuaLoaiSanPham.TabIndex = 25;
             // 
             // lblSuaGiaSanPham
             // 
-            lblSuaGiaSanPham.Anchor = AnchorStyles.None;
+            lblSuaGiaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaGiaSanPham.AutoSize = true;
             lblSuaGiaSanPham.Font = new Font("Segoe UI", 13F);
-            lblSuaGiaSanPham.Location = new Point(6, 292);
+            lblSuaGiaSanPham.Location = new Point(5, 261);
             lblSuaGiaSanPham.Name = "lblSuaGiaSanPham";
             lblSuaGiaSanPham.Size = new Size(44, 30);
             lblSuaGiaSanPham.TabIndex = 28;
@@ -677,20 +731,20 @@
             // 
             // cmbSuaNhaCungCap
             // 
-            cmbSuaNhaCungCap.Anchor = AnchorStyles.None;
+            cmbSuaNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cmbSuaNhaCungCap.Font = new Font("Segoe UI", 11F);
             cmbSuaNhaCungCap.FormattingEnabled = true;
-            cmbSuaNhaCungCap.Location = new Point(187, 375);
+            cmbSuaNhaCungCap.Location = new Point(170, 335);
             cmbSuaNhaCungCap.Name = "cmbSuaNhaCungCap";
-            cmbSuaNhaCungCap.Size = new Size(132, 33);
+            cmbSuaNhaCungCap.Size = new Size(111, 33);
             cmbSuaNhaCungCap.TabIndex = 27;
             // 
             // lblSuaLoaiSanPham
             // 
-            lblSuaLoaiSanPham.Anchor = AnchorStyles.None;
+            lblSuaLoaiSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaLoaiSanPham.AutoSize = true;
             lblSuaLoaiSanPham.Font = new Font("Segoe UI", 13F);
-            lblSuaLoaiSanPham.Location = new Point(6, 160);
+            lblSuaLoaiSanPham.Location = new Point(5, 143);
             lblSuaLoaiSanPham.Name = "lblSuaLoaiSanPham";
             lblSuaLoaiSanPham.Size = new Size(153, 30);
             lblSuaLoaiSanPham.TabIndex = 26;
@@ -698,20 +752,25 @@
             // 
             // btnThemSanPham
             // 
-            btnThemSanPham.Location = new Point(29, 468);
+            btnThemSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnThemSanPham.Font = new Font("Segoe UI", 10.8F);
+            btnThemSanPham.Image = Properties.Resources.icons8_add_30;
+            btnThemSanPham.ImageAlign = ContentAlignment.MiddleLeft;
+            btnThemSanPham.Location = new Point(26, 418);
             btnThemSanPham.Name = "btnThemSanPham";
-            btnThemSanPham.Size = new Size(160, 45);
+            btnThemSanPham.Size = new Size(178, 40);
             btnThemSanPham.TabIndex = 59;
             btnThemSanPham.Text = "Thêm Sản Phẩm";
+            btnThemSanPham.TextAlign = ContentAlignment.MiddleRight;
             btnThemSanPham.UseVisualStyleBackColor = true;
             btnThemSanPham.Click += btnThemSanPham_Click;
             // 
             // lblAnhSanPham
             // 
-            lblAnhSanPham.Anchor = AnchorStyles.Bottom;
+            lblAnhSanPham.Anchor = AnchorStyles.Top;
             lblAnhSanPham.AutoSize = true;
             lblAnhSanPham.Font = new Font("Segoe UI", 13F);
-            lblAnhSanPham.Location = new Point(555, 860);
+            lblAnhSanPham.Location = new Point(501, 753);
             lblAnhSanPham.Name = "lblAnhSanPham";
             lblAnhSanPham.Size = new Size(152, 30);
             lblAnhSanPham.TabIndex = 57;
@@ -719,20 +778,20 @@
             // 
             // picAnhSanPham
             // 
-            picAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            picAnhSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             picAnhSanPham.Image = (Image)resources.GetObject("picAnhSanPham.Image");
-            picAnhSanPham.Location = new Point(507, 556);
+            picAnhSanPham.Location = new Point(461, 496);
             picAnhSanPham.Name = "picAnhSanPham";
-            picAnhSanPham.Size = new Size(221, 284);
+            picAnhSanPham.Size = new Size(227, 254);
             picAnhSanPham.SizeMode = PictureBoxSizeMode.Zoom;
             picAnhSanPham.TabIndex = 29;
             picAnhSanPham.TabStop = false;
             // 
             // frmKho
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1271, 942);
+            ClientSize = new Size(1181, 841);
             Controls.Add(lblAnhSanPham);
             Controls.Add(btnThemSanPham);
             Controls.Add(btnTaiLaiDanhSach);
@@ -745,7 +804,7 @@
             Controls.Add(grpSuaSanPham);
             Controls.Add(dgvSanPham);
             Controls.Add(picAnhSanPham);
-            Font = new Font("Segoe UI", 12F);
+            Font = new Font("Segoe UI", 10.8F);
             Margin = new Padding(4);
             Name = "frmKho";
             Text = "Quản Lí Kho";

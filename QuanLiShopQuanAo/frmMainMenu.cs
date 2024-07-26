@@ -8,6 +8,7 @@ namespace QuanLiShopQuanAo
         {
             InitializeComponent();
         }
+
         private Form currentform;
         private void Openchildform(Form childform)
         {
@@ -103,6 +104,15 @@ namespace QuanLiShopQuanAo
         {
             Openchildform(new frmNhaCungCap());
             label1.Text = btn_Ncc.Text;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            if (currentform != null)
+            {
+                currentform.Close();
+            }
+            label1.Text = "Trang Chủ";
         }
     }
 }
