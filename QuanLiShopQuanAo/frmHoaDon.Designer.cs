@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvHoaDonDaTao = new DataGridView();
+            dgvHoaDon = new DataGridView();
             dgvhCheckBox = new DataGridViewCheckBoxColumn();
             dgvhMaHoaDonLap = new DataGridViewTextBoxColumn();
             dgvhTenKhach = new DataGridViewTextBoxColumn();
+            dgvhSDTKhach = new DataGridViewTextBoxColumn();
             dgvhNgayTao = new DataGridViewTextBoxColumn();
             dgvhTongTien = new DataGridViewTextBoxColumn();
             dgvhTrangThai = new DataGridViewTextBoxColumn();
@@ -39,48 +40,52 @@
             lblSuaHoaDon = new Label();
             lblTaoHoaDon = new Label();
             lblTenKhach = new Label();
-            txtTenKhach = new TextBox();
+            txtSuaTenKhach = new TextBox();
             lblNgayLap = new Label();
-            dtpNgayLap = new DateTimePicker();
+            dtpSuaNgayLap = new DateTimePicker();
             btnChonTatCa = new Button();
             btnXoaHoaDon = new Button();
             grpTaoHoaDon = new GroupBox();
             btnLapHoaDon = new Button();
-            dateTimePicker1 = new DateTimePicker();
+            dtpLapHoaDon = new DateTimePicker();
             lblNgayLapHDMoi = new Label();
-            txtSDT = new TextBox();
+            txtSDTKhachMua = new TextBox();
             txtTenKhachMua = new TextBox();
-            txtMaHoaDon = new TextBox();
+            txtTaoMaHoaDon = new TextBox();
             lblSDT = new Label();
             lblTenKhachMua = new Label();
-            lblMaHoaDon = new Label();
+            lblTaoMaHoaDon = new Label();
             lblTrangThai = new Label();
-            cmbTrangThai = new ComboBox();
             grpSuaHoaDon = new GroupBox();
-            btnSua = new Button();
+            txtSuaMaHoaDon = new TextBox();
+            btnSuaHoaDon = new Button();
+            lblSuaMaHoaDon = new Label();
+            cmbTrangThai = new ComboBox();
             btnTaiLaiDanhSach = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDonDaTao).BeginInit();
+            btnTimHoaDon = new Button();
+            txtTimKiemHoaDon = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
             grpTaoHoaDon.SuspendLayout();
             grpSuaHoaDon.SuspendLayout();
             SuspendLayout();
             // 
-            // dgvHoaDonDaTao
+            // dgvHoaDon
             // 
-            dgvHoaDonDaTao.AllowUserToAddRows = false;
-            dgvHoaDonDaTao.AllowUserToDeleteRows = false;
-            dgvHoaDonDaTao.AllowUserToResizeColumns = false;
-            dgvHoaDonDaTao.AllowUserToResizeRows = false;
-            dgvHoaDonDaTao.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvHoaDonDaTao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHoaDonDaTao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHoaDonDaTao.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBox, dgvhMaHoaDonLap, dgvhTenKhach, dgvhNgayTao, dgvhTongTien, dgvhTrangThai, dgvhNhanVien });
-            dgvHoaDonDaTao.Location = new Point(28, 12);
-            dgvHoaDonDaTao.Name = "dgvHoaDonDaTao";
-            dgvHoaDonDaTao.RowHeadersVisible = false;
-            dgvHoaDonDaTao.RowHeadersWidth = 51;
-            dgvHoaDonDaTao.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvHoaDonDaTao.Size = new Size(1178, 400);
-            dgvHoaDonDaTao.TabIndex = 5;
+            dgvHoaDon.AllowUserToAddRows = false;
+            dgvHoaDon.AllowUserToDeleteRows = false;
+            dgvHoaDon.AllowUserToResizeColumns = false;
+            dgvHoaDon.AllowUserToResizeRows = false;
+            dgvHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBox, dgvhMaHoaDonLap, dgvhTenKhach, dgvhSDTKhach, dgvhNgayTao, dgvhTongTien, dgvhTrangThai, dgvhNhanVien });
+            dgvHoaDon.Location = new Point(28, 12);
+            dgvHoaDon.Name = "dgvHoaDon";
+            dgvHoaDon.RowHeadersVisible = false;
+            dgvHoaDon.RowHeadersWidth = 51;
+            dgvHoaDon.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvHoaDon.Size = new Size(1178, 447);
+            dgvHoaDon.TabIndex = 5;
             // 
             // dgvhCheckBox
             // 
@@ -104,6 +109,13 @@
             dgvhTenKhach.MinimumWidth = 6;
             dgvhTenKhach.Name = "dgvhTenKhach";
             dgvhTenKhach.ReadOnly = true;
+            // 
+            // dgvhSDTKhach
+            // 
+            dgvhSDTKhach.HeaderText = "Số Điện Thoại";
+            dgvhSDTKhach.MinimumWidth = 6;
+            dgvhSDTKhach.Name = "dgvhSDTKhach";
+            dgvhSDTKhach.ReadOnly = true;
             // 
             // dgvhNgayTao
             // 
@@ -160,76 +172,78 @@
             lblTenKhach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTenKhach.AutoSize = true;
             lblTenKhach.Font = new Font("Segoe UI", 13F);
-            lblTenKhach.Location = new Point(6, 80);
+            lblTenKhach.Location = new Point(6, 128);
             lblTenKhach.Name = "lblTenKhach";
             lblTenKhach.Size = new Size(169, 30);
             lblTenKhach.TabIndex = 11;
             lblTenKhach.Text = "Tên Khách Hàng";
             // 
-            // txtTenKhach
+            // txtSuaTenKhach
             // 
-            txtTenKhach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtTenKhach.Location = new Point(220, 80);
-            txtTenKhach.Name = "txtTenKhach";
-            txtTenKhach.Size = new Size(350, 34);
-            txtTenKhach.TabIndex = 12;
+            txtSuaTenKhach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSuaTenKhach.Location = new Point(196, 128);
+            txtSuaTenKhach.Name = "txtSuaTenKhach";
+            txtSuaTenKhach.Size = new Size(380, 34);
+            txtSuaTenKhach.TabIndex = 12;
             // 
             // lblNgayLap
             // 
             lblNgayLap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblNgayLap.AutoSize = true;
             lblNgayLap.Font = new Font("Segoe UI", 13F);
-            lblNgayLap.Location = new Point(6, 128);
+            lblNgayLap.Location = new Point(6, 176);
             lblNgayLap.Name = "lblNgayLap";
             lblNgayLap.Size = new Size(104, 30);
             lblNgayLap.TabIndex = 13;
             lblNgayLap.Text = "Ngày Lập";
             // 
-            // dtpNgayLap
+            // dtpSuaNgayLap
             // 
-            dtpNgayLap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtpNgayLap.CustomFormat = "dd-MM-yyyy";
-            dtpNgayLap.Location = new Point(220, 128);
-            dtpNgayLap.Name = "dtpNgayLap";
-            dtpNgayLap.Size = new Size(350, 34);
-            dtpNgayLap.TabIndex = 14;
+            dtpSuaNgayLap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtpSuaNgayLap.CustomFormat = "dd-MM-yyyy";
+            dtpSuaNgayLap.Location = new Point(196, 176);
+            dtpSuaNgayLap.Name = "dtpSuaNgayLap";
+            dtpSuaNgayLap.Size = new Size(380, 34);
+            dtpSuaNgayLap.TabIndex = 14;
             // 
             // btnChonTatCa
             // 
             btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnChonTatCa.Location = new Point(28, 439);
+            btnChonTatCa.Location = new Point(28, 476);
             btnChonTatCa.Name = "btnChonTatCa";
             btnChonTatCa.Size = new Size(150, 45);
             btnChonTatCa.TabIndex = 19;
             btnChonTatCa.Text = "Chọn Tất Cả";
             btnChonTatCa.UseVisualStyleBackColor = true;
+            btnChonTatCa.Click += btnChonTatCa_Click;
             // 
             // btnXoaHoaDon
             // 
             btnXoaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnXoaHoaDon.Location = new Point(184, 439);
+            btnXoaHoaDon.Location = new Point(184, 476);
             btnXoaHoaDon.Name = "btnXoaHoaDon";
             btnXoaHoaDon.Size = new Size(150, 45);
             btnXoaHoaDon.TabIndex = 18;
             btnXoaHoaDon.Text = "Xoá Hoá Đơn";
             btnXoaHoaDon.UseVisualStyleBackColor = true;
+            btnXoaHoaDon.Click += btnXoaHoaDon_Click;
             // 
             // grpTaoHoaDon
             // 
             grpTaoHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grpTaoHoaDon.Controls.Add(btnLapHoaDon);
-            grpTaoHoaDon.Controls.Add(dateTimePicker1);
+            grpTaoHoaDon.Controls.Add(dtpLapHoaDon);
             grpTaoHoaDon.Controls.Add(lblNgayLapHDMoi);
-            grpTaoHoaDon.Controls.Add(txtSDT);
+            grpTaoHoaDon.Controls.Add(txtSDTKhachMua);
             grpTaoHoaDon.Controls.Add(txtTenKhachMua);
-            grpTaoHoaDon.Controls.Add(txtMaHoaDon);
+            grpTaoHoaDon.Controls.Add(txtTaoMaHoaDon);
             grpTaoHoaDon.Controls.Add(lblSDT);
             grpTaoHoaDon.Controls.Add(lblTenKhachMua);
             grpTaoHoaDon.Controls.Add(lblTaoHoaDon);
-            grpTaoHoaDon.Controls.Add(lblMaHoaDon);
-            grpTaoHoaDon.Location = new Point(609, 415);
+            grpTaoHoaDon.Controls.Add(lblTaoMaHoaDon);
+            grpTaoHoaDon.Location = new Point(639, 527);
             grpTaoHoaDon.Name = "grpTaoHoaDon";
-            grpTaoHoaDon.Size = new Size(597, 372);
+            grpTaoHoaDon.Size = new Size(567, 343);
             grpTaoHoaDon.TabIndex = 20;
             grpTaoHoaDon.TabStop = false;
             // 
@@ -237,21 +251,22 @@
             // 
             btnLapHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLapHoaDon.Font = new Font("Segoe UI", 14F);
-            btnLapHoaDon.Location = new Point(341, 292);
+            btnLapHoaDon.Location = new Point(292, 277);
             btnLapHoaDon.Name = "btnLapHoaDon";
             btnLapHoaDon.Size = new Size(250, 50);
             btnLapHoaDon.TabIndex = 26;
             btnLapHoaDon.Text = "Lập Hoá Đơn Mới";
             btnLapHoaDon.UseVisualStyleBackColor = true;
+            btnLapHoaDon.Click += btnLapHoaDon_Click;
             // 
-            // dateTimePicker1
+            // dtpLapHoaDon
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            dateTimePicker1.Location = new Point(241, 226);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(350, 34);
-            dateTimePicker1.TabIndex = 22;
+            dtpLapHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtpLapHoaDon.CustomFormat = "dd-MM-yyyy";
+            dtpLapHoaDon.Location = new Point(192, 226);
+            dtpLapHoaDon.Name = "dtpLapHoaDon";
+            dtpLapHoaDon.Size = new Size(350, 34);
+            dtpLapHoaDon.TabIndex = 22;
             // 
             // lblNgayLapHDMoi
             // 
@@ -264,30 +279,30 @@
             lblNgayLapHDMoi.TabIndex = 21;
             lblNgayLapHDMoi.Text = "Ngày Lập";
             // 
-            // txtSDT
+            // txtSDTKhachMua
             // 
-            txtSDT.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtSDT.Location = new Point(241, 177);
-            txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(350, 34);
-            txtSDT.TabIndex = 25;
+            txtSDTKhachMua.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSDTKhachMua.Location = new Point(192, 177);
+            txtSDTKhachMua.Name = "txtSDTKhachMua";
+            txtSDTKhachMua.Size = new Size(350, 34);
+            txtSDTKhachMua.TabIndex = 25;
             // 
             // txtTenKhachMua
             // 
             txtTenKhachMua.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtTenKhachMua.Location = new Point(241, 126);
+            txtTenKhachMua.Location = new Point(192, 126);
             txtTenKhachMua.Name = "txtTenKhachMua";
             txtTenKhachMua.Size = new Size(350, 34);
             txtTenKhachMua.TabIndex = 24;
             // 
-            // txtMaHoaDon
+            // txtTaoMaHoaDon
             // 
-            txtMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtMaHoaDon.Location = new Point(241, 77);
-            txtMaHoaDon.Name = "txtMaHoaDon";
-            txtMaHoaDon.ReadOnly = true;
-            txtMaHoaDon.Size = new Size(350, 34);
-            txtMaHoaDon.TabIndex = 21;
+            txtTaoMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtTaoMaHoaDon.Location = new Point(192, 77);
+            txtTaoMaHoaDon.Name = "txtTaoMaHoaDon";
+            txtTaoMaHoaDon.ReadOnly = true;
+            txtTaoMaHoaDon.Size = new Size(350, 34);
+            txtTaoMaHoaDon.TabIndex = 21;
             // 
             // lblSDT
             // 
@@ -311,27 +326,78 @@
             lblTenKhachMua.TabIndex = 22;
             lblTenKhachMua.Text = "Tên Khách";
             // 
-            // lblMaHoaDon
+            // lblTaoMaHoaDon
             // 
-            lblMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblMaHoaDon.AutoSize = true;
-            lblMaHoaDon.Font = new Font("Segoe UI", 13F);
-            lblMaHoaDon.Location = new Point(6, 77);
-            lblMaHoaDon.Name = "lblMaHoaDon";
-            lblMaHoaDon.Size = new Size(136, 30);
-            lblMaHoaDon.TabIndex = 21;
-            lblMaHoaDon.Text = "Mã Hoá Đơn";
+            lblTaoMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblTaoMaHoaDon.AutoSize = true;
+            lblTaoMaHoaDon.Font = new Font("Segoe UI", 13F);
+            lblTaoMaHoaDon.Location = new Point(6, 77);
+            lblTaoMaHoaDon.Name = "lblTaoMaHoaDon";
+            lblTaoMaHoaDon.Size = new Size(136, 30);
+            lblTaoMaHoaDon.TabIndex = 21;
+            lblTaoMaHoaDon.Text = "Mã Hoá Đơn";
             // 
             // lblTrangThai
             // 
             lblTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTrangThai.AutoSize = true;
             lblTrangThai.Font = new Font("Segoe UI", 13F);
-            lblTrangThai.Location = new Point(6, 178);
+            lblTrangThai.Location = new Point(6, 226);
             lblTrangThai.Name = "lblTrangThai";
             lblTrangThai.Size = new Size(113, 30);
             lblTrangThai.TabIndex = 21;
             lblTrangThai.Text = "Trạng Thái";
+            // 
+            // grpSuaHoaDon
+            // 
+            grpSuaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            grpSuaHoaDon.Controls.Add(txtSuaMaHoaDon);
+            grpSuaHoaDon.Controls.Add(btnSuaHoaDon);
+            grpSuaHoaDon.Controls.Add(lblSuaMaHoaDon);
+            grpSuaHoaDon.Controls.Add(txtSuaTenKhach);
+            grpSuaHoaDon.Controls.Add(cmbTrangThai);
+            grpSuaHoaDon.Controls.Add(dtpSuaNgayLap);
+            grpSuaHoaDon.Controls.Add(lblTrangThai);
+            grpSuaHoaDon.Controls.Add(lblSuaHoaDon);
+            grpSuaHoaDon.Controls.Add(lblNgayLap);
+            grpSuaHoaDon.Controls.Add(lblTenKhach);
+            grpSuaHoaDon.Location = new Point(27, 527);
+            grpSuaHoaDon.Name = "grpSuaHoaDon";
+            grpSuaHoaDon.Size = new Size(606, 343);
+            grpSuaHoaDon.TabIndex = 23;
+            grpSuaHoaDon.TabStop = false;
+            // 
+            // txtSuaMaHoaDon
+            // 
+            txtSuaMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSuaMaHoaDon.Location = new Point(196, 77);
+            txtSuaMaHoaDon.Name = "txtSuaMaHoaDon";
+            txtSuaMaHoaDon.ReadOnly = true;
+            txtSuaMaHoaDon.Size = new Size(380, 34);
+            txtSuaMaHoaDon.TabIndex = 27;
+            // 
+            // btnSuaHoaDon
+            // 
+            btnSuaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSuaHoaDon.Font = new Font("Segoe UI", 13F);
+            btnSuaHoaDon.Location = new Point(451, 227);
+            btnSuaHoaDon.Name = "btnSuaHoaDon";
+            btnSuaHoaDon.Size = new Size(125, 33);
+            btnSuaHoaDon.TabIndex = 23;
+            btnSuaHoaDon.Text = "Sửa";
+            btnSuaHoaDon.UseVisualStyleBackColor = true;
+            btnSuaHoaDon.Click += btnSuaHoaDon_Click;
+            // 
+            // lblSuaMaHoaDon
+            // 
+            lblSuaMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblSuaMaHoaDon.AutoSize = true;
+            lblSuaMaHoaDon.Font = new Font("Segoe UI", 13F);
+            lblSuaMaHoaDon.Location = new Point(6, 79);
+            lblSuaMaHoaDon.Name = "lblSuaMaHoaDon";
+            lblSuaMaHoaDon.Size = new Size(136, 30);
+            lblSuaMaHoaDon.TabIndex = 28;
+            lblSuaMaHoaDon.Text = "Mã Hoá Đơn";
             // 
             // cmbTrangThai
             // 
@@ -339,104 +405,107 @@
             cmbTrangThai.Font = new Font("Segoe UI", 11F);
             cmbTrangThai.FormattingEnabled = true;
             cmbTrangThai.Items.AddRange(new object[] { "Chưa Thanh Toán", "Đã Thanh Toán" });
-            cmbTrangThai.Location = new Point(220, 179);
+            cmbTrangThai.Location = new Point(196, 227);
             cmbTrangThai.Name = "cmbTrangThai";
-            cmbTrangThai.Size = new Size(219, 33);
+            cmbTrangThai.Size = new Size(249, 33);
             cmbTrangThai.TabIndex = 22;
             cmbTrangThai.Text = "Chưa Thanh Toán";
-            // 
-            // grpSuaHoaDon
-            // 
-            grpSuaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            grpSuaHoaDon.Controls.Add(btnSua);
-            grpSuaHoaDon.Controls.Add(txtTenKhach);
-            grpSuaHoaDon.Controls.Add(cmbTrangThai);
-            grpSuaHoaDon.Controls.Add(dtpNgayLap);
-            grpSuaHoaDon.Controls.Add(lblTrangThai);
-            grpSuaHoaDon.Controls.Add(lblSuaHoaDon);
-            grpSuaHoaDon.Controls.Add(lblNgayLap);
-            grpSuaHoaDon.Controls.Add(lblTenKhach);
-            grpSuaHoaDon.Location = new Point(27, 490);
-            grpSuaHoaDon.Name = "grpSuaHoaDon";
-            grpSuaHoaDon.Size = new Size(576, 297);
-            grpSuaHoaDon.TabIndex = 23;
-            grpSuaHoaDon.TabStop = false;
-            // 
-            // btnSua
-            // 
-            btnSua.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSua.Font = new Font("Segoe UI", 13F);
-            btnSua.Location = new Point(445, 179);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(125, 35);
-            btnSua.TabIndex = 23;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
             // 
             // btnTaiLaiDanhSach
             // 
             btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnTaiLaiDanhSach.Location = new Point(340, 439);
+            btnTaiLaiDanhSach.Location = new Point(340, 476);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
             btnTaiLaiDanhSach.Size = new Size(180, 45);
             btnTaiLaiDanhSach.TabIndex = 50;
             btnTaiLaiDanhSach.Text = "Tải Lại Danh Sách";
             btnTaiLaiDanhSach.UseVisualStyleBackColor = true;
+            btnTaiLaiDanhSach.Click += btnTaiLaiDanhSach_Click;
+            // 
+            // btnTimHoaDon
+            // 
+            btnTimHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnTimHoaDon.Font = new Font("Segoe UI", 12F);
+            btnTimHoaDon.Location = new Point(1066, 481);
+            btnTimHoaDon.Name = "btnTimHoaDon";
+            btnTimHoaDon.Size = new Size(140, 34);
+            btnTimHoaDon.TabIndex = 51;
+            btnTimHoaDon.Text = "Tìm";
+            btnTimHoaDon.UseVisualStyleBackColor = true;
+            btnTimHoaDon.Click += btnTimHoaDon_Click;
+            // 
+            // txtTimKiemHoaDon
+            // 
+            txtTimKiemHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            txtTimKiemHoaDon.Font = new Font("Segoe UI", 12F);
+            txtTimKiemHoaDon.Location = new Point(639, 481);
+            txtTimKiemHoaDon.Name = "txtTimKiemHoaDon";
+            txtTimKiemHoaDon.Size = new Size(421, 34);
+            txtTimKiemHoaDon.TabIndex = 52;
             // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1245, 802);
+            ClientSize = new Size(1245, 882);
+            Controls.Add(btnTimHoaDon);
+            Controls.Add(txtTimKiemHoaDon);
             Controls.Add(btnTaiLaiDanhSach);
             Controls.Add(btnChonTatCa);
             Controls.Add(btnXoaHoaDon);
-            Controls.Add(dgvHoaDonDaTao);
+            Controls.Add(dgvHoaDon);
             Controls.Add(grpTaoHoaDon);
             Controls.Add(grpSuaHoaDon);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4, 5, 4, 5);
             Name = "frmHoaDon";
             Text = "Quản Lí Hoá Đơn";
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDonDaTao).EndInit();
+            Load += frmHoaDon_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
             grpTaoHoaDon.ResumeLayout(false);
             grpTaoHoaDon.PerformLayout();
             grpSuaHoaDon.ResumeLayout(false);
             grpSuaHoaDon.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private DataGridView dgvHoaDonDaTao;
+        private DataGridView dgvHoaDon;
         private Label lblSuaHoaDon;
         private Label lblTaoHoaDon;
         private Label lblTenKhach;
-        private TextBox txtTenKhach;
+        private TextBox txtSuaTenKhach;
         private Label lblNgayLap;
-        private DateTimePicker dtpNgayLap;
+        private DateTimePicker dtpSuaNgayLap;
         private Button btnChonTatCa;
         private Button btnXoaHoaDon;
+        private GroupBox grpTaoHoaDon;
+        private Label lblTenKhachMua;
+        private Label lblTaoMaHoaDon;
+        private Label lblSDT;
+        private TextBox txtSDTKhachMua;
+        private TextBox txtTenKhachMua;
+        private TextBox txtTaoMaHoaDon;
+        private DateTimePicker dtpLapHoaDon;
+        private Label lblNgayLapHDMoi;
+        private Button btnLapHoaDon;
+        private Label lblTrangThai;
+        private GroupBox grpSuaHoaDon;
+        private Button btnSuaHoaDon;
+        private Button btnTaiLaiDanhSach;
+        private Button btnTimHoaDon;
+        private TextBox txtTimKiemHoaDon;
         private DataGridViewCheckBoxColumn dgvhCheckBox;
         private DataGridViewTextBoxColumn dgvhMaHoaDonLap;
         private DataGridViewTextBoxColumn dgvhTenKhach;
+        private DataGridViewTextBoxColumn dgvhSDTKhach;
         private DataGridViewTextBoxColumn dgvhNgayTao;
         private DataGridViewTextBoxColumn dgvhTongTien;
         private DataGridViewTextBoxColumn dgvhTrangThai;
         private DataGridViewTextBoxColumn dgvhNhanVien;
-        private GroupBox grpTaoHoaDon;
-        private Label lblTenKhachMua;
-        private Label lblMaHoaDon;
-        private Label lblSDT;
-        private TextBox txtSDT;
-        private TextBox txtTenKhachMua;
-        private TextBox txtMaHoaDon;
-        private DateTimePicker dateTimePicker1;
-        private Label lblNgayLapHDMoi;
-        private Button btnLapHoaDon;
-        private Label lblTrangThai;
+        private TextBox txtSuaMaHoaDon;
+        private Label lblSuaMaHoaDon;
         private ComboBox cmbTrangThai;
-        private GroupBox grpSuaHoaDon;
-        private Button btnSua;
-        private Button btnTaiLaiDanhSach;
     }
 }

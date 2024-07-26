@@ -180,8 +180,8 @@ namespace QuanLiShopQuanAo
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                         listNhaCungCap.Add(new NhaCungCap
                         {
-                            MaNhaCungCap = row.Cells[1].Value.ToString(),
-                            SDT = row.Cells[3].Value.ToString()
+                            MaNhaCungCap = row.Cells[1].ToString(),
+                            SDT = row.Cells[3].ToString()
                         });
                 }
 

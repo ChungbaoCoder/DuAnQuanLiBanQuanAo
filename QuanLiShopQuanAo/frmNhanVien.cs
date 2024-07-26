@@ -187,7 +187,7 @@ namespace QuanLiShopQuanAo
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                         listNhanVien.Add(new NhanVien
                         {
-                            MaNhanVien = row.Cells[1].Value.ToString(),
+                            MaNhanVien = row.Cells[1].ToString(),
                         });
                 }
 

@@ -11,5 +11,6 @@ namespace QuanLiShopQuanAo.DAL.Interfaces
         public bool Login(string email, string matKhau);
         public bool ChangePassword(string email, string oldPass, string newPass, string newPassAgain);
         public bool SendMail(string email);
+        public string MaNguoiDangNhap(string email);
     }
 }

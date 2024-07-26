@@ -1,13 +1,8 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Net.Mail;
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Text;
-using System.Threading.Tasks;
 using QuanLiShopQuanAo.DAL.Interfaces;
 
 namespace QuanLiShopQuanAo.DAL
@@ -44,9 +39,9 @@ namespace QuanLiShopQuanAo.DAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_QuenMK";
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@newgenpass", genpass);
+                    cmd.CommandText = "dbo.sp_QuenMatKhau";
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@NewGenPassword", genpass);
                     cmd.Connection = conn;
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -108,6 +103,30 @@ namespace QuanLiShopQuanAo.DAL
             }
             catch { }
             return false;
+        }
+        public string MaNguoiDangNhap(string email)
+        {
+            string MaNhanVien = string.Empty;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "dbo.sp_MaNguoiDN";
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Connection = conn;
+                    conn.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        MaNhanVien = (string)reader["MaNhanVien"];
+                    }
+                }
+            }
+            catch { }
+            return MaNhanVien;
         }
     }
 }

@@ -470,7 +470,7 @@
             txtSuaHinhAnhNhanVien.Font = new Font("Segoe UI", 12F);
             txtSuaHinhAnhNhanVien.Location = new Point(187, 213);
             txtSuaHinhAnhNhanVien.Name = "txtSuaHinhAnhNhanVien";
-            txtSuaHinhAnhNhanVien.Size = new Size(188, 34);
+            txtSuaHinhAnhNhanVien.Size = new Size(186, 34);
             txtSuaHinhAnhNhanVien.TabIndex = 53;
             // 
             // lblSuaNhanVien
@@ -540,7 +540,7 @@
             // 
             txtSuaLuongNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaLuongNhanVien.Font = new Font("Segoe UI", 12F);
-            txtSuaLuongNhanVien.Location = new Point(191, 257);
+            txtSuaLuongNhanVien.Location = new Point(187, 259);
             txtSuaLuongNhanVien.Name = "txtSuaLuongNhanVien";
             txtSuaLuongNhanVien.Size = new Size(278, 34);
             txtSuaLuongNhanVien.TabIndex = 23;
@@ -575,7 +575,7 @@
             // 
             txtSuaTrangThaiNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSuaTrangThaiNhanVien.Font = new Font("Segoe UI", 12F);
-            txtSuaTrangThaiNhanVien.Location = new Point(191, 301);
+            txtSuaTrangThaiNhanVien.Location = new Point(187, 303);
             txtSuaTrangThaiNhanVien.Name = "txtSuaTrangThaiNhanVien";
             txtSuaTrangThaiNhanVien.Size = new Size(278, 34);
             txtSuaTrangThaiNhanVien.TabIndex = 25;
@@ -597,7 +597,7 @@
             cmbSuaChucVuNhanVien.Font = new Font("Segoe UI", 11F);
             cmbSuaChucVuNhanVien.FormattingEnabled = true;
             cmbSuaChucVuNhanVien.Items.AddRange(new object[] { "Nhân Viên", "Quản Trị" });
-            cmbSuaChucVuNhanVien.Location = new Point(191, 343);
+            cmbSuaChucVuNhanVien.Location = new Point(187, 345);
             cmbSuaChucVuNhanVien.Name = "cmbSuaChucVuNhanVien";
             cmbSuaChucVuNhanVien.Size = new Size(117, 33);
             cmbSuaChucVuNhanVien.TabIndex = 27;
@@ -692,7 +692,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1296, 882);
+            ClientSize = new Size(1300, 882);
             Controls.Add(btnThemNhanVien);
             Controls.Add(lblAnhNhanVien);
             Controls.Add(picAnhNhanVien);

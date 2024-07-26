@@ -1,18 +1,13 @@
 ﻿using Microsoft.Data.SqlClient;
 using QuanLiShopQuanAo.BUS.Entities;
 using QuanLiShopQuanAo.DAL.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLiShopQuanAo.DAL
 {
-    public class DAL_HoaDon : IProcHoaDon
+    public class DAL_ChiTietHoaDon : IProcChiTietHoaDon
     {
-        public DataTable GetData()
+        public DataTable LoadChiTietHoaDon(string MaKH)
         {
             DataTable dt = new DataTable();
             try
@@ -21,7 +16,8 @@ namespace QuanLiShopQuanAo.DAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_DanhSachHoaDon";
+                    cmd.CommandText = "dbo.sp_DanhSachChiTietHoaDon";
+                    cmd.Parameters.AddWithValue("@MaKH", MaKH);
                     cmd.Connection = conn;
                     conn.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
@@ -31,27 +27,7 @@ namespace QuanLiShopQuanAo.DAL
             catch { }
             return dt;
         }
-        public DataTable Search(string tim)
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
-                {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_TimHoaDon";
-                    cmd.Parameters.AddWithValue("@Varible", tim);
-                    cmd.Connection = conn;
-                    conn.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    dt.Load(dr);
-                }
-            }
-            catch { }
-            return dt;
-        }
-        public bool Insert(HoaDon hoaDon)
+        public bool Insert(ChiTietHoaDon chiTietHoaDon)
         {
             try
             {
@@ -59,11 +35,11 @@ namespace QuanLiShopQuanAo.DAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_TaoHoaDonMoi";
-                    cmd.Parameters.AddWithValue("@TenKhachHang", hoaDon.TenKhachHang);
-                    cmd.Parameters.AddWithValue("@SDT", hoaDon.SDTKhach);
-                    cmd.Parameters.AddWithValue("@NgayLap", hoaDon.NgayTao);
-                    cmd.Parameters.AddWithValue("@MaNVGhi", hoaDon.MaNhanVienGhi);
+                    cmd.CommandText = "dbo.sp_ThemChiTietHoaDon";
+                    cmd.Parameters.AddWithValue("@MaKhachHang", chiTietHoaDon.MaKhachHang);
+                    cmd.Parameters.AddWithValue("@MaSanPham", chiTietHoaDon.MaSanPham);
+                    cmd.Parameters.AddWithValue("@SoLuong", chiTietHoaDon.SoLuong);
+                    cmd.Parameters.AddWithValue("@TongThanhTien", chiTietHoaDon.TongThanhTien);
                     cmd.Connection = conn;
                     conn.Open();
 
@@ -74,7 +50,7 @@ namespace QuanLiShopQuanAo.DAL
             catch { }
             return false;
         }
-        public bool Update(HoaDon hoaDon)
+        public bool Update(ChiTietHoaDon chiTietHoaDon)
         {
             try
             {
@@ -82,10 +58,9 @@ namespace QuanLiShopQuanAo.DAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_TaoHoaDonMoi";
-                    cmd.Parameters.AddWithValue("@MaHoaDon", hoaDon.MaHoaDon);
-                    cmd.Parameters.AddWithValue("@TenKhachHang", hoaDon.TenKhachHang);
-                    cmd.Parameters.AddWithValue("@NgayLap", hoaDon.NgayTao);
+                    cmd.CommandText = "dbo.sp_CapNhatChiTietHoaDon";
+                    cmd.Parameters.AddWithValue("@MaKhachHang", chiTietHoaDon.MaKhachHang);
+                    cmd.Parameters.AddWithValue("@TongThanhTien", chiTietHoaDon.TongThanhTien);
                     cmd.Connection = conn;
                     conn.Open();
 
@@ -96,7 +71,7 @@ namespace QuanLiShopQuanAo.DAL
             catch { }
             return false;
         }
-        public bool Delete(HoaDon hoaDon)
+        public bool Delete(ChiTietHoaDon chiTietHoaDon)
         {
             try
             {
@@ -104,8 +79,8 @@ namespace QuanLiShopQuanAo.DAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_XoaHoaDon";
-                    cmd.Parameters.AddWithValue("@MaHoaDon", hoaDon.MaHoaDon);
+                    cmd.CommandText = "dbo.sp_XoaChiTietHoaDon";
+                    cmd.Parameters.AddWithValue("@MaSanPham", chiTietHoaDon.MaSanPham);
                     cmd.Connection = conn;
                     conn.Open();
 

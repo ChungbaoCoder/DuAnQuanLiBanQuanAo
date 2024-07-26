@@ -1,63 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using QuanLiShopQuanAo.BUS;
+﻿using QuanLiShopQuanAo.BUS;
 
 namespace QuanLiShopQuanAo.DataBaseConnection
 {
     public partial class frmDangNhap : Form
     {
         public bool closed = false;
+        public string MaNhanVien = string.Empty;
         public frmDangNhap()
         {
             InitializeComponent();
         }
 
-        private void DangNhap_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linklblQuenMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            if (txtUserName.Text != string.Empty && txtPassWord.Text != string.Empty)
             {
                 if (BUS_Account.Login(txtUserName.Text, txtPassWord.Text))
                 {
+                    MaNhanVien = BUS_Account.MaNguoiDangNhap(txtUserName.Text);
                     closed = true;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu xin hãy nhập lại", "Sai thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUserName.Text = string.Empty;
+                    txtPassWord.Text = string.Empty;
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-
+            else
+                MessageBox.Show("Hãy nhập hết vào các trường còn trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
-        private void frmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (closed == false)
+            if (closed)
             {
-                Application.Exit();
+                return;
+            }
+            else
+            {
+                var res = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (res != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                    return;
+                };
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void llblQuenMK_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
+            frmQuenMatKhau form = new frmQuenMatKhau();
+            form.Show();
+        }
+
+        private void frmDangNhap_ResizeEnd(object sender, EventArgs e)
+        {
+            Screen thisScreen = Screen.FromControl(this);
+            Rectangle area = thisScreen.WorkingArea;
+
+            this.Top = (area.Height - this.Height) / 2;
+            this.Left = (area.Width - this.Width) / 2;
         }
     }
 }

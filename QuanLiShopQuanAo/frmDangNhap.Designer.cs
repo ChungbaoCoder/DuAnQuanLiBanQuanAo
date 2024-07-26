@@ -33,7 +33,7 @@
             lblPassWord = new Label();
             txtUserName = new TextBox();
             txtPassWord = new TextBox();
-            linklblQuenMK = new LinkLabel();
+            llblQuenMatKhau = new LinkLabel();
             btnLogin = new Button();
             picIcon1 = new PictureBox();
             picIcon2 = new PictureBox();
@@ -89,7 +89,7 @@
             txtPassWord.TabIndex = 4;
             txtPassWord.Tag = "";
             // 
-            // linklblQuenMK
+            // llblQuenMatKhau
             // 
             linklblQuenMK.Anchor = AnchorStyles.None;
             linklblQuenMK.AutoSize = true;
@@ -108,8 +108,9 @@
             btnLogin.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(315, 346);
+
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(151, 48);
+            btnLogin.Size = new Size(150, 50);
             btnLogin.TabIndex = 7;
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = false;
@@ -173,17 +174,16 @@
             Controls.Add(picIcon2);
             Controls.Add(picIcon1);
             Controls.Add(btnLogin);
-            Controls.Add(linklblQuenMK);
+            Controls.Add(llblQuenMatKhau);
             Controls.Add(txtPassWord);
             Controls.Add(txtUserName);
             Controls.Add(lblPassWord);
             Controls.Add(lblUserName);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmDangNhap";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "DangNhap";
-            FormClosed += frmDangNhap_FormClosed;
-            Load += DangNhap_Load;
+            FormClosing += frmDangNhap_FormClosing;
+            ResizeEnd += frmDangNhap_ResizeEnd;
             ((System.ComponentModel.ISupportInitialize)picIcon1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picIcon2).EndInit();
             ResumeLayout(false);
@@ -196,7 +196,7 @@
         private Label lblPassWord;
         private TextBox txtUserName;
         private TextBox txtPassWord;
-        private LinkLabel linklblQuenMK;
+        private LinkLabel llblQuenMatKhau;
         private Button btnLogin;
         private PictureBox picIcon1;
         private PictureBox picIcon2;

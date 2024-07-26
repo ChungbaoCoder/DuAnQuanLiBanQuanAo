@@ -412,9 +412,9 @@
             AutoScaleDimensions = new SizeF(13F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(863, 513);
-            Controls.Add(panel9);
-            Controls.Add(panel1);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(pnlContent);
+            Controls.Add(pnlTop);
+            Controls.Add(flpDashBoard);
             Font = new Font("Segoe UI", 14F);
             Margin = new Padding(5);
             Name = "frmMainMenu";
