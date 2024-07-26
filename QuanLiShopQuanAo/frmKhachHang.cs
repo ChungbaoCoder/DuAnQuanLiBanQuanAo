@@ -179,8 +179,8 @@ namespace QuanLiShopQuanAo
                 foreach (DataGridViewRow row in dgvKhachHang.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
-                        listKhach.Add(new KhachHang { MaKhachHang = row.Cells[1].Value.ToString(), 
-                                                      SDT = row.Cells[3].Value.ToString() });
+                        listKhach.Add(new KhachHang { MaKhachHang = row.Cells[1].ToString(), 
+                                                      SDT = row.Cells[3].ToString() });
                 }
 
                 foreach (KhachHang Khach in listKhach)

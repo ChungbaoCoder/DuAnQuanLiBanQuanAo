@@ -105,7 +105,7 @@ namespace QuanLiShopQuanAo
             {
                 int selectedrowindex = dgvSanPham.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvSanPham.Rows[selectedrowindex];
-                string cellValue = Convert.ToString(selectedRow.Cells[8].Value.ToString());
+                string cellValue = Convert.ToString(selectedRow.Cells[8].ToString());
 
                 try
                 {
@@ -295,7 +295,7 @@ namespace QuanLiShopQuanAo
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                         listSanPham.Add(new SanPham
                         {
-                            MaSanPham = row.Cells[1].Value.ToString()
+                            MaSanPham = row.Cells[1].ToString()
                         });
                 }
 

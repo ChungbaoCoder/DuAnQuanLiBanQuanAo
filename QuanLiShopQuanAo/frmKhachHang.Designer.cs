@@ -468,7 +468,6 @@
         private TextBox txtTimKiemKhachHang;
         private GroupBox grpThemKhachHang;
         private TextBox txtThemDiaChiKhachHang;
-        private Label lblSDT;
         private TextBox txtThemSDTKhachHang;
         private TextBox txtThemTenKhachHang;
         private Label lblThemTenKhachHang;

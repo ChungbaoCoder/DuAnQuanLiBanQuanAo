@@ -4,11 +4,13 @@ namespace QuanLiShopQuanAo
 {
     public partial class frmMainMenu : Form
     {
+        private Form currentform;
+        string MaNhanVien = string.Empty;
         public frmMainMenu()
         {
             InitializeComponent();
         }
-        private Form currentform;
+        
         private void Openchildform(Form childform)
         {
             if (currentform != null)
@@ -19,44 +21,10 @@ namespace QuanLiShopQuanAo
             childform.TopLevel = false;
             childform.FormBorderStyle = FormBorderStyle.None;
             childform.Dock = DockStyle.Fill;
-            panel9.Controls.Add(childform);
-            panel9.Tag = childform;
+            pnlContent.Controls.Add(childform);
+            pnlContent.Tag = childform;
             childform.BringToFront();
             childform.Show();
-        }
-        private void tsmiSanPham_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsmiNhanVien_Click(object sender, EventArgs e)
-        {
-            frmNhanVien form = new frmNhanVien();
-            this.Hide();
-            form.ShowDialog();
-
-            if (form.closed)
-                this.Show();
-        }
-
-        private void tsmiHoaDon_Click(object sender, EventArgs e)
-        {
-            frmHoaDon form = new frmHoaDon();
-            this.Hide();
-            form.ShowDialog();
-
-            if (form.closed)
-                this.Show();
-        }
-
-        private void tsmiKho_Click(object sender, EventArgs e)
-        {
-            frmKho form = new frmKho();
-            this.Hide();
-            form.ShowDialog();
-
-            if (form.closed)
-                this.Show();
         }
 
         private void frmMainMenu_Load(object sender, EventArgs e)
@@ -64,45 +32,51 @@ namespace QuanLiShopQuanAo
             frmDangNhap form = new frmDangNhap();
             this.Hide();
             form.ShowDialog();
+            MaNhanVien = form.MaNhanVien;
 
             if (form.closed)
+            {
+                form.Close();
                 this.Show();
+            }
+            else
+                Application.Exit();
         }
 
-        private void btn_HoaDon_Click(object sender, EventArgs e)
+        private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            Openchildform(new frmHoaDon());
-            label1.Text = btn_HoaDon.Text;
+            Openchildform(new frmHoaDon(MaNhanVien));
+            lblTrangChu.Text = btnHoaDon.Text;
         }
 
-        private void btn_SanPham_Click(object sender, EventArgs e)
+        private void btnSanPham_Click(object sender, EventArgs e)
         {
             Openchildform(new frmSanPham());
-            label1.Text = btn_SanPham.Text;
+            lblTrangChu.Text = btnSanPham.Text;
         }
 
-        private void btn_KhachHang_Click(object sender, EventArgs e)
+        private void btnKhachHang_Click(object sender, EventArgs e)
         {
             Openchildform(new frmKhachHang());
-            label1.Text = btn_KhachHang.Text;
+            lblTrangChu.Text = btnKhachHang.Text;
         }
 
-        private void btn_NhanVien_Click(object sender, EventArgs e)
+        private void btnNhanVien_Click(object sender, EventArgs e)
         {
             Openchildform(new frmNhanVien());
-            label1.Text = btn_NhanVien.Text;
+            lblTrangChu.Text = btnNhanVien.Text;
         }
 
-        private void btn_Kho_Click(object sender, EventArgs e)
+        private void btnKho_Click(object sender, EventArgs e)
         {
             Openchildform(new frmKho());
-            label1.Text = btn_Kho.Text;
+            lblTrangChu.Text = btnKho.Text;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNhaCungCap_Click(object sender, EventArgs e)
         {
             Openchildform(new frmNhaCungCap());
-            label1.Text = btn_Ncc.Text;
+            lblTrangChu.Text = btnNhaCungCap.Text;
         }
     }
 }

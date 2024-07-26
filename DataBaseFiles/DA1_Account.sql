@@ -3,7 +3,7 @@ AS
 BEGIN
 	SET NOCOUNT	ON
 	declare @status int
-	if exists(select * from NhanVien where Email = @Email and MatKhau = @MatKhau)
+	if exists(select Email, MatKhau from NhanVien where Email = @Email and MatKhau = @MatKhau)
 		set @status = 1
 	else
 		set @status = 0
@@ -25,16 +25,16 @@ GO
 --END
 --GO
 
---CREATE PROCEDURE dbo.sp_QuenMK @email varchar(50), @newgenpass varchar(20)
---AS
---BEGIN
---	SET NOCOUNT	ON
---	if exists(select * from NhanVien where email = @email)
---		BEGIN
---			UPDATE NhanVien SET MatKhau = @newgenpass where Email = @email
---		END
---END
---GO
+ALTER PROCEDURE dbo.sp_QuenMatKhau @Email varchar(50), @NewGenPassword varchar(20)
+AS
+BEGIN
+	SET NOCOUNT	ON
+	if exists(select Email from NhanVien where Email = @Email)
+		BEGIN
+			UPDATE NhanVien SET MatKhau = @NewGenPassword where Email = @Email
+		END
+END
+GO
 
 ALTER PROCEDURE dbo.sp_DoiMatKhau @Email varchar(50),@OldPass varchar(20),@NewPass varchar(20),@NewPassAgain varchar(20)
 AS
@@ -54,13 +54,13 @@ SELECT @status
 END
 GO
 
---CREATE PROCEDURE dbo.sp_MaNguoiDN @email varchar(50)
---AS
---BEGIN
---	SET NOCOUNT ON
---	SELECT MaNV FROM NhanVien WHERE Email = @email
---END
---GO
+ALTER PROCEDURE dbo.sp_MaNguoiDN @Email varchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT MaNhanVien FROM NhanVien WHERE Email = @Email
+END
+GO
 
 --CREATE PROCEDURE dbo.sp_GuiHoTro @email varchar(20), @noidung nvarchar(450)
 --AS

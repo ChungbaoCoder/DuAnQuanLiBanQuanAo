@@ -36,6 +36,7 @@ GO
 ALTER PROCEDURE dbo.sp_DanhSachHoaDon
 AS
 BEGIN
+	SET NOCOUNT ON
 	SELECT a.MaHoaDon,b.TenKhachHang,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien
 	FROM HoaDon a inner join KhachHang b on a.MaKhachHang = b.MaKhachHang
 END
@@ -262,38 +263,97 @@ GO
 --END
 --GO
 
--- Tạo Hoá Đơn Mới
+-- SEARCH HoaDon
 
-ALTER PROCEDURE dbo.sp_TaoHoaDonMoi @TenKhach nvarchar(100), @SDT varchar(20), @NgayLap date, @MaNVGhi varchar(20)
+ALTER PROCEDURE dbo.sp_TimHoaDon @Varible nvarchar(100)
 AS
 BEGIN
-	DECLARE @MaHD varchar(20)
-	SET @MaHD = CONCAT('HD',CAST((SELECT MAX(Id + 1) FROM HoaDon) AS varchar))
-
-	DECLARE @MAKH varchar(20)
-	SET @MaKH = CONCAT('KH',CAST((SELECT MAX(Id + 1) FROM HoaDon) AS varchar))
-
-	if not exists(SELECT SDT FROM KhachHang WHERE SDT = @SDT)
-	BEGIN
-		INSERT INTO KhachHang (MaKhachHang, TenKhachHang, SDT, DiaChi) VALUES
-		(@MaKH, @TenKhach, @SDT, N'Chưa đặt')
-	END
-
-	INSERT INTO HoaDon (MaHoaDon, MaKhachHang, NgayTao, TongTien, TrangThai, MaNhanVien) VALUES
-	(@MaHD, @MaKH, @NgayLap, 0, N'Chưa thanh toán', @MaNVGhi)
+	SET NOCOUNT ON
+	SELECT a.MaHoaDon,b.TenKhachHang,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien
+	FROM HoaDon a inner join KhachHang b on a.MaKhachHang = b.MaKhachHang
+	WHERE a.MaHoaDon LIKE '%' + @Varible + '%' OR b.TenKhachHang LIKE '%' + @Varible + '%' OR a.TrangThai LIKE '%' + @Varible + '%' OR a.MaNhanVien LIKE '%' + @Varible + '%'
 END
 GO
 
-ALTER PROCEDURE dbo.sp_HoanThanhHoaDon @MaKH varchar(20), @MaSP varchar(20), @SoLuong int, @TongThanhTien float
+-- INSERT HoaDon
+
+ALTER PROCEDURE dbo.sp_TaoHoaDonMoi @TenKhachHang nvarchar(100),@SDT varchar(20),@NgayLap date,@MaNVGhi varchar(20)
+AS
+BEGIN
+	DECLARE @MaHD varchar(20)
+	DECLARE @MaKH varchar(20)
+
+	SET @MaHD = CONCAT('HD',CAST((SELECT MAX(Id + 1) FROM HoaDon) AS varchar))
+
+	if not exists(SELECT SDT FROM KhachHang WHERE SDT = @SDT)
+	BEGIN
+		DECLARE @MaKHMoi varchar(20)
+		SET @MaKHMoi = CONCAT('KH',CAST((SELECT MAX(Id + 1) FROM HoaDon) AS varchar))
+		INSERT INTO KhachHang (MaKhachHang, TenKhachHang, SDT, DiaChi) VALUES
+		(@MaKHMoi,@TenKhachHang,@SDT,N'Chưa đặt')
+	END
+	ELSE
+	BEGIN
+		SET @MaKH = (SELECT MaKhachHang FROM KhachHang WHERE SDT = @SDT)
+	END
+
+	INSERT INTO HoaDon (MaHoaDon, MaKhachHang, NgayTao, TongTien, TrangThai, MaNhanVien) VALUES
+	(@MaHD,@MaKH,@NgayLap,0,N'Chưa thanh toán',@MaNVGhi)
+END
+GO
+
+-- UPDATE HoaDon
+
+ALTER PROCEDURE dbo.sp_CapNhatHoaDon @MaHoaDon varchar(20),@TenKhachHang nvarchar(100),@NgayLap date
+AS
+BEGIN
+	DECLARE @MaKH varchar(20)
+	SET @MaKH = (SELECT MaKhachHang FROM KhachHang WHERE TenKhachHang = @TenKhachHang)
+
+	UPDATE HoaDon SET MaKhachHang = @MaKH,NgayTao = @NgayLap WHERE MaHoaDon = @MaHoaDon
+END
+GO
+
+-- DELETE HoaDon
+
+ALTER PROCEDURE dbo.sp_XoaHoaDon @MaHoaDon varchar(20)
+AS
+BEGIN
+	DELETE FROM ChiTietHoaDon WHERE MaHoaDon = @MaHoaDon
+	DELETE FROM HoaDon WHERE MaHoaDon = @MaHoaDon
+END
+GO
+
+-- INSERT ChiTietHoaDon
+
+CREATE PROCEDURE dbo.sp_ThemChiTietHoaDon @MaKhachHang varchar(20), @MaSanPham varchar(20), @SoLuong int, @TongThanhTien float
 AS
 BEGIN
 	DECLARE @MaHD varchar(20)
 	SET @MaHD = (SELECT TOP 1 MaHoaDon FROM HoaDon ORDER BY Id DESC)
 
 	INSERT INTO ChiTietHoaDon (MaHoaDon, MaSanPham, SoLuong) VALUES
-	(@MaHD, @MaSP, @SoLuong)
+	(@MaHD, @MaSanPham, @SoLuong)
 
-	UPDATE HoaDon SET TongTien = @TongThanhTien WHERE MaKhachHang = @MaKH
+	UPDATE HoaDon SET TongTien = @TongThanhTien WHERE MaKhachHang = @MaKhachHang
+END
+GO
+
+-- UPDATE ChiTietHoaDon (Hoàn thành hoá đơn)
+
+CREATE PROCEDURE dbo.sp_CapNhatChiTietHoaDon @MaKhachHang varchar(20),@TongTien float
+AS
+BEGIN
+	UPDATE HoaDon SET TongTien = @TongTien WHERE MaKhachHang = @MaKhachHang
+END
+GO
+
+-- DELETE ChiTietHoaDon
+
+CREATE PROCEDURE dbo.sp_XoaChiTietHoaDon @MaSanPham varchar(20)
+AS
+BEGIN
+	DELETE FROM ChiTietHoaDon WHERE MaSanPham = @MaSanPham
 END
 GO
 

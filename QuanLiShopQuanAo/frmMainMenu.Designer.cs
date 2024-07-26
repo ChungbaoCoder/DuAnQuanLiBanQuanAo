@@ -28,409 +28,409 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            panel7 = new Panel();
-            lb_Dashboard = new Label();
-            panel2 = new Panel();
-            pictureBox1 = new PictureBox();
-            btn_HoaDon = new Button();
-            panel3 = new Panel();
-            pictureBox2 = new PictureBox();
-            btn_SanPham = new Button();
-            panel5 = new Panel();
-            pictureBox4 = new PictureBox();
-            btn_KhachHang = new Button();
-            panel6 = new Panel();
-            pictureBox5 = new PictureBox();
-            btn_NhanVien = new Button();
-            panel4 = new Panel();
-            pictureBox3 = new PictureBox();
-            btn_Kho = new Button();
-            panel10 = new Panel();
-            pictureBox7 = new PictureBox();
-            btn_Ncc = new Button();
-            panel1 = new Panel();
-            label1 = new Label();
-            pictureBox6 = new PictureBox();
-            panel8 = new Panel();
-            lb_Chao = new Label();
-            lb_username = new Label();
-            panel9 = new Panel();
-            flowLayoutPanel1.SuspendLayout();
-            panel7.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            panel8.SuspendLayout();
+            flpDashBoard = new FlowLayoutPanel();
+            pnlDashBoard = new Panel();
+            lblDashBoard = new Label();
+            pnlHoaDon = new Panel();
+            picHoaDonIcon = new PictureBox();
+            btnHoaDon = new Button();
+            pnlSanPham = new Panel();
+            picSanPhamIcon = new PictureBox();
+            btnSanPham = new Button();
+            pnlKhachHang = new Panel();
+            picKhachHangIcon = new PictureBox();
+            btnKhachHang = new Button();
+            pnlNhanVien = new Panel();
+            picNhanVienIcon = new PictureBox();
+            btnNhanVien = new Button();
+            pnlKho = new Panel();
+            picKhoIcon = new PictureBox();
+            btnKho = new Button();
+            pnlNhaCungCap = new Panel();
+            picNhaCungCapIcon = new PictureBox();
+            btnNhaCungCap = new Button();
+            pnlTop = new Panel();
+            lblTrangChu = new Label();
+            picIconTrangChu = new PictureBox();
+            pnlHelloUser = new Panel();
+            lblChao = new Label();
+            lblUserName = new Label();
+            pnlContent = new Panel();
+            flpDashBoard.SuspendLayout();
+            pnlDashBoard.SuspendLayout();
+            pnlHoaDon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picHoaDonIcon).BeginInit();
+            pnlSanPham.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picSanPhamIcon).BeginInit();
+            pnlKhachHang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picKhachHangIcon).BeginInit();
+            pnlNhanVien.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picNhanVienIcon).BeginInit();
+            pnlKho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picKhoIcon).BeginInit();
+            pnlNhaCungCap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picNhaCungCapIcon).BeginInit();
+            pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIconTrangChu).BeginInit();
+            pnlHelloUser.SuspendLayout();
             SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flpDashBoard
             // 
-            flowLayoutPanel1.BackColor = SystemColors.ActiveCaption;
-            flowLayoutPanel1.Controls.Add(panel7);
-            flowLayoutPanel1.Controls.Add(panel2);
-            flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Controls.Add(panel5);
-            flowLayoutPanel1.Controls.Add(panel6);
-            flowLayoutPanel1.Controls.Add(panel4);
-            flowLayoutPanel1.Controls.Add(panel10);
-            flowLayoutPanel1.Dock = DockStyle.Left;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(196, 513);
-            flowLayoutPanel1.TabIndex = 0;
+            flpDashBoard.BackColor = SystemColors.ActiveCaption;
+            flpDashBoard.Controls.Add(pnlDashBoard);
+            flpDashBoard.Controls.Add(pnlHoaDon);
+            flpDashBoard.Controls.Add(pnlSanPham);
+            flpDashBoard.Controls.Add(pnlKhachHang);
+            flpDashBoard.Controls.Add(pnlNhanVien);
+            flpDashBoard.Controls.Add(pnlKho);
+            flpDashBoard.Controls.Add(pnlNhaCungCap);
+            flpDashBoard.Dock = DockStyle.Left;
+            flpDashBoard.Location = new Point(0, 0);
+            flpDashBoard.Name = "flpDashBoard";
+            flpDashBoard.Size = new Size(196, 513);
+            flpDashBoard.TabIndex = 0;
             // 
-            // panel7
+            // pnlDashBoard
             // 
-            panel7.BorderStyle = BorderStyle.Fixed3D;
-            panel7.Controls.Add(lb_Dashboard);
-            panel7.Location = new Point(3, 3);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(190, 65);
-            panel7.TabIndex = 2;
+            pnlDashBoard.BorderStyle = BorderStyle.Fixed3D;
+            pnlDashBoard.Controls.Add(lblDashBoard);
+            pnlDashBoard.Location = new Point(3, 3);
+            pnlDashBoard.Name = "pnlDashBoard";
+            pnlDashBoard.Size = new Size(190, 65);
+            pnlDashBoard.TabIndex = 2;
             // 
-            // lb_Dashboard
+            // lblDashBoard
             // 
-            lb_Dashboard.Anchor = AnchorStyles.None;
-            lb_Dashboard.AutoSize = true;
-            lb_Dashboard.Font = new Font("Segoe UI Variable Display", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            lb_Dashboard.ImageAlign = ContentAlignment.BottomLeft;
-            lb_Dashboard.Location = new Point(-1, 15);
-            lb_Dashboard.Name = "lb_Dashboard";
-            lb_Dashboard.Size = new Size(189, 31);
-            lb_Dashboard.TabIndex = 4;
-            lb_Dashboard.Text = "Bảng Điều Khiển";
-            lb_Dashboard.TextAlign = ContentAlignment.TopCenter;
+            lblDashBoard.Anchor = AnchorStyles.None;
+            lblDashBoard.AutoSize = true;
+            lblDashBoard.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblDashBoard.ImageAlign = ContentAlignment.BottomLeft;
+            lblDashBoard.Location = new Point(-1, 15);
+            lblDashBoard.Name = "lblDashBoard";
+            lblDashBoard.Size = new Size(208, 29);
+            lblDashBoard.TabIndex = 4;
+            lblDashBoard.Text = "Bảng Điều Khiển";
+            lblDashBoard.TextAlign = ContentAlignment.TopCenter;
             // 
-            // panel2
+            // pnlHoaDon
             // 
-            panel2.Controls.Add(pictureBox1);
-            panel2.Controls.Add(btn_HoaDon);
-            panel2.Location = new Point(3, 74);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(185, 53);
-            panel2.TabIndex = 6;
+            pnlHoaDon.Controls.Add(picHoaDonIcon);
+            pnlHoaDon.Controls.Add(btnHoaDon);
+            pnlHoaDon.Location = new Point(3, 74);
+            pnlHoaDon.Name = "pnlHoaDon";
+            pnlHoaDon.Size = new Size(185, 53);
+            pnlHoaDon.TabIndex = 6;
             // 
-            // pictureBox1
+            // picHoaDonIcon
             // 
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(48, 45);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            picHoaDonIcon.Location = new Point(3, 3);
+            picHoaDonIcon.Name = "picHoaDonIcon";
+            picHoaDonIcon.Size = new Size(48, 45);
+            picHoaDonIcon.TabIndex = 0;
+            picHoaDonIcon.TabStop = false;
             // 
-            // btn_HoaDon
+            // btnHoaDon
             // 
-            btn_HoaDon.AutoSize = true;
-            btn_HoaDon.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_HoaDon.Location = new Point(3, 3);
-            btn_HoaDon.Name = "btn_HoaDon";
-            btn_HoaDon.Size = new Size(218, 45);
-            btn_HoaDon.TabIndex = 1;
-            btn_HoaDon.Text = "Hóa Đơn";
-            btn_HoaDon.UseVisualStyleBackColor = true;
-            btn_HoaDon.Click += btn_HoaDon_Click;
+            btnHoaDon.AutoSize = true;
+            btnHoaDon.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnHoaDon.Location = new Point(3, 3);
+            btnHoaDon.Name = "btnHoaDon";
+            btnHoaDon.Size = new Size(218, 45);
+            btnHoaDon.TabIndex = 1;
+            btnHoaDon.Text = "Hóa Đơn";
+            btnHoaDon.UseVisualStyleBackColor = true;
+            btnHoaDon.Click += btnHoaDon_Click;
             // 
-            // panel3
+            // pnlSanPham
             // 
-            panel3.Controls.Add(pictureBox2);
-            panel3.Controls.Add(btn_SanPham);
-            panel3.Location = new Point(3, 133);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(185, 53);
-            panel3.TabIndex = 7;
+            pnlSanPham.Controls.Add(picSanPhamIcon);
+            pnlSanPham.Controls.Add(btnSanPham);
+            pnlSanPham.Location = new Point(3, 133);
+            pnlSanPham.Name = "pnlSanPham";
+            pnlSanPham.Size = new Size(185, 53);
+            pnlSanPham.TabIndex = 7;
             // 
-            // pictureBox2
+            // picSanPhamIcon
             // 
-            pictureBox2.Location = new Point(3, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(48, 45);
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
+            picSanPhamIcon.Location = new Point(3, 3);
+            picSanPhamIcon.Name = "picSanPhamIcon";
+            picSanPhamIcon.Size = new Size(48, 45);
+            picSanPhamIcon.TabIndex = 0;
+            picSanPhamIcon.TabStop = false;
             // 
-            // btn_SanPham
+            // btnSanPham
             // 
-            btn_SanPham.AutoSize = true;
-            btn_SanPham.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_SanPham.Location = new Point(3, 3);
-            btn_SanPham.Name = "btn_SanPham";
-            btn_SanPham.Size = new Size(218, 45);
-            btn_SanPham.TabIndex = 1;
-            btn_SanPham.Text = "Sản Phẩm";
-            btn_SanPham.UseVisualStyleBackColor = true;
-            btn_SanPham.Click += btn_SanPham_Click;
+            btnSanPham.AutoSize = true;
+            btnSanPham.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSanPham.Location = new Point(3, 3);
+            btnSanPham.Name = "btnSanPham";
+            btnSanPham.Size = new Size(218, 45);
+            btnSanPham.TabIndex = 1;
+            btnSanPham.Text = "Sản Phẩm";
+            btnSanPham.UseVisualStyleBackColor = true;
+            btnSanPham.Click += btnSanPham_Click;
             // 
-            // panel5
+            // pnlKhachHang
             // 
-            panel5.Controls.Add(pictureBox4);
-            panel5.Controls.Add(btn_KhachHang);
-            panel5.Location = new Point(3, 192);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(185, 53);
-            panel5.TabIndex = 8;
+            pnlKhachHang.Controls.Add(picKhachHangIcon);
+            pnlKhachHang.Controls.Add(btnKhachHang);
+            pnlKhachHang.Location = new Point(3, 192);
+            pnlKhachHang.Name = "pnlKhachHang";
+            pnlKhachHang.Size = new Size(185, 53);
+            pnlKhachHang.TabIndex = 8;
             // 
-            // pictureBox4
+            // picKhachHangIcon
             // 
-            pictureBox4.Location = new Point(3, 3);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(48, 45);
-            pictureBox4.TabIndex = 0;
-            pictureBox4.TabStop = false;
+            picKhachHangIcon.Location = new Point(3, 3);
+            picKhachHangIcon.Name = "picKhachHangIcon";
+            picKhachHangIcon.Size = new Size(48, 45);
+            picKhachHangIcon.TabIndex = 0;
+            picKhachHangIcon.TabStop = false;
             // 
-            // btn_KhachHang
+            // btnKhachHang
             // 
-            btn_KhachHang.AutoSize = true;
-            btn_KhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_KhachHang.Location = new Point(3, 3);
-            btn_KhachHang.Name = "btn_KhachHang";
-            btn_KhachHang.Size = new Size(218, 45);
-            btn_KhachHang.TabIndex = 1;
-            btn_KhachHang.Text = "Khách Hàng";
-            btn_KhachHang.UseVisualStyleBackColor = true;
-            btn_KhachHang.Click += btn_KhachHang_Click;
+            btnKhachHang.AutoSize = true;
+            btnKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnKhachHang.Location = new Point(3, 3);
+            btnKhachHang.Name = "btnKhachHang";
+            btnKhachHang.Size = new Size(218, 45);
+            btnKhachHang.TabIndex = 1;
+            btnKhachHang.Text = "Khách Hàng";
+            btnKhachHang.UseVisualStyleBackColor = true;
+            btnKhachHang.Click += btnKhachHang_Click;
             // 
-            // panel6
+            // pnlNhanVien
             // 
-            panel6.Controls.Add(pictureBox5);
-            panel6.Controls.Add(btn_NhanVien);
-            panel6.Location = new Point(3, 251);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(185, 53);
-            panel6.TabIndex = 9;
+            pnlNhanVien.Controls.Add(picNhanVienIcon);
+            pnlNhanVien.Controls.Add(btnNhanVien);
+            pnlNhanVien.Location = new Point(3, 251);
+            pnlNhanVien.Name = "pnlNhanVien";
+            pnlNhanVien.Size = new Size(185, 53);
+            pnlNhanVien.TabIndex = 9;
             // 
-            // pictureBox5
+            // picNhanVienIcon
             // 
-            pictureBox5.Location = new Point(3, 3);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(48, 45);
-            pictureBox5.TabIndex = 0;
-            pictureBox5.TabStop = false;
+            picNhanVienIcon.Location = new Point(3, 3);
+            picNhanVienIcon.Name = "picNhanVienIcon";
+            picNhanVienIcon.Size = new Size(48, 45);
+            picNhanVienIcon.TabIndex = 0;
+            picNhanVienIcon.TabStop = false;
             // 
-            // btn_NhanVien
+            // btnNhanVien
             // 
-            btn_NhanVien.AutoSize = true;
-            btn_NhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_NhanVien.Location = new Point(3, 3);
-            btn_NhanVien.Name = "btn_NhanVien";
-            btn_NhanVien.Size = new Size(218, 45);
-            btn_NhanVien.TabIndex = 1;
-            btn_NhanVien.Text = "Nhân Viên";
-            btn_NhanVien.UseVisualStyleBackColor = true;
-            btn_NhanVien.Click += btn_NhanVien_Click;
+            btnNhanVien.AutoSize = true;
+            btnNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNhanVien.Location = new Point(3, 3);
+            btnNhanVien.Name = "btnNhanVien";
+            btnNhanVien.Size = new Size(218, 45);
+            btnNhanVien.TabIndex = 1;
+            btnNhanVien.Text = "Nhân Viên";
+            btnNhanVien.UseVisualStyleBackColor = true;
+            btnNhanVien.Click += btnNhanVien_Click;
             // 
-            // panel4
+            // pnlKho
             // 
-            panel4.Controls.Add(pictureBox3);
-            panel4.Controls.Add(btn_Kho);
-            panel4.Location = new Point(3, 310);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(185, 53);
-            panel4.TabIndex = 5;
+            pnlKho.Controls.Add(picKhoIcon);
+            pnlKho.Controls.Add(btnKho);
+            pnlKho.Location = new Point(3, 310);
+            pnlKho.Name = "pnlKho";
+            pnlKho.Size = new Size(185, 53);
+            pnlKho.TabIndex = 5;
             // 
-            // pictureBox3
+            // picKhoIcon
             // 
-            pictureBox3.Location = new Point(3, 3);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(48, 45);
-            pictureBox3.TabIndex = 0;
-            pictureBox3.TabStop = false;
+            picKhoIcon.Location = new Point(3, 3);
+            picKhoIcon.Name = "picKhoIcon";
+            picKhoIcon.Size = new Size(48, 45);
+            picKhoIcon.TabIndex = 0;
+            picKhoIcon.TabStop = false;
             // 
-            // btn_Kho
+            // btnKho
             // 
-            btn_Kho.AutoSize = true;
-            btn_Kho.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_Kho.Location = new Point(3, 3);
-            btn_Kho.Name = "btn_Kho";
-            btn_Kho.Size = new Size(218, 45);
-            btn_Kho.TabIndex = 1;
-            btn_Kho.Text = "Kho";
-            btn_Kho.UseVisualStyleBackColor = true;
-            btn_Kho.Click += btn_Kho_Click;
+            btnKho.AutoSize = true;
+            btnKho.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnKho.Location = new Point(3, 3);
+            btnKho.Name = "btnKho";
+            btnKho.Size = new Size(218, 45);
+            btnKho.TabIndex = 1;
+            btnKho.Text = "Kho";
+            btnKho.UseVisualStyleBackColor = true;
+            btnKho.Click += btnKho_Click;
             // 
-            // panel10
+            // pnlNhaCungCap
             // 
-            panel10.Controls.Add(pictureBox7);
-            panel10.Controls.Add(btn_Ncc);
-            panel10.Location = new Point(3, 369);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(185, 53);
-            panel10.TabIndex = 10;
+            pnlNhaCungCap.Controls.Add(picNhaCungCapIcon);
+            pnlNhaCungCap.Controls.Add(btnNhaCungCap);
+            pnlNhaCungCap.Location = new Point(3, 369);
+            pnlNhaCungCap.Name = "pnlNhaCungCap";
+            pnlNhaCungCap.Size = new Size(185, 53);
+            pnlNhaCungCap.TabIndex = 10;
             // 
-            // pictureBox7
+            // picNhaCungCapIcon
             // 
-            pictureBox7.Location = new Point(3, 3);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(48, 45);
-            pictureBox7.TabIndex = 0;
-            pictureBox7.TabStop = false;
+            picNhaCungCapIcon.Location = new Point(3, 3);
+            picNhaCungCapIcon.Name = "picNhaCungCapIcon";
+            picNhaCungCapIcon.Size = new Size(48, 45);
+            picNhaCungCapIcon.TabIndex = 0;
+            picNhaCungCapIcon.TabStop = false;
             // 
-            // btn_Ncc
+            // btnNhaCungCap
             // 
-            btn_Ncc.AutoSize = true;
-            btn_Ncc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_Ncc.Location = new Point(3, 3);
-            btn_Ncc.Name = "btn_Ncc";
-            btn_Ncc.Size = new Size(234, 45);
-            btn_Ncc.TabIndex = 1;
-            btn_Ncc.Text = "Nhà Cung Cấp";
-            btn_Ncc.UseVisualStyleBackColor = true;
-            btn_Ncc.Click += button1_Click;
+            btnNhaCungCap.AutoSize = true;
+            btnNhaCungCap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNhaCungCap.Location = new Point(3, 3);
+            btnNhaCungCap.Name = "btnNhaCungCap";
+            btnNhaCungCap.Size = new Size(234, 45);
+            btnNhaCungCap.TabIndex = 1;
+            btnNhaCungCap.Text = "Nhà Cung Cấp";
+            btnNhaCungCap.UseVisualStyleBackColor = true;
+            btnNhaCungCap.Click += btnNhaCungCap_Click;
             // 
-            // panel1
+            // pnlTop
             // 
-            panel1.BackColor = SystemColors.ActiveBorder;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox6);
-            panel1.Controls.Add(panel8);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(196, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(667, 71);
-            panel1.TabIndex = 1;
+            pnlTop.BackColor = SystemColors.ActiveBorder;
+            pnlTop.Controls.Add(lblTrangChu);
+            pnlTop.Controls.Add(picIconTrangChu);
+            pnlTop.Controls.Add(pnlHelloUser);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(196, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(667, 71);
+            pnlTop.TabIndex = 1;
             // 
-            // label1
+            // lblTrangChu
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(92, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(123, 32);
-            label1.TabIndex = 4;
-            label1.Text = "Trang Chủ";
+            lblTrangChu.AutoSize = true;
+            lblTrangChu.Location = new Point(92, 19);
+            lblTrangChu.Name = "lblTrangChu";
+            lblTrangChu.Size = new Size(123, 32);
+            lblTrangChu.TabIndex = 4;
+            lblTrangChu.Text = "Trang Chủ";
             // 
-            // pictureBox6
+            // picIconTrangChu
             // 
-            pictureBox6.Location = new Point(6, 3);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(80, 65);
-            pictureBox6.TabIndex = 3;
-            pictureBox6.TabStop = false;
+            picIconTrangChu.Location = new Point(6, 3);
+            picIconTrangChu.Name = "picIconTrangChu";
+            picIconTrangChu.Size = new Size(80, 65);
+            picIconTrangChu.TabIndex = 3;
+            picIconTrangChu.TabStop = false;
             // 
-            // panel8
+            // pnlHelloUser
             // 
-            panel8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel8.Controls.Add(lb_Chao);
-            panel8.Controls.Add(lb_username);
-            panel8.Location = new Point(453, 7);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(214, 51);
-            panel8.TabIndex = 2;
+            pnlHelloUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pnlHelloUser.Controls.Add(lblChao);
+            pnlHelloUser.Controls.Add(lblUserName);
+            pnlHelloUser.Location = new Point(453, 7);
+            pnlHelloUser.Name = "pnlHelloUser";
+            pnlHelloUser.Size = new Size(214, 51);
+            pnlHelloUser.TabIndex = 2;
             // 
-            // lb_Chao
+            // lblChao
             // 
-            lb_Chao.Anchor = AnchorStyles.None;
-            lb_Chao.AutoSize = true;
-            lb_Chao.Font = new Font("Segoe UI Variable Display", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lb_Chao.ImageAlign = ContentAlignment.BottomLeft;
-            lb_Chao.Location = new Point(22, 8);
-            lb_Chao.Name = "lb_Chao";
-            lb_Chao.Size = new Size(70, 31);
-            lb_Chao.TabIndex = 6;
-            lb_Chao.Text = "Chào";
-            lb_Chao.TextAlign = ContentAlignment.TopCenter;
+            lblChao.Anchor = AnchorStyles.None;
+            lblChao.AutoSize = true;
+            lblChao.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblChao.ImageAlign = ContentAlignment.BottomLeft;
+            lblChao.Location = new Point(22, 8);
+            lblChao.Name = "lblChao";
+            lblChao.Size = new Size(74, 29);
+            lblChao.TabIndex = 6;
+            lblChao.Text = "Chào";
+            lblChao.TextAlign = ContentAlignment.TopCenter;
             // 
-            // lb_username
+            // lblUserName
             // 
-            lb_username.Anchor = AnchorStyles.None;
-            lb_username.AutoSize = true;
-            lb_username.Font = new Font("Segoe UI Variable Display", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            lb_username.ImageAlign = ContentAlignment.BottomLeft;
-            lb_username.Location = new Point(115, 8);
-            lb_username.Name = "lb_username";
-            lb_username.Size = new Size(85, 31);
-            lb_username.TabIndex = 5;
-            lb_username.Text = "Admin";
-            lb_username.TextAlign = ContentAlignment.TopCenter;
+            lblUserName.Anchor = AnchorStyles.None;
+            lblUserName.AutoSize = true;
+            lblUserName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblUserName.ImageAlign = ContentAlignment.BottomLeft;
+            lblUserName.Location = new Point(115, 8);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Size = new Size(86, 29);
+            lblUserName.TabIndex = 5;
+            lblUserName.Text = "Admin";
+            lblUserName.TextAlign = ContentAlignment.TopCenter;
             // 
-            // panel9
+            // pnlContent
             // 
-            panel9.Dock = DockStyle.Fill;
-            panel9.Location = new Point(196, 71);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(667, 442);
-            panel9.TabIndex = 2;
+            pnlContent.Dock = DockStyle.Fill;
+            pnlContent.Location = new Point(196, 71);
+            pnlContent.Name = "pnlContent";
+            pnlContent.Size = new Size(667, 442);
+            pnlContent.TabIndex = 2;
             // 
             // frmMainMenu
             // 
             AutoScaleDimensions = new SizeF(13F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(863, 513);
-            Controls.Add(panel9);
-            Controls.Add(panel1);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(pnlContent);
+            Controls.Add(pnlTop);
+            Controls.Add(flpDashBoard);
             Font = new Font("Segoe UI", 14F);
             Margin = new Padding(5);
             Name = "frmMainMenu";
             Text = "Màn hình chính";
             Load += frmMainMenu_Load;
-            flowLayoutPanel1.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
+            flpDashBoard.ResumeLayout(false);
+            pnlDashBoard.ResumeLayout(false);
+            pnlDashBoard.PerformLayout();
+            pnlHoaDon.ResumeLayout(false);
+            pnlHoaDon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picHoaDonIcon).EndInit();
+            pnlSanPham.ResumeLayout(false);
+            pnlSanPham.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picSanPhamIcon).EndInit();
+            pnlKhachHang.ResumeLayout(false);
+            pnlKhachHang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picKhachHangIcon).EndInit();
+            pnlNhanVien.ResumeLayout(false);
+            pnlNhanVien.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picNhanVienIcon).EndInit();
+            pnlKho.ResumeLayout(false);
+            pnlKho.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picKhoIcon).EndInit();
+            pnlNhaCungCap.ResumeLayout(false);
+            pnlNhaCungCap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picNhaCungCapIcon).EndInit();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIconTrangChu).EndInit();
+            pnlHelloUser.ResumeLayout(false);
+            pnlHelloUser.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Panel panel1;
-        private Panel panel4;
-        private Button btn_Kho;
-        private PictureBox pictureBox3;
-        private Panel panel2;
-        private Button btn_HoaDon;
-        private PictureBox pictureBox1;
-        private Panel panel3;
-        private Button btn_SanPham;
-        private PictureBox pictureBox2;
-        private Panel panel5;
-        private Button btn_KhachHang;
-        private PictureBox pictureBox4;
-        private Panel panel6;
-        private Button btn_NhanVien;
-        private PictureBox pictureBox5;
-        private Panel panel7;
-        private Label lb_Dashboard;
-        private Panel panel8;
-        private Label lb_username;
-        private Label lb_Chao;
-        private Label label1;
-        private PictureBox pictureBox6;
-        private Panel panel9;
-        private Panel panel10;
-        private PictureBox pictureBox7;
-        private Button btn_Ncc;
+        private FlowLayoutPanel flpDashBoard;
+        private Panel pnlTop;
+        private Panel pnlKho;
+        private Button btnKho;
+        private PictureBox picKhoIcon;
+        private Panel pnlHoaDon;
+        private Button btnHoaDon;
+        private PictureBox picHoaDonIcon;
+        private Panel pnlSanPham;
+        private Button btnSanPham;
+        private PictureBox picSanPhamIcon;
+        private Panel pnlKhachHang;
+        private Button btnKhachHang;
+        private PictureBox picKhachHangIcon;
+        private Panel pnlNhanVien;
+        private Button btnNhanVien;
+        private PictureBox picNhanVienIcon;
+        private Panel pnlDashBoard;
+        private Label lblDashBoard;
+        private Panel pnlHelloUser;
+        private Label lblUserName;
+        private Label lblChao;
+        private Label lblTrangChu;
+        private PictureBox picIconTrangChu;
+        private Panel pnlContent;
+        private Panel pnlNhaCungCap;
+        private PictureBox picNhaCungCapIcon;
+        private Button btnNhaCungCap;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using QuanLiShopQuanAo.BUS.Entities;
+using System.Data;
 
 namespace QuanLiShopQuanAo.DAL.Interfaces
 {
