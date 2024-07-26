@@ -70,7 +70,7 @@ namespace QuanLiShopQuanAo.DAL
             catch { }
             return false;
         }
-        private string CreatePassword(int length)
+        public string CreatePassword(int length)
         {
             const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
             StringBuilder res = new StringBuilder();

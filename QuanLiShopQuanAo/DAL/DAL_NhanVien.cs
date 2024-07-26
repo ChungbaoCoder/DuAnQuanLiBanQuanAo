@@ -67,6 +67,7 @@ namespace QuanLiShopQuanAo.DAL
                     cmd.Parameters.AddWithValue("@Email", nhanVien.Email);
                     cmd.Parameters.AddWithValue("@HinhAnh", nhanVien.HinhAnh);
                     cmd.Parameters.AddWithValue("@TrangThai", nhanVien.TrangThai);
+                    cmd.Parameters.AddWithValue("@MatKhau", nhanVien.MatKhau);
                     cmd.Connection = conn;
                     conn.Open();
 

@@ -84,28 +84,13 @@ namespace QuanLiShopQuanAo
             catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void OpenFile()
-        {
-            OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "All Files (*.*)|*.*";
-            choofdlog.FilterIndex = 1;
-            choofdlog.Multiselect = false;
-
-            if (choofdlog.ShowDialog() == DialogResult.OK)
-            {
-                string sFileName = choofdlog.FileName;
-                string[] arrAllFiles = choofdlog.FileNames; //used when Multiselect = true
-                txtThemHinhAnhSanPham.Text = sFileName;
-            }
-        }
-
         private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvSanPham.SelectedCells.Count > 0)
             {
                 int selectedrowindex = dgvSanPham.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvSanPham.Rows[selectedrowindex];
-                string cellValue = Convert.ToString(selectedRow.Cells[8].ToString());
+                string cellValue = selectedRow.Cells[8].Value.ToString();
 
                 try
                 {

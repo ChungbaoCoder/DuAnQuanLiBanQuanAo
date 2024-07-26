@@ -14,6 +14,7 @@ namespace QuanLiShopQuanAo
 
         public frmHoaDon(string MaNhanVien)
         {
+            InitializeComponent();
             this.MaNhanVien = MaNhanVien;
         }
 

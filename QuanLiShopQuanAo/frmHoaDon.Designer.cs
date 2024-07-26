@@ -424,7 +424,7 @@
             // 
             // btnTimHoaDon
             // 
-            btnTimHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnTimHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnTimHoaDon.Font = new Font("Segoe UI", 12F);
             btnTimHoaDon.Location = new Point(1066, 481);
             btnTimHoaDon.Name = "btnTimHoaDon";
@@ -436,7 +436,7 @@
             // 
             // txtTimKiemHoaDon
             // 
-            txtTimKiemHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            txtTimKiemHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTimKiemHoaDon.Font = new Font("Segoe UI", 12F);
             txtTimKiemHoaDon.Location = new Point(639, 481);
             txtTimKiemHoaDon.Name = "txtTimKiemHoaDon";

@@ -17,7 +17,6 @@ namespace QuanLiShopQuanAo
             HideButtonControl();
             SetColumns();
             dgvNhanVien.DataSource = BUS_NhanVien.QueryData("data");
-            
         }
 
         private void SetColumns()
@@ -137,6 +136,7 @@ namespace QuanLiShopQuanAo
                     Email = txtThemEmailNhanVien.Text,
                     HinhAnh = txtThemHinhAnhNhanVien.Text,
                     TrangThai = txtThemTrangThai.Text,
+                    MatKhau = BUS_Account.CreatePassword(5)
                 };
                 if (BUS_NhanVien.QueryData(NhanVien, "insert"))
                     MessageBox.Show("Thêm thông tin nhân viên thành công");
@@ -201,6 +201,65 @@ namespace QuanLiShopQuanAo
                 HideTextControl();
                 HideButtonControl();
                 dgvNhanVien.DataSource = BUS_NhanVien.QueryData("data");
+            }
+        }
+
+        private void btnMoFileThem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = false;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                string[] arrAllFiles = choofdlog.FileNames; //used when Multiselect = true
+                txtThemHinhAnhNhanVien.Text = sFileName;
+
+                Bitmap bitmap = new Bitmap(sFileName);
+                picAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage;
+                picAnhNhanVien.Image = Image.FromFile(sFileName);
+                bitmap.Dispose();
+            }
+        }
+
+        private void btnMoFileSua_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = false;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                string[] arrAllFiles = choofdlog.FileNames; //used when Multiselect = true
+                txtSuaHinhAnhNhanVien.Text = sFileName;
+
+                Bitmap bitmap = new Bitmap(sFileName);
+                picAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage;
+                picAnhNhanVien.Image = Image.FromFile(sFileName);
+                bitmap.Dispose();
+            }
+        }
+
+        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvNhanVien.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvNhanVien.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvNhanVien.Rows[selectedrowindex];
+                string cellValue = selectedRow.Cells[7].Value.ToString();
+
+                try
+                {
+                    Bitmap bitmap = new Bitmap(cellValue);
+                    picAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picAnhNhanVien.Image = Image.FromFile(cellValue);
+                    bitmap.Dispose();
+                }
+                catch { }
             }
         }
     }

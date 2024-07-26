@@ -20,6 +20,11 @@ namespace QuanLiShopQuanAo.BUS
             IProcAccount account = new DAL_Account();
             return account.SendMail(email);
         }
+        public static string CreatePassword(int length)
+        {
+            IProcAccount account = new DAL_Account();
+            return account.CreatePassword(length);
+        }
         public static string MaNguoiDangNhap(string email)
         {
             IProcAccount account = new DAL_Account();

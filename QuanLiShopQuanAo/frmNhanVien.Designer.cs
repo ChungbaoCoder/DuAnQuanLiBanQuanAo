@@ -49,13 +49,14 @@
             btnChonTatCa = new Button();
             btnXoaNhanVien = new Button();
             dgvNhanVien = new DataGridView();
-            dgvhCheckBoxNV = new DataGridViewTextBoxColumn();
+            dgvhCheckBoxNV = new DataGridViewCheckBoxColumn();
             dgvhMaNV = new DataGridViewTextBoxColumn();
             dgvhTenNV = new DataGridViewTextBoxColumn();
             dgvhChucVuNV = new DataGridViewTextBoxColumn();
             dgvhLuongNV = new DataGridViewTextBoxColumn();
             dgvhEmailNV = new DataGridViewTextBoxColumn();
             dgvhTrangThaiNV = new DataGridViewTextBoxColumn();
+            dgvhHinhAnhNhanVien = new DataGridViewTextBoxColumn();
             grpSuaNhanVien = new GroupBox();
             lblSuaEmailNhanVien = new Label();
             btnMoFileSua = new Button();
@@ -121,6 +122,7 @@
             btnMoFileThem.TabIndex = 51;
             btnMoFileThem.Text = "Mở File";
             btnMoFileThem.UseVisualStyleBackColor = true;
+            btnMoFileThem.Click += btnMoFileThem_Click;
             // 
             // txtThemHinhAnhNhanVien
             // 
@@ -310,20 +312,24 @@
             dgvNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNhanVien.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxNV, dgvhMaNV, dgvhTenNV, dgvhChucVuNV, dgvhLuongNV, dgvhEmailNV, dgvhTrangThaiNV });
+            dgvNhanVien.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxNV, dgvhMaNV, dgvhTenNV, dgvhChucVuNV, dgvhLuongNV, dgvhEmailNV, dgvhTrangThaiNV, dgvhHinhAnhNhanVien });
             dgvNhanVien.Location = new Point(12, 12);
             dgvNhanVien.MultiSelect = false;
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersVisible = false;
             dgvNhanVien.RowHeadersWidth = 51;
+            dgvNhanVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNhanVien.Size = new Size(1276, 400);
             dgvNhanVien.TabIndex = 37;
+            dgvNhanVien.CellClick += dgvNhanVien_CellClick;
             // 
             // dgvhCheckBoxNV
             // 
             dgvhCheckBoxNV.HeaderText = "";
             dgvhCheckBoxNV.MinimumWidth = 6;
             dgvhCheckBoxNV.Name = "dgvhCheckBoxNV";
+            dgvhCheckBoxNV.Resizable = DataGridViewTriState.True;
+            dgvhCheckBoxNV.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // dgvhMaNV
             // 
@@ -366,6 +372,13 @@
             dgvhTrangThaiNV.MinimumWidth = 6;
             dgvhTrangThaiNV.Name = "dgvhTrangThaiNV";
             dgvhTrangThaiNV.ReadOnly = true;
+            // 
+            // dgvhHinhAnhNhanVien
+            // 
+            dgvhHinhAnhNhanVien.HeaderText = "Hình Ảnh";
+            dgvhHinhAnhNhanVien.MinimumWidth = 6;
+            dgvhHinhAnhNhanVien.Name = "dgvhHinhAnhNhanVien";
+            dgvhHinhAnhNhanVien.ReadOnly = true;
             // 
             // grpSuaNhanVien
             // 
@@ -414,6 +427,7 @@
             btnMoFileSua.TabIndex = 54;
             btnMoFileSua.Text = "Mở File";
             btnMoFileSua.UseVisualStyleBackColor = true;
+            btnMoFileSua.Click += btnMoFileSua_Click;
             // 
             // textBox1
             // 
@@ -705,13 +719,6 @@
         private Button btnTimNhanVien;
         private Button btnTaiLaiDanhSach;
         private Button btnClearSuaNhanVien;
-        private DataGridViewTextBoxColumn dgvhCheckBoxNV;
-        private DataGridViewTextBoxColumn dgvhMaNV;
-        private DataGridViewTextBoxColumn dgvhTenNV;
-        private DataGridViewTextBoxColumn dgvhChucVuNV;
-        private DataGridViewTextBoxColumn dgvhLuongNV;
-        private DataGridViewTextBoxColumn dgvhEmailNV;
-        private DataGridViewTextBoxColumn dgvhTrangThaiNV;
         private Label lblThemNhanVien;
         private PictureBox picAnhNhanVien;
         private Button btnMoFileThem;
@@ -724,5 +731,13 @@
         private Button btnThemNhanVien;
         private Label lblSuaEmailNhanVien;
         private TextBox textBox1;
+        private DataGridViewCheckBoxColumn dgvhCheckBoxNV;
+        private DataGridViewTextBoxColumn dgvhMaNV;
+        private DataGridViewTextBoxColumn dgvhTenNV;
+        private DataGridViewTextBoxColumn dgvhChucVuNV;
+        private DataGridViewTextBoxColumn dgvhLuongNV;
+        private DataGridViewTextBoxColumn dgvhEmailNV;
+        private DataGridViewTextBoxColumn dgvhTrangThaiNV;
+        private DataGridViewTextBoxColumn dgvhHinhAnhNhanVien;
     }
 }
