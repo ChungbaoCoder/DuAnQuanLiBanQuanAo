@@ -43,8 +43,8 @@ namespace QuanLiShopQuanAo.DataBaseConnection
                     MessageBox.Show("Sai tài khoản hoặc mật khẩu");
                 }
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message); }
-           
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
         }
 
         private void frmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
@@ -53,6 +53,11 @@ namespace QuanLiShopQuanAo.DataBaseConnection
             {
                 Application.Exit();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKho));
             dgvSanPham = new DataGridView();
             dgvhCheckBoxSanPham = new DataGridViewCheckBoxColumn();
             dgvhMaSanPham = new DataGridViewTextBoxColumn();
@@ -779,7 +778,6 @@
             // picAnhSanPham
             // 
             picAnhSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            picAnhSanPham.Image = (Image)resources.GetObject("picAnhSanPham.Image");
             picAnhSanPham.Location = new Point(461, 496);
             picAnhSanPham.Name = "picAnhSanPham";
             picAnhSanPham.Size = new Size(227, 254);

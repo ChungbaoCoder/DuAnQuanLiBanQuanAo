@@ -37,16 +37,18 @@
             btnLogin = new Button();
             picIcon1 = new PictureBox();
             picIcon2 = new PictureBox();
+            label1 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)picIcon1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picIcon2).BeginInit();
             SuspendLayout();
             // 
             // lblUserName
             // 
-            lblUserName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblUserName.Anchor = AnchorStyles.None;
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Segoe UI Light", 12F);
-            lblUserName.Location = new Point(255, 129);
+            lblUserName.Location = new Point(157, 183);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(92, 28);
             lblUserName.TabIndex = 1;
@@ -54,10 +56,10 @@
             // 
             // lblPassWord
             // 
-            lblPassWord.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblPassWord.Anchor = AnchorStyles.None;
             lblPassWord.AutoSize = true;
             lblPassWord.Font = new Font("Segoe UI Light", 12F);
-            lblPassWord.Location = new Point(255, 211);
+            lblPassWord.Location = new Point(157, 265);
             lblPassWord.Name = "lblPassWord";
             lblPassWord.Size = new Size(93, 28);
             lblPassWord.TabIndex = 2;
@@ -65,9 +67,9 @@
             // 
             // txtUserName
             // 
-            txtUserName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtUserName.Anchor = AnchorStyles.None;
             txtUserName.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
-            txtUserName.Location = new Point(255, 160);
+            txtUserName.Location = new Point(157, 214);
             txtUserName.Name = "txtUserName";
             txtUserName.PlaceholderText = "NHẬP TÀI KHOẢN";
             txtUserName.Size = new Size(309, 30);
@@ -76,10 +78,10 @@
             // txtPassWord
             // 
             txtPassWord.AccessibleDescription = "";
-            txtPassWord.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtPassWord.Anchor = AnchorStyles.None;
             txtPassWord.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
             txtPassWord.ForeColor = Color.Black;
-            txtPassWord.Location = new Point(255, 242);
+            txtPassWord.Location = new Point(157, 296);
             txtPassWord.Name = "txtPassWord";
             txtPassWord.PasswordChar = '*';
             txtPassWord.PlaceholderText = "NHẬP MẬT KHẨU";
@@ -89,9 +91,9 @@
             // 
             // linklblQuenMK
             // 
-            linklblQuenMK.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            linklblQuenMK.Anchor = AnchorStyles.None;
             linklblQuenMK.AutoSize = true;
-            linklblQuenMK.Location = new Point(255, 307);
+            linklblQuenMK.Location = new Point(157, 361);
             linklblQuenMK.Name = "linklblQuenMK";
             linklblQuenMK.Size = new Size(120, 20);
             linklblQuenMK.TabIndex = 6;
@@ -101,11 +103,11 @@
             // 
             // btnLogin
             // 
-            btnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLogin.Anchor = AnchorStyles.None;
             btnLogin.BackColor = Color.FromArgb(64, 64, 64);
             btnLogin.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(413, 292);
+            btnLogin.Location = new Point(315, 346);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(151, 48);
             btnLogin.TabIndex = 7;
@@ -115,8 +117,9 @@
             // 
             // picIcon1
             // 
+            picIcon1.Anchor = AnchorStyles.None;
             picIcon1.Image = (Image)resources.GetObject("picIcon1.Image");
-            picIcon1.Location = new Point(174, 144);
+            picIcon1.Location = new Point(76, 198);
             picIcon1.Name = "picIcon1";
             picIcon1.Size = new Size(65, 61);
             picIcon1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -125,20 +128,48 @@
             // 
             // picIcon2
             // 
+            picIcon2.Anchor = AnchorStyles.None;
             picIcon2.Image = (Image)resources.GetObject("picIcon2.Image");
-            picIcon2.Location = new Point(174, 211);
+            picIcon2.Location = new Point(76, 265);
             picIcon2.Name = "picIcon2";
             picIcon2.Size = new Size(65, 61);
             picIcon2.SizeMode = PictureBoxSizeMode.StretchImage;
             picIcon2.TabIndex = 9;
             picIcon2.TabStop = false;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(187, 126);
+            label1.Name = "label1";
+            label1.Size = new Size(195, 32);
+            label1.TabIndex = 10;
+            label1.Text = "CHÀO MỪNG";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.IndianRed;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(527, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(28, 29);
+            button1.TabIndex = 11;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // frmDangNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(763, 460);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(567, 568);
+            Controls.Add(button1);
+            Controls.Add(label1);
             Controls.Add(picIcon2);
             Controls.Add(picIcon1);
             Controls.Add(btnLogin);
@@ -147,6 +178,7 @@
             Controls.Add(txtUserName);
             Controls.Add(lblPassWord);
             Controls.Add(lblUserName);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmDangNhap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DangNhap";
@@ -168,5 +200,7 @@
         private Button btnLogin;
         private PictureBox picIcon1;
         private PictureBox picIcon2;
+        private Label label1;
+        private Button button1;
     }
 }
