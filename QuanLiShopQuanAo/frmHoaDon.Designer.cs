@@ -209,22 +209,28 @@
             // btnChonTatCa
             // 
             btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnChonTatCa.Image = Properties.Resources.icons8_all_30;
+            btnChonTatCa.ImageAlign = ContentAlignment.MiddleLeft;
             btnChonTatCa.Location = new Point(28, 476);
             btnChonTatCa.Name = "btnChonTatCa";
             btnChonTatCa.Size = new Size(150, 45);
             btnChonTatCa.TabIndex = 19;
             btnChonTatCa.Text = "Chọn Tất Cả";
+            btnChonTatCa.TextAlign = ContentAlignment.MiddleRight;
             btnChonTatCa.UseVisualStyleBackColor = true;
             btnChonTatCa.Click += btnChonTatCa_Click;
             // 
             // btnXoaHoaDon
             // 
             btnXoaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnXoaHoaDon.Image = Properties.Resources.icons8_delete_30;
+            btnXoaHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
             btnXoaHoaDon.Location = new Point(184, 476);
             btnXoaHoaDon.Name = "btnXoaHoaDon";
-            btnXoaHoaDon.Size = new Size(150, 45);
+            btnXoaHoaDon.Size = new Size(171, 45);
             btnXoaHoaDon.TabIndex = 18;
             btnXoaHoaDon.Text = "Xoá Hoá Đơn";
+            btnXoaHoaDon.TextAlign = ContentAlignment.MiddleRight;
             btnXoaHoaDon.UseVisualStyleBackColor = true;
             btnXoaHoaDon.Click += btnXoaHoaDon_Click;
             // 
@@ -250,12 +256,15 @@
             // btnLapHoaDon
             // 
             btnLapHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLapHoaDon.Font = new Font("Segoe UI", 14F);
-            btnLapHoaDon.Location = new Point(292, 277);
+            btnLapHoaDon.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLapHoaDon.Image = Properties.Resources.icons8_add_30;
+            btnLapHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLapHoaDon.Location = new Point(327, 277);
             btnLapHoaDon.Name = "btnLapHoaDon";
-            btnLapHoaDon.Size = new Size(250, 50);
+            btnLapHoaDon.Size = new Size(215, 50);
             btnLapHoaDon.TabIndex = 26;
             btnLapHoaDon.Text = "Lập Hoá Đơn Mới";
+            btnLapHoaDon.TextAlign = ContentAlignment.MiddleRight;
             btnLapHoaDon.UseVisualStyleBackColor = true;
             btnLapHoaDon.Click += btnLapHoaDon_Click;
             // 
@@ -380,11 +389,14 @@
             // 
             btnSuaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSuaHoaDon.Font = new Font("Segoe UI", 13F);
-            btnSuaHoaDon.Location = new Point(451, 227);
+            btnSuaHoaDon.Image = Properties.Resources.icons8_save_30;
+            btnSuaHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSuaHoaDon.Location = new Point(475, 227);
             btnSuaHoaDon.Name = "btnSuaHoaDon";
-            btnSuaHoaDon.Size = new Size(125, 33);
+            btnSuaHoaDon.Size = new Size(101, 33);
             btnSuaHoaDon.TabIndex = 23;
             btnSuaHoaDon.Text = "Sửa";
+            btnSuaHoaDon.TextAlign = ContentAlignment.MiddleRight;
             btnSuaHoaDon.UseVisualStyleBackColor = true;
             btnSuaHoaDon.Click += btnSuaHoaDon_Click;
             // 
@@ -407,30 +419,36 @@
             cmbTrangThai.Items.AddRange(new object[] { "Chưa Thanh Toán", "Đã Thanh Toán" });
             cmbTrangThai.Location = new Point(196, 227);
             cmbTrangThai.Name = "cmbTrangThai";
-            cmbTrangThai.Size = new Size(249, 33);
+            cmbTrangThai.Size = new Size(273, 33);
             cmbTrangThai.TabIndex = 22;
             cmbTrangThai.Text = "Chưa Thanh Toán";
             // 
             // btnTaiLaiDanhSach
             // 
             btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnTaiLaiDanhSach.Location = new Point(340, 476);
+            btnTaiLaiDanhSach.Image = Properties.Resources.icons8_reload_30;
+            btnTaiLaiDanhSach.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTaiLaiDanhSach.Location = new Point(361, 476);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
-            btnTaiLaiDanhSach.Size = new Size(180, 45);
+            btnTaiLaiDanhSach.Size = new Size(202, 45);
             btnTaiLaiDanhSach.TabIndex = 50;
             btnTaiLaiDanhSach.Text = "Tải Lại Danh Sách";
+            btnTaiLaiDanhSach.TextAlign = ContentAlignment.MiddleRight;
             btnTaiLaiDanhSach.UseVisualStyleBackColor = true;
             btnTaiLaiDanhSach.Click += btnTaiLaiDanhSach_Click;
             // 
             // btnTimHoaDon
             // 
-            btnTimHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnTimHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnTimHoaDon.Font = new Font("Segoe UI", 12F);
-            btnTimHoaDon.Location = new Point(1066, 481);
+            btnTimHoaDon.Image = Properties.Resources.icons8_find_30;
+            btnTimHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTimHoaDon.Location = new Point(1105, 481);
             btnTimHoaDon.Name = "btnTimHoaDon";
-            btnTimHoaDon.Size = new Size(140, 34);
+            btnTimHoaDon.Size = new Size(101, 34);
             btnTimHoaDon.TabIndex = 51;
             btnTimHoaDon.Text = "Tìm";
+            btnTimHoaDon.TextAlign = ContentAlignment.MiddleRight;
             btnTimHoaDon.UseVisualStyleBackColor = true;
             btnTimHoaDon.Click += btnTimHoaDon_Click;
             // 
@@ -440,7 +458,7 @@
             txtTimKiemHoaDon.Font = new Font("Segoe UI", 12F);
             txtTimKiemHoaDon.Location = new Point(639, 481);
             txtTimKiemHoaDon.Name = "txtTimKiemHoaDon";
-            txtTimKiemHoaDon.Size = new Size(421, 34);
+            txtTimKiemHoaDon.Size = new Size(460, 34);
             txtTimKiemHoaDon.TabIndex = 52;
             // 
             // frmHoaDon

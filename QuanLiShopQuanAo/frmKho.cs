@@ -208,7 +208,7 @@ namespace QuanLiShopQuanAo
                     trangThai = "Chưa bán";
 
                 if (MessageBox.Show("Bạn có muốn lưu thông tin sản phẩm", "Lưu thông tin sản phẩm?",
-                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     SanPham SanPham = new SanPham()
                     {
@@ -221,9 +221,9 @@ namespace QuanLiShopQuanAo
                         MaNhaCungCap = cmbThemNhaCungCap.Text,
                     };
                     if (BUS_SanPham.QueryData(SanPham, "insert"))
-                        MessageBox.Show("Thêm thông tin sản phẩm thành công");
+                        MessageBox.Show("Thêm thông tin sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     else
-                        MessageBox.Show("Không cập nhật được thông tin sản phẩm có tên " + SanPham.TenSanPham);
+                        MessageBox.Show("Không cập nhật được thông tin sản phẩm có tên " + SanPham.TenSanPham,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
                     HideTextControl();
                     HideButtonControl();
@@ -243,7 +243,7 @@ namespace QuanLiShopQuanAo
                 trangThai = "Chưa bán";
 
             if (MessageBox.Show("Bạn có muốn sửa thông tin sản phẩm", "Sửa thông tin sản phẩm?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 SanPham SanPham = new SanPham()
                 {
@@ -257,9 +257,9 @@ namespace QuanLiShopQuanAo
                     MaNhaCungCap = cmbSuaNhaCungCap.Text,
                 };
                 if (BUS_SanPham.QueryData(SanPham, "update"))
-                    MessageBox.Show("Cập nhật thông tin khách thành công");
+                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin sản phẩm có mã " + SanPham.MaSanPham);
+                    MessageBox.Show("Không cập nhật được thông tin sản phẩm có mã " + SanPham.MaSanPham, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
@@ -271,7 +271,7 @@ namespace QuanLiShopQuanAo
         private void btnXoaSanPham_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá sản phẩm?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 List<SanPham> listSanPham = new List<SanPham>();
 
@@ -287,9 +287,9 @@ namespace QuanLiShopQuanAo
                 foreach (SanPham SanPham in listSanPham)
                 {
                     if (BUS_SanPham.QueryData(SanPham, "delete"))
-                        MessageBox.Show("Xoá dữ liệu sản phẩm thành công");
+                        MessageBox.Show("Xoá dữ liệu sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     else
-                        MessageBox.Show("Lỗi không xoá được dữ liệu sản phẩm với mã số " + SanPham.MaSanPham);
+                        MessageBox.Show("Lỗi không xoá được dữ liệu sản phẩm với mã số " + SanPham.MaSanPham,"Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 HideTextControl();
                 HideButtonControl();

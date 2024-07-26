@@ -126,7 +126,7 @@ namespace QuanLiShopQuanAo
         private void btnLuuThemNhanVien_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn lưu thông tin nhân viên", "Lưu thông tin nhân viên?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 NhanVien NhanVien = new NhanVien()
                 {
@@ -139,9 +139,9 @@ namespace QuanLiShopQuanAo
                     MatKhau = BUS_Account.CreatePassword(5)
                 };
                 if (BUS_NhanVien.QueryData(NhanVien, "insert"))
-                    MessageBox.Show("Thêm thông tin nhân viên thành công");
+                    MessageBox.Show("Thêm thông tin nhân viên thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.TenNhanVien);
+                    MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.TenNhanVien,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
@@ -152,7 +152,7 @@ namespace QuanLiShopQuanAo
         private void btnLuuSuaNhanVien_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn sửa thông tin nhân viên", "Sửa thông tin nhân viên?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 NhanVien NhanVien = new NhanVien()
                 {
@@ -165,9 +165,9 @@ namespace QuanLiShopQuanAo
                     TrangThai = txtThemTrangThai.Text,
                 };
                 if (BUS_NhanVien.QueryData(NhanVien, "update"))
-                    MessageBox.Show("Cập nhật thông tin khách thành công");
+                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.MaNhanVien);
+                    MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.MaNhanVien, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
@@ -178,7 +178,7 @@ namespace QuanLiShopQuanAo
         private void btnXoaNhanVien_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá nhân viên?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 List<NhanVien> listNhanVien = new List<NhanVien>();
 
@@ -194,9 +194,9 @@ namespace QuanLiShopQuanAo
                 foreach (NhanVien NhanVien in listNhanVien)
                 {
                     if (BUS_NhanVien.QueryData(NhanVien, "delete"))
-                        MessageBox.Show("Xoá dữ liệu nhân viên thành công");
+                        MessageBox.Show("Xoá dữ liệu nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     else
-                        MessageBox.Show("Lỗi không xoá được dữ liệu nhân viên với mã số " + NhanVien.MaNhanVien);
+                        MessageBox.Show("Lỗi không xoá được dữ liệu nhân viên với mã số " + NhanVien.MaNhanVien, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 HideTextControl();
                 HideButtonControl();

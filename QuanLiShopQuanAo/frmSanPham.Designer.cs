@@ -72,13 +72,6 @@
             lblThemNhaCungCap = new Label();
             lblThemSoLuongSanPham = new Label();
             lblSuaLoaiSanPham = new Label();
-            msDashBoard = new MenuStrip();
-            tslDashBoard = new ToolStripLabel();
-            tsmiSanPham = new ToolStripMenuItem();
-            tsmiKho = new ToolStripMenuItem();
-            tsmiHoaDon = new ToolStripMenuItem();
-            tsmiNhanVien = new ToolStripMenuItem();
-            tsmiNhaCungCap = new ToolStripMenuItem();
             lblSuaSoLuongSanPham = new Label();
             lblAnhSanPham = new Label();
             btnSuaSanPham = new Button();
@@ -96,7 +89,6 @@
             grpSuaSanPham = new GroupBox();
             picAnhSanPham = new PictureBox();
             grpThemSanPham.SuspendLayout();
-            msDashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
             grpSuaSanPham.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAnhSanPham).BeginInit();
@@ -255,7 +247,7 @@
             // 
             // btnThemSanPham
             // 
-            btnThemSanPham.Location = new Point(210, 475);
+            btnThemSanPham.Location = new Point(12, 478);
             btnThemSanPham.Name = "btnThemSanPham";
             btnThemSanPham.Size = new Size(160, 45);
             btnThemSanPham.TabIndex = 72;
@@ -292,7 +284,7 @@
             // 
             // btnTaiLaiDanhSach
             // 
-            btnTaiLaiDanhSach.Location = new Point(542, 424);
+            btnTaiLaiDanhSach.Location = new Point(344, 427);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
             btnTaiLaiDanhSach.Size = new Size(180, 45);
             btnTaiLaiDanhSach.TabIndex = 69;
@@ -302,7 +294,7 @@
             // btnTimSanPham
             // 
             btnTimSanPham.Font = new Font("Segoe UI", 12F);
-            btnTimSanPham.Location = new Point(1273, 429);
+            btnTimSanPham.Location = new Point(1075, 432);
             btnTimSanPham.Name = "btnTimSanPham";
             btnTimSanPham.Size = new Size(140, 34);
             btnTimSanPham.TabIndex = 62;
@@ -312,7 +304,7 @@
             // txtTimKiemSanPham
             // 
             txtTimKiemSanPham.Font = new Font("Segoe UI", 12F);
-            txtTimKiemSanPham.Location = new Point(929, 429);
+            txtTimKiemSanPham.Location = new Point(731, 432);
             txtTimKiemSanPham.Name = "txtTimKiemSanPham";
             txtTimKiemSanPham.Size = new Size(338, 34);
             txtTimKiemSanPham.TabIndex = 68;
@@ -338,7 +330,7 @@
             grpThemSanPham.Controls.Add(lblThemTenSanPham);
             grpThemSanPham.Controls.Add(lblThemNhaCungCap);
             grpThemSanPham.Controls.Add(lblThemSoLuongSanPham);
-            grpThemSanPham.Location = new Point(210, 528);
+            grpThemSanPham.Location = new Point(12, 531);
             grpThemSanPham.Name = "grpThemSanPham";
             grpThemSanPham.Size = new Size(472, 399);
             grpThemSanPham.TabIndex = 67;
@@ -532,72 +524,6 @@
             lblSuaLoaiSanPham.TabIndex = 26;
             lblSuaLoaiSanPham.Text = "Loại Sản Phẩm";
             // 
-            // msDashBoard
-            // 
-            msDashBoard.AutoSize = false;
-            msDashBoard.Dock = DockStyle.Left;
-            msDashBoard.ImageScalingSize = new Size(20, 20);
-            msDashBoard.Items.AddRange(new ToolStripItem[] { tslDashBoard, tsmiSanPham, tsmiKho, tsmiHoaDon, tsmiNhanVien, tsmiNhaCungCap });
-            msDashBoard.Location = new Point(0, 0);
-            msDashBoard.Name = "msDashBoard";
-            msDashBoard.Padding = new Padding(5, 2, 0, 2);
-            msDashBoard.Size = new Size(172, 979);
-            msDashBoard.TabIndex = 71;
-            msDashBoard.Text = "menuStrip1";
-            // 
-            // tslDashBoard
-            // 
-            tslDashBoard.Font = new Font("Segoe UI", 17F);
-            tslDashBoard.Name = "tslDashBoard";
-            tslDashBoard.Size = new Size(166, 40);
-            tslDashBoard.Text = "Dash Board";
-            tslDashBoard.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiSanPham
-            // 
-            tsmiSanPham.Font = new Font("Segoe UI", 11F);
-            tsmiSanPham.Margin = new Padding(0, 10, 0, 10);
-            tsmiSanPham.Name = "tsmiSanPham";
-            tsmiSanPham.Size = new Size(166, 29);
-            tsmiSanPham.Text = "Sản Phẩm";
-            tsmiSanPham.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiKho
-            // 
-            tsmiKho.Font = new Font("Segoe UI", 11F);
-            tsmiKho.Margin = new Padding(0, 0, 0, 10);
-            tsmiKho.Name = "tsmiKho";
-            tsmiKho.Size = new Size(166, 29);
-            tsmiKho.Text = "Kho";
-            tsmiKho.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiHoaDon
-            // 
-            tsmiHoaDon.Font = new Font("Segoe UI", 11F);
-            tsmiHoaDon.Margin = new Padding(0, 0, 0, 10);
-            tsmiHoaDon.Name = "tsmiHoaDon";
-            tsmiHoaDon.Size = new Size(166, 29);
-            tsmiHoaDon.Text = "Hoá Đơn";
-            tsmiHoaDon.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiNhanVien
-            // 
-            tsmiNhanVien.Font = new Font("Segoe UI", 11F);
-            tsmiNhanVien.Margin = new Padding(0, 0, 0, 10);
-            tsmiNhanVien.Name = "tsmiNhanVien";
-            tsmiNhanVien.Size = new Size(166, 29);
-            tsmiNhanVien.Text = "Nhân Viên";
-            tsmiNhanVien.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // tsmiNhaCungCap
-            // 
-            tsmiNhaCungCap.Font = new Font("Segoe UI", 11F);
-            tsmiNhaCungCap.Margin = new Padding(0, 0, 0, 10);
-            tsmiNhaCungCap.Name = "tsmiNhaCungCap";
-            tsmiNhaCungCap.Size = new Size(166, 29);
-            tsmiNhaCungCap.Text = "Nhà Cung Cấp";
-            tsmiNhaCungCap.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // lblSuaSoLuongSanPham
             // 
             lblSuaSoLuongSanPham.AutoSize = true;
@@ -612,7 +538,7 @@
             // 
             lblAnhSanPham.AutoSize = true;
             lblAnhSanPham.Font = new Font("Segoe UI", 13F);
-            lblAnhSanPham.Location = new Point(736, 867);
+            lblAnhSanPham.Location = new Point(538, 870);
             lblAnhSanPham.Name = "lblAnhSanPham";
             lblAnhSanPham.Size = new Size(152, 30);
             lblAnhSanPham.TabIndex = 70;
@@ -620,7 +546,7 @@
             // 
             // btnSuaSanPham
             // 
-            btnSuaSanPham.Location = new Point(376, 475);
+            btnSuaSanPham.Location = new Point(178, 478);
             btnSuaSanPham.Name = "btnSuaSanPham";
             btnSuaSanPham.Size = new Size(160, 45);
             btnSuaSanPham.TabIndex = 65;
@@ -635,7 +561,7 @@
             dgvSanPham.AllowUserToResizeRows = false;
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSanPham.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxSanPham, dgvhMaSanPham, dgvhTenSanPham, dgvhLoaiSanPham, dgvhSoLuong, dgvhGiaSanPham, dgvhMaNhaCC, dgvhTrangThai });
-            dgvSanPham.Location = new Point(210, 9);
+            dgvSanPham.Location = new Point(12, 12);
             dgvSanPham.Name = "dgvSanPham";
             dgvSanPham.RowHeadersVisible = false;
             dgvSanPham.RowHeadersWidth = 51;
@@ -708,7 +634,7 @@
             // 
             // btnChonTatCa
             // 
-            btnChonTatCa.Location = new Point(210, 424);
+            btnChonTatCa.Location = new Point(12, 427);
             btnChonTatCa.Name = "btnChonTatCa";
             btnChonTatCa.Size = new Size(160, 45);
             btnChonTatCa.TabIndex = 64;
@@ -717,7 +643,7 @@
             // 
             // btnXoaSanPham
             // 
-            btnXoaSanPham.Location = new Point(376, 424);
+            btnXoaSanPham.Location = new Point(178, 427);
             btnXoaSanPham.Name = "btnXoaSanPham";
             btnXoaSanPham.Size = new Size(160, 45);
             btnXoaSanPham.TabIndex = 63;
@@ -748,7 +674,7 @@
             grpSuaSanPham.Controls.Add(lblSuaGiaSanPham);
             grpSuaSanPham.Controls.Add(lblSuaLoaiSanPham);
             grpSuaSanPham.Font = new Font("Segoe UI", 12F);
-            grpSuaSanPham.Location = new Point(929, 475);
+            grpSuaSanPham.Location = new Point(731, 478);
             grpSuaSanPham.Name = "grpSuaSanPham";
             grpSuaSanPham.Size = new Size(484, 450);
             grpSuaSanPham.TabIndex = 66;
@@ -756,7 +682,7 @@
             // 
             // picAnhSanPham
             // 
-            picAnhSanPham.Location = new Point(688, 541);
+            picAnhSanPham.Location = new Point(490, 544);
             picAnhSanPham.Name = "picAnhSanPham";
             picAnhSanPham.Size = new Size(235, 313);
             picAnhSanPham.TabIndex = 61;
@@ -766,13 +692,12 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1441, 979);
+            ClientSize = new Size(1239, 979);
             Controls.Add(btnThemSanPham);
             Controls.Add(btnTaiLaiDanhSach);
             Controls.Add(btnTimSanPham);
             Controls.Add(txtTimKiemSanPham);
             Controls.Add(grpThemSanPham);
-            Controls.Add(msDashBoard);
             Controls.Add(lblAnhSanPham);
             Controls.Add(btnSuaSanPham);
             Controls.Add(dgvSanPham);
@@ -781,14 +706,12 @@
             Controls.Add(grpSuaSanPham);
             Controls.Add(picAnhSanPham);
             Font = new Font("Segoe UI", 12F);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "frmSanPham";
             Text = "frmSanPham";
             Load += frmSanPham_Load;
             grpThemSanPham.ResumeLayout(false);
             grpThemSanPham.PerformLayout();
-            msDashBoard.ResumeLayout(false);
-            msDashBoard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).EndInit();
             grpSuaSanPham.ResumeLayout(false);
             grpSuaSanPham.PerformLayout();
@@ -843,13 +766,6 @@
         private Label lblThemNhaCungCap;
         private Label lblThemSoLuongSanPham;
         private Label lblSuaLoaiSanPham;
-        private MenuStrip msDashBoard;
-        private ToolStripLabel tslDashBoard;
-        private ToolStripMenuItem tsmiSanPham;
-        private ToolStripMenuItem tsmiKho;
-        private ToolStripMenuItem tsmiHoaDon;
-        private ToolStripMenuItem tsmiNhanVien;
-        private ToolStripMenuItem tsmiNhaCungCap;
         private Label lblSuaSoLuongSanPham;
         private Label lblAnhSanPham;
         private Button btnSuaSanPham;

@@ -127,7 +127,7 @@ namespace QuanLiShopQuanAo
         private void btnLuuThemKhachHang_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn lưu thông tin khách hàng", "Lưu thông tin khách hàng?", 
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 KhachHang Khach = new KhachHang()
                 {
@@ -136,9 +136,9 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtThemDiaChiKhachHang.Text,
                 };
                 if (BUS_KhachHang.QueryData(Khach, "insert"))
-                    MessageBox.Show("Thêm thông tin khách hàng thành công");
+                    MessageBox.Show("Thêm thông tin khách hàng thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin khách hàng có tên " + Khach.TenKhachHang);
+                    MessageBox.Show("Không cập nhật được thông tin khách hàng có tên " + Khach.TenKhachHang,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
@@ -149,7 +149,7 @@ namespace QuanLiShopQuanAo
         private void btnLuuSuaKhachHang_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn sửa thông tin khách hàng", "Sửa thông tin khách hàng?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 KhachHang Khach = new KhachHang()
                 {
@@ -159,9 +159,9 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtSuaDiaChiKhachHang.Text,
                 };
                 if (BUS_KhachHang.QueryData(Khach, "update"))
-                    MessageBox.Show("Cập nhật thông tin khách thành công");
+                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin khách hàng có mã " + Khach.MaKhachHang);
+                    MessageBox.Show("Không cập nhật được thông tin khách hàng có mã " + Khach.MaKhachHang, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
@@ -172,7 +172,7 @@ namespace QuanLiShopQuanAo
         private void btnXoaKhach_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá khách hàng?", 
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 List<KhachHang> listKhach = new List<KhachHang>();
 
@@ -186,9 +186,9 @@ namespace QuanLiShopQuanAo
                 foreach (KhachHang Khach in listKhach)
                 {
                     if (BUS_KhachHang.QueryData(Khach, "delete"))
-                        MessageBox.Show("Xoá dữ liệu khách hàng thành công");
+                        MessageBox.Show("Xoá dữ liệu khách hàng thành công","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     else
-                        MessageBox.Show("Lỗi không xoá được dữ liệu khách hàng với mã số " + Khach.MaKhachHang);   
+                        MessageBox.Show("Lỗi không xoá được dữ liệu khách hàng với mã số " + Khach.MaKhachHang, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);   
                 }
                 HideTextControl();
                 HideButtonControl();

@@ -89,7 +89,7 @@ namespace QuanLiShopQuanAo
         private void btnLapHoaDon_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn lưu thông tin hoá đơn", "Lưu thông tin hoá đơn?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 HoaDon HoaDon = new HoaDon()
                 {
@@ -100,7 +100,7 @@ namespace QuanLiShopQuanAo
                 };
                 if (BUS_HoaDon.QueryData(HoaDon, "insert"))
                 {
-                    MessageBox.Show("Thêm thông tin hoá đơn thành công");
+                    MessageBox.Show("Thêm thông tin hoá đơn thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
 
                     frmChiTietHoaDon chiTietHoaDon = new frmChiTietHoaDon(txtTenKhachMua.Text);
                     this.Hide();
@@ -110,7 +110,7 @@ namespace QuanLiShopQuanAo
                         this.Show();
                 }
                 else
-                    MessageBox.Show("Không cập nhật được thông tin hoá đơn có tên khách " + HoaDon.TenKhachHang);
+                    MessageBox.Show("Không cập nhật được thông tin hoá đơn có tên khách " + HoaDon.TenKhachHang,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
@@ -121,7 +121,7 @@ namespace QuanLiShopQuanAo
         private void btnSuaHoaDon_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn sửa thông tin hoá đơn", "Sửa thông tin hoá đơn?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 HoaDon HoaDon = new HoaDon()
                 {
@@ -130,9 +130,9 @@ namespace QuanLiShopQuanAo
                     NgayTao = dtpSuaNgayLap.Text
                 };
                 if (BUS_HoaDon.QueryData(HoaDon, "update"))
-                    MessageBox.Show("Cập nhật thông tin khách thành công");
+                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin hoá đơn có mã " + HoaDon.MaHoaDon);
+                    MessageBox.Show("Không cập nhật được thông tin hoá đơn có mã " + HoaDon.MaHoaDon,"Lỗi",MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
@@ -143,7 +143,7 @@ namespace QuanLiShopQuanAo
         private void btnXoaHoaDon_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá hoá đơn?",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 List<HoaDon> listHoaDon = new List<HoaDon>();
 
@@ -159,9 +159,9 @@ namespace QuanLiShopQuanAo
                 foreach (HoaDon HoaDon in listHoaDon)
                 {
                     if (BUS_HoaDon.QueryData(HoaDon, "delete"))
-                        MessageBox.Show("Xoá dữ liệu hoá đơn thành công");
+                        MessageBox.Show("Xoá dữ liệu hoá đơn thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
                     else
-                        MessageBox.Show("Lỗi không xoá được dữ liệu hoá đơn với mã số " + HoaDon.MaHoaDon);
+                        MessageBox.Show("Lỗi không xoá được dữ liệu hoá đơn với mã số " + HoaDon.MaHoaDon,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 HideTextControl();
                 HideButtonControl();

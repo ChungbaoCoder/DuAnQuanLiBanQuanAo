@@ -10,7 +10,7 @@ namespace QuanLiShopQuanAo
         {
             InitializeComponent();
         }
-        
+
         private void Openchildform(Form childform)
         {
             if (currentform != null)
@@ -29,18 +29,18 @@ namespace QuanLiShopQuanAo
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-            //frmDangNhap form = new frmDangNhap();
-            //this.Hide();
-            //form.ShowDialog();
-            //MaNhanVien = form.MaNhanVien;
+            frmDangNhap form = new frmDangNhap();
+            this.Hide();
+            form.ShowDialog();
+            MaNhanVien = form.MaNhanVien;
 
-            //if (form.closed)
-            //{
-            //    form.Close();
-            //    this.Show();
-            //}
-            //else
-            //    Application.Exit();
+            if (form.closed)
+            {
+                form.Close();
+                this.Show();
+            }
+            else
+                Application.Exit();
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
@@ -77,6 +77,15 @@ namespace QuanLiShopQuanAo
         {
             Openchildform(new frmNhaCungCap());
             lblTrangChu.Text = btnNhaCungCap.Text;
+        }
+
+        private void picIconTrangChu_Click(object sender, EventArgs e)
+        {
+            if (currentform != null)
+            {
+                currentform.Close();
+            }
+            lblTrangChu.Text = "Trang chủ";
         }
     }
 }
