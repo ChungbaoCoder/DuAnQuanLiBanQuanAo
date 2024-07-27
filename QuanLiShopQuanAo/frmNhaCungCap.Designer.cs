@@ -444,6 +444,7 @@
             dgvhCheckBoxNhaCungCap.HeaderText = "";
             dgvhCheckBoxNhaCungCap.MinimumWidth = 6;
             dgvhCheckBoxNhaCungCap.Name = "dgvhCheckBoxNhaCungCap";
+            dgvhCheckBoxNhaCungCap.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // dgvhMaNhaCungCap
             // 

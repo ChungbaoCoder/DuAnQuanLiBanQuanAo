@@ -36,8 +36,8 @@
             btnLogin = new Button();
             picIcon1 = new PictureBox();
             picIcon2 = new PictureBox();
-            label1 = new Label();
-            button1 = new Button();
+            lblTitle = new Label();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)picIcon1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picIcon2).BeginInit();
             SuspendLayout();
@@ -139,30 +139,30 @@
             picIcon2.TabIndex = 9;
             picIcon2.TabStop = false;
             // 
-            // label1
+            // lblTitle
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(151, 60);
-            label1.Name = "label1";
-            label1.Size = new Size(195, 32);
-            label1.TabIndex = 10;
-            label1.Text = "CHÀO MỪNG";
+            lblTitle.AutoSize = true;
+            lblTitle.BackColor = Color.Transparent;
+            lblTitle.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(151, 60);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(195, 32);
+            lblTitle.TabIndex = 10;
+            lblTitle.Text = "CHÀO MỪNG";
             // 
-            // button1
+            // btnClose
             // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(433, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(33, 29);
-            button1.TabIndex = 11;
-            button1.Text = "X";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = SystemColors.ButtonHighlight;
+            btnClose.Location = new Point(433, 12);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(33, 29);
+            btnClose.TabIndex = 11;
+            btnClose.Text = "X";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += button1_Click;
             // 
             // frmDangNhap
             // 
@@ -172,8 +172,8 @@
             BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(478, 478);
-            Controls.Add(button1);
-            Controls.Add(label1);
+            Controls.Add(btnClose);
+            Controls.Add(lblTitle);
             Controls.Add(picIcon2);
             Controls.Add(picIcon1);
             Controls.Add(btnLogin);
@@ -204,7 +204,7 @@
         private Button btnLogin;
         private PictureBox picIcon1;
         private PictureBox picIcon2;
-        private Label label1;
-        private Button button1;
+        private Label lblTitle;
+        private Button btnClose;
     }
 }

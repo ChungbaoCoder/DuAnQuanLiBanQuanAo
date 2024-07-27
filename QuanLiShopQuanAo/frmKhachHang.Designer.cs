@@ -43,11 +43,6 @@
             lblThemDiaChiKhachHang = new Label();
             btnChonTatCa = new Button();
             dgvKhachHang = new DataGridView();
-            dgvhCheckBoxKH = new DataGridViewCheckBoxColumn();
-            dgvhMaKH = new DataGridViewTextBoxColumn();
-            dgvhTenKH = new DataGridViewTextBoxColumn();
-            dgvhSDTKH = new DataGridViewTextBoxColumn();
-            dgvhDiaChiKH = new DataGridViewTextBoxColumn();
             grpSuaKhachHang = new GroupBox();
             btnClearSuaKhachHang = new Button();
             lblSuaKhachHang = new Label();
@@ -63,6 +58,11 @@
             btnSuaKhach = new Button();
             btnXoaKhach = new Button();
             btnThemKhach = new Button();
+            dgvhCheckBoxKH = new DataGridViewCheckBoxColumn();
+            dgvhMaKH = new DataGridViewTextBoxColumn();
+            dgvhTenKH = new DataGridViewTextBoxColumn();
+            dgvhSDTKH = new DataGridViewTextBoxColumn();
+            dgvhDiaChiKH = new DataGridViewTextBoxColumn();
             grpThemKhachHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKhachHang).BeginInit();
             grpSuaKhachHang.SuspendLayout();
@@ -258,40 +258,6 @@
             dgvKhachHang.Size = new Size(1003, 400);
             dgvKhachHang.TabIndex = 51;
             // 
-            // dgvhCheckBoxKH
-            // 
-            dgvhCheckBoxKH.HeaderText = "";
-            dgvhCheckBoxKH.MinimumWidth = 6;
-            dgvhCheckBoxKH.Name = "dgvhCheckBoxKH";
-            // 
-            // dgvhMaKH
-            // 
-            dgvhMaKH.HeaderText = "Mã Khách Hàng";
-            dgvhMaKH.MinimumWidth = 6;
-            dgvhMaKH.Name = "dgvhMaKH";
-            dgvhMaKH.ReadOnly = true;
-            // 
-            // dgvhTenKH
-            // 
-            dgvhTenKH.HeaderText = "Tên Khách Hàng";
-            dgvhTenKH.MinimumWidth = 6;
-            dgvhTenKH.Name = "dgvhTenKH";
-            dgvhTenKH.ReadOnly = true;
-            // 
-            // dgvhSDTKH
-            // 
-            dgvhSDTKH.HeaderText = "SĐT";
-            dgvhSDTKH.MinimumWidth = 6;
-            dgvhSDTKH.Name = "dgvhSDTKH";
-            dgvhSDTKH.ReadOnly = true;
-            // 
-            // dgvhDiaChiKH
-            // 
-            dgvhDiaChiKH.HeaderText = "Địa Chỉ";
-            dgvhDiaChiKH.MinimumWidth = 6;
-            dgvhDiaChiKH.Name = "dgvhDiaChiKH";
-            dgvhDiaChiKH.ReadOnly = true;
-            // 
             // grpSuaKhachHang
             // 
             grpSuaKhachHang.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -477,6 +443,41 @@
             btnThemKhach.UseVisualStyleBackColor = true;
             btnThemKhach.Click += btnThemKhach_Click;
             // 
+            // dgvhCheckBoxKH
+            // 
+            dgvhCheckBoxKH.HeaderText = "";
+            dgvhCheckBoxKH.MinimumWidth = 6;
+            dgvhCheckBoxKH.Name = "dgvhCheckBoxKH";
+            dgvhCheckBoxKH.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // dgvhMaKH
+            // 
+            dgvhMaKH.HeaderText = "Mã Khách Hàng";
+            dgvhMaKH.MinimumWidth = 6;
+            dgvhMaKH.Name = "dgvhMaKH";
+            dgvhMaKH.ReadOnly = true;
+            // 
+            // dgvhTenKH
+            // 
+            dgvhTenKH.HeaderText = "Tên Khách Hàng";
+            dgvhTenKH.MinimumWidth = 6;
+            dgvhTenKH.Name = "dgvhTenKH";
+            dgvhTenKH.ReadOnly = true;
+            // 
+            // dgvhSDTKH
+            // 
+            dgvhSDTKH.HeaderText = "SĐT";
+            dgvhSDTKH.MinimumWidth = 6;
+            dgvhSDTKH.Name = "dgvhSDTKH";
+            dgvhSDTKH.ReadOnly = true;
+            // 
+            // dgvhDiaChiKH
+            // 
+            dgvhDiaChiKH.HeaderText = "Địa Chỉ";
+            dgvhDiaChiKH.MinimumWidth = 6;
+            dgvhDiaChiKH.Name = "dgvhDiaChiKH";
+            dgvhDiaChiKH.ReadOnly = true;
+            // 
             // frmKhachHang
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -536,11 +537,11 @@
         private Button btnClearThemKhachHang;
         private Button btnLuuThemKhachHang;
         private Label lblThemSDTKhachHang;
+        private Button btnThemKhach;
         private DataGridViewCheckBoxColumn dgvhCheckBoxKH;
         private DataGridViewTextBoxColumn dgvhMaKH;
         private DataGridViewTextBoxColumn dgvhTenKH;
         private DataGridViewTextBoxColumn dgvhSDTKH;
         private DataGridViewTextBoxColumn dgvhDiaChiKH;
-        private Button btnThemKhach;
     }
 }

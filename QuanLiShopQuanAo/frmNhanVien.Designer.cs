@@ -60,7 +60,7 @@
             grpSuaNhanVien = new GroupBox();
             lblSuaEmailNhanVien = new Label();
             btnMoFileSua = new Button();
-            textBox1 = new TextBox();
+            txtSuaEmailNhanVien = new TextBox();
             btnClearSuaNhanVien = new Button();
             txtSuaHinhAnhNhanVien = new TextBox();
             lblSuaNhanVien = new Label();
@@ -410,7 +410,7 @@
             grpSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grpSuaNhanVien.Controls.Add(lblSuaEmailNhanVien);
             grpSuaNhanVien.Controls.Add(btnMoFileSua);
-            grpSuaNhanVien.Controls.Add(textBox1);
+            grpSuaNhanVien.Controls.Add(txtSuaEmailNhanVien);
             grpSuaNhanVien.Controls.Add(btnClearSuaNhanVien);
             grpSuaNhanVien.Controls.Add(txtSuaHinhAnhNhanVien);
             grpSuaNhanVien.Controls.Add(lblSuaNhanVien);
@@ -455,14 +455,14 @@
             btnMoFileSua.UseVisualStyleBackColor = true;
             btnMoFileSua.Click += btnMoFileSua_Click;
             // 
-            // textBox1
+            // txtSuaEmailNhanVien
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(187, 167);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(298, 34);
-            textBox1.TabIndex = 52;
+            txtSuaEmailNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSuaEmailNhanVien.Font = new Font("Segoe UI", 12F);
+            txtSuaEmailNhanVien.Location = new Point(187, 167);
+            txtSuaEmailNhanVien.Name = "txtSuaEmailNhanVien";
+            txtSuaEmailNhanVien.Size = new Size(298, 34);
+            txtSuaEmailNhanVien.TabIndex = 52;
             // 
             // btnClearSuaNhanVien
             // 
@@ -780,7 +780,7 @@
         private Label lblAnhNhanVien;
         private Button btnThemNhanVien;
         private Label lblSuaEmailNhanVien;
-        private TextBox textBox1;
+        private TextBox txtSuaEmailNhanVien;
         private DataGridViewCheckBoxColumn dgvhCheckBoxNV;
         private DataGridViewTextBoxColumn dgvhMaNV;
         private DataGridViewTextBoxColumn dgvhTenNV;
