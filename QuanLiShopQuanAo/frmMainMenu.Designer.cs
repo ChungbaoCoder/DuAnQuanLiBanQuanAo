@@ -53,9 +53,12 @@
             lblTrangChu = new Label();
             picIconTrangChu = new PictureBox();
             pnlHelloUser = new Panel();
+            pictureBox1 = new PictureBox();
             lblChao = new Label();
             lblUserName = new Label();
             pnlContent = new Panel();
+            label1 = new Label();
+            pictureBox2 = new PictureBox();
             flpDashBoard.SuspendLayout();
             pnlDashBoard.SuspendLayout();
             pnlHoaDon.SuspendLayout();
@@ -73,6 +76,9 @@
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picIconTrangChu).BeginInit();
             pnlHelloUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // flpDashBoard
@@ -104,11 +110,12 @@
             // 
             lblDashBoard.Anchor = AnchorStyles.None;
             lblDashBoard.AutoSize = true;
-            lblDashBoard.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblDashBoard.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblDashBoard.ForeColor = SystemColors.ControlText;
             lblDashBoard.ImageAlign = ContentAlignment.BottomLeft;
-            lblDashBoard.Location = new Point(-1, 15);
+            lblDashBoard.Location = new Point(7, 18);
             lblDashBoard.Name = "lblDashBoard";
-            lblDashBoard.Size = new Size(208, 29);
+            lblDashBoard.Size = new Size(174, 25);
             lblDashBoard.TabIndex = 4;
             lblDashBoard.Text = "Bảng Điều Khiển";
             lblDashBoard.TextAlign = ContentAlignment.TopCenter;
@@ -124,9 +131,11 @@
             // 
             // picHoaDonIcon
             // 
+            picHoaDonIcon.Image = Properties.Resources.icons8_bill_50;
             picHoaDonIcon.Location = new Point(3, 3);
             picHoaDonIcon.Name = "picHoaDonIcon";
             picHoaDonIcon.Size = new Size(48, 45);
+            picHoaDonIcon.SizeMode = PictureBoxSizeMode.Zoom;
             picHoaDonIcon.TabIndex = 0;
             picHoaDonIcon.TabStop = false;
             // 
@@ -153,9 +162,11 @@
             // 
             // picSanPhamIcon
             // 
+            picSanPhamIcon.Image = Properties.Resources.icons8_bag_50;
             picSanPhamIcon.Location = new Point(3, 3);
             picSanPhamIcon.Name = "picSanPhamIcon";
             picSanPhamIcon.Size = new Size(48, 45);
+            picSanPhamIcon.SizeMode = PictureBoxSizeMode.Zoom;
             picSanPhamIcon.TabIndex = 0;
             picSanPhamIcon.TabStop = false;
             // 
@@ -182,9 +193,11 @@
             // 
             // picKhachHangIcon
             // 
+            picKhachHangIcon.Image = Properties.Resources.icons8_customer_50;
             picKhachHangIcon.Location = new Point(3, 3);
             picKhachHangIcon.Name = "picKhachHangIcon";
             picKhachHangIcon.Size = new Size(48, 45);
+            picKhachHangIcon.SizeMode = PictureBoxSizeMode.Zoom;
             picKhachHangIcon.TabIndex = 0;
             picKhachHangIcon.TabStop = false;
             // 
@@ -211,9 +224,11 @@
             // 
             // picNhanVienIcon
             // 
+            picNhanVienIcon.Image = Properties.Resources.icons8_staff_50;
             picNhanVienIcon.Location = new Point(3, 3);
             picNhanVienIcon.Name = "picNhanVienIcon";
             picNhanVienIcon.Size = new Size(48, 45);
+            picNhanVienIcon.SizeMode = PictureBoxSizeMode.Zoom;
             picNhanVienIcon.TabIndex = 0;
             picNhanVienIcon.TabStop = false;
             // 
@@ -240,9 +255,11 @@
             // 
             // picKhoIcon
             // 
+            picKhoIcon.Image = Properties.Resources.icons8_shop_50;
             picKhoIcon.Location = new Point(3, 3);
             picKhoIcon.Name = "picKhoIcon";
             picKhoIcon.Size = new Size(48, 45);
+            picKhoIcon.SizeMode = PictureBoxSizeMode.Zoom;
             picKhoIcon.TabIndex = 0;
             picKhoIcon.TabStop = false;
             // 
@@ -269,9 +286,11 @@
             // 
             // picNhaCungCapIcon
             // 
+            picNhaCungCapIcon.Image = Properties.Resources.icons8_supplies_50;
             picNhaCungCapIcon.Location = new Point(3, 3);
             picNhaCungCapIcon.Name = "picNhaCungCapIcon";
             picNhaCungCapIcon.Size = new Size(48, 45);
+            picNhaCungCapIcon.SizeMode = PictureBoxSizeMode.Zoom;
             picNhaCungCapIcon.TabIndex = 0;
             picNhaCungCapIcon.TabStop = false;
             // 
@@ -310,21 +329,33 @@
             // 
             // picIconTrangChu
             // 
+            picIconTrangChu.Image = Properties.Resources.home;
             picIconTrangChu.Location = new Point(6, 3);
             picIconTrangChu.Name = "picIconTrangChu";
             picIconTrangChu.Size = new Size(80, 65);
+            picIconTrangChu.SizeMode = PictureBoxSizeMode.Zoom;
             picIconTrangChu.TabIndex = 3;
             picIconTrangChu.TabStop = false;
+            picIconTrangChu.Click += picIconTrangChu_Click;
             // 
             // pnlHelloUser
             // 
             pnlHelloUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pnlHelloUser.Controls.Add(pictureBox1);
             pnlHelloUser.Controls.Add(lblChao);
             pnlHelloUser.Controls.Add(lblUserName);
-            pnlHelloUser.Location = new Point(453, 7);
+            pnlHelloUser.Location = new Point(371, 0);
             pnlHelloUser.Name = "pnlHelloUser";
-            pnlHelloUser.Size = new Size(214, 51);
+            pnlHelloUser.Size = new Size(296, 68);
             pnlHelloUser.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(97, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(54, 62);
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
             // 
             // lblChao
             // 
@@ -332,7 +363,7 @@
             lblChao.AutoSize = true;
             lblChao.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblChao.ImageAlign = ContentAlignment.BottomLeft;
-            lblChao.Location = new Point(22, 8);
+            lblChao.Location = new Point(17, 19);
             lblChao.Name = "lblChao";
             lblChao.Size = new Size(74, 29);
             lblChao.TabIndex = 6;
@@ -345,7 +376,7 @@
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblUserName.ImageAlign = ContentAlignment.BottomLeft;
-            lblUserName.Location = new Point(115, 8);
+            lblUserName.Location = new Point(157, 19);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(86, 29);
             lblUserName.TabIndex = 5;
@@ -354,11 +385,36 @@
             // 
             // pnlContent
             // 
+            pnlContent.Controls.Add(label1);
+            pnlContent.Controls.Add(pictureBox2);
             pnlContent.Dock = DockStyle.Fill;
             pnlContent.Location = new Point(196, 71);
             pnlContent.Name = "pnlContent";
             pnlContent.Size = new Size(667, 442);
             pnlContent.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.BackColor = Color.DarkGray;
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(92, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(492, 32);
+            label1.TabIndex = 5;
+            label1.Text = "CHÀO MỪNG ĐẾN VỚI SHOP QUẦN ÁO ABC";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = Properties.Resources.chào_mừng_bạn_đến_với;
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(667, 442);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
             // 
             // frmMainMenu
             // 
@@ -399,6 +455,10 @@
             ((System.ComponentModel.ISupportInitialize)picIconTrangChu).EndInit();
             pnlHelloUser.ResumeLayout(false);
             pnlHelloUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlContent.ResumeLayout(false);
+            pnlContent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -432,5 +492,8 @@
         private Panel pnlNhaCungCap;
         private PictureBox picNhaCungCapIcon;
         private Button btnNhaCungCap;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Label label1;
     }
 }
