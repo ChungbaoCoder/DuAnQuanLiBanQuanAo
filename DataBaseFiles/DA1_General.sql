@@ -4,6 +4,8 @@ ALTER PROCEDURE dbo.sp_DanhSachSanPham
 AS
 BEGIN
 	SET NOCOUNT ON
+	UPDATE SanPham SET TrangThai = N'Hết Hàng' WHERE SoLuong < 1
+
 	SELECT MaSanPham,TenSanPham,LoaiSanPham,SoLuong,Gia,MaNCC,TrangThai,HinhAnh
 	FROM SanPham
 END
@@ -37,8 +39,8 @@ ALTER PROCEDURE dbo.sp_DanhSachHoaDon
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT a.MaHoaDon,b.TenKhachHang,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien
-	FROM HoaDon a inner join KhachHang b on a.MaKhachHang = b.MaKhachHang
+	SELECT a.MaHoaDon,b.TenKhachHang,b.SDT,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien
+	FROM HoaDon a join KhachHang b on a.MaKhachHang = b.MaKhachHang
 END
 GO
 
@@ -46,7 +48,7 @@ ALTER PROCEDURE dbo.sp_DanhSachChiTietHoaDon @MaKH varchar(20)
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT a.MaHoaDon,b.MaSanPham,c.TenSanPham,b.SoLuong,c.Gia,(b.SoLuong * c.Gia) as 'TongTien',a.MaKhachHang
+	SELECT a.MaHoaDon,b.MaSanPham,c.TenSanPham,b.SoLuong,c.Gia,(b.SoLuong * c.Gia) as 'TongTien'
 	FROM HoaDon a inner join (ChiTietHoaDon b inner join SanPham c on b.MaSanPham = c.MaSanPham )on a.MaHoaDon = b.MaHoaDon
 	WHERE a.MaKhachHang = @MaKH
 END
@@ -65,13 +67,13 @@ GO
 
 -- INSERT INTO NhanVien
 
-ALTER PROCEDURE dbo.sp_ThemNhanVien @TenNhanVien nvarchar(100),@ChucVu nvarchar(50),@Luong float,@Email varchar(50),@HinhAnh varchar(100),@TrangThai nvarchar(50)
+ALTER PROCEDURE dbo.sp_ThemNhanVien @TenNhanVien nvarchar(100),@ChucVu nvarchar(50),@Luong float,@Email varchar(50),@HinhAnh varchar(100),@TrangThai nvarchar(50),@MatKhau varchar(20)
 AS
 BEGIN
 	DECLARE @MaNV varchar(20)
 	SET @MaNV = CONCAT('NV',CAST((SELECT MAX(Id + 1) FROM NhanVien) AS varchar))
-	INSERT INTO NhanVien (MaNhanVien,TenNhanVien,ChucVu,Luong,Email,HinhAnh,TrangThai) VALUES
-	(@MaNV,@TenNhanVien,@ChucVu,@Luong,@Email,@HinhAnh,@TrangThai)
+	INSERT INTO NhanVien (MaNhanVien,TenNhanVien,ChucVu,Luong,Email,HinhAnh,TrangThai,MatKhau) VALUES
+	(@MaNV,@TenNhanVien,@ChucVu,@Luong,@Email,@HinhAnh,@TrangThai,@MatKhau)
 END
 GO
 
@@ -331,11 +333,14 @@ AS
 BEGIN
 	DECLARE @MaHD varchar(20)
 	SET @MaHD = (SELECT TOP 1 MaHoaDon FROM HoaDon ORDER BY Id DESC)
+	DECLARE @SoLuongSanPham int
+	SET @SoLuongSanPham = (SELECT SoLuong FROM SanPham WHERE MaSanPham = @MaSanPham)
 
 	INSERT INTO ChiTietHoaDon (MaHoaDon, MaSanPham, SoLuong) VALUES
 	(@MaHD, @MaSanPham, @SoLuong)
 
 	UPDATE HoaDon SET TongTien = @TongThanhTien WHERE MaKhachHang = @MaKhachHang
+	UPDATE SanPham SET SoLuong = @SoLuongSanPham - @SoLuong WHERE MaSanPham = @MaSanPham
 END
 GO
 

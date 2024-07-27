@@ -30,7 +30,7 @@
         {
             dgvHoaDon = new DataGridView();
             dgvhCheckBox = new DataGridViewCheckBoxColumn();
-            dgvhMaHoaDonLap = new DataGridViewTextBoxColumn();
+            dgvhMaHoaDon = new DataGridViewTextBoxColumn();
             dgvhTenKhach = new DataGridViewTextBoxColumn();
             dgvhSDTKhach = new DataGridViewTextBoxColumn();
             dgvhNgayTao = new DataGridViewTextBoxColumn();
@@ -78,12 +78,12 @@
             dgvHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBox, dgvhMaHoaDonLap, dgvhTenKhach, dgvhSDTKhach, dgvhNgayTao, dgvhTongTien, dgvhTrangThai, dgvhNhanVien });
+            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBox, dgvhMaHoaDon, dgvhTenKhach, dgvhSDTKhach, dgvhNgayTao, dgvhTongTien, dgvhTrangThai, dgvhNhanVien });
             dgvHoaDon.Location = new Point(28, 12);
             dgvHoaDon.Name = "dgvHoaDon";
             dgvHoaDon.RowHeadersVisible = false;
             dgvHoaDon.RowHeadersWidth = 51;
-            dgvHoaDon.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvHoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHoaDon.Size = new Size(1178, 447);
             dgvHoaDon.TabIndex = 5;
             // 
@@ -95,13 +95,13 @@
             dgvhCheckBox.Resizable = DataGridViewTriState.True;
             dgvhCheckBox.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
-            // dgvhMaHoaDonLap
+            // dgvhMaHoaDon
             // 
-            dgvhMaHoaDonLap.HeaderText = "Mã Hoá Đơn";
-            dgvhMaHoaDonLap.MinimumWidth = 6;
-            dgvhMaHoaDonLap.Name = "dgvhMaHoaDonLap";
-            dgvhMaHoaDonLap.ReadOnly = true;
-            dgvhMaHoaDonLap.Resizable = DataGridViewTriState.True;
+            dgvhMaHoaDon.HeaderText = "Mã Hoá Đơn";
+            dgvhMaHoaDon.MinimumWidth = 6;
+            dgvhMaHoaDon.Name = "dgvhMaHoaDon";
+            dgvhMaHoaDon.ReadOnly = true;
+            dgvhMaHoaDon.Resizable = DataGridViewTriState.True;
             // 
             // dgvhTenKhach
             // 
@@ -514,16 +514,16 @@
         private Button btnTaiLaiDanhSach;
         private Button btnTimHoaDon;
         private TextBox txtTimKiemHoaDon;
+        private TextBox txtSuaMaHoaDon;
+        private Label lblSuaMaHoaDon;
+        private ComboBox cmbTrangThai;
         private DataGridViewCheckBoxColumn dgvhCheckBox;
-        private DataGridViewTextBoxColumn dgvhMaHoaDonLap;
+        private DataGridViewTextBoxColumn dgvhMaHoaDon;
         private DataGridViewTextBoxColumn dgvhTenKhach;
         private DataGridViewTextBoxColumn dgvhSDTKhach;
         private DataGridViewTextBoxColumn dgvhNgayTao;
         private DataGridViewTextBoxColumn dgvhTongTien;
         private DataGridViewTextBoxColumn dgvhTrangThai;
         private DataGridViewTextBoxColumn dgvhNhanVien;
-        private TextBox txtSuaMaHoaDon;
-        private Label lblSuaMaHoaDon;
-        private ComboBox cmbTrangThai;
     }
 }

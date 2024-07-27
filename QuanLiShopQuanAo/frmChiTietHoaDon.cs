@@ -7,15 +7,10 @@ namespace QuanLiShopQuanAo
     public partial class frmChiTietHoaDon : Form
     {
         public bool closed = false;
-        string TenKhachHang = string.Empty;
+        public string TenKhachHang = "Lê Văn C";
         public frmChiTietHoaDon()
         {
             InitializeComponent();
-        }
-
-        public frmChiTietHoaDon(string tenKhach)
-        {
-            this.TenKhachHang = tenKhach;
         }
 
         private void frmChiTietHoaDon_Load(object sender, EventArgs e)
@@ -33,11 +28,12 @@ namespace QuanLiShopQuanAo
             for (int i = 0; i < columnsName.Length; i++)
                 dgvChiTietHoaDon.Columns[i + 1].DataPropertyName = columnsName[i];
 
-            dgvSanPham.Columns[1].DataPropertyName = "MaSanPham";
-            dgvSanPham.Columns[2].DataPropertyName = "TenSanPham";
-            dgvSanPham.Columns[3].DataPropertyName = "LoaiSanPham";
-            dgvSanPham.Columns[4].DataPropertyName = "Gia";
-            dgvSanPham.Columns[5].DataPropertyName = "HinhAnh";
+            DataTable dt = BUS_SanPham.QueryData("data");
+            dt.Columns.Remove("MaNCC");
+            columnsName = dt.Columns.Cast<DataColumn>().Select(columns => columns.ColumnName).ToArray();
+
+            for (int i = 0; i < columnsName.Length; i++)
+                dgvSanPham.Columns[i + 1].DataPropertyName = columnsName[i];
         }
 
         private void btnChonTatCa_Click(object sender, EventArgs e)
@@ -82,7 +78,7 @@ namespace QuanLiShopQuanAo
 
             foreach (DataGridViewRow row in dgvSanPham.Rows)
             {
-                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                if (Convert.ToBoolean(row.Cells[0].Value) == true && row.Cells[7].Value.ToString() != "Hết Hàng")
                     listSanPham.Add(new SanPham
                     {
                         MaSanPham = row.Cells[1].ToString(),
@@ -157,7 +153,6 @@ namespace QuanLiShopQuanAo
         private void frmChiTietHoaDon_FormClosing(object sender, FormClosingEventArgs e)
         {
             closed = false;
-            this.Close();
         }
     }
 }

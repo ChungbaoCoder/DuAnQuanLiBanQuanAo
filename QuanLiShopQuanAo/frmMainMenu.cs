@@ -29,23 +29,25 @@ namespace QuanLiShopQuanAo
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-            frmDangNhap form = new frmDangNhap();
-            this.Hide();
-            form.ShowDialog();
-            MaNhanVien = form.MaNhanVien;
+            //frmDangNhap form = new frmDangNhap();
+            //this.Hide();
+            //form.ShowDialog();
+            //MaNhanVien = form.MaNhanVien;
 
-            if (form.closed)
-            {
-                form.Close();
-                this.Show();
-            }
-            else
-                Application.Exit();
+            //if (form.closed)
+            //{
+            //    form.Close();
+            //    this.Show();
+            //}
+            //else
+            //    Application.Exit();
+
+            //Openchildform(new frmChiTietHoaDon());
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            Openchildform(new frmHoaDon(MaNhanVien));
+            Openchildform(new frmHoaDon());
             lblTrangChu.Text = btnHoaDon.Text;
         }
 

@@ -12,18 +12,10 @@ namespace QuanLiShopQuanAo
             InitializeComponent();
         }
 
-        public frmHoaDon(string MaNhanVien)
-        {
-            InitializeComponent();
-            this.MaNhanVien = MaNhanVien;
-        }
-
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
-            HideTextControl();
-            HideButtonControl();
             SetColumns();
-            dgvHoaDon.DataSource = BUS_KhachHang.QueryData("data");
+            dgvHoaDon.DataSource = BUS_HoaDon.QueryData("data");
         }
 
         private void SetColumns()
@@ -33,36 +25,6 @@ namespace QuanLiShopQuanAo
 
             for (int i = 0; i < columnsName.Length; i++)
                 dgvHoaDon.Columns[i + 1].DataPropertyName = columnsName[i];
-        }
-
-        private void HideTextControl()
-        {
-            foreach (Control gb in this.Controls)
-            {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is TextBox)
-                            ((TextBox)tb).ReadOnly = true;
-                    }
-                }
-            }
-        }
-
-        private void HideButtonControl()
-        {
-            foreach (Control gb in this.Controls)
-            {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is Button)
-                            ((Button)tb).Enabled = false;
-                    }
-                }
-            }
         }
 
         private void btnChonTatCa_Click(object sender, EventArgs e)
@@ -88,34 +50,37 @@ namespace QuanLiShopQuanAo
 
         private void btnLapHoaDon_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn lưu thông tin hoá đơn", "Lưu thông tin hoá đơn?",
-                MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                HoaDon HoaDon = new HoaDon()
-                {
-                    TenKhachHang = txtTenKhachMua.Text,
-                    SDTKhach = txtSDTKhachMua.Text,
-                    NgayTao = dtpLapHoaDon.Value.ToString(),
-                    MaNhanVienGhi = MaNhanVien
-                };
-                if (BUS_HoaDon.QueryData(HoaDon, "insert"))
-                {
-                    MessageBox.Show("Thêm thông tin hoá đơn thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
+            //if (chiTietHoaDon.closed)
+            //    this.Show();
 
-                    frmChiTietHoaDon chiTietHoaDon = new frmChiTietHoaDon(txtTenKhachMua.Text);
-                    this.Hide();
-                    chiTietHoaDon.ShowDialog();
+            //if (MessageBox.Show("Bạn có muốn lưu thông tin hoá đơn", "Lưu thông tin hoá đơn?",
+            //    MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+            //    HoaDon HoaDon = new HoaDon()
+            //    {
+            //        TenKhachHang = txtTenKhachMua.Text,
+            //        SDTKhach = txtSDTKhachMua.Text,
+            //        NgayTao = dtpLapHoaDon.Value.ToString(),
+            //        MaNhanVienGhi = MaNhanVien
+            //    };
+            //    if (BUS_HoaDon.QueryData(HoaDon, "insert"))
+            //    {
+            //        MessageBox.Show("Thêm thông tin hoá đơn thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
 
-                    if (chiTietHoaDon.closed)
-                        this.Show();
-                }
-                else
-                    MessageBox.Show("Không cập nhật được thông tin hoá đơn có tên khách " + HoaDon.TenKhachHang,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //        frmChiTietHoaDon chiTietHoaDon = new frmChiTietHoaDon(txtTenKhachMua.Text);
+            //        this.Hide();
+            //        chiTietHoaDon.ShowDialog();
 
-                HideTextControl();
-                HideButtonControl();
-                dgvHoaDon.DataSource = BUS_HoaDon.QueryData("data");
-            }
+            //        if (chiTietHoaDon.closed)
+            //            this.Show();
+            //    }
+            //    else
+            //        MessageBox.Show("Không cập nhật được thông tin hoá đơn có tên khách " + HoaDon.TenKhachHang,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+            //    HideTextControl();
+            //    HideButtonControl();
+            //    dgvHoaDon.DataSource = BUS_HoaDon.QueryData("data");
+            //}
         }
 
         private void btnSuaHoaDon_Click(object sender, EventArgs e)
@@ -134,8 +99,6 @@ namespace QuanLiShopQuanAo
                 else
                     MessageBox.Show("Không cập nhật được thông tin hoá đơn có mã " + HoaDon.MaHoaDon,"Lỗi",MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                HideTextControl();
-                HideButtonControl();
                 dgvHoaDon.DataSource = BUS_HoaDon.QueryData("data");
             }
         }
@@ -163,8 +126,6 @@ namespace QuanLiShopQuanAo
                     else
                         MessageBox.Show("Lỗi không xoá được dữ liệu hoá đơn với mã số " + HoaDon.MaHoaDon,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
-                HideTextControl();
-                HideButtonControl();
                 dgvHoaDon.DataSource = BUS_HoaDon.QueryData("data");
             }
         }  

@@ -39,12 +39,6 @@
             dgvhGiaTienKhach = new DataGridViewTextBoxColumn();
             dgvhThanhTienKhach = new DataGridViewTextBoxColumn();
             dgvSanPham = new DataGridView();
-            dgvhCheckBoxSanPham = new DataGridViewCheckBoxColumn();
-            dgvhMaSanPham = new DataGridViewTextBoxColumn();
-            dgvhTenSanPham = new DataGridViewTextBoxColumn();
-            dgvhLoaiSanPham = new DataGridViewTextBoxColumn();
-            dgvhGiaSanPham = new DataGridViewTextBoxColumn();
-            dgvhHinhAnhSanPham = new DataGridViewTextBoxColumn();
             lblSanPham = new Label();
             picAnhSanPham = new PictureBox();
             lblHinhAnh = new Label();
@@ -54,6 +48,14 @@
             btnThemVaoHoaDon = new Button();
             nupSoLuong = new NumericUpDown();
             btnTaiLaiDanhSach = new Button();
+            dgvhCheckBoxSanPham = new DataGridViewCheckBoxColumn();
+            dgvhMaSanPham = new DataGridViewTextBoxColumn();
+            dgvhTenSanPham = new DataGridViewTextBoxColumn();
+            dgvhLoaiSanPham = new DataGridViewTextBoxColumn();
+            dgvhGiaSanPham = new DataGridViewTextBoxColumn();
+            dgvhSoLuong = new DataGridViewTextBoxColumn();
+            dgvhTrangThai = new DataGridViewTextBoxColumn();
+            dgvhHinhAnhSanPham = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvChiTietHoaDon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picAnhSanPham).BeginInit();
@@ -74,7 +76,7 @@
             // 
             btnHoanThanhHD.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnHoanThanhHD.Font = new Font("Segoe UI", 14F);
-            btnHoanThanhHD.Location = new Point(634, 835);
+            btnHoanThanhHD.Location = new Point(856, 835);
             btnHoanThanhHD.Name = "btnHoanThanhHD";
             btnHoanThanhHD.Size = new Size(300, 70);
             btnHoanThanhHD.TabIndex = 6;
@@ -89,6 +91,7 @@
             dgvChiTietHoaDon.AllowUserToResizeColumns = false;
             dgvChiTietHoaDon.AllowUserToResizeRows = false;
             dgvChiTietHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvChiTietHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvChiTietHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChiTietHoaDon.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxHoaDon, dgvhMaHoaDonKhach, dgvhMaSanPhamKhach, dgvhTenSanPhamKhach, dgvhSoLuongKhach, dgvhGiaTienKhach, dgvhThanhTienKhach });
             dgvChiTietHoaDon.Location = new Point(12, 42);
@@ -96,7 +99,7 @@
             dgvChiTietHoaDon.RowHeadersVisible = false;
             dgvChiTietHoaDon.RowHeadersWidth = 51;
             dgvChiTietHoaDon.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvChiTietHoaDon.Size = new Size(922, 350);
+            dgvChiTietHoaDon.Size = new Size(1144, 350);
             dgvChiTietHoaDon.TabIndex = 5;
             // 
             // dgvhCheckBoxHoaDon
@@ -106,7 +109,6 @@
             dgvhCheckBoxHoaDon.Name = "dgvhCheckBoxHoaDon";
             dgvhCheckBoxHoaDon.Resizable = DataGridViewTriState.True;
             dgvhCheckBoxHoaDon.SortMode = DataGridViewColumnSortMode.Automatic;
-            dgvhCheckBoxHoaDon.Width = 25;
             // 
             // dgvhMaHoaDonKhach
             // 
@@ -114,7 +116,6 @@
             dgvhMaHoaDonKhach.MinimumWidth = 6;
             dgvhMaHoaDonKhach.Name = "dgvhMaHoaDonKhach";
             dgvhMaHoaDonKhach.ReadOnly = true;
-            dgvhMaHoaDonKhach.Width = 152;
             // 
             // dgvhMaSanPhamKhach
             // 
@@ -122,7 +123,6 @@
             dgvhMaSanPhamKhach.MinimumWidth = 6;
             dgvhMaSanPhamKhach.Name = "dgvhMaSanPhamKhach";
             dgvhMaSanPhamKhach.ReadOnly = true;
-            dgvhMaSanPhamKhach.Width = 160;
             // 
             // dgvhTenSanPhamKhach
             // 
@@ -130,7 +130,6 @@
             dgvhTenSanPhamKhach.MinimumWidth = 6;
             dgvhTenSanPhamKhach.Name = "dgvhTenSanPhamKhach";
             dgvhTenSanPhamKhach.ReadOnly = true;
-            dgvhTenSanPhamKhach.Width = 161;
             // 
             // dgvhSoLuongKhach
             // 
@@ -138,21 +137,18 @@
             dgvhSoLuongKhach.MinimumWidth = 6;
             dgvhSoLuongKhach.Name = "dgvhSoLuongKhach";
             dgvhSoLuongKhach.ReadOnly = true;
-            dgvhSoLuongKhach.Width = 125;
             // 
             // dgvhGiaTienKhach
             // 
             dgvhGiaTienKhach.HeaderText = "Giá Tiền";
             dgvhGiaTienKhach.MinimumWidth = 6;
             dgvhGiaTienKhach.Name = "dgvhGiaTienKhach";
-            dgvhGiaTienKhach.Width = 111;
             // 
             // dgvhThanhTienKhach
             // 
             dgvhThanhTienKhach.HeaderText = "Tổng Thành Tiền";
             dgvhThanhTienKhach.MinimumWidth = 6;
             dgvhThanhTienKhach.Name = "dgvhThanhTienKhach";
-            dgvhThanhTienKhach.Width = 185;
             // 
             // dgvSanPham
             // 
@@ -161,63 +157,17 @@
             dgvSanPham.AllowUserToResizeColumns = false;
             dgvSanPham.AllowUserToResizeRows = false;
             dgvSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSanPham.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxSanPham, dgvhMaSanPham, dgvhTenSanPham, dgvhLoaiSanPham, dgvhGiaSanPham, dgvhHinhAnhSanPham });
+            dgvSanPham.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxSanPham, dgvhMaSanPham, dgvhTenSanPham, dgvhLoaiSanPham, dgvhGiaSanPham, dgvhSoLuong, dgvhTrangThai, dgvhHinhAnhSanPham });
             dgvSanPham.Location = new Point(12, 503);
             dgvSanPham.Name = "dgvSanPham";
             dgvSanPham.RowHeadersVisible = false;
             dgvSanPham.RowHeadersWidth = 51;
             dgvSanPham.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSanPham.Size = new Size(678, 320);
+            dgvSanPham.Size = new Size(828, 320);
             dgvSanPham.TabIndex = 9;
             dgvSanPham.CellClick += dgvSanPham_CellClick;
-            // 
-            // dgvhCheckBoxSanPham
-            // 
-            dgvhCheckBoxSanPham.HeaderText = "";
-            dgvhCheckBoxSanPham.MinimumWidth = 6;
-            dgvhCheckBoxSanPham.Name = "dgvhCheckBoxSanPham";
-            dgvhCheckBoxSanPham.Width = 25;
-            // 
-            // dgvhMaSanPham
-            // 
-            dgvhMaSanPham.HeaderText = "Mã Sản Phẩm";
-            dgvhMaSanPham.MinimumWidth = 6;
-            dgvhMaSanPham.Name = "dgvhMaSanPham";
-            dgvhMaSanPham.ReadOnly = true;
-            dgvhMaSanPham.Width = 160;
-            // 
-            // dgvhTenSanPham
-            // 
-            dgvhTenSanPham.HeaderText = "Tên Sản Phẩm";
-            dgvhTenSanPham.MinimumWidth = 6;
-            dgvhTenSanPham.Name = "dgvhTenSanPham";
-            dgvhTenSanPham.ReadOnly = true;
-            dgvhTenSanPham.Width = 161;
-            // 
-            // dgvhLoaiSanPham
-            // 
-            dgvhLoaiSanPham.HeaderText = "Loại Sản Phẩm";
-            dgvhLoaiSanPham.MinimumWidth = 6;
-            dgvhLoaiSanPham.Name = "dgvhLoaiSanPham";
-            dgvhLoaiSanPham.ReadOnly = true;
-            dgvhLoaiSanPham.Width = 168;
-            // 
-            // dgvhGiaSanPham
-            // 
-            dgvhGiaSanPham.HeaderText = "Giá Sản Phẩm";
-            dgvhGiaSanPham.MinimumWidth = 6;
-            dgvhGiaSanPham.Name = "dgvhGiaSanPham";
-            dgvhGiaSanPham.ReadOnly = true;
-            dgvhGiaSanPham.Width = 161;
-            // 
-            // dgvhHinhAnhSanPham
-            // 
-            dgvhHinhAnhSanPham.HeaderText = "Hình Ảnh";
-            dgvhHinhAnhSanPham.MinimumWidth = 6;
-            dgvhHinhAnhSanPham.Name = "dgvhHinhAnhSanPham";
-            dgvhHinhAnhSanPham.ReadOnly = true;
-            dgvhHinhAnhSanPham.Width = 125;
             // 
             // lblSanPham
             // 
@@ -232,19 +182,19 @@
             // 
             // picAnhSanPham
             // 
-            picAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            picAnhSanPham.Location = new Point(696, 503);
+            picAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            picAnhSanPham.Location = new Point(846, 503);
             picAnhSanPham.Name = "picAnhSanPham";
-            picAnhSanPham.Size = new Size(238, 320);
+            picAnhSanPham.Size = new Size(310, 320);
             picAnhSanPham.TabIndex = 11;
             picAnhSanPham.TabStop = false;
             // 
             // lblHinhAnh
             // 
-            lblHinhAnh.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblHinhAnh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblHinhAnh.AutoSize = true;
             lblHinhAnh.Font = new Font("Segoe UI", 13F);
-            lblHinhAnh.Location = new Point(696, 470);
+            lblHinhAnh.Location = new Point(846, 470);
             lblHinhAnh.Name = "lblHinhAnh";
             lblHinhAnh.Size = new Size(102, 30);
             lblHinhAnh.TabIndex = 12;
@@ -254,7 +204,7 @@
             // 
             lblSoLuong.AutoSize = true;
             lblSoLuong.Font = new Font("Segoe UI", 13F);
-            lblSoLuong.Location = new Point(12, 835);
+            lblSoLuong.Location = new Point(12, 856);
             lblSoLuong.Name = "lblSoLuong";
             lblSoLuong.Size = new Size(110, 30);
             lblSoLuong.TabIndex = 14;
@@ -284,7 +234,7 @@
             // 
             // btnThemVaoHoaDon
             // 
-            btnThemVaoHoaDon.Location = new Point(248, 834);
+            btnThemVaoHoaDon.Location = new Point(248, 855);
             btnThemVaoHoaDon.Name = "btnThemVaoHoaDon";
             btnThemVaoHoaDon.Size = new Size(201, 34);
             btnThemVaoHoaDon.TabIndex = 18;
@@ -294,7 +244,7 @@
             // 
             // nupSoLuong
             // 
-            nupSoLuong.Location = new Point(128, 834);
+            nupSoLuong.Location = new Point(128, 855);
             nupSoLuong.Name = "nupSoLuong";
             nupSoLuong.Size = new Size(114, 34);
             nupSoLuong.TabIndex = 38;
@@ -310,11 +260,66 @@
             btnTaiLaiDanhSach.UseVisualStyleBackColor = true;
             btnTaiLaiDanhSach.Click += btnTaiLaiDanhSach_Click;
             // 
+            // dgvhCheckBoxSanPham
+            // 
+            dgvhCheckBoxSanPham.HeaderText = "";
+            dgvhCheckBoxSanPham.MinimumWidth = 6;
+            dgvhCheckBoxSanPham.Name = "dgvhCheckBoxSanPham";
+            // 
+            // dgvhMaSanPham
+            // 
+            dgvhMaSanPham.HeaderText = "Mã Sản Phẩm";
+            dgvhMaSanPham.MinimumWidth = 6;
+            dgvhMaSanPham.Name = "dgvhMaSanPham";
+            dgvhMaSanPham.ReadOnly = true;
+            // 
+            // dgvhTenSanPham
+            // 
+            dgvhTenSanPham.HeaderText = "Tên Sản Phẩm";
+            dgvhTenSanPham.MinimumWidth = 6;
+            dgvhTenSanPham.Name = "dgvhTenSanPham";
+            dgvhTenSanPham.ReadOnly = true;
+            // 
+            // dgvhLoaiSanPham
+            // 
+            dgvhLoaiSanPham.HeaderText = "Loại Sản Phẩm";
+            dgvhLoaiSanPham.MinimumWidth = 6;
+            dgvhLoaiSanPham.Name = "dgvhLoaiSanPham";
+            dgvhLoaiSanPham.ReadOnly = true;
+            // 
+            // dgvhGiaSanPham
+            // 
+            dgvhGiaSanPham.HeaderText = "Giá Sản Phẩm";
+            dgvhGiaSanPham.MinimumWidth = 6;
+            dgvhGiaSanPham.Name = "dgvhGiaSanPham";
+            dgvhGiaSanPham.ReadOnly = true;
+            // 
+            // dgvhSoLuong
+            // 
+            dgvhSoLuong.HeaderText = "Số Lượng";
+            dgvhSoLuong.MinimumWidth = 6;
+            dgvhSoLuong.Name = "dgvhSoLuong";
+            dgvhSoLuong.ReadOnly = true;
+            // 
+            // dgvhTrangThai
+            // 
+            dgvhTrangThai.HeaderText = "Trạng Thái";
+            dgvhTrangThai.MinimumWidth = 6;
+            dgvhTrangThai.Name = "dgvhTrangThai";
+            dgvhTrangThai.ReadOnly = true;
+            // 
+            // dgvhHinhAnhSanPham
+            // 
+            dgvhHinhAnhSanPham.HeaderText = "Hình Ảnh";
+            dgvhHinhAnhSanPham.MinimumWidth = 6;
+            dgvhHinhAnhSanPham.Name = "dgvhHinhAnhSanPham";
+            dgvhHinhAnhSanPham.ReadOnly = true;
+            // 
             // frmChiTietHoaDon
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(951, 917);
+            ClientSize = new Size(1173, 917);
             Controls.Add(btnTaiLaiDanhSach);
             Controls.Add(nupSoLuong);
             Controls.Add(btnThemVaoHoaDon);
@@ -369,6 +374,8 @@
         private DataGridViewTextBoxColumn dgvhTenSanPham;
         private DataGridViewTextBoxColumn dgvhLoaiSanPham;
         private DataGridViewTextBoxColumn dgvhGiaSanPham;
+        private DataGridViewTextBoxColumn dgvhSoLuong;
+        private DataGridViewTextBoxColumn dgvhTrangThai;
         private DataGridViewTextBoxColumn dgvhHinhAnhSanPham;
     }
 }
