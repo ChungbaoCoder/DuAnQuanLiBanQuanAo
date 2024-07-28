@@ -39,6 +39,14 @@
             dgvhGiaTienKhach = new DataGridViewTextBoxColumn();
             dgvhThanhTienKhach = new DataGridViewTextBoxColumn();
             dgvSanPham = new DataGridView();
+            dgvhCheckBoxSanPham = new DataGridViewCheckBoxColumn();
+            dgvhMaSanPham = new DataGridViewTextBoxColumn();
+            dgvhTenSanPham = new DataGridViewTextBoxColumn();
+            dgvhLoaiSanPham = new DataGridViewTextBoxColumn();
+            dgvhGiaSanPham = new DataGridViewTextBoxColumn();
+            dgvhSoLuong = new DataGridViewTextBoxColumn();
+            dgvhTrangThai = new DataGridViewTextBoxColumn();
+            dgvhHinhAnhSanPham = new DataGridViewTextBoxColumn();
             lblSanPham = new Label();
             picAnhSanPham = new PictureBox();
             lblHinhAnh = new Label();
@@ -48,14 +56,6 @@
             btnThemVaoHoaDon = new Button();
             nupSoLuong = new NumericUpDown();
             btnTaiLaiDanhSach = new Button();
-            dgvhCheckBoxSanPham = new DataGridViewCheckBoxColumn();
-            dgvhMaSanPham = new DataGridViewTextBoxColumn();
-            dgvhTenSanPham = new DataGridViewTextBoxColumn();
-            dgvhLoaiSanPham = new DataGridViewTextBoxColumn();
-            dgvhGiaSanPham = new DataGridViewTextBoxColumn();
-            dgvhSoLuong = new DataGridViewTextBoxColumn();
-            dgvhTrangThai = new DataGridViewTextBoxColumn();
-            dgvhHinhAnhSanPham = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvChiTietHoaDon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picAnhSanPham).BeginInit();
@@ -156,7 +156,7 @@
             dgvSanPham.AllowUserToDeleteRows = false;
             dgvSanPham.AllowUserToResizeColumns = false;
             dgvSanPham.AllowUserToResizeRows = false;
-            dgvSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSanPham.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxSanPham, dgvhMaSanPham, dgvhTenSanPham, dgvhLoaiSanPham, dgvhGiaSanPham, dgvhSoLuong, dgvhTrangThai, dgvhHinhAnhSanPham });
@@ -168,97 +168,6 @@
             dgvSanPham.Size = new Size(828, 320);
             dgvSanPham.TabIndex = 9;
             dgvSanPham.CellClick += dgvSanPham_CellClick;
-            // 
-            // lblSanPham
-            // 
-            lblSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblSanPham.AutoSize = true;
-            lblSanPham.Font = new Font("Segoe UI", 13F);
-            lblSanPham.Location = new Point(12, 470);
-            lblSanPham.Name = "lblSanPham";
-            lblSanPham.Size = new Size(108, 30);
-            lblSanPham.TabIndex = 10;
-            lblSanPham.Text = "Sản Phẩm";
-            // 
-            // picAnhSanPham
-            // 
-            picAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            picAnhSanPham.Location = new Point(846, 503);
-            picAnhSanPham.Name = "picAnhSanPham";
-            picAnhSanPham.Size = new Size(310, 320);
-            picAnhSanPham.TabIndex = 11;
-            picAnhSanPham.TabStop = false;
-            // 
-            // lblHinhAnh
-            // 
-            lblHinhAnh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            lblHinhAnh.AutoSize = true;
-            lblHinhAnh.Font = new Font("Segoe UI", 13F);
-            lblHinhAnh.Location = new Point(846, 470);
-            lblHinhAnh.Name = "lblHinhAnh";
-            lblHinhAnh.Size = new Size(102, 30);
-            lblHinhAnh.TabIndex = 12;
-            lblHinhAnh.Text = "Hình Ảnh";
-            // 
-            // lblSoLuong
-            // 
-            lblSoLuong.AutoSize = true;
-            lblSoLuong.Font = new Font("Segoe UI", 13F);
-            lblSoLuong.Location = new Point(12, 856);
-            lblSoLuong.Name = "lblSoLuong";
-            lblSoLuong.Size = new Size(110, 30);
-            lblSoLuong.TabIndex = 14;
-            lblSoLuong.Text = "Số Lượng:";
-            // 
-            // btnXoaHoaDon
-            // 
-            btnXoaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnXoaHoaDon.Location = new Point(168, 410);
-            btnXoaHoaDon.Name = "btnXoaHoaDon";
-            btnXoaHoaDon.Size = new Size(150, 45);
-            btnXoaHoaDon.TabIndex = 16;
-            btnXoaHoaDon.Text = "Xoá Hoá Đơn";
-            btnXoaHoaDon.UseVisualStyleBackColor = true;
-            btnXoaHoaDon.Click += btnXoaHoaDon_Click;
-            // 
-            // btnChonTatCa
-            // 
-            btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnChonTatCa.Location = new Point(12, 410);
-            btnChonTatCa.Name = "btnChonTatCa";
-            btnChonTatCa.Size = new Size(150, 45);
-            btnChonTatCa.TabIndex = 17;
-            btnChonTatCa.Text = "Chọn Tất Cả";
-            btnChonTatCa.UseVisualStyleBackColor = true;
-            btnChonTatCa.Click += btnChonTatCa_Click;
-            // 
-            // btnThemVaoHoaDon
-            // 
-            btnThemVaoHoaDon.Location = new Point(248, 855);
-            btnThemVaoHoaDon.Name = "btnThemVaoHoaDon";
-            btnThemVaoHoaDon.Size = new Size(201, 34);
-            btnThemVaoHoaDon.TabIndex = 18;
-            btnThemVaoHoaDon.Text = "Thêm Vào Hoá Đơn";
-            btnThemVaoHoaDon.UseVisualStyleBackColor = true;
-            btnThemVaoHoaDon.Click += btnThemVaoHoaDon_Click;
-            // 
-            // nupSoLuong
-            // 
-            nupSoLuong.Location = new Point(128, 855);
-            nupSoLuong.Name = "nupSoLuong";
-            nupSoLuong.Size = new Size(114, 34);
-            nupSoLuong.TabIndex = 38;
-            // 
-            // btnTaiLaiDanhSach
-            // 
-            btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnTaiLaiDanhSach.Location = new Point(324, 410);
-            btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
-            btnTaiLaiDanhSach.Size = new Size(180, 45);
-            btnTaiLaiDanhSach.TabIndex = 39;
-            btnTaiLaiDanhSach.Text = "Tải Lại Danh Sách";
-            btnTaiLaiDanhSach.UseVisualStyleBackColor = true;
-            btnTaiLaiDanhSach.Click += btnTaiLaiDanhSach_Click;
             // 
             // dgvhCheckBoxSanPham
             // 
@@ -314,6 +223,109 @@
             dgvhHinhAnhSanPham.MinimumWidth = 6;
             dgvhHinhAnhSanPham.Name = "dgvhHinhAnhSanPham";
             dgvhHinhAnhSanPham.ReadOnly = true;
+            // 
+            // lblSanPham
+            // 
+            lblSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblSanPham.AutoSize = true;
+            lblSanPham.Font = new Font("Segoe UI", 13F);
+            lblSanPham.Location = new Point(12, 470);
+            lblSanPham.Name = "lblSanPham";
+            lblSanPham.Size = new Size(108, 30);
+            lblSanPham.TabIndex = 10;
+            lblSanPham.Text = "Sản Phẩm";
+            // 
+            // picAnhSanPham
+            // 
+            picAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            picAnhSanPham.Location = new Point(846, 503);
+            picAnhSanPham.Name = "picAnhSanPham";
+            picAnhSanPham.Size = new Size(310, 320);
+            picAnhSanPham.TabIndex = 11;
+            picAnhSanPham.TabStop = false;
+            // 
+            // lblHinhAnh
+            // 
+            lblHinhAnh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblHinhAnh.AutoSize = true;
+            lblHinhAnh.Font = new Font("Segoe UI", 13F);
+            lblHinhAnh.Location = new Point(846, 470);
+            lblHinhAnh.Name = "lblHinhAnh";
+            lblHinhAnh.Size = new Size(102, 30);
+            lblHinhAnh.TabIndex = 12;
+            lblHinhAnh.Text = "Hình Ảnh";
+            // 
+            // lblSoLuong
+            // 
+            lblSoLuong.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblSoLuong.AutoSize = true;
+            lblSoLuong.Font = new Font("Segoe UI", 13F);
+            lblSoLuong.Location = new Point(12, 856);
+            lblSoLuong.Name = "lblSoLuong";
+            lblSoLuong.Size = new Size(110, 30);
+            lblSoLuong.TabIndex = 14;
+            lblSoLuong.Text = "Số Lượng:";
+            // 
+            // btnXoaHoaDon
+            // 
+            btnXoaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnXoaHoaDon.Image = Properties.Resources.icons8_delete_30;
+            btnXoaHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
+            btnXoaHoaDon.Location = new Point(168, 410);
+            btnXoaHoaDon.Name = "btnXoaHoaDon";
+            btnXoaHoaDon.Size = new Size(157, 45);
+            btnXoaHoaDon.TabIndex = 16;
+            btnXoaHoaDon.Text = "Xoá Hoá Đơn";
+            btnXoaHoaDon.TextAlign = ContentAlignment.MiddleRight;
+            btnXoaHoaDon.UseVisualStyleBackColor = true;
+            btnXoaHoaDon.Click += btnXoaHoaDon_Click;
+            // 
+            // btnChonTatCa
+            // 
+            btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnChonTatCa.Image = Properties.Resources.icons8_all_30;
+            btnChonTatCa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnChonTatCa.Location = new Point(12, 410);
+            btnChonTatCa.Name = "btnChonTatCa";
+            btnChonTatCa.Size = new Size(150, 45);
+            btnChonTatCa.TabIndex = 17;
+            btnChonTatCa.Text = "Chọn Tất Cả";
+            btnChonTatCa.TextAlign = ContentAlignment.MiddleRight;
+            btnChonTatCa.UseVisualStyleBackColor = true;
+            btnChonTatCa.Click += btnChonTatCa_Click;
+            // 
+            // btnThemVaoHoaDon
+            // 
+            btnThemVaoHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnThemVaoHoaDon.Location = new Point(248, 846);
+            btnThemVaoHoaDon.Name = "btnThemVaoHoaDon";
+            btnThemVaoHoaDon.Size = new Size(201, 50);
+            btnThemVaoHoaDon.TabIndex = 18;
+            btnThemVaoHoaDon.Text = "Thêm Vào Hoá Đơn";
+            btnThemVaoHoaDon.UseVisualStyleBackColor = true;
+            btnThemVaoHoaDon.Click += btnThemVaoHoaDon_Click;
+            // 
+            // nupSoLuong
+            // 
+            nupSoLuong.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            nupSoLuong.Location = new Point(128, 855);
+            nupSoLuong.Name = "nupSoLuong";
+            nupSoLuong.Size = new Size(114, 34);
+            nupSoLuong.TabIndex = 38;
+            // 
+            // btnTaiLaiDanhSach
+            // 
+            btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnTaiLaiDanhSach.Image = Properties.Resources.icons8_reload_30;
+            btnTaiLaiDanhSach.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTaiLaiDanhSach.Location = new Point(331, 410);
+            btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
+            btnTaiLaiDanhSach.Size = new Size(201, 45);
+            btnTaiLaiDanhSach.TabIndex = 39;
+            btnTaiLaiDanhSach.Text = "Tải Lại Danh Sách";
+            btnTaiLaiDanhSach.TextAlign = ContentAlignment.MiddleRight;
+            btnTaiLaiDanhSach.UseVisualStyleBackColor = true;
+            btnTaiLaiDanhSach.Click += btnTaiLaiDanhSach_Click;
             // 
             // frmChiTietHoaDon
             // 

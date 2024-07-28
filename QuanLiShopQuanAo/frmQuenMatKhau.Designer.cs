@@ -49,7 +49,7 @@
             btnGuiDoiEmail.BackColor = Color.FromArgb(64, 64, 64);
             btnGuiDoiEmail.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuiDoiEmail.ForeColor = Color.White;
-            btnGuiDoiEmail.Location = new Point(594, 139);
+            btnGuiDoiEmail.Location = new Point(347, 375);
             btnGuiDoiEmail.Name = "btnGuiDoiEmail";
             btnGuiDoiEmail.Size = new Size(150, 50);
             btnGuiDoiEmail.TabIndex = 45;
