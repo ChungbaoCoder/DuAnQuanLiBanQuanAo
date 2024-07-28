@@ -35,9 +35,7 @@ namespace QuanLiShopQuanAo.DataBaseConnection
         private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (closed)
-            {
                 return;
-            }
             else
             {
                 var res = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát",
@@ -46,7 +44,7 @@ namespace QuanLiShopQuanAo.DataBaseConnection
                 {
                     e.Cancel = true;
                     return;
-                };
+                }
             }
         }
 
@@ -65,7 +63,7 @@ namespace QuanLiShopQuanAo.DataBaseConnection
             this.Left = (area.Width - this.Width) / 2;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

@@ -428,6 +428,7 @@
             Margin = new Padding(5);
             Name = "frmMainMenu";
             Text = "Màn hình chính";
+            FormClosing += frmMainMenu_FormClosing;
             Load += frmMainMenu_Load;
             flpDashBoard.ResumeLayout(false);
             pnlDashBoard.ResumeLayout(false);
