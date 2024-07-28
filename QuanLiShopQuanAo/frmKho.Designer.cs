@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKho));
             dgvSanPham = new DataGridView();
+            dgvhCheckBoxSanPham = new DataGridViewCheckBoxColumn();
+            dgvhMaSanPham = new DataGridViewTextBoxColumn();
+            dgvhTenSanPham = new DataGridViewTextBoxColumn();
+            dgvhLoaiSanPham = new DataGridViewTextBoxColumn();
+            dgvhSoLuong = new DataGridViewTextBoxColumn();
+            dgvhGiaSanPham = new DataGridViewTextBoxColumn();
+            dgvhMaNhaCC = new DataGridViewTextBoxColumn();
+            dgvhTrangThai = new DataGridViewTextBoxColumn();
             btnTaiLaiDanhSach = new Button();
             btnTimSanPham = new Button();
             txtTimKiemSanPham = new TextBox();
@@ -81,14 +88,6 @@
             btnThemSanPham = new Button();
             lblAnhSanPham = new Label();
             picAnhSanPham = new PictureBox();
-            dgvhCheckBoxSanPham = new DataGridViewCheckBoxColumn();
-            dgvhMaSanPham = new DataGridViewTextBoxColumn();
-            dgvhTenSanPham = new DataGridViewTextBoxColumn();
-            dgvhLoaiSanPham = new DataGridViewTextBoxColumn();
-            dgvhSoLuong = new DataGridViewTextBoxColumn();
-            dgvhGiaSanPham = new DataGridViewTextBoxColumn();
-            dgvhMaNhaCC = new DataGridViewTextBoxColumn();
-            dgvhTrangThai = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
             grpThemSanPham.SuspendLayout();
             grpSuaSanPham.SuspendLayout();
@@ -113,6 +112,62 @@
             dgvSanPham.Size = new Size(1203, 400);
             dgvSanPham.TabIndex = 11;
             dgvSanPham.CellClick += dgvSanPham_CellClick;
+            // 
+            // dgvhCheckBoxSanPham
+            // 
+            dgvhCheckBoxSanPham.HeaderText = "";
+            dgvhCheckBoxSanPham.MinimumWidth = 6;
+            dgvhCheckBoxSanPham.Name = "dgvhCheckBoxSanPham";
+            dgvhCheckBoxSanPham.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // dgvhMaSanPham
+            // 
+            dgvhMaSanPham.HeaderText = "Mã Sản Phẩm";
+            dgvhMaSanPham.MinimumWidth = 6;
+            dgvhMaSanPham.Name = "dgvhMaSanPham";
+            dgvhMaSanPham.ReadOnly = true;
+            // 
+            // dgvhTenSanPham
+            // 
+            dgvhTenSanPham.HeaderText = "Tên Sản Phẩm";
+            dgvhTenSanPham.MinimumWidth = 6;
+            dgvhTenSanPham.Name = "dgvhTenSanPham";
+            dgvhTenSanPham.ReadOnly = true;
+            // 
+            // dgvhLoaiSanPham
+            // 
+            dgvhLoaiSanPham.HeaderText = "Loại Sản Phẩm";
+            dgvhLoaiSanPham.MinimumWidth = 6;
+            dgvhLoaiSanPham.Name = "dgvhLoaiSanPham";
+            dgvhLoaiSanPham.ReadOnly = true;
+            // 
+            // dgvhSoLuong
+            // 
+            dgvhSoLuong.HeaderText = "Số Lượng";
+            dgvhSoLuong.MinimumWidth = 6;
+            dgvhSoLuong.Name = "dgvhSoLuong";
+            dgvhSoLuong.ReadOnly = true;
+            // 
+            // dgvhGiaSanPham
+            // 
+            dgvhGiaSanPham.HeaderText = "Giá";
+            dgvhGiaSanPham.MinimumWidth = 6;
+            dgvhGiaSanPham.Name = "dgvhGiaSanPham";
+            dgvhGiaSanPham.ReadOnly = true;
+            // 
+            // dgvhMaNhaCC
+            // 
+            dgvhMaNhaCC.HeaderText = "Mã Nhà Cung Cấp";
+            dgvhMaNhaCC.MinimumWidth = 6;
+            dgvhMaNhaCC.Name = "dgvhMaNhaCC";
+            dgvhMaNhaCC.ReadOnly = true;
+            // 
+            // dgvhTrangThai
+            // 
+            dgvhTrangThai.HeaderText = "Trạng Thái";
+            dgvhTrangThai.MinimumWidth = 6;
+            dgvhTrangThai.Name = "dgvhTrangThai";
+            dgvhTrangThai.ReadOnly = true;
             // 
             // btnTaiLaiDanhSach
             // 
@@ -716,69 +771,12 @@
             // picAnhSanPham
             // 
             picAnhSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            picAnhSanPham.Image = (Image)resources.GetObject("picAnhSanPham.Image");
             picAnhSanPham.Location = new Point(507, 556);
             picAnhSanPham.Name = "picAnhSanPham";
             picAnhSanPham.Size = new Size(221, 284);
             picAnhSanPham.SizeMode = PictureBoxSizeMode.Zoom;
             picAnhSanPham.TabIndex = 29;
             picAnhSanPham.TabStop = false;
-            // 
-            // dgvhCheckBoxSanPham
-            // 
-            dgvhCheckBoxSanPham.HeaderText = "";
-            dgvhCheckBoxSanPham.MinimumWidth = 6;
-            dgvhCheckBoxSanPham.Name = "dgvhCheckBoxSanPham";
-            dgvhCheckBoxSanPham.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // dgvhMaSanPham
-            // 
-            dgvhMaSanPham.HeaderText = "Mã Sản Phẩm";
-            dgvhMaSanPham.MinimumWidth = 6;
-            dgvhMaSanPham.Name = "dgvhMaSanPham";
-            dgvhMaSanPham.ReadOnly = true;
-            // 
-            // dgvhTenSanPham
-            // 
-            dgvhTenSanPham.HeaderText = "Tên Sản Phẩm";
-            dgvhTenSanPham.MinimumWidth = 6;
-            dgvhTenSanPham.Name = "dgvhTenSanPham";
-            dgvhTenSanPham.ReadOnly = true;
-            // 
-            // dgvhLoaiSanPham
-            // 
-            dgvhLoaiSanPham.HeaderText = "Loại Sản Phẩm";
-            dgvhLoaiSanPham.MinimumWidth = 6;
-            dgvhLoaiSanPham.Name = "dgvhLoaiSanPham";
-            dgvhLoaiSanPham.ReadOnly = true;
-            // 
-            // dgvhSoLuong
-            // 
-            dgvhSoLuong.HeaderText = "Số Lượng";
-            dgvhSoLuong.MinimumWidth = 6;
-            dgvhSoLuong.Name = "dgvhSoLuong";
-            dgvhSoLuong.ReadOnly = true;
-            // 
-            // dgvhGiaSanPham
-            // 
-            dgvhGiaSanPham.HeaderText = "Giá";
-            dgvhGiaSanPham.MinimumWidth = 6;
-            dgvhGiaSanPham.Name = "dgvhGiaSanPham";
-            dgvhGiaSanPham.ReadOnly = true;
-            // 
-            // dgvhMaNhaCC
-            // 
-            dgvhMaNhaCC.HeaderText = "Mã Nhà Cung Cấp";
-            dgvhMaNhaCC.MinimumWidth = 6;
-            dgvhMaNhaCC.Name = "dgvhMaNhaCC";
-            dgvhMaNhaCC.ReadOnly = true;
-            // 
-            // dgvhTrangThai
-            // 
-            dgvhTrangThai.HeaderText = "Trạng Thái";
-            dgvhTrangThai.MinimumWidth = 6;
-            dgvhTrangThai.Name = "dgvhTrangThai";
-            dgvhTrangThai.ReadOnly = true;
             // 
             // frmKho
             // 

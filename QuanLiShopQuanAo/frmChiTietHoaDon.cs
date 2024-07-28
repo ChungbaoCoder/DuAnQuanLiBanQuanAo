@@ -154,5 +154,7 @@ namespace QuanLiShopQuanAo
         {
             closed = false;
         }
+
+       
     }
 }
