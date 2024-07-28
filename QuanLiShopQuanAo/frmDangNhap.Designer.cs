@@ -162,7 +162,7 @@
             btnClose.TabIndex = 11;
             btnClose.Text = "X";
             btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += button1_Click;
+            btnClose.Click += btnClose_Click;
             // 
             // frmDangNhap
             // 

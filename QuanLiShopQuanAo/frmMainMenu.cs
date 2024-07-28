@@ -1,17 +1,20 @@
 ﻿using QuanLiShopQuanAo.DataBaseConnection;
+using System.Diagnostics;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace QuanLiShopQuanAo
 {
     public partial class frmMainMenu : Form
     {
-        private Form currentform;
+        Form currentform;
         string MaNhanVien = string.Empty;
         public frmMainMenu()
         {
             InitializeComponent();
         }
 
-        private void Openchildform(Form childform)
+        public void Openchildform(Form childform)
         {
             if (currentform != null)
             {
@@ -41,13 +44,11 @@ namespace QuanLiShopQuanAo
             //}
             //else
             //    Application.Exit();
-
-            //Openchildform(new frmChiTietHoaDon());
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            Openchildform(new frmHoaDon());
+            Openchildform(new frmHoaDon { form = this, MaNhanVien = this.MaNhanVien });
             lblTrangChu.Text = btnHoaDon.Text;
         }
 
@@ -88,6 +89,17 @@ namespace QuanLiShopQuanAo
                 currentform.Close();
             }
             lblTrangChu.Text = "Trang chủ";
+        }
+
+        private void frmMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var res = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (res != DialogResult.Yes)
+            {
+                e.Cancel = true;
+                return;
+            }
         }
     }
 }
