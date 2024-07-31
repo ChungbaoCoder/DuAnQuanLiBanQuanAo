@@ -33,14 +33,7 @@ namespace QuanLiShopQuanAo
             pC.label2.Text = textBox2.Text;
             pC.label1.Text = textBox3.Text;
             pC.pictureBox1.Image = picture.Image;
-            if (pC.label3.Text != textBox1.Text)
-            {
-                flowLayoutPanel1.Controls.Add(pC);
-            }
-            else
-            {
-                MessageBox.Show("Sản phẩm đã tồn tại", "Thông báo", MessageBoxButtons.OK);
-            }
+            flowLayoutPanel1.Controls.Add(pC);
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -60,7 +53,6 @@ namespace QuanLiShopQuanAo
                 byte[] array = new byte[System.Convert.ToInt32(len)+1];
                 dr.GetBytes(0, 0, array, 0, System.Convert.ToInt32(len));
                 pic = new PictureBox();
-                pic.Width
 
             }
         }

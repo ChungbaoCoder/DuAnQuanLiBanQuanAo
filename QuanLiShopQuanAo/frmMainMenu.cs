@@ -34,17 +34,17 @@ namespace QuanLiShopQuanAo
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-            //frmDangNhap form = new frmDangNhap();
-            //this.Hide();
-            //form.ShowDialog();
-            //maNhanVien = form.maNhanVien;
-            //chucVu = form.chucVu;
+            frmDangNhap form = new frmDangNhap();
+            this.Hide();
+            form.ShowDialog();
+            maNhanVien = form.maNhanVien;
+            chucVu = form.chucVu;
 
-            //if (!form.IsHandleCreated)
-            //    closed = true;
+            if (!form.IsHandleCreated)
+                closed = true;
 
-            //if (chucVu != "Quản Trị")
-            //    pnlNhanVien.Hide();
+            if (chucVu != "Quản Trị")
+                pnlNhanVien.Hide();
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
