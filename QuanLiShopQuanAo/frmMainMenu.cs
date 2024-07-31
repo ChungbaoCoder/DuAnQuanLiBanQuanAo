@@ -8,7 +8,9 @@ namespace QuanLiShopQuanAo
     public partial class frmMainMenu : Form
     {
         Form currentform;
-        string MaNhanVien = string.Empty;
+        bool closed = false;
+        string maNhanVien = "NV1";
+        string chucVu = "";
         public frmMainMenu()
         {
             InitializeComponent();
@@ -32,23 +34,22 @@ namespace QuanLiShopQuanAo
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-            frmDangNhap form = new frmDangNhap();
-            this.Hide();
-            form.ShowDialog();
-            MaNhanVien = form.MaNhanVien;
+            //frmDangNhap form = new frmDangNhap();
+            //this.Hide();
+            //form.ShowDialog();
+            //maNhanVien = form.maNhanVien;
+            //chucVu = form.chucVu;
 
-            //if (form.closed)
-            //{
-            //    form.Close();
-            //    this.Show();
-            //}
-            //else
-            //    Application.Exit();
+            //if (!form.IsHandleCreated)
+            //    closed = true;
+
+            //if (chucVu != "Quản Trị")
+            //    pnlNhanVien.Hide();
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            Openchildform(new frmHoaDon { form = this, MaNhanVien = this.MaNhanVien });
+            Openchildform(new frmHoaDon { form = this, maNhanVien = this.maNhanVien });
             lblTrangChu.Text = btnHoaDon.Text;
         }
 
@@ -93,12 +94,15 @@ namespace QuanLiShopQuanAo
 
         private void frmMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var res = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            if (res != DialogResult.Yes)
+            if (closed)
             {
-                e.Cancel = true;
-                return;
+                var res = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (res != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                    return;
+                }
             }
         }
     }

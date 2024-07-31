@@ -1,9 +1,9 @@
 ﻿INSERT INTO nhanvien (MaNhanVien,TenNhanVien,ChucVu,Luong,Email,TrangThai,MatKhau) VALUES
-('NV1', N'Nguyễn Văn A', N'Giám Đốc', 15000000.00, 'ChungBao@gmail', N'Chưa đilàm', '7372'),
-('NV2', N'Trần Thị B', N'Trưởng Phòng', 12000000.00, 'loginus@1234', N'Chưa đilàm', '1234'),
-('NV3', N'Lê Văn C', N'Nhân Viên Kinh Doanh', 8000000.00, 'thinh@gmail.com', N'Chưa đilàm', '8931'),
-('NV4', N'Phạm Thị D', N'Nhân Viên Hành Chính', 7000000.00, 'd.pham@example.com', N'Chưa đilàm', '2871'),
-('NV5', N'Vũ Văn E', N'Nhân Viên Kỹ Thuật', 9000000.00, 'e.vu@example.com', N'Chưa đilàm', '2344');
+('NV1', N'Nguyễn Văn A', N'Quản Trị', 15000000.00, 'ChungBao@gmail', N'Chưa đilàm', '7372'),
+('NV2', N'Trần Thị B', N'Nhân Viên', 12000000.00, 'loginus@1234', N'Chưa đilàm', '1234'),
+('NV3', N'Lê Văn C', N'Nhân Viên', 8000000.00, 'thinh@gmail.com', N'Chưa đilàm', '8931'),
+('NV4', N'Phạm Thị D', N'Nhân Viên', 7000000.00, 'd.pham@example.com', N'Chưa đilàm', '2871'),
+('NV5', N'Vũ Văn E', N'Nhân Viên', 9000000.00, 'e.vu@example.com', N'Chưa đilàm', '2344');
 
 INSERT INTO khachhang (MaKhachHang,TenKhachHang,SDT,DiaChi) VALUES
 ('KH1', N'Nguyễn Văn A', '0901234567', N'123 Đường ABC, Quận 1, TP. Hồ Chí Minh'),

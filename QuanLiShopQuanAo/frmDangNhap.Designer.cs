@@ -30,7 +30,7 @@
         {
             lblUserName = new Label();
             lblPassWord = new Label();
-            txtUserName = new TextBox();
+            txtUserEmail = new TextBox();
             txtPassWord = new TextBox();
             llblQuenMatKhau = new LinkLabel();
             btnLogin = new Button();
@@ -64,15 +64,15 @@
             lblPassWord.TabIndex = 2;
             lblPassWord.Text = "Mật Khẩu";
             // 
-            // txtUserName
+            // txtUserEmail
             // 
-            txtUserName.Anchor = AnchorStyles.None;
-            txtUserName.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
-            txtUserName.Location = new Point(113, 173);
-            txtUserName.Name = "txtUserName";
-            txtUserName.PlaceholderText = "NHẬP TÀI KHOẢN";
-            txtUserName.Size = new Size(308, 30);
-            txtUserName.TabIndex = 3;
+            txtUserEmail.Anchor = AnchorStyles.None;
+            txtUserEmail.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
+            txtUserEmail.Location = new Point(113, 173);
+            txtUserEmail.Name = "txtUserEmail";
+            txtUserEmail.PlaceholderText = "NHẬP TÀI KHOẢN";
+            txtUserEmail.Size = new Size(308, 30);
+            txtUserEmail.TabIndex = 3;
             // 
             // txtPassWord
             // 
@@ -179,7 +179,7 @@
             Controls.Add(btnLogin);
             Controls.Add(llblQuenMatKhau);
             Controls.Add(txtPassWord);
-            Controls.Add(txtUserName);
+            Controls.Add(txtUserEmail);
             Controls.Add(lblPassWord);
             Controls.Add(lblUserName);
             FormBorderStyle = FormBorderStyle.None;
@@ -198,7 +198,7 @@
 
         private Label lblUserName;
         private Label lblPassWord;
-        private TextBox txtUserName;
+        private TextBox txtUserEmail;
         private TextBox txtPassWord;
         private LinkLabel llblQuenMatKhau;
         private Button btnLogin;

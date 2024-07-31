@@ -6,8 +6,7 @@ namespace QuanLiShopQuanAo
 {
     public partial class frmChiTietHoaDon : Form
     {
-        public bool closed = false;
-        public string TenKhachHang = "Lê Văn C";
+        public string TenKhachHang = string.Empty;
         public frmChiTietHoaDon()
         {
             InitializeComponent();
@@ -16,6 +15,7 @@ namespace QuanLiShopQuanAo
         private void frmChiTietHoaDon_Load(object sender, EventArgs e)
         {
             SetColumns();
+            lblTenKhachHang.Text += " " + TenKhachHang;
             dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", TenKhachHang);
             dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
         }
@@ -59,7 +59,7 @@ namespace QuanLiShopQuanAo
             {
                 int selectedrowindex = dgvSanPham.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvSanPham.Rows[selectedrowindex];
-                string cellValue = Convert.ToString(selectedRow.Cells[5].ToString());
+                string cellValue = Convert.ToString(selectedRow.Cells[5].Value.ToString());
 
                 try
                 {
@@ -81,9 +81,10 @@ namespace QuanLiShopQuanAo
                 if (Convert.ToBoolean(row.Cells[0].Value) == true && row.Cells[7].Value.ToString() != "Hết Hàng")
                     listSanPham.Add(new SanPham
                     {
-                        MaSanPham = row.Cells[1].ToString(),
+                        MaSanPham = row.Cells[1].Value.ToString(),
+                        TenSanPham = row.Cells[2].Value.ToString(),
                         SoLuong = Convert.ToInt32(nupSoLuong.Value),
-                        Gia = int.Parse(row.Cells[4].ToString())
+                        Gia = int.Parse(row.Cells[4].Value.ToString())
                     });
             }
             nupSoLuong.Value = 0;
@@ -92,16 +93,19 @@ namespace QuanLiShopQuanAo
             {
                 ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon()
                 {
-                    MaKhachHang = TenKhachHang,
                     MaSanPham = SanPham.MaSanPham,
+                    TenKhachHang = lblTenKhachHang.Text,
+                    TenSanPham = SanPham.TenSanPham,
                     SoLuong = SanPham.SoLuong,
                     TongThanhTien = SanPham.Gia * SanPham.SoLuong
                 };
                 if (BUS_ChiTietHoaDon.QueryData(chiTietHoaDon, "insert"))
-                    MessageBox.Show("Thêm thành công sản phẩm " + SanPham.MaSanPham, "Thêm sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm thành công sản phẩm " + SanPham.TenSanPham, "Thêm sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Lỗi thêm sản phẩm với mã " + SanPham.MaSanPham, "Thêm sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi thêm sản phẩm với mã " + SanPham.TenSanPham, "Thêm sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", TenKhachHang);
+            dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
         }
 
         private void btnHoanThanhHD_Click(object sender, EventArgs e)
@@ -112,8 +116,8 @@ namespace QuanLiShopQuanAo
             {
                 listChiTietHoaDon.Add(new ChiTietHoaDon()
                 {
-                    MaKhachHang = TenKhachHang,
-                    TongThanhTien = float.Parse(row.Cells[6].ToString())
+                    MaHoaDon = dgvChiTietHoaDon.Rows[0].Cells[1].Value.ToString(),
+                    TongThanhTien = float.Parse(row.Cells[6].Value.ToString())
                 });
             }
 
@@ -136,25 +140,22 @@ namespace QuanLiShopQuanAo
                 foreach (DataGridViewRow row in dgvChiTietHoaDon.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
-                        listChiTietHoaDon.Add(new ChiTietHoaDon { MaSanPham = row.Cells[2].ToString() });
+                        listChiTietHoaDon.Add(new ChiTietHoaDon { 
+                            MaSanPham = row.Cells[1].Value.ToString(),
+                            TenSanPham = row.Cells[2].Value.ToString()
+                        });
                 }
 
                 foreach (ChiTietHoaDon ChiTietHoaDon in listChiTietHoaDon)
                 {
                     if (BUS_ChiTietHoaDon.QueryData(ChiTietHoaDon, "delete"))
-                        MessageBox.Show($"Xoá dữ liệu hoá đơn sản phẩm {ChiTietHoaDon.MaSanPham} thành công", "Xoá hoá đơn", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Xoá dữ liệu hoá đơn sản phẩm {ChiTietHoaDon.TenSanPham} thành công", "Xoá hoá đơn", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show("Lỗi không xoá được dữ liệu hoá đơn khách hàng với mã sản phẩm " + ChiTietHoaDon.MaSanPham, "Xoá hoá đơn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Lỗi không xoá được dữ liệu hoá đơn khách hàng với mã sản phẩm " + ChiTietHoaDon.TenSanPham, "Xoá hoá đơn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                dgvChiTietHoaDon.DataSource = BUS_KhachHang.QueryData("data");
+                dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", TenKhachHang);
+                dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
             }
         }
-
-        private void frmChiTietHoaDon_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            closed = false;
-        }
-
-       
     }
 }

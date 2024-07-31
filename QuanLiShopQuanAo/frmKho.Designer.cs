@@ -620,7 +620,7 @@
             lblSuaSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSuaSanPham.AutoSize = true;
             lblSuaSanPham.Font = new Font("Segoe UI", 14F);
-            lblSuaSanPham.Location = new Point(10, 5);
+            lblSuaSanPham.Location = new Point(6, 19);
             lblSuaSanPham.Name = "lblSuaSanPham";
             lblSuaSanPham.Size = new Size(282, 32);
             lblSuaSanPham.TabIndex = 34;
@@ -773,7 +773,7 @@
             picAnhSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             picAnhSanPham.Location = new Point(507, 556);
             picAnhSanPham.Name = "picAnhSanPham";
-            picAnhSanPham.Size = new Size(221, 284);
+            picAnhSanPham.Size = new Size(235, 284);
             picAnhSanPham.SizeMode = PictureBoxSizeMode.Zoom;
             picAnhSanPham.TabIndex = 29;
             picAnhSanPham.TabStop = false;

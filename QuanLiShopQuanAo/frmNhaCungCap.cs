@@ -65,9 +65,32 @@ namespace QuanLiShopQuanAo
                 if (gb is GroupBox)
                 {
                     foreach (Control tb in gb.Controls)
-                        ((TextBox)tb).Text = string.Empty;
+                        if (tb is TextBox)
+                            tb.Text = string.Empty;
                 }
             }
+        }
+
+        private bool CheckTextBoxEmpty(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    foreach (TextBox textBox in grpThemNhaCungCap.Controls.OfType<TextBox>())
+                    {
+                        if (string.IsNullOrEmpty(textBox.Text))
+                            return true;
+                    }
+                    break;
+                case 1:
+                    foreach (TextBox textBox in grpSuaNhaCungCap.Controls.OfType<TextBox>())
+                    {
+                        if (string.IsNullOrEmpty(textBox.Text))
+                            return true;
+                    }
+                    break;
+            }
+            return false;
         }
 
         private void btnChonTatCa_Click(object sender, EventArgs e)
@@ -128,6 +151,12 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn lưu thông tin nhà cung cấp", "Lưu thông tin nhà cung cấp?",
                 MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                if (CheckTextBoxEmpty(0))
+                {
+                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 NhaCungCap NhaCungCap = new NhaCungCap()
                 {
                     TenNhaCungCap = txtThemTenNhaCungCap.Text,
@@ -135,7 +164,7 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtThemDiaChiNhaCungCap.Text,
                 };
                 if (BUS_NhaCungCap.QueryData(NhaCungCap, "insert"))
-                    MessageBox.Show("Thêm thông tin nhà cung cấp thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
+                    MessageBox.Show("Thêm thông tin nhà cung cấp thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Không cập nhật được thông tin nhà cung cấp có tên " + NhaCungCap.TenNhaCungCap,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
@@ -150,6 +179,12 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn sửa thông tin nhà cung cấp", "Sửa thông tin nhà cung cấp?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                if (CheckTextBoxEmpty(1))
+                {
+                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 NhaCungCap NhaCungCap = new NhaCungCap()
                 {
                     MaNhaCungCap = txtSuaMaNhaCungCap.Text,
@@ -158,7 +193,7 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtSuaDiaChiNhaCungCap.Text,
                 };
                 if (BUS_NhaCungCap.QueryData(NhaCungCap, "update"))
-                    MessageBox.Show("Cập nhật thông tin nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("Cập nhật thông tin nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Không cập nhật được thông tin nhà cung cấp có mã " + NhaCungCap.MaNhaCungCap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -180,18 +215,17 @@ namespace QuanLiShopQuanAo
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                         listNhaCungCap.Add(new NhaCungCap
                         {
-                            MaNhaCungCap = row.Cells[1].ToString(),
-                            SDT = row.Cells[3].ToString()
+                            MaNhaCungCap = row.Cells[1].Value.ToString(),
+                            SDT = row.Cells[3].Value.ToString()
                         });
                 }
 
                 foreach (NhaCungCap NhaCungCap in listNhaCungCap)
                 {
                     if (BUS_NhaCungCap.QueryData(NhaCungCap, "delete"))
-                        MessageBox.Show("Xoá dữ liệu nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    else
                         MessageBox.Show("Lỗi không xoá được dữ liệu nhà cung cấp với mã số " + NhaCungCap.MaNhaCungCap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                MessageBox.Show("Xoá dữ liệu nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HideTextControl();
                 HideButtonControl();
                 dgvNhaCungCap.DataSource = BUS_NhaCungCap.QueryData("data");
