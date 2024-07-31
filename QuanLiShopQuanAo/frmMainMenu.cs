@@ -43,7 +43,7 @@ namespace QuanLiShopQuanAo
             //    this.Show();
             //}
             //else
-            //    Application.Exit();
+                Application.Exit();
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)

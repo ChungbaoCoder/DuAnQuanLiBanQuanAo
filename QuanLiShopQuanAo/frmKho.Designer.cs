@@ -191,7 +191,7 @@
             btnTimSanPham.ImageAlign = ContentAlignment.MiddleLeft;
             btnTimSanPham.Location = new Point(1092, 422);
             btnTimSanPham.Name = "btnTimSanPham";
-            btnTimSanPham.Size = new Size(140, 34);
+            btnTimSanPham.Size = new Size(140, 40);
             btnTimSanPham.TabIndex = 50;
             btnTimSanPham.Text = "Tìm";
             btnTimSanPham.TextAlign = ContentAlignment.MiddleRight;
@@ -204,7 +204,7 @@
             txtTimKiemSanPham.Font = new Font("Segoe UI", 12F);
             txtTimKiemSanPham.Location = new Point(748, 422);
             txtTimKiemSanPham.Name = "txtTimKiemSanPham";
-            txtTimKiemSanPham.Size = new Size(338, 34);
+            txtTimKiemSanPham.Size = new Size(338, 29);
             txtTimKiemSanPham.TabIndex = 56;
             // 
             // grpThemSanPham
@@ -253,7 +253,7 @@
             lblThemSanPham.Font = new Font("Segoe UI", 14F);
             lblThemSanPham.Location = new Point(6, 21);
             lblThemSanPham.Name = "lblThemSanPham";
-            lblThemSanPham.Size = new Size(304, 32);
+            lblThemSanPham.Size = new Size(238, 25);
             lblThemSanPham.TabIndex = 55;
             lblThemSanPham.Text = "Thêm Thông Tin Sản Phẩm";
             // 
@@ -263,7 +263,7 @@
             rdoThemChuaBan.AutoSize = true;
             rdoThemChuaBan.Location = new Point(294, 287);
             rdoThemChuaBan.Name = "rdoThemChuaBan";
-            rdoThemChuaBan.Size = new Size(115, 32);
+            rdoThemChuaBan.Size = new Size(94, 25);
             rdoThemChuaBan.TabIndex = 51;
             rdoThemChuaBan.TabStop = true;
             rdoThemChuaBan.Text = "Chưa Bán";
@@ -275,7 +275,7 @@
             rdoThemDangBan.AutoSize = true;
             rdoThemDangBan.Location = new Point(160, 287);
             rdoThemDangBan.Name = "rdoThemDangBan";
-            rdoThemDangBan.Size = new Size(117, 32);
+            rdoThemDangBan.Size = new Size(95, 25);
             rdoThemDangBan.TabIndex = 50;
             rdoThemDangBan.TabStop = true;
             rdoThemDangBan.Text = "Đang Bán";
@@ -288,7 +288,7 @@
             lblThemTrangThaiSanPham.Font = new Font("Segoe UI", 13F);
             lblThemTrangThaiSanPham.Location = new Point(6, 288);
             lblThemTrangThaiSanPham.Name = "lblThemTrangThaiSanPham";
-            lblThemTrangThaiSanPham.Size = new Size(113, 30);
+            lblThemTrangThaiSanPham.Size = new Size(92, 25);
             lblThemTrangThaiSanPham.TabIndex = 49;
             lblThemTrangThaiSanPham.Text = "Trạng Thái";
             // 
@@ -312,7 +312,7 @@
             txtThemSoLuongSanPham.Font = new Font("Segoe UI", 12F);
             txtThemSoLuongSanPham.Location = new Point(160, 201);
             txtThemSoLuongSanPham.Name = "txtThemSoLuongSanPham";
-            txtThemSoLuongSanPham.Size = new Size(300, 34);
+            txtThemSoLuongSanPham.Size = new Size(300, 29);
             txtThemSoLuongSanPham.TabIndex = 47;
             // 
             // cmbThemNhaCungCap
@@ -322,7 +322,7 @@
             cmbThemNhaCungCap.FormattingEnabled = true;
             cmbThemNhaCungCap.Location = new Point(160, 333);
             cmbThemNhaCungCap.Name = "cmbThemNhaCungCap";
-            cmbThemNhaCungCap.Size = new Size(102, 33);
+            cmbThemNhaCungCap.Size = new Size(102, 28);
             cmbThemNhaCungCap.TabIndex = 35;
             // 
             // lblThemLoaiSanPham
@@ -332,7 +332,7 @@
             lblThemLoaiSanPham.Font = new Font("Segoe UI", 13F);
             lblThemLoaiSanPham.Location = new Point(6, 114);
             lblThemLoaiSanPham.Name = "lblThemLoaiSanPham";
-            lblThemLoaiSanPham.Size = new Size(153, 30);
+            lblThemLoaiSanPham.Size = new Size(128, 25);
             lblThemLoaiSanPham.TabIndex = 46;
             lblThemLoaiSanPham.Text = "Loại Sản Phẩm";
             // 
@@ -342,7 +342,7 @@
             txtThemGiaSanPham.Font = new Font("Segoe UI", 12F);
             txtThemGiaSanPham.Location = new Point(160, 247);
             txtThemGiaSanPham.Name = "txtThemGiaSanPham";
-            txtThemGiaSanPham.Size = new Size(300, 34);
+            txtThemGiaSanPham.Size = new Size(300, 29);
             txtThemGiaSanPham.TabIndex = 43;
             // 
             // txtThemLoaiSanPham
@@ -351,7 +351,7 @@
             txtThemLoaiSanPham.Font = new Font("Segoe UI", 12F);
             txtThemLoaiSanPham.Location = new Point(160, 112);
             txtThemLoaiSanPham.Name = "txtThemLoaiSanPham";
-            txtThemLoaiSanPham.Size = new Size(300, 34);
+            txtThemLoaiSanPham.Size = new Size(300, 29);
             txtThemLoaiSanPham.TabIndex = 45;
             // 
             // txtThemHinhAnhSanPham
@@ -360,7 +360,7 @@
             txtThemHinhAnhSanPham.Font = new Font("Segoe UI", 12F);
             txtThemHinhAnhSanPham.Location = new Point(160, 158);
             txtThemHinhAnhSanPham.Name = "txtThemHinhAnhSanPham";
-            txtThemHinhAnhSanPham.Size = new Size(214, 34);
+            txtThemHinhAnhSanPham.Size = new Size(214, 29);
             txtThemHinhAnhSanPham.TabIndex = 36;
             // 
             // lblThemGiaSanPham
@@ -370,7 +370,7 @@
             lblThemGiaSanPham.Font = new Font("Segoe UI", 13F);
             lblThemGiaSanPham.Location = new Point(6, 247);
             lblThemGiaSanPham.Name = "lblThemGiaSanPham";
-            lblThemGiaSanPham.Size = new Size(44, 30);
+            lblThemGiaSanPham.Size = new Size(37, 25);
             lblThemGiaSanPham.TabIndex = 44;
             lblThemGiaSanPham.Text = "Giá";
             // 
@@ -381,7 +381,7 @@
             lblThemHinhAnhSanPham.Font = new Font("Segoe UI", 13F);
             lblThemHinhAnhSanPham.Location = new Point(6, 158);
             lblThemHinhAnhSanPham.Name = "lblThemHinhAnhSanPham";
-            lblThemHinhAnhSanPham.Size = new Size(102, 30);
+            lblThemHinhAnhSanPham.Size = new Size(86, 25);
             lblThemHinhAnhSanPham.TabIndex = 35;
             lblThemHinhAnhSanPham.Text = "Hình Ảnh";
             // 
@@ -391,7 +391,7 @@
             txtThemTenSanPham.Font = new Font("Segoe UI", 12F);
             txtThemTenSanPham.Location = new Point(160, 66);
             txtThemTenSanPham.Name = "txtThemTenSanPham";
-            txtThemTenSanPham.Size = new Size(300, 34);
+            txtThemTenSanPham.Size = new Size(300, 29);
             txtThemTenSanPham.TabIndex = 41;
             // 
             // btnLuuThemSanPham
@@ -415,7 +415,7 @@
             lblThemTenSanPham.Font = new Font("Segoe UI", 13F);
             lblThemTenSanPham.Location = new Point(6, 70);
             lblThemTenSanPham.Name = "lblThemTenSanPham";
-            lblThemTenSanPham.Size = new Size(148, 30);
+            lblThemTenSanPham.Size = new Size(122, 25);
             lblThemTenSanPham.TabIndex = 42;
             lblThemTenSanPham.Text = "Tên Sản Phẩm";
             // 
@@ -426,7 +426,7 @@
             lblThemNhaCungCap.Font = new Font("Segoe UI", 13F);
             lblThemNhaCungCap.Location = new Point(6, 332);
             lblThemNhaCungCap.Name = "lblThemNhaCungCap";
-            lblThemNhaCungCap.Size = new Size(153, 30);
+            lblThemNhaCungCap.Size = new Size(127, 25);
             lblThemNhaCungCap.TabIndex = 40;
             lblThemNhaCungCap.Text = "Nhà Cung Cấp";
             // 
@@ -437,7 +437,7 @@
             lblThemSoLuongSanPham.Font = new Font("Segoe UI", 13F);
             lblThemSoLuongSanPham.Location = new Point(6, 203);
             lblThemSoLuongSanPham.Name = "lblThemSoLuongSanPham";
-            lblThemSoLuongSanPham.Size = new Size(105, 30);
+            lblThemSoLuongSanPham.Size = new Size(89, 25);
             lblThemSoLuongSanPham.TabIndex = 38;
             lblThemSoLuongSanPham.Text = "Số Lượng";
             // 
@@ -532,7 +532,7 @@
             lblSuaNhaCungCap.Font = new Font("Segoe UI", 13F);
             lblSuaNhaCungCap.Location = new Point(6, 376);
             lblSuaNhaCungCap.Name = "lblSuaNhaCungCap";
-            lblSuaNhaCungCap.Size = new Size(153, 30);
+            lblSuaNhaCungCap.Size = new Size(127, 25);
             lblSuaNhaCungCap.TabIndex = 52;
             lblSuaNhaCungCap.Text = "Nhà Cung Cấp";
             // 
@@ -542,7 +542,7 @@
             txtSuaHinhAnhSanPham.Font = new Font("Segoe UI", 12F);
             txtSuaHinhAnhSanPham.Location = new Point(187, 203);
             txtSuaHinhAnhSanPham.Name = "txtSuaHinhAnhSanPham";
-            txtSuaHinhAnhSanPham.Size = new Size(194, 34);
+            txtSuaHinhAnhSanPham.Size = new Size(194, 29);
             txtSuaHinhAnhSanPham.TabIndex = 58;
             // 
             // lblSuaHinhAnhSanPham
@@ -552,7 +552,7 @@
             lblSuaHinhAnhSanPham.Font = new Font("Segoe UI", 13F);
             lblSuaHinhAnhSanPham.Location = new Point(6, 207);
             lblSuaHinhAnhSanPham.Name = "lblSuaHinhAnhSanPham";
-            lblSuaHinhAnhSanPham.Size = new Size(102, 30);
+            lblSuaHinhAnhSanPham.Size = new Size(86, 25);
             lblSuaHinhAnhSanPham.TabIndex = 57;
             lblSuaHinhAnhSanPham.Text = "Hình Ảnh";
             // 
@@ -562,7 +562,7 @@
             rdoSuaChuaBan.AutoSize = true;
             rdoSuaChuaBan.Location = new Point(325, 333);
             rdoSuaChuaBan.Name = "rdoSuaChuaBan";
-            rdoSuaChuaBan.Size = new Size(115, 32);
+            rdoSuaChuaBan.Size = new Size(94, 25);
             rdoSuaChuaBan.TabIndex = 54;
             rdoSuaChuaBan.TabStop = true;
             rdoSuaChuaBan.Text = "Chưa Bán";
@@ -574,7 +574,7 @@
             rdoSuaDangBan.AutoSize = true;
             rdoSuaDangBan.Location = new Point(191, 333);
             rdoSuaDangBan.Name = "rdoSuaDangBan";
-            rdoSuaDangBan.Size = new Size(117, 32);
+            rdoSuaDangBan.Size = new Size(95, 25);
             rdoSuaDangBan.TabIndex = 53;
             rdoSuaDangBan.TabStop = true;
             rdoSuaDangBan.Text = "Đang Bán";
@@ -586,7 +586,7 @@
             txtSuaGiaSanPham.Font = new Font("Segoe UI", 12F);
             txtSuaGiaSanPham.Location = new Point(187, 288);
             txtSuaGiaSanPham.Name = "txtSuaGiaSanPham";
-            txtSuaGiaSanPham.Size = new Size(280, 34);
+            txtSuaGiaSanPham.Size = new Size(280, 29);
             txtSuaGiaSanPham.TabIndex = 36;
             // 
             // lblSuaTrangThaiSanPham
@@ -596,7 +596,7 @@
             lblSuaTrangThaiSanPham.Font = new Font("Segoe UI", 13F);
             lblSuaTrangThaiSanPham.Location = new Point(6, 333);
             lblSuaTrangThaiSanPham.Name = "lblSuaTrangThaiSanPham";
-            lblSuaTrangThaiSanPham.Size = new Size(113, 30);
+            lblSuaTrangThaiSanPham.Size = new Size(92, 25);
             lblSuaTrangThaiSanPham.TabIndex = 52;
             lblSuaTrangThaiSanPham.Text = "Trạng Thái";
             // 
@@ -622,7 +622,7 @@
             lblSuaSanPham.Font = new Font("Segoe UI", 14F);
             lblSuaSanPham.Location = new Point(10, 5);
             lblSuaSanPham.Name = "lblSuaSanPham";
-            lblSuaSanPham.Size = new Size(282, 32);
+            lblSuaSanPham.Size = new Size(222, 25);
             lblSuaSanPham.TabIndex = 34;
             lblSuaSanPham.Text = "Sửa Thông Tin Sản Phẩm";
             // 
@@ -632,7 +632,7 @@
             txtSuaTenSanPham.Font = new Font("Segoe UI", 12F);
             txtSuaTenSanPham.Location = new Point(187, 114);
             txtSuaTenSanPham.Name = "txtSuaTenSanPham";
-            txtSuaTenSanPham.Size = new Size(280, 34);
+            txtSuaTenSanPham.Size = new Size(280, 29);
             txtSuaTenSanPham.TabIndex = 32;
             // 
             // lblSuaMaSanPham
@@ -642,7 +642,7 @@
             lblSuaMaSanPham.Font = new Font("Segoe UI", 13F);
             lblSuaMaSanPham.Location = new Point(6, 72);
             lblSuaMaSanPham.Name = "lblSuaMaSanPham";
-            lblSuaMaSanPham.Size = new Size(145, 30);
+            lblSuaMaSanPham.Size = new Size(121, 25);
             lblSuaMaSanPham.TabIndex = 18;
             lblSuaMaSanPham.Text = "Mã Sản Phẩm";
             // 
@@ -653,7 +653,7 @@
             txtSuaMaSanPham.Location = new Point(187, 70);
             txtSuaMaSanPham.Name = "txtSuaMaSanPham";
             txtSuaMaSanPham.ReadOnly = true;
-            txtSuaMaSanPham.Size = new Size(280, 34);
+            txtSuaMaSanPham.Size = new Size(280, 29);
             txtSuaMaSanPham.TabIndex = 22;
             // 
             // lblSuaTenSanPham
@@ -663,7 +663,7 @@
             lblSuaTenSanPham.Font = new Font("Segoe UI", 13F);
             lblSuaTenSanPham.Location = new Point(6, 116);
             lblSuaTenSanPham.Name = "lblSuaTenSanPham";
-            lblSuaTenSanPham.Size = new Size(148, 30);
+            lblSuaTenSanPham.Size = new Size(122, 25);
             lblSuaTenSanPham.TabIndex = 33;
             lblSuaTenSanPham.Text = "Tên Sản Phẩm";
             // 
@@ -673,7 +673,7 @@
             txtSuaSoLuongSanPham.Font = new Font("Segoe UI", 12F);
             txtSuaSoLuongSanPham.Location = new Point(187, 247);
             txtSuaSoLuongSanPham.Name = "txtSuaSoLuongSanPham";
-            txtSuaSoLuongSanPham.Size = new Size(280, 34);
+            txtSuaSoLuongSanPham.Size = new Size(280, 29);
             txtSuaSoLuongSanPham.TabIndex = 23;
             // 
             // btnLuuSuaSanPham
@@ -698,7 +698,7 @@
             lblSuaSoLuongSanPham.Font = new Font("Segoe UI", 13F);
             lblSuaSoLuongSanPham.Location = new Point(6, 251);
             lblSuaSoLuongSanPham.Name = "lblSuaSoLuongSanPham";
-            lblSuaSoLuongSanPham.Size = new Size(105, 30);
+            lblSuaSoLuongSanPham.Size = new Size(89, 25);
             lblSuaSoLuongSanPham.TabIndex = 24;
             lblSuaSoLuongSanPham.Text = "Số Lượng";
             // 
@@ -708,7 +708,7 @@
             txtSuaLoaiSanPham.Font = new Font("Segoe UI", 12F);
             txtSuaLoaiSanPham.Location = new Point(187, 158);
             txtSuaLoaiSanPham.Name = "txtSuaLoaiSanPham";
-            txtSuaLoaiSanPham.Size = new Size(280, 34);
+            txtSuaLoaiSanPham.Size = new Size(280, 29);
             txtSuaLoaiSanPham.TabIndex = 25;
             // 
             // lblSuaGiaSanPham
@@ -718,7 +718,7 @@
             lblSuaGiaSanPham.Font = new Font("Segoe UI", 13F);
             lblSuaGiaSanPham.Location = new Point(6, 292);
             lblSuaGiaSanPham.Name = "lblSuaGiaSanPham";
-            lblSuaGiaSanPham.Size = new Size(44, 30);
+            lblSuaGiaSanPham.Size = new Size(37, 25);
             lblSuaGiaSanPham.TabIndex = 28;
             lblSuaGiaSanPham.Text = "Giá";
             // 
@@ -729,7 +729,7 @@
             cmbSuaNhaCungCap.FormattingEnabled = true;
             cmbSuaNhaCungCap.Location = new Point(187, 375);
             cmbSuaNhaCungCap.Name = "cmbSuaNhaCungCap";
-            cmbSuaNhaCungCap.Size = new Size(105, 33);
+            cmbSuaNhaCungCap.Size = new Size(105, 28);
             cmbSuaNhaCungCap.TabIndex = 27;
             // 
             // lblSuaLoaiSanPham
@@ -739,7 +739,7 @@
             lblSuaLoaiSanPham.Font = new Font("Segoe UI", 13F);
             lblSuaLoaiSanPham.Location = new Point(6, 160);
             lblSuaLoaiSanPham.Name = "lblSuaLoaiSanPham";
-            lblSuaLoaiSanPham.Size = new Size(153, 30);
+            lblSuaLoaiSanPham.Size = new Size(128, 25);
             lblSuaLoaiSanPham.TabIndex = 26;
             lblSuaLoaiSanPham.Text = "Loại Sản Phẩm";
             // 
@@ -764,14 +764,14 @@
             lblAnhSanPham.Font = new Font("Segoe UI", 13F);
             lblAnhSanPham.Location = new Point(555, 860);
             lblAnhSanPham.Name = "lblAnhSanPham";
-            lblAnhSanPham.Size = new Size(152, 30);
+            lblAnhSanPham.Size = new Size(128, 25);
             lblAnhSanPham.TabIndex = 57;
             lblAnhSanPham.Text = "Ảnh Sản Phẩm";
             // 
             // picAnhSanPham
             // 
-            picAnhSanPham.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            picAnhSanPham.Location = new Point(507, 556);
+            picAnhSanPham.Anchor = AnchorStyles.None;
+            picAnhSanPham.Location = new Point(507, 559);
             picAnhSanPham.Name = "picAnhSanPham";
             picAnhSanPham.Size = new Size(221, 284);
             picAnhSanPham.SizeMode = PictureBoxSizeMode.Zoom;
@@ -780,7 +780,7 @@
             // 
             // frmKho
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1271, 942);
             Controls.Add(lblAnhSanPham);
