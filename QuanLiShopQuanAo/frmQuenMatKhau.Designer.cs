@@ -225,7 +225,6 @@
 
         #endregion
 
-        private TextBox txtDoiMatKhauEmail;
         private Button btnGuiDoiEmail;
         private TextBox txtMatKhauCu;
         private Label lblMatKhauCu;
@@ -234,8 +233,6 @@
         private TextBox txtXacNhanMatKhauMoi;
         private Label lblXacNhanMatKhauMoi;
         private Button btnGuiDoiMatKhau;
-        private Button button1;
-        private Button button2;
         private Label lblTitle;
         private Label lblEmail;
         private TextBox txtEmail;

@@ -40,15 +40,15 @@
             pnlKhachHang = new Panel();
             picKhachHangIcon = new PictureBox();
             btnKhachHang = new Button();
-            pnlNhanVien = new Panel();
-            picNhanVienIcon = new PictureBox();
-            btnNhanVien = new Button();
             pnlKho = new Panel();
             picKhoIcon = new PictureBox();
             btnKho = new Button();
             pnlNhaCungCap = new Panel();
             picNhaCungCapIcon = new PictureBox();
             btnNhaCungCap = new Button();
+            pnlNhanVien = new Panel();
+            picNhanVienIcon = new PictureBox();
+            btnNhanVien = new Button();
             pnlTop = new Panel();
             lblTrangChu = new Label();
             picIconTrangChu = new PictureBox();
@@ -67,12 +67,12 @@
             ((System.ComponentModel.ISupportInitialize)picSanPhamIcon).BeginInit();
             pnlKhachHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picKhachHangIcon).BeginInit();
-            pnlNhanVien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picNhanVienIcon).BeginInit();
             pnlKho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picKhoIcon).BeginInit();
             pnlNhaCungCap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picNhaCungCapIcon).BeginInit();
+            pnlNhanVien.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picNhanVienIcon).BeginInit();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picIconTrangChu).BeginInit();
             pnlHelloUser.SuspendLayout();
@@ -89,8 +89,8 @@
             flpDashBoard.Controls.Add(pnlSanPham);
             flpDashBoard.Controls.Add(pnlKhachHang);
             flpDashBoard.Controls.Add(pnlNhanVien);
-            flpDashBoard.Controls.Add(pnlKho);
             flpDashBoard.Controls.Add(pnlNhaCungCap);
+            flpDashBoard.Controls.Add(pnlKho);
             flpDashBoard.Dock = DockStyle.Left;
             flpDashBoard.Location = new Point(0, 0);
             flpDashBoard.Name = "flpDashBoard";
@@ -213,42 +213,11 @@
             btnKhachHang.UseVisualStyleBackColor = true;
             btnKhachHang.Click += btnKhachHang_Click;
             // 
-            // pnlNhanVien
-            // 
-            pnlNhanVien.Controls.Add(picNhanVienIcon);
-            pnlNhanVien.Controls.Add(btnNhanVien);
-            pnlNhanVien.Location = new Point(3, 251);
-            pnlNhanVien.Name = "pnlNhanVien";
-            pnlNhanVien.Size = new Size(185, 53);
-            pnlNhanVien.TabIndex = 9;
-            // 
-            // picNhanVienIcon
-            // 
-            picNhanVienIcon.Image = Properties.Resources.icons8_staff_50;
-            picNhanVienIcon.Location = new Point(3, 3);
-            picNhanVienIcon.Name = "picNhanVienIcon";
-            picNhanVienIcon.Size = new Size(48, 45);
-            picNhanVienIcon.SizeMode = PictureBoxSizeMode.Zoom;
-            picNhanVienIcon.TabIndex = 0;
-            picNhanVienIcon.TabStop = false;
-            // 
-            // btnNhanVien
-            // 
-            btnNhanVien.AutoSize = true;
-            btnNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnNhanVien.Location = new Point(3, 3);
-            btnNhanVien.Name = "btnNhanVien";
-            btnNhanVien.Size = new Size(218, 45);
-            btnNhanVien.TabIndex = 1;
-            btnNhanVien.Text = "Nhân Viên";
-            btnNhanVien.UseVisualStyleBackColor = true;
-            btnNhanVien.Click += btnNhanVien_Click;
-            // 
             // pnlKho
             // 
             pnlKho.Controls.Add(picKhoIcon);
             pnlKho.Controls.Add(btnKho);
-            pnlKho.Location = new Point(3, 310);
+            pnlKho.Location = new Point(3, 369);
             pnlKho.Name = "pnlKho";
             pnlKho.Size = new Size(185, 53);
             pnlKho.TabIndex = 5;
@@ -279,7 +248,7 @@
             // 
             pnlNhaCungCap.Controls.Add(picNhaCungCapIcon);
             pnlNhaCungCap.Controls.Add(btnNhaCungCap);
-            pnlNhaCungCap.Location = new Point(3, 369);
+            pnlNhaCungCap.Location = new Point(3, 310);
             pnlNhaCungCap.Name = "pnlNhaCungCap";
             pnlNhaCungCap.Size = new Size(185, 53);
             pnlNhaCungCap.TabIndex = 10;
@@ -305,6 +274,37 @@
             btnNhaCungCap.Text = "Nhà Cung Cấp";
             btnNhaCungCap.UseVisualStyleBackColor = true;
             btnNhaCungCap.Click += btnNhaCungCap_Click;
+            // 
+            // pnlNhanVien
+            // 
+            pnlNhanVien.Controls.Add(picNhanVienIcon);
+            pnlNhanVien.Controls.Add(btnNhanVien);
+            pnlNhanVien.Location = new Point(3, 251);
+            pnlNhanVien.Name = "pnlNhanVien";
+            pnlNhanVien.Size = new Size(185, 53);
+            pnlNhanVien.TabIndex = 9;
+            // 
+            // picNhanVienIcon
+            // 
+            picNhanVienIcon.Image = Properties.Resources.icons8_staff_50;
+            picNhanVienIcon.Location = new Point(3, 3);
+            picNhanVienIcon.Name = "picNhanVienIcon";
+            picNhanVienIcon.Size = new Size(48, 45);
+            picNhanVienIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            picNhanVienIcon.TabIndex = 0;
+            picNhanVienIcon.TabStop = false;
+            // 
+            // btnNhanVien
+            // 
+            btnNhanVien.AutoSize = true;
+            btnNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNhanVien.Location = new Point(3, 3);
+            btnNhanVien.Name = "btnNhanVien";
+            btnNhanVien.Size = new Size(218, 45);
+            btnNhanVien.TabIndex = 1;
+            btnNhanVien.Text = "Nhân Viên";
+            btnNhanVien.UseVisualStyleBackColor = true;
+            btnNhanVien.Click += btnNhanVien_Click;
             // 
             // pnlTop
             // 
@@ -442,15 +442,15 @@
             pnlKhachHang.ResumeLayout(false);
             pnlKhachHang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picKhachHangIcon).EndInit();
-            pnlNhanVien.ResumeLayout(false);
-            pnlNhanVien.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picNhanVienIcon).EndInit();
             pnlKho.ResumeLayout(false);
             pnlKho.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picKhoIcon).EndInit();
             pnlNhaCungCap.ResumeLayout(false);
             pnlNhaCungCap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picNhaCungCapIcon).EndInit();
+            pnlNhanVien.ResumeLayout(false);
+            pnlNhanVien.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picNhanVienIcon).EndInit();
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picIconTrangChu).EndInit();

@@ -6,7 +6,6 @@ namespace QuanLiShopQuanAo
 {
     public partial class frmNhanVien : Form
     {
-        public bool closed = false;
         public frmNhanVien()
         {
             InitializeComponent();
@@ -65,10 +64,34 @@ namespace QuanLiShopQuanAo
                 if (gb is GroupBox)
                 {
                     foreach (Control tb in gb.Controls)
-                        ((TextBox)tb).Text = string.Empty;
+                        if (tb is TextBox)
+                            tb.Text = string.Empty;
                 }
             }
         }
+
+        private bool CheckTextBoxEmpty(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    foreach (TextBox textBox in grpThemNhanVien.Controls.OfType<TextBox>())
+                    {
+                        if (string.IsNullOrEmpty(textBox.Text))
+                            return true;
+                    }
+                    break; 
+                case 1:
+                    foreach (TextBox textBox in grpSuaNhanVien.Controls.OfType<TextBox>())
+                    {
+                        if (string.IsNullOrEmpty(textBox.Text))
+                            return true;
+                    }
+                    break;
+            }
+            return false;
+        }
+
         private void btnChonTatCa_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgvNhanVien.Rows)
@@ -128,9 +151,15 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn lưu thông tin nhân viên", "Lưu thông tin nhân viên?",
                 MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                if (CheckTextBoxEmpty(0))
+                {
+                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 NhanVien NhanVien = new NhanVien()
                 {
-                    TenNhanVien = txtSuaTenNhanVien.Text,
+                    TenNhanVien = txtThemTenNhanVien.Text,
                     ChucVu = cmbThemChucVuNhanVien.Text,
                     Luong = float.Parse(txtThemLuong.Text),
                     Email = txtThemEmailNhanVien.Text,
@@ -139,7 +168,7 @@ namespace QuanLiShopQuanAo
                     MatKhau = BUS_Account.CreatePassword(5)
                 };
                 if (BUS_NhanVien.QueryData(NhanVien, "insert"))
-                    MessageBox.Show("Thêm thông tin nhân viên thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
+                    MessageBox.Show("Thêm thông tin nhân viên thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.TenNhanVien,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
@@ -154,6 +183,12 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn sửa thông tin nhân viên", "Sửa thông tin nhân viên?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                if (CheckTextBoxEmpty(1))
+                {
+                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 NhanVien NhanVien = new NhanVien()
                 {
                     MaNhanVien = txtSuaMaNhanVien.Text,
@@ -165,7 +200,7 @@ namespace QuanLiShopQuanAo
                     TrangThai = txtThemTrangThai.Text,
                 };
                 if (BUS_NhanVien.QueryData(NhanVien, "update"))
-                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.MaNhanVien, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -187,60 +222,19 @@ namespace QuanLiShopQuanAo
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                         listNhanVien.Add(new NhanVien
                         {
-                            MaNhanVien = row.Cells[1].ToString(),
+                            MaNhanVien = row.Cells[1].Value.ToString(),
                         });
                 }
 
                 foreach (NhanVien NhanVien in listNhanVien)
                 {
-                    if (BUS_NhanVien.QueryData(NhanVien, "delete"))
-                        MessageBox.Show("Xoá dữ liệu nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    else
+                    if (!BUS_NhanVien.QueryData(NhanVien, "delete"))
                         MessageBox.Show("Lỗi không xoá được dữ liệu nhân viên với mã số " + NhanVien.MaNhanVien, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                MessageBox.Show("Xoá dữ liệu nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HideTextControl();
                 HideButtonControl();
                 dgvNhanVien.DataSource = BUS_NhanVien.QueryData("data");
-            }
-        }
-
-        private void btnMoFileThem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "All Files (*.*)|*.*";
-            choofdlog.FilterIndex = 1;
-            choofdlog.Multiselect = false;
-
-            if (choofdlog.ShowDialog() == DialogResult.OK)
-            {
-                string sFileName = choofdlog.FileName;
-                string[] arrAllFiles = choofdlog.FileNames; //used when Multiselect = true
-                txtThemHinhAnhNhanVien.Text = sFileName;
-
-                Bitmap bitmap = new Bitmap(sFileName);
-                picAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage;
-                picAnhNhanVien.Image = Image.FromFile(sFileName);
-                bitmap.Dispose();
-            }
-        }
-
-        private void btnMoFileSua_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "All Files (*.*)|*.*";
-            choofdlog.FilterIndex = 1;
-            choofdlog.Multiselect = false;
-
-            if (choofdlog.ShowDialog() == DialogResult.OK)
-            {
-                string sFileName = choofdlog.FileName;
-                string[] arrAllFiles = choofdlog.FileNames; //used when Multiselect = true
-                txtSuaHinhAnhNhanVien.Text = sFileName;
-
-                Bitmap bitmap = new Bitmap(sFileName);
-                picAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage;
-                picAnhNhanVien.Image = Image.FromFile(sFileName);
-                bitmap.Dispose();
             }
         }
 
@@ -260,6 +254,60 @@ namespace QuanLiShopQuanAo
                     bitmap.Dispose();
                 }
                 catch { }
+            }
+        }
+
+        private void btnMoFileThem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = false;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                string[] arrAllFiles = choofdlog.FileNames; //used when Multiselect = true
+                txtThemHinhAnhNhanVien.Text = sFileName;
+
+                try
+                {
+                    Bitmap bitmap = new Bitmap(sFileName);
+                    picAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picAnhNhanVien.Image = Image.FromFile(sFileName);
+                    bitmap.Dispose();
+                }
+                catch
+                {
+                    MessageBox.Show("Không tải lên được hình ảnh", "Tải ảnh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnMoFileSua_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = false;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                string[] arrAllFiles = choofdlog.FileNames; //used when Multiselect = true
+                txtSuaHinhAnhNhanVien.Text = sFileName;
+
+                try
+                {
+                    Bitmap bitmap = new Bitmap(sFileName);
+                    picAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picAnhNhanVien.Image = Image.FromFile(sFileName);
+                    bitmap.Dispose();
+                }
+                catch
+                {
+                    MessageBox.Show("Không tải lên được hình ảnh", "Tải ảnh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

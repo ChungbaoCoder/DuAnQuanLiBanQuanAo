@@ -12,7 +12,7 @@ namespace QuanLiShopQuanAo
 
         private void btnGuiEmail_Click(object sender, EventArgs e)
         {
-            if (txtDoiMatKhauEmail.Text != string.Empty)
+            if (!string.IsNullOrEmpty(txtEmail.Text))
             {
                 if (BUS_Account.SendMail(txtEmail.Text))
                 {
@@ -22,21 +22,23 @@ namespace QuanLiShopQuanAo
                 else
                 {
                     MessageBox.Show("Không thể gửi được mail hoặc do mail không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtDoiMatKhauEmail.Text = string.Empty;
+                    txtEmail.Text = string.Empty;
                 }
             }
             else
                 MessageBox.Show("Hãy điền vào thông tin trước khi gửi", "Nhập thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void btnGuiDoiMatKhau_Click(object sender, EventArgs e)
         {
-            foreach (Control control in this.Controls)
+            foreach (TextBox tb in this.Controls.OfType<TextBox>())
             {
-                if (((TextBox)control).Text == string.Empty)
+                if (string.IsNullOrEmpty(tb.Text))
                 {
                     MessageBox.Show("Hãy điền đầy đủ thông tin vào", "Điền thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtMatKhauCu.Text = string.Empty;
+                    txtMatKhauMoi.Text = string.Empty;
+                    txtXacNhanMatKhauMoi.Text = string.Empty;
                     return;
                 }
             }
@@ -49,7 +51,7 @@ namespace QuanLiShopQuanAo
             else
             {
                 MessageBox.Show("Không thể gửi được mail hoặc do mail không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtDoiMatKhauEmail.Text = string.Empty;
+                txtEmail.Text = string.Empty;
                 txtMatKhauCu.Text = string.Empty;
                 txtMatKhauMoi.Text = string.Empty;
                 txtXacNhanMatKhauMoi.Text = string.Empty;
@@ -60,7 +62,6 @@ namespace QuanLiShopQuanAo
         {
             Screen myScreen = Screen.FromControl(this);
             Rectangle area = myScreen.WorkingArea;
-
             this.Top = (area.Height - this.Height) / 2;
             this.Left = (area.Width - this.Width) / 2;
         }

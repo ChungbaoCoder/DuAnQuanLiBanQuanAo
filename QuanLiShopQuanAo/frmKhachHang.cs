@@ -71,6 +71,28 @@ namespace QuanLiShopQuanAo
             }
         }
 
+        private bool CheckTextBoxEmpty(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    foreach (TextBox textBox in grpThemKhachHang.Controls.OfType<TextBox>())
+                    {
+                        if (string.IsNullOrEmpty(textBox.Text))
+                            return true;
+                    }
+                    break;
+                case 1:
+                    foreach (TextBox textBox in grpSuaKhachHang.Controls.OfType<TextBox>())
+                    {
+                        if (string.IsNullOrEmpty(textBox.Text))
+                            return true;
+                    }
+                    break;
+            }
+            return false;
+        }
+
         private void btnChonTatCa_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgvKhachHang.Rows)
@@ -129,6 +151,12 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn lưu thông tin khách hàng", "Lưu thông tin khách hàng?", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                if (CheckTextBoxEmpty(0))
+                {
+                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 KhachHang Khach = new KhachHang()
                 {
                     TenKhachHang = txtThemTenKhachHang.Text,
@@ -136,7 +164,7 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtThemDiaChiKhachHang.Text,
                 };
                 if (BUS_KhachHang.QueryData(Khach, "insert"))
-                    MessageBox.Show("Thêm thông tin khách hàng thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Question);
+                    MessageBox.Show("Thêm thông tin khách hàng thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Không cập nhật được thông tin khách hàng có tên " + Khach.TenKhachHang,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
@@ -151,6 +179,12 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn sửa thông tin khách hàng", "Sửa thông tin khách hàng?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                if (CheckTextBoxEmpty(1))
+                {
+                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 KhachHang Khach = new KhachHang()
                 {
                     MaKhachHang = txtSuaMaKhachHang.Text,
@@ -159,7 +193,7 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtSuaDiaChiKhachHang.Text,
                 };
                 if (BUS_KhachHang.QueryData(Khach, "update"))
-                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Không cập nhật được thông tin khách hàng có mã " + Khach.MaKhachHang, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -179,17 +213,16 @@ namespace QuanLiShopQuanAo
                 foreach (DataGridViewRow row in dgvKhachHang.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
-                        listKhach.Add(new KhachHang { MaKhachHang = row.Cells[1].ToString(), 
-                                                      SDT = row.Cells[3].ToString() });
+                        listKhach.Add(new KhachHang { MaKhachHang = row.Cells[1].Value.ToString(), 
+                                                      SDT = row.Cells[3].Value.ToString() });
                 }
 
                 foreach (KhachHang Khach in listKhach)
                 {
-                    if (BUS_KhachHang.QueryData(Khach, "delete"))
-                        MessageBox.Show("Xoá dữ liệu khách hàng thành công","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    else
+                    if (!BUS_KhachHang.QueryData(Khach, "delete"))
                         MessageBox.Show("Lỗi không xoá được dữ liệu khách hàng với mã số " + Khach.MaKhachHang, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);   
                 }
+                MessageBox.Show("Xoá dữ liệu khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HideTextControl();
                 HideButtonControl();
                 dgvKhachHang.DataSource = BUS_KhachHang.QueryData("data");
