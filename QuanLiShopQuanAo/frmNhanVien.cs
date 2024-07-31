@@ -240,6 +240,10 @@ namespace QuanLiShopQuanAo
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int row = dgvNhanVien.SelectedCells[0].RowIndex;
+            DataGridViewRow data = dgvNhanVien.Rows[row];
+            txtSuaMaNhanVien.Text = data.Cells[1].Value.ToString();
+
             if (dgvNhanVien.SelectedCells.Count > 0)
             {
                 int selectedrowindex = dgvNhanVien.SelectedCells[0].RowIndex;
