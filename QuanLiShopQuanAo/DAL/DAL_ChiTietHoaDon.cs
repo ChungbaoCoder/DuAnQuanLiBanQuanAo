@@ -7,7 +7,7 @@ namespace QuanLiShopQuanAo.DAL
 {
     public class DAL_ChiTietHoaDon : IProcChiTietHoaDon
     {
-        public DataTable LoadChiTietHoaDon(string MaKH)
+        public DataTable LoadChiTietHoaDon(string tenKhachHang)
         {
             DataTable dt = new DataTable();
             try
@@ -17,7 +17,7 @@ namespace QuanLiShopQuanAo.DAL
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "dbo.sp_DanhSachChiTietHoaDon";
-                    cmd.Parameters.AddWithValue("@MaKH", MaKH);
+                    cmd.Parameters.AddWithValue("@TenKhachHang", tenKhachHang);
                     cmd.Connection = conn;
                     conn.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
@@ -36,7 +36,7 @@ namespace QuanLiShopQuanAo.DAL
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "dbo.sp_ThemChiTietHoaDon";
-                    cmd.Parameters.AddWithValue("@MaKhachHang", chiTietHoaDon.MaKhachHang);
+                    cmd.Parameters.AddWithValue("@TenKhachHang", chiTietHoaDon.TenKhachHang);
                     cmd.Parameters.AddWithValue("@MaSanPham", chiTietHoaDon.MaSanPham);
                     cmd.Parameters.AddWithValue("@SoLuong", chiTietHoaDon.SoLuong);
                     cmd.Parameters.AddWithValue("@TongThanhTien", chiTietHoaDon.TongThanhTien);
@@ -59,7 +59,7 @@ namespace QuanLiShopQuanAo.DAL
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "dbo.sp_CapNhatChiTietHoaDon";
-                    cmd.Parameters.AddWithValue("@MaKhachHang", chiTietHoaDon.MaKhachHang);
+                    cmd.Parameters.AddWithValue("@MaHoaDon", chiTietHoaDon.MaHoaDon);
                     cmd.Parameters.AddWithValue("@TongThanhTien", chiTietHoaDon.TongThanhTien);
                     cmd.Connection = conn;
                     conn.Open();

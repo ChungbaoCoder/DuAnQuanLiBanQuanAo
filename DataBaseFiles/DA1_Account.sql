@@ -62,6 +62,14 @@ BEGIN
 END
 GO
 
+ALTER PROCEDURE dbo.sp_ChucVuNguoiDN @Email varchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON
+	SELECT ChucVu FROM NhanVien WHERE Email = @Email
+END
+GO
+
 --CREATE PROCEDURE dbo.sp_GuiHoTro @email varchar(20), @noidung nvarchar(450)
 --AS
 --BEGIN

@@ -30,5 +30,10 @@ namespace QuanLiShopQuanAo.BUS
             IProcAccount account = new DAL_Account();
             return account.MaNguoiDangNhap(email);
         }
+        public static string ChucVuNguoiDangNhap(string email)
+        {
+            IProcAccount account = new DAL_Account();
+            return account.ChucVuNguoiDangNhap(email);
+        }
     }
 }

@@ -6,7 +6,7 @@ BEGIN
 	SET NOCOUNT ON
 	UPDATE SanPham SET TrangThai = N'Hết Hàng' WHERE SoLuong < 1
 
-	SELECT MaSanPham,TenSanPham,LoaiSanPham,SoLuong,Gia,MaNCC,TrangThai,HinhAnh
+	SELECT MaSanPham,TenSanPham,LoaiSanPham,Gia,SoLuong,MaNCC,TrangThai,HinhAnh
 	FROM SanPham
 END
 GO
@@ -39,18 +39,25 @@ ALTER PROCEDURE dbo.sp_DanhSachHoaDon
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT a.MaHoaDon,b.TenKhachHang,b.SDT,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien
+	SELECT a.MaHoaDon,a.MaKhachHang,b.TenKhachHang,b.SDT,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien
 	FROM HoaDon a join KhachHang b on a.MaKhachHang = b.MaKhachHang
 END
 GO
 
-ALTER PROCEDURE dbo.sp_DanhSachChiTietHoaDon @MaKH varchar(20)
+ALTER PROCEDURE dbo.sp_DanhSachChiTietHoaDon @TenKhachHang nvarchar(100)
 AS
 BEGIN
-	SET NOCOUNT ON
-	SELECT a.MaHoaDon,b.MaSanPham,c.TenSanPham,b.SoLuong,c.Gia,(b.SoLuong * c.Gia) as 'TongTien'
-	FROM HoaDon a inner join (ChiTietHoaDon b inner join SanPham c on b.MaSanPham = c.MaSanPham )on a.MaHoaDon = b.MaHoaDon
-	WHERE a.MaKhachHang = @MaKH
+	--DECLARE @MaKH varchar(20)
+	--SET @MaKH = (SELECT TOP 1 MaKhachHang FROM KhachHang WHERE TenKhachHang = @TenKhachHang)
+	--SET NOCOUNT ON
+	--SELECT a.MaHoaDon,b.MaSanPham,c.TenSanPham,b.SoLuong,c.Gia,(b.SoLuong * c.Gia) as 'TongTien'
+	--FROM HoaDon a inner join (ChiTietHoaDon b inner join SanPham c on b.MaSanPham = c.MaSanPham )on a.MaHoaDon = b.MaHoaDon
+	--WHERE a.MaKhachHang = @MaKH
+
+	select a.MaHoaDon,a.MaSanPham,d.TenSanPham,a.SoLuong,d.Gia,(a.SoLuong*d.Gia) as 'TongTien',c.TenKhachHang from ChiTietHoaDon a
+	inner join HoaDon b on a.MaHoaDon = b.MaHoaDon
+	inner join KhachHang c on b.MaKhachHang = c.MaKhachHang
+	inner join SanPham d on a.MaSanPham = d.MaSanPham WHERE c.TenKhachHang = @TenKhachHang
 END
 GO
 
@@ -271,15 +278,15 @@ ALTER PROCEDURE dbo.sp_TimHoaDon @Varible nvarchar(100)
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT a.MaHoaDon,b.TenKhachHang,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien
+	SELECT a.MaHoaDon,a.MaKhachHang,b.TenKhachHang,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien
 	FROM HoaDon a inner join KhachHang b on a.MaKhachHang = b.MaKhachHang
-	WHERE a.MaHoaDon LIKE '%' + @Varible + '%' OR b.TenKhachHang LIKE '%' + @Varible + '%' OR a.TrangThai LIKE '%' + @Varible + '%' OR a.MaNhanVien LIKE '%' + @Varible + '%'
+	WHERE a.MaHoaDon LIKE '%' + @Varible + '%' OR a.MaKhachHang LIKE '%' + @Varible + '%' OR b.TenKhachHang LIKE '%' + @Varible + '%' OR a.TrangThai LIKE '%' + @Varible + '%' OR a.MaNhanVien LIKE '%' + @Varible + '%'
 END
 GO
 
 -- INSERT HoaDon
 
-ALTER PROCEDURE dbo.sp_TaoHoaDonMoi @TenKhachHang nvarchar(100),@SDT varchar(20),@NgayLap date,@MaNVGhi varchar(20)
+ALTER PROCEDURE dbo.sp_TaoHoaDonMoi @TenKhachHang nvarchar(100),@SDT varchar(20),@NgayLap varchar(20),@MaNVGhi varchar(20)
 AS
 BEGIN
 	DECLARE @MaHD varchar(20)
@@ -289,10 +296,9 @@ BEGIN
 
 	if not exists(SELECT SDT FROM KhachHang WHERE SDT = @SDT)
 	BEGIN
-		DECLARE @MaKHMoi varchar(20)
-		SET @MaKHMoi = CONCAT('KH',CAST((SELECT MAX(Id + 1) FROM HoaDon) AS varchar))
+		SET @MaKH = CONCAT('KH',CAST((SELECT MAX(Id + 1) FROM KhachHang) AS varchar))
 		INSERT INTO KhachHang (MaKhachHang, TenKhachHang, SDT, DiaChi) VALUES
-		(@MaKHMoi,@TenKhachHang,@SDT,N'Chưa đặt')
+		(@MaKH,@TenKhachHang,@SDT,N'Chưa đặt')
 	END
 	ELSE
 	BEGIN
@@ -306,7 +312,7 @@ GO
 
 -- UPDATE HoaDon
 
-ALTER PROCEDURE dbo.sp_CapNhatHoaDon @MaHoaDon varchar(20),@TenKhachHang nvarchar(100),@NgayLap date
+ALTER PROCEDURE dbo.sp_CapNhatHoaDon @MaHoaDon varchar(20),@TenKhachHang nvarchar(100),@NgayLap varchar(20)
 AS
 BEGIN
 	DECLARE @MaKH varchar(20)
@@ -321,6 +327,11 @@ GO
 ALTER PROCEDURE dbo.sp_XoaHoaDon @MaHoaDon varchar(20)
 AS
 BEGIN
+	DECLARE @SoLuong int
+	SET @SoLuong = (SELECT TOP 1 SoLuong FROM ChiTietHoaDon WHERE MaHoaDon = @MaHoaDon)
+	DECLARE @MaSP varchar(20)
+	SET @MaSP = (SELECT MaSanPham FROM ChiTietHoaDon WHERE MaHoaDon = @MaHoaDon)
+	UPDATE SanPham SET SoLuong = SoLuong + @SoLuong, TrangThai = N'Đang Bán' WHERE MaSanPham = @MaSP
 	DELETE FROM ChiTietHoaDon WHERE MaHoaDon = @MaHoaDon
 	DELETE FROM HoaDon WHERE MaHoaDon = @MaHoaDon
 END
@@ -328,7 +339,7 @@ GO
 
 -- INSERT ChiTietHoaDon
 
-CREATE PROCEDURE dbo.sp_ThemChiTietHoaDon @MaKhachHang varchar(20), @MaSanPham varchar(20), @SoLuong int, @TongThanhTien float
+ALTER PROCEDURE dbo.sp_ThemChiTietHoaDon @TenKhachHang nvarchar(100),@MaSanPham varchar(20),@SoLuong int,@TongThanhTien float
 AS
 BEGIN
 	DECLARE @MaHD varchar(20)
@@ -336,33 +347,39 @@ BEGIN
 	DECLARE @SoLuongSanPham int
 	SET @SoLuongSanPham = (SELECT SoLuong FROM SanPham WHERE MaSanPham = @MaSanPham)
 
-	INSERT INTO ChiTietHoaDon (MaHoaDon, MaSanPham, SoLuong) VALUES
-	(@MaHD, @MaSanPham, @SoLuong)
+	IF (@SoLuongSanPham > @SoLuong)
+	BEGIN
+		INSERT INTO ChiTietHoaDon (MaHoaDon, MaSanPham, SoLuong) VALUES
+		(@MaHD, @MaSanPham, @SoLuong)
 
-	UPDATE HoaDon SET TongTien = @TongThanhTien WHERE MaKhachHang = @MaKhachHang
-	UPDATE SanPham SET SoLuong = @SoLuongSanPham - @SoLuong WHERE MaSanPham = @MaSanPham
+		UPDATE HoaDon SET TongTien = @TongThanhTien WHERE MaHoaDon = @MaHD
+		UPDATE SanPham SET SoLuong = @SoLuongSanPham - @SoLuong WHERE MaSanPham = @MaSanPham
+	END
 END
 GO
 
 -- UPDATE ChiTietHoaDon (Hoàn thành hoá đơn)
 
-CREATE PROCEDURE dbo.sp_CapNhatChiTietHoaDon @MaKhachHang varchar(20),@TongTien float
+ALTER PROCEDURE dbo.sp_CapNhatChiTietHoaDon @MaHoaDon varchar(20),@TongTien float
 AS
 BEGIN
-	UPDATE HoaDon SET TongTien = @TongTien WHERE MaKhachHang = @MaKhachHang
+	UPDATE HoaDon SET TongTien = @TongTien WHERE MaHoaDon = @MaHoaDon
 END
 GO
 
 -- DELETE ChiTietHoaDon
 
-CREATE PROCEDURE dbo.sp_XoaChiTietHoaDon @MaSanPham varchar(20)
+ALTER PROCEDURE dbo.sp_XoaChiTietHoaDon @MaSanPham varchar(20)
 AS
 BEGIN
+	DECLARE @SoLuong int
+	SET @SoLuong = (SELECT TOP 1 SoLuong FROM ChiTietHoaDon WHERE MaSanPham = @MaSanPham)
+	UPDATE SanPham SET SoLuong = SoLuong + @SoLuong, TrangThai = N'Đang Bán' WHERE MaSanPham = @MaSanPham
 	DELETE FROM ChiTietHoaDon WHERE MaSanPham = @MaSanPham
 END
 GO
 
---CREATE PROCEDURE dbo.sp_ThemHoaDon @MaKH varchar(20),@MaSP varchar(20),@SoLuongMua int, @MaNV varchar(20), @NgayTao date, @TrangThai nvarchar(20)
+--CREATE PROCEDURE dbo.sp_ThemHoaDon @MaKH varchar(20),@MaSP varchar(20),@SoLuongMua int, @MaNV varchar(20), @NgayTao varchar(20), @TrangThai nvarchar(20)
 --AS
 --BEGIN
 --	DECLARE @Id varchar(20) 

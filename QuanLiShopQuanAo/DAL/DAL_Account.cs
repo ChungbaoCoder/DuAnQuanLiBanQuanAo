@@ -4,6 +4,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using QuanLiShopQuanAo.DAL.Interfaces;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLiShopQuanAo.DAL
 {
@@ -106,7 +107,7 @@ namespace QuanLiShopQuanAo.DAL
         }
         public string MaNguoiDangNhap(string email)
         {
-            string MaNhanVien = string.Empty;
+            string maNhanVien = string.Empty;
             try
             {
                 using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
@@ -121,12 +122,36 @@ namespace QuanLiShopQuanAo.DAL
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        MaNhanVien = (string)reader["MaNhanVien"];
+                        maNhanVien = (string)reader["MaNhanVien"];
                     }
                 }
             }
             catch { }
-            return MaNhanVien;
+            return maNhanVien;
+        }
+        public string ChucVuNguoiDangNhap(string email)
+        {
+            string chucVu = string.Empty;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "dbo.sp_ChucVuNguoiDN";
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Connection = conn;
+                    conn.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        chucVu = (string)reader["ChucVu"];
+                    }
+                }
+            }
+            catch { }
+            return chucVu;
         }
     }
 }

@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             dgvHoaDon = new DataGridView();
-            dgvhCheckBox = new DataGridViewCheckBoxColumn();
-            dgvhMaHoaDon = new DataGridViewTextBoxColumn();
-            dgvhTenKhach = new DataGridViewTextBoxColumn();
-            dgvhSDTKhach = new DataGridViewTextBoxColumn();
-            dgvhNgayTao = new DataGridViewTextBoxColumn();
-            dgvhTongTien = new DataGridViewTextBoxColumn();
-            dgvhTrangThai = new DataGridViewTextBoxColumn();
-            dgvhNhanVien = new DataGridViewTextBoxColumn();
             lblSuaHoaDon = new Label();
             lblTaoHoaDon = new Label();
             lblTenKhach = new Label();
@@ -64,6 +56,15 @@
             btnTaiLaiDanhSach = new Button();
             btnTimHoaDon = new Button();
             txtTimKiemHoaDon = new TextBox();
+            dgvhCheckBox = new DataGridViewCheckBoxColumn();
+            dgvhMaHoaDon = new DataGridViewTextBoxColumn();
+            dgvhMaKhachHang = new DataGridViewTextBoxColumn();
+            dgvhTenKhach = new DataGridViewTextBoxColumn();
+            dgvhSDTKhach = new DataGridViewTextBoxColumn();
+            dgvhNgayTao = new DataGridViewTextBoxColumn();
+            dgvhTongTien = new DataGridViewTextBoxColumn();
+            dgvhTrangThai = new DataGridViewTextBoxColumn();
+            dgvhNhanVien = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
             grpTaoHoaDon.SuspendLayout();
             grpSuaHoaDon.SuspendLayout();
@@ -78,7 +79,7 @@
             dgvHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBox, dgvhMaHoaDon, dgvhTenKhach, dgvhSDTKhach, dgvhNgayTao, dgvhTongTien, dgvhTrangThai, dgvhNhanVien });
+            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBox, dgvhMaHoaDon, dgvhMaKhachHang, dgvhTenKhach, dgvhSDTKhach, dgvhNgayTao, dgvhTongTien, dgvhTrangThai, dgvhNhanVien });
             dgvHoaDon.Location = new Point(28, 12);
             dgvHoaDon.Name = "dgvHoaDon";
             dgvHoaDon.RowHeadersVisible = false;
@@ -86,64 +87,6 @@
             dgvHoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHoaDon.Size = new Size(1178, 447);
             dgvHoaDon.TabIndex = 5;
-            // 
-            // dgvhCheckBox
-            // 
-            dgvhCheckBox.HeaderText = "";
-            dgvhCheckBox.MinimumWidth = 6;
-            dgvhCheckBox.Name = "dgvhCheckBox";
-            dgvhCheckBox.Resizable = DataGridViewTriState.True;
-            dgvhCheckBox.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // dgvhMaHoaDon
-            // 
-            dgvhMaHoaDon.HeaderText = "Mã Hoá Đơn";
-            dgvhMaHoaDon.MinimumWidth = 6;
-            dgvhMaHoaDon.Name = "dgvhMaHoaDon";
-            dgvhMaHoaDon.ReadOnly = true;
-            dgvhMaHoaDon.Resizable = DataGridViewTriState.True;
-            // 
-            // dgvhTenKhach
-            // 
-            dgvhTenKhach.HeaderText = "Tên Khách Hàng";
-            dgvhTenKhach.MinimumWidth = 6;
-            dgvhTenKhach.Name = "dgvhTenKhach";
-            dgvhTenKhach.ReadOnly = true;
-            // 
-            // dgvhSDTKhach
-            // 
-            dgvhSDTKhach.HeaderText = "Số Điện Thoại";
-            dgvhSDTKhach.MinimumWidth = 6;
-            dgvhSDTKhach.Name = "dgvhSDTKhach";
-            dgvhSDTKhach.ReadOnly = true;
-            // 
-            // dgvhNgayTao
-            // 
-            dgvhNgayTao.HeaderText = "Ngày Tạo";
-            dgvhNgayTao.MinimumWidth = 6;
-            dgvhNgayTao.Name = "dgvhNgayTao";
-            dgvhNgayTao.ReadOnly = true;
-            // 
-            // dgvhTongTien
-            // 
-            dgvhTongTien.HeaderText = "Tổng Tiền";
-            dgvhTongTien.MinimumWidth = 6;
-            dgvhTongTien.Name = "dgvhTongTien";
-            dgvhTongTien.ReadOnly = true;
-            // 
-            // dgvhTrangThai
-            // 
-            dgvhTrangThai.HeaderText = "Trạng Thái";
-            dgvhTrangThai.MinimumWidth = 6;
-            dgvhTrangThai.Name = "dgvhTrangThai";
-            dgvhTrangThai.ReadOnly = true;
-            // 
-            // dgvhNhanVien
-            // 
-            dgvhNhanVien.HeaderText = "Nhân Viên Ghi";
-            dgvhNhanVien.MinimumWidth = 6;
-            dgvhNhanVien.Name = "dgvhNhanVien";
-            dgvhNhanVien.ReadOnly = true;
             // 
             // lblSuaHoaDon
             // 
@@ -461,6 +404,71 @@
             txtTimKiemHoaDon.Size = new Size(460, 34);
             txtTimKiemHoaDon.TabIndex = 52;
             // 
+            // dgvhCheckBox
+            // 
+            dgvhCheckBox.HeaderText = "";
+            dgvhCheckBox.MinimumWidth = 6;
+            dgvhCheckBox.Name = "dgvhCheckBox";
+            dgvhCheckBox.Resizable = DataGridViewTriState.True;
+            dgvhCheckBox.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // dgvhMaHoaDon
+            // 
+            dgvhMaHoaDon.HeaderText = "Mã Hoá Đơn";
+            dgvhMaHoaDon.MinimumWidth = 6;
+            dgvhMaHoaDon.Name = "dgvhMaHoaDon";
+            dgvhMaHoaDon.ReadOnly = true;
+            dgvhMaHoaDon.Resizable = DataGridViewTriState.True;
+            // 
+            // dgvhMaKhachHang
+            // 
+            dgvhMaKhachHang.HeaderText = "Mã Khách Hàng";
+            dgvhMaKhachHang.MinimumWidth = 6;
+            dgvhMaKhachHang.Name = "dgvhMaKhachHang";
+            dgvhMaKhachHang.ReadOnly = true;
+            // 
+            // dgvhTenKhach
+            // 
+            dgvhTenKhach.HeaderText = "Tên Khách Hàng";
+            dgvhTenKhach.MinimumWidth = 6;
+            dgvhTenKhach.Name = "dgvhTenKhach";
+            dgvhTenKhach.ReadOnly = true;
+            // 
+            // dgvhSDTKhach
+            // 
+            dgvhSDTKhach.HeaderText = "Số Điện Thoại";
+            dgvhSDTKhach.MinimumWidth = 6;
+            dgvhSDTKhach.Name = "dgvhSDTKhach";
+            dgvhSDTKhach.ReadOnly = true;
+            // 
+            // dgvhNgayTao
+            // 
+            dgvhNgayTao.HeaderText = "Ngày Tạo";
+            dgvhNgayTao.MinimumWidth = 6;
+            dgvhNgayTao.Name = "dgvhNgayTao";
+            dgvhNgayTao.ReadOnly = true;
+            // 
+            // dgvhTongTien
+            // 
+            dgvhTongTien.HeaderText = "Tổng Tiền";
+            dgvhTongTien.MinimumWidth = 6;
+            dgvhTongTien.Name = "dgvhTongTien";
+            dgvhTongTien.ReadOnly = true;
+            // 
+            // dgvhTrangThai
+            // 
+            dgvhTrangThai.HeaderText = "Trạng Thái";
+            dgvhTrangThai.MinimumWidth = 6;
+            dgvhTrangThai.Name = "dgvhTrangThai";
+            dgvhTrangThai.ReadOnly = true;
+            // 
+            // dgvhNhanVien
+            // 
+            dgvhNhanVien.HeaderText = "Nhân Viên Ghi";
+            dgvhNhanVien.MinimumWidth = 6;
+            dgvhNhanVien.Name = "dgvhNhanVien";
+            dgvhNhanVien.ReadOnly = true;
+            // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -519,6 +527,7 @@
         private ComboBox cmbTrangThai;
         private DataGridViewCheckBoxColumn dgvhCheckBox;
         private DataGridViewTextBoxColumn dgvhMaHoaDon;
+        private DataGridViewTextBoxColumn dgvhMaKhachHang;
         private DataGridViewTextBoxColumn dgvhTenKhach;
         private DataGridViewTextBoxColumn dgvhSDTKhach;
         private DataGridViewTextBoxColumn dgvhNgayTao;
