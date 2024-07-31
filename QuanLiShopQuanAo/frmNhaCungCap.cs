@@ -149,7 +149,7 @@ namespace QuanLiShopQuanAo
         private void btnLuuThemNhaCungCap_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn lưu thông tin nhà cung cấp", "Lưu thông tin nhà cung cấp?",
-                MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(0))
                 {
@@ -164,9 +164,9 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtThemDiaChiNhaCungCap.Text,
                 };
                 if (BUS_NhaCungCap.QueryData(NhaCungCap, "insert"))
-                    MessageBox.Show("Thêm thông tin nhà cung cấp thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm thông tin nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin nhà cung cấp có tên " + NhaCungCap.TenNhaCungCap,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin nhà cung cấp có tên " + NhaCungCap.TenNhaCungCap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
@@ -230,6 +230,13 @@ namespace QuanLiShopQuanAo
                 HideButtonControl();
                 dgvNhaCungCap.DataSource = BUS_NhaCungCap.QueryData("data");
             }
+        }
+
+        private void dgvNhaCungCap_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dgvNhaCungCap.SelectedCells[0].RowIndex;
+            DataGridViewRow data = dgvNhaCungCap.Rows[row];
+            txtSuaMaNhaCungCap.Text = data.Cells[1].Value.ToString();
         }
     }
 }

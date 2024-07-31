@@ -104,7 +104,7 @@ namespace QuanLiShopQuanAo
         private void btnSuaHoaDon_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn sửa thông tin hoá đơn", "Sửa thông tin hoá đơn?",
-                MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(1))
                 {
@@ -121,7 +121,7 @@ namespace QuanLiShopQuanAo
                 if (BUS_HoaDon.QueryData(HoaDon, "update"))
                     MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin hoá đơn có mã " + HoaDon.MaHoaDon,"Lỗi",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin hoá đơn có mã " + HoaDon.MaHoaDon, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 dgvHoaDon.DataSource = BUS_HoaDon.QueryData("data");
             }
@@ -146,11 +146,18 @@ namespace QuanLiShopQuanAo
                 foreach (HoaDon HoaDon in listHoaDon)
                 {
                     if (BUS_HoaDon.QueryData(HoaDon, "delete"))
-                        MessageBox.Show("Lỗi không xoá được dữ liệu hoá đơn với mã số " + HoaDon.MaHoaDon,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Lỗi không xoá được dữ liệu hoá đơn với mã số " + HoaDon.MaHoaDon, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 MessageBox.Show("Xoá dữ liệu hoá đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgvHoaDon.DataSource = BUS_HoaDon.QueryData("data");
             }
-        }  
+        }
+
+        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedrowindex = dgvHoaDon.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dgvHoaDon.Rows[selectedrowindex];
+            txtSuaMaHoaDon.Text = selectedRow.Cells[1].Value.ToString();
+        }
     }
 }
