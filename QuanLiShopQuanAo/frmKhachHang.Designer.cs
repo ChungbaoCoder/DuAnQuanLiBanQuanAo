@@ -257,6 +257,7 @@
             dgvKhachHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvKhachHang.Size = new Size(889, 400);
             dgvKhachHang.TabIndex = 51;
+            dgvKhachHang.CellClick += dgvKhachHang_CellClick;
             // 
             // dgvhCheckBoxKH
             // 

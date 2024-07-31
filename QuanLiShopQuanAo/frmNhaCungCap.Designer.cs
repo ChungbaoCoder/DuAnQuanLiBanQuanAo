@@ -436,8 +436,10 @@
             dgvNhaCungCap.Name = "dgvNhaCungCap";
             dgvNhaCungCap.RowHeadersVisible = false;
             dgvNhaCungCap.RowHeadersWidth = 51;
+            dgvNhaCungCap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNhaCungCap.Size = new Size(953, 300);
             dgvNhaCungCap.TabIndex = 38;
+            dgvNhaCungCap.CellClick += dgvNhaCungCap_CellClick;
             // 
             // dgvhCheckBoxNhaCungCap
             // 

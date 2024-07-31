@@ -67,7 +67,7 @@ namespace QuanLiShopQuanAo
                 {
                     foreach (Control tb in gb.Controls)
                         ((TextBox)tb).Text = string.Empty;
-                } 
+                }
             }
         }
 
@@ -122,7 +122,7 @@ namespace QuanLiShopQuanAo
                     ((TextBox)c).ReadOnly = false;
                 if (c is Button)
                     ((Button)c).Enabled = true;
-            }    
+            }
         }
 
         private void btnSuaKhach_Click(object sender, EventArgs e)
@@ -148,7 +148,7 @@ namespace QuanLiShopQuanAo
 
         private void btnLuuThemKhachHang_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn lưu thông tin khách hàng", "Lưu thông tin khách hàng?", 
+            if (MessageBox.Show("Bạn có muốn lưu thông tin khách hàng", "Lưu thông tin khách hàng?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(0))
@@ -164,14 +164,14 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtThemDiaChiKhachHang.Text,
                 };
                 if (BUS_KhachHang.QueryData(Khach, "insert"))
-                    MessageBox.Show("Thêm thông tin khách hàng thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm thông tin khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin khách hàng có tên " + Khach.TenKhachHang,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin khách hàng có tên " + Khach.TenKhachHang, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 HideTextControl();
                 HideButtonControl();
                 dgvKhachHang.DataSource = BUS_KhachHang.QueryData("data");
-            }     
+            }
         }
 
         private void btnLuuSuaKhachHang_Click(object sender, EventArgs e)
@@ -205,7 +205,7 @@ namespace QuanLiShopQuanAo
 
         private void btnXoaKhach_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá khách hàng?", 
+            if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá khách hàng?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 List<KhachHang> listKhach = new List<KhachHang>();
@@ -213,20 +213,30 @@ namespace QuanLiShopQuanAo
                 foreach (DataGridViewRow row in dgvKhachHang.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
-                        listKhach.Add(new KhachHang { MaKhachHang = row.Cells[1].Value.ToString(), 
-                                                      SDT = row.Cells[3].Value.ToString() });
+                        listKhach.Add(new KhachHang
+                        {
+                            MaKhachHang = row.Cells[1].Value.ToString(),
+                            SDT = row.Cells[3].Value.ToString()
+                        });
                 }
 
                 foreach (KhachHang Khach in listKhach)
                 {
                     if (!BUS_KhachHang.QueryData(Khach, "delete"))
-                        MessageBox.Show("Lỗi không xoá được dữ liệu khách hàng với mã số " + Khach.MaKhachHang, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);   
+                        MessageBox.Show("Lỗi không xoá được dữ liệu khách hàng với mã số " + Khach.MaKhachHang, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 MessageBox.Show("Xoá dữ liệu khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HideTextControl();
                 HideButtonControl();
                 dgvKhachHang.DataSource = BUS_KhachHang.QueryData("data");
             }
+        }
+
+        private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dgvKhachHang.SelectedCells[0].RowIndex;
+            DataGridViewRow data = dgvKhachHang.Rows[row];
+            txtSuaMaKhachHang.Text = data.Cells[1].Value.ToString();
         }
     }
 }
