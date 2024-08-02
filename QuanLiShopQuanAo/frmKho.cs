@@ -37,7 +37,7 @@ namespace QuanLiShopQuanAo
             {
                 cmbThemNhaCungCap.Items.Add(row[0]);
                 cmbSuaNhaCungCap.Items.Add(row[0]);
-            } 
+            }
         }
 
         private void HideTextControl()
@@ -161,11 +161,12 @@ namespace QuanLiShopQuanAo
 
         private void btnLuuThemSanPham_Click(object sender, EventArgs e)
         {
-            string trangThai = "";
-            if (rdoThemDangBan.Checked)
-                trangThai = "Đang bán";
-            else
-                trangThai = "Chưa bán";
+            
+                string trangThai = "";
+                if (rdoThemDangBan.Checked)
+                    trangThai = "Đang bán";
+                else
+                    trangThai = "Chưa bán";
 
             if (MessageBox.Show("Bạn có muốn lưu thông tin sản phẩm", "Lưu thông tin sản phẩm?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -195,6 +196,7 @@ namespace QuanLiShopQuanAo
                 HideButtonControl();
                 dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
                 LoadComboBox();
+
             }
         }
 
@@ -259,7 +261,7 @@ namespace QuanLiShopQuanAo
                     if (BUS_SanPham.QueryData(SanPham, "delete"))
                         MessageBox.Show("Xoá dữ liệu sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     else
-                        MessageBox.Show("Lỗi không xoá được dữ liệu sản phẩm với mã số " + SanPham.MaSanPham,"Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Lỗi không xoá được dữ liệu sản phẩm với mã số " + SanPham.MaSanPham, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 HideTextControl();
                 HideButtonControl();
@@ -344,5 +346,7 @@ namespace QuanLiShopQuanAo
                 }
             }
         }
+
+      
     }
 }
