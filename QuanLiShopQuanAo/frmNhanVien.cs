@@ -6,14 +6,16 @@ namespace QuanLiShopQuanAo
 {
     public partial class frmNhanVien : Form
     {
+        private bool clickthem = false;
+        private bool clicksua = false;
+        private bool clickdgv = false;
         public frmNhanVien()
         {
             InitializeComponent();
         }
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
-            HideTextControl();
-            HideButtonControl();
+            HideControl();
             SetColumns();
             dgvNhanVien.DataSource = BUS_NhanVien.QueryData("data");
         }
@@ -27,33 +29,35 @@ namespace QuanLiShopQuanAo
                 dgvNhanVien.Columns[i + 1].DataPropertyName = columnsName[i];
         }
 
-        private void HideTextControl()
+        private void HideControl()
         {
-            foreach (Control gb in this.Controls)
+            foreach (Control control in grpThemNhanVien.Controls)
             {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is TextBox)
-                            ((TextBox)tb).ReadOnly = true;
-                    }
-                }
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = false;
+            }
+            foreach (Control control in grpSuaNhanVien.Controls)
+            {
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = false;
             }
         }
 
-        private void HideButtonControl()
+        private void EnableThemControl()
         {
-            foreach (Control gb in this.Controls)
+            foreach (Control control in grpThemNhanVien.Controls)
             {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is Button)
-                            ((Button)tb).Enabled = false;
-                    }
-                }
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = true;
+            }
+        }
+
+        private void EnableSuaControl()
+        {
+            foreach (Control control in grpSuaNhanVien.Controls)
+            {
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = true;
             }
         }
 
@@ -78,14 +82,46 @@ namespace QuanLiShopQuanAo
                     foreach (TextBox textBox in grpThemNhanVien.Controls.OfType<TextBox>())
                     {
                         if (string.IsNullOrEmpty(textBox.Text))
+                        {
+                            MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return true;
+                        }            
                     }
                     break; 
                 case 1:
                     foreach (TextBox textBox in grpSuaNhanVien.Controls.OfType<TextBox>())
                     {
                         if (string.IsNullOrEmpty(textBox.Text))
+                        {
+                            MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return true;
+                        }    
+                    }
+                    break;
+            }
+            return false;
+        }
+
+        private bool CheckIsNumber(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    if (!float.TryParse(txtThemLuongNhanVien.Text, out _) || !float.TryParse(txtThemLuongNhanVien.Text, out _))
+                    {
+                        MessageBox.Show("Dữ liệu số lượng và sản phẩm phải là dạng số", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return true;
+                    }
+                    break;
+                case 1:
+                    if (!float.TryParse(txtSuaLuongNhanVien.Text, out _) || !float.TryParse(txtSuaLuongNhanVien.Text, out _))
+                    {
+                        MessageBox.Show("Dữ liệu số lượng và sản phẩm phải là dạng số", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return true;
                     }
                     break;
             }
@@ -94,13 +130,28 @@ namespace QuanLiShopQuanAo
 
         private void btnChonTatCa_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvNhanVien.Rows)
+            if (clickdgv)
             {
-                if (row.Cells[0] is DataGridViewButtonCell button)
+                foreach (DataGridViewRow row in dgvNhanVien.Rows)
                 {
-                    dgvNhanVien.EndEdit();
+                    if (row.Cells[0] is DataGridViewButtonCell button)
+                        dgvNhanVien.EndEdit();
+
+                    row.Cells[0].Value = ((Button)sender).Enabled = false;
+                    btnChonTatCa.Enabled = true;
                 }
-                row.Cells[0].Value = ((Button)sender).Enabled;
+                clickdgv = false;
+            }
+            else
+            {
+                foreach (DataGridViewRow row in dgvNhanVien.Rows)
+                {
+                    if (row.Cells[0] is DataGridViewButtonCell button)
+                        dgvNhanVien.EndEdit();
+
+                    row.Cells[0].Value = ((Button)sender).Enabled = true;
+                }
+                clickdgv = true;
             }
         }
 
@@ -116,23 +167,39 @@ namespace QuanLiShopQuanAo
 
         private void btnThemNhanVien_Click(object sender, EventArgs e)
         {
-            foreach (Control c in grpThemNhanVien.Controls)
+            if (!clickthem)
             {
-                if (c is TextBox)
-                    ((TextBox)c).ReadOnly = false;
-                if (c is Button)
-                    ((Button)c).Enabled = true;
+                if (clicksua)
+                {
+                    HideControl();
+                    clicksua = false;
+                }
+                EnableThemControl();
+                clickthem = true;
+            }
+            else
+            {
+                HideControl();
+                clickthem = false;
             }
         }
 
         private void btnSuaNhanVien_Click(object sender, EventArgs e)
         {
-            foreach (Control c in grpSuaNhanVien.Controls)
+            if (!clicksua)
             {
-                if (c is TextBox)
-                    ((TextBox)c).ReadOnly = false;
-                if (c is Button)
-                    ((Button)c).Enabled = true;
+                if (clickthem)
+                {
+                    HideControl();
+                    clickthem = false;
+                }
+                EnableSuaControl();
+                clicksua = true;
+            }
+            else
+            {
+                HideControl();
+                clicksua = false;
             }
         }
 
@@ -148,64 +215,68 @@ namespace QuanLiShopQuanAo
 
         private void btnLuuThemNhanVien_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn lưu thông tin nhân viên", "Lưu thông tin nhân viên?",
+            if (MessageBox.Show("Bạn có muốn lưu thông tin nhân viên " + txtThemTenNhanVien.Text, "Lưu thông tin nhân viên?",
                 MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(0))
-                {
-                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
+
+                if (CheckIsNumber(0))
+                    return;
 
                 NhanVien NhanVien = new NhanVien()
                 {
                     TenNhanVien = txtThemTenNhanVien.Text,
                     ChucVu = cmbThemChucVuNhanVien.Text,
-                    Luong = float.Parse(txtThemLuong.Text),
+                    Luong = float.Parse(txtThemLuongNhanVien.Text),
                     Email = txtThemEmailNhanVien.Text,
                     HinhAnh = txtThemHinhAnhNhanVien.Text,
                     TrangThai = txtThemTrangThai.Text,
                     MatKhau = BUS_Account.CreatePassword(5)
                 };
                 if (BUS_NhanVien.QueryData(NhanVien, "insert"))
-                    MessageBox.Show("Thêm thông tin nhân viên thành công","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show($"Thêm thông tin nhân viên {NhanVien.TenNhanVien} thành công", "Thêm thông tin nhân viên",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.TenNhanVien,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.TenNhanVien, "Lỗi thêm thông tin nhân viên",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                HideTextControl();
-                HideButtonControl();
+                HideControl();
+                ClearTextValue();
                 dgvNhanVien.DataSource = BUS_NhanVien.QueryData("data");
             }
         }
 
         private void btnLuuSuaNhanVien_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn sửa thông tin nhân viên", "Sửa thông tin nhân viên?",
+            if (MessageBox.Show("Bạn có muốn sửa thông tin nhân viên " + txtSuaTenNhanVien.Text, "Sửa thông tin nhân viên?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(1))
-                {
-                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
+
+                if (CheckIsNumber(1))
+                    return;
 
                 NhanVien NhanVien = new NhanVien()
                 {
                     MaNhanVien = txtSuaMaNhanVien.Text,
                     TenNhanVien = txtSuaTenNhanVien.Text,
-                    ChucVu = cmbThemChucVuNhanVien.Text,
-                    Luong = float.Parse(txtThemLuong.Text),
-                    Email = txtThemEmailNhanVien.Text,
-                    HinhAnh = txtThemHinhAnhNhanVien.Text,
-                    TrangThai = txtThemTrangThai.Text,
+                    ChucVu = cmbSuaChucVuNhanVien.Text,
+                    Luong = float.Parse(txtSuaLuongNhanVien.Text),
+                    Email = txtSuaEmailNhanVien.Text,
+                    HinhAnh = txtSuaHinhAnhNhanVien.Text,
+                    TrangThai = txtSuaTrangThai.Text,
                 };
                 if (BUS_NhanVien.QueryData(NhanVien, "update"))
-                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Cập nhật thông tin nhân viên có mã {NhanVien.MaNhanVien} thành công", "Cập nhật thông tin nhân viên",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.MaNhanVien, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin nhân viên có mã " + NhanVien.MaNhanVien, "Lỗi cập nhật thông tin nhân viên",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                HideTextControl();
-                HideButtonControl();
+                HideControl();
+                ClearTextValue();
                 dgvNhanVien.DataSource = BUS_NhanVien.QueryData("data");
             }
         }
@@ -215,8 +286,8 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá nhân viên?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                bool deleted = true;
                 List<NhanVien> listNhanVien = new List<NhanVien>();
-
                 foreach (DataGridViewRow row in dgvNhanVien.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
@@ -229,11 +300,17 @@ namespace QuanLiShopQuanAo
                 foreach (NhanVien NhanVien in listNhanVien)
                 {
                     if (!BUS_NhanVien.QueryData(NhanVien, "delete"))
-                        MessageBox.Show("Lỗi không xoá được dữ liệu nhân viên với mã số " + NhanVien.MaNhanVien, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    {
+                        MessageBox.Show("Lỗi không xoá được dữ liệu nhân viên với mã số " + NhanVien.MaNhanVien, "Lỗi xoá dữu liệu",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        deleted = false;
+                    }
                 }
-                MessageBox.Show("Xoá dữ liệu nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                HideTextControl();
-                HideButtonControl();
+                
+                if (deleted)
+                    MessageBox.Show("Xoá dữ liệu nhân viên thành công", "Cập nhật thành công", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                HideControl();
                 dgvNhanVien.DataSource = BUS_NhanVien.QueryData("data");
             }
         }
@@ -243,6 +320,16 @@ namespace QuanLiShopQuanAo
             int row = dgvNhanVien.SelectedCells[0].RowIndex;
             DataGridViewRow data = dgvNhanVien.Rows[row];
             txtSuaMaNhanVien.Text = data.Cells[1].Value.ToString();
+            txtSuaTenNhanVien.Text = data.Cells[2].Value.ToString();
+            txtSuaEmailNhanVien.Text = data.Cells[5].Value.ToString();
+            txtSuaHinhAnhNhanVien.Text = data.Cells[7].Value.ToString();
+            txtSuaLuongNhanVien.Text = data.Cells[4].Value.ToString();
+            txtSuaTrangThai.Text = data.Cells[6].Value.ToString();
+
+            if (data.Cells[3].Value.ToString() == "Quản Trị")
+                cmbSuaChucVuNhanVien.Text = "Quản Trị";
+            else
+                cmbSuaChucVuNhanVien.Text = "Nhân Viên";
 
             if (dgvNhanVien.SelectedCells.Count > 0)
             {
@@ -257,7 +344,10 @@ namespace QuanLiShopQuanAo
                     picAnhNhanVien.Image = Image.FromFile(cellValue);
                     bitmap.Dispose();
                 }
-                catch { }
+                catch 
+                {
+                    picAnhNhanVien.Image = null;
+                }
             }
         }
 
@@ -284,6 +374,7 @@ namespace QuanLiShopQuanAo
                 catch
                 {
                     MessageBox.Show("Không tải lên được hình ảnh", "Tải ảnh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    picAnhNhanVien.Image = null;
                 }
             }
         }
@@ -311,6 +402,7 @@ namespace QuanLiShopQuanAo
                 catch
                 {
                     MessageBox.Show("Không tải lên được hình ảnh", "Tải ảnh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    picAnhNhanVien.Image = null;
                 }
             }
         }

@@ -6,6 +6,9 @@ namespace QuanLiShopQuanAo
 {
     public partial class frmNhaCungCap : Form
     {
+        private bool clickthem = false;
+        private bool clicksua = false;
+        private bool clickdgv = false;
         public frmNhaCungCap()
         {
             InitializeComponent();
@@ -13,8 +16,7 @@ namespace QuanLiShopQuanAo
 
         private void frmNhaCungCap_Load(object sender, EventArgs e)
         {
-            HideTextControl();
-            HideButtonControl();
+            HideControl();
             SetColumns();
             dgvNhaCungCap.DataSource = BUS_NhaCungCap.QueryData("data");
         }
@@ -28,33 +30,35 @@ namespace QuanLiShopQuanAo
                 dgvNhaCungCap.Columns[i + 1].DataPropertyName = columnsName[i];
         }
 
-        private void HideTextControl()
+        private void HideControl()
         {
-            foreach (Control gb in this.Controls)
+            foreach (Control control in grpThemNhaCungCap.Controls)
             {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is TextBox)
-                            ((TextBox)tb).ReadOnly = true;
-                    }
-                }
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = false;
+            }
+            foreach (Control control in grpSuaNhaCungCap.Controls)
+            {
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = false;
             }
         }
 
-        private void HideButtonControl()
+        private void EnableThemControl()
         {
-            foreach (Control gb in this.Controls)
+            foreach (Control control in grpThemNhaCungCap.Controls)
             {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is Button)
-                            ((Button)tb).Enabled = false;
-                    }
-                }
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = true;
+            }
+        }
+
+        private void EnableSuaControl()
+        {
+            foreach (Control control in grpSuaNhaCungCap.Controls)
+            {
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = true;
             }
         }
 
@@ -79,14 +83,22 @@ namespace QuanLiShopQuanAo
                     foreach (TextBox textBox in grpThemNhaCungCap.Controls.OfType<TextBox>())
                     {
                         if (string.IsNullOrEmpty(textBox.Text))
+                        {
+                            MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return true;
+                        }
                     }
                     break;
                 case 1:
                     foreach (TextBox textBox in grpSuaNhaCungCap.Controls.OfType<TextBox>())
                     {
                         if (string.IsNullOrEmpty(textBox.Text))
+                        {
+                            MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return true;
+                        }
                     }
                     break;
             }
@@ -95,12 +107,28 @@ namespace QuanLiShopQuanAo
 
         private void btnChonTatCa_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvNhaCungCap.Rows)
+            if (clickdgv)
             {
-                if (row.Cells[0] is DataGridViewButtonCell button)
-                    dgvNhaCungCap.EndEdit();
+                foreach (DataGridViewRow row in dgvNhaCungCap.Rows)
+                {
+                    if (row.Cells[0] is DataGridViewButtonCell button)
+                        dgvNhaCungCap.EndEdit();
 
-                row.Cells[0].Value = ((Button)sender).Enabled;
+                    row.Cells[0].Value = ((Button)sender).Enabled = false;
+                    btnChonTatCa.Enabled = true;
+                }
+                clickdgv = false;
+            }
+            else
+            {
+                foreach (DataGridViewRow row in dgvNhaCungCap.Rows)
+                {
+                    if (row.Cells[0] is DataGridViewButtonCell button)
+                        dgvNhaCungCap.EndEdit();
+
+                    row.Cells[0].Value = ((Button)sender).Enabled = true;
+                }
+                clickdgv = true;
             }
         }
 
@@ -116,23 +144,39 @@ namespace QuanLiShopQuanAo
 
         private void btnThemNhaCungCap_Click(object sender, EventArgs e)
         {
-            foreach (Control c in grpThemNhaCungCap.Controls)
+            if (!clickthem)
             {
-                if (c is TextBox)
-                    ((TextBox)c).ReadOnly = false;
-                if (c is Button)
-                    ((Button)c).Enabled = true;
+                if (clicksua)
+                {
+                    HideControl();
+                    clicksua = false;
+                }
+                EnableThemControl();
+                clickthem = true;
+            }
+            else
+            {
+                HideControl();
+                clickthem = false;
             }
         }
 
         private void btnSuaNhaCungCap_Click(object sender, EventArgs e)
         {
-            foreach (Control c in grpSuaNhaCungCap.Controls)
+            if (!clicksua)
             {
-                if (c is TextBox)
-                    ((TextBox)c).ReadOnly = false;
-                if (c is Button)
-                    ((Button)c).Enabled = true;
+                if (clickthem)
+                {
+                    HideControl();
+                    clickthem = false;
+                }
+                EnableSuaControl();
+                clicksua = true;
+            }
+            else
+            {
+                HideControl();
+                clicksua = false;
             }
         }
 
@@ -152,10 +196,7 @@ namespace QuanLiShopQuanAo
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(0))
-                {
-                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
 
                 NhaCungCap NhaCungCap = new NhaCungCap()
                 {
@@ -164,12 +205,14 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtThemDiaChiNhaCungCap.Text,
                 };
                 if (BUS_NhaCungCap.QueryData(NhaCungCap, "insert"))
-                    MessageBox.Show("Thêm thông tin nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Thêm thông tin nhà cung cấp {NhaCungCap.TenNhaCungCap} thành công", "Thêm thông tin nhà cung cấp",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin nhà cung cấp có tên " + NhaCungCap.TenNhaCungCap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin nhà cung cấp có tên " + NhaCungCap.TenNhaCungCap, "Lỗi thêm thông tin nhà cung cấp",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                HideTextControl();
-                HideButtonControl();
+                HideControl();
+                ClearTextValue();
                 dgvNhaCungCap.DataSource = BUS_NhaCungCap.QueryData("data");
             }
         }
@@ -180,10 +223,7 @@ namespace QuanLiShopQuanAo
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(1))
-                {
-                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
 
                 NhaCungCap NhaCungCap = new NhaCungCap()
                 {
@@ -193,12 +233,14 @@ namespace QuanLiShopQuanAo
                     DiaChi = txtSuaDiaChiNhaCungCap.Text,
                 };
                 if (BUS_NhaCungCap.QueryData(NhaCungCap, "update"))
-                    MessageBox.Show("Cập nhật thông tin nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Cập nhật thông tin mã nhà cung cấp {NhaCungCap.MaNhaCungCap} thành công", "Cập nhật thông tin nhà cung cấp",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin nhà cung cấp có mã " + NhaCungCap.MaNhaCungCap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin nhà cung cấp có mã " + NhaCungCap.MaNhaCungCap, "Lỗi cập nhật thông tin nhà cung cấp",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                HideTextControl();
-                HideButtonControl();
+                HideControl();
+                ClearTextValue();
                 dgvNhaCungCap.DataSource = BUS_NhaCungCap.QueryData("data");
             }
         }
@@ -208,8 +250,8 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá nhà cung cấp?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                bool deleted = true;
                 List<NhaCungCap> listNhaCungCap = new List<NhaCungCap>();
-
                 foreach (DataGridViewRow row in dgvNhaCungCap.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
@@ -222,12 +264,18 @@ namespace QuanLiShopQuanAo
 
                 foreach (NhaCungCap NhaCungCap in listNhaCungCap)
                 {
-                    if (BUS_NhaCungCap.QueryData(NhaCungCap, "delete"))
-                        MessageBox.Show("Lỗi không xoá được dữ liệu nhà cung cấp với mã số " + NhaCungCap.MaNhaCungCap, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!BUS_NhaCungCap.QueryData(NhaCungCap, "delete"))
+                    {
+                        MessageBox.Show("Lỗi không xoá được dữ liệu nhà cung cấp với mã số " + NhaCungCap.MaNhaCungCap, "Lỗi xoá dữ liệu",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        deleted = false;
+                    }    
                 }
-                MessageBox.Show("Xoá dữ liệu nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                HideTextControl();
-                HideButtonControl();
+
+                if (deleted)
+                    MessageBox.Show("Xoá dữ liệu nhà cung cấp thành công", "Cập nhật thành công", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                HideControl();
                 dgvNhaCungCap.DataSource = BUS_NhaCungCap.QueryData("data");
             }
         }
@@ -237,6 +285,9 @@ namespace QuanLiShopQuanAo
             int row = dgvNhaCungCap.SelectedCells[0].RowIndex;
             DataGridViewRow data = dgvNhaCungCap.Rows[row];
             txtSuaMaNhaCungCap.Text = data.Cells[1].Value.ToString();
+            txtSuaTenNhaCungCap.Text = data.Cells[2].Value.ToString();
+            txtSuaDiaChiNhaCungCap.Text = data.Cells[4].Value.ToString();
+            txtSuaSDTNhaCungCap.Text = data.Cells[3].Value.ToString();
         }
     }
 }

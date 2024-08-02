@@ -6,6 +6,9 @@ namespace QuanLiShopQuanAo
 {
     public partial class frmChiTietHoaDon : Form
     {
+        private bool clickdgv = false;
+        public string MaHoaDon = string.Empty;
+        public string MaKhachHang = string.Empty;
         public string TenKhachHang = string.Empty;
         public frmChiTietHoaDon()
         {
@@ -16,20 +19,19 @@ namespace QuanLiShopQuanAo
         {
             SetColumns();
             lblTenKhachHang.Text += " " + TenKhachHang;
-            dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", TenKhachHang);
+            dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", MaHoaDon);
             dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
         }
 
         private void SetColumns()
         {
-            var columnsName = BUS_ChiTietHoaDon.QueryData("data", TenKhachHang).Columns.
+            var columnsName = BUS_ChiTietHoaDon.QueryData("data", MaHoaDon).Columns.
                 Cast<DataColumn>().Select(columns => columns.ColumnName).ToArray();
 
             for (int i = 0; i < columnsName.Length; i++)
                 dgvChiTietHoaDon.Columns[i + 1].DataPropertyName = columnsName[i];
 
             DataTable dt = BUS_SanPham.QueryData("data");
-            dt.Columns.Remove("MaNCC");
             columnsName = dt.Columns.Cast<DataColumn>().Select(columns => columns.ColumnName).ToArray();
 
             for (int i = 0; i < columnsName.Length; i++)
@@ -38,54 +40,76 @@ namespace QuanLiShopQuanAo
 
         private void btnChonTatCa_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvChiTietHoaDon.Rows)
+            if (clickdgv)
             {
-                if (row.Cells[0] is DataGridViewButtonCell button)
-                    dgvChiTietHoaDon.EndEdit();
+                foreach (DataGridViewRow row in dgvChiTietHoaDon.Rows)
+                {
+                    if (row.Cells[0] is DataGridViewButtonCell button)
+                        dgvChiTietHoaDon.EndEdit();
 
-                row.Cells[0].Value = ((Button)sender).Enabled;
+                    row.Cells[0].Value = ((Button)sender).Enabled = false;
+                    btnChonTatCa.Enabled = true;
+                }
+                clickdgv = false;
+            }
+            else
+            {
+                foreach (DataGridViewRow row in dgvChiTietHoaDon.Rows)
+                {
+                    if (row.Cells[0] is DataGridViewButtonCell button)
+                        dgvChiTietHoaDon.EndEdit();
+
+                    row.Cells[0].Value = ((Button)sender).Enabled = true;
+                }
+                clickdgv = true;
             }
         }
 
         private void btnTaiLaiDanhSach_Click(object sender, EventArgs e)
         {
-            dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", TenKhachHang);
+            dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", MaHoaDon);
             dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
         }
 
-        private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnNgungLapHoaDon_Click(object sender, EventArgs e)
         {
-            if (dgvSanPham.SelectedCells.Count > 0)
+            foreach (DataGridViewRow row in dgvChiTietHoaDon.Rows)
             {
-                int selectedrowindex = dgvSanPham.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dgvSanPham.Rows[selectedrowindex];
-                string cellValue = Convert.ToString(selectedRow.Cells[5].Value.ToString());
-
-                try
+                ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon
                 {
-                    Bitmap bitmap = new Bitmap(cellValue);
-                    picAnhSanPham.SizeMode = PictureBoxSizeMode.StretchImage;
-                    picAnhSanPham.Image = Image.FromFile(cellValue);
-                    bitmap.Dispose();
+                    MaHoaDon = MaHoaDon,
+                    MaSanPham = row.Cells[2].Value.ToString(),
+                    SoLuong = Convert.ToInt32(row.Cells[4].Value.ToString())
+                };
+                if (MessageBox.Show("Bạn có muốn ngừng tạo hoá đơn và gỡ hết dữ liệu?", "Ngừng lập hoá đơn",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (BUS_ChiTietHoaDon.QueryData(chiTietHoaDon, "stop"))
+                        MessageBox.Show("Ngừng lập hoá đơn thành công về màn hình chính...", "Hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch { }
             }
         }
 
         private void btnThemVaoHoaDon_Click(object sender, EventArgs e)
         {
-            List<SanPham> listSanPham = new List<SanPham>();
+            if (nupSoLuong.Value < 1)
+            {
+                MessageBox.Show("Số lượng thêm vào phải lớn hơn hoặc bằng 1", "Số lượng sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            List<SanPham> listSanPham = new List<SanPham>();
             foreach (DataGridViewRow row in dgvSanPham.Rows)
             {
-                if (Convert.ToBoolean(row.Cells[0].Value) == true && row.Cells[7].Value.ToString() != "Hết Hàng")
+                if (Convert.ToBoolean(row.Cells[0].Value) == true && row.Cells[8].Value.ToString() != "Chưa Bán" && Convert.ToInt32(row.Cells[5].Value.ToString()) > 0)
+                {
                     listSanPham.Add(new SanPham
                     {
                         MaSanPham = row.Cells[1].Value.ToString(),
-                        TenSanPham = row.Cells[2].Value.ToString(),
                         SoLuong = Convert.ToInt32(nupSoLuong.Value),
-                        Gia = int.Parse(row.Cells[4].Value.ToString())
+                        Gia = int.Parse(row.Cells[5].Value.ToString())
                     });
+                }
             }
             nupSoLuong.Value = 0;
 
@@ -93,41 +117,51 @@ namespace QuanLiShopQuanAo
             {
                 ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon()
                 {
+                    MaHoaDon = MaHoaDon,
+                    MaKhachHang = MaKhachHang,
                     MaSanPham = SanPham.MaSanPham,
-                    TenKhachHang = lblTenKhachHang.Text,
-                    TenSanPham = SanPham.TenSanPham,
                     SoLuong = SanPham.SoLuong,
-                    TongThanhTien = SanPham.Gia * SanPham.SoLuong
                 };
-                if (BUS_ChiTietHoaDon.QueryData(chiTietHoaDon, "insert"))
-                    MessageBox.Show("Thêm thành công sản phẩm " + SanPham.TenSanPham, "Thêm sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Lỗi thêm sản phẩm với mã " + SanPham.TenSanPham, "Thêm sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!BUS_ChiTietHoaDon.QueryData(chiTietHoaDon, "insert"))
+                    MessageBox.Show($"Lỗi thêm sản phẩm với mã {SanPham.MaSanPham} vào hoá đơn có mã {MaHoaDon} của khách hàng {TenKhachHang}", "Thêm sản phẩm vào hoá đơn",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", TenKhachHang);
+            MessageBox.Show($"Thêm thành công sản phẩm vào hoá đơn có mã {MaHoaDon} của khách hàng {TenKhachHang}", "Thêm sản phẩm vào hoá đơn",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", MaHoaDon);
             dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
         }
 
         private void btnHoanThanhHD_Click(object sender, EventArgs e)
         {
-            List<ChiTietHoaDon> listChiTietHoaDon = new List<ChiTietHoaDon>();
-
+            bool success = true;
+            List<ChiTietHoaDon> chiTietHoaDon = new List<ChiTietHoaDon>();
             foreach (DataGridViewRow row in dgvChiTietHoaDon.Rows)
             {
-                listChiTietHoaDon.Add(new ChiTietHoaDon()
+                chiTietHoaDon.Add(new ChiTietHoaDon
                 {
-                    MaHoaDon = dgvChiTietHoaDon.Rows[0].Cells[1].Value.ToString(),
+                    MaHoaDon = MaHoaDon,
+                    MaKhachHang = MaKhachHang,
                     TongThanhTien = float.Parse(row.Cells[6].Value.ToString())
-                });
+                });      
             }
 
-            foreach (ChiTietHoaDon ChiTietHoaDon in listChiTietHoaDon)
+            foreach (ChiTietHoaDon hoaDon in chiTietHoaDon)
             {
-                if (BUS_ChiTietHoaDon.QueryData(ChiTietHoaDon, "insert"))
-                    MessageBox.Show("Thêm thông tin hoá đơn của khách hàng thành công", "Thêm hoá đơn", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Không cập nhật được thông tin hoá đơn khách hàng có mã hoá đơn " + ChiTietHoaDon.MaHoaDon, "Thêm hoá đơn", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                if (!BUS_ChiTietHoaDon.QueryData(hoaDon, "update"))
+                {
+                    MessageBox.Show($"Lỗi cập nhật sản phẩm {hoaDon.MaSanPham} vào hoá đơn có mã {MaHoaDon}", "Lưu hoá đơn",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    success = false;
+                }
+            }    
+            
+            if (success)
+            {
+                MessageBox.Show($"Lập hoá đơn có mã {MaHoaDon} thành công", "Lập hoá đơn thành công",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }      
         }
 
         private void btnXoaHoaDon_Click(object sender, EventArgs e)
@@ -136,25 +170,49 @@ namespace QuanLiShopQuanAo
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 List<ChiTietHoaDon> listChiTietHoaDon = new List<ChiTietHoaDon>();
-
                 foreach (DataGridViewRow row in dgvChiTietHoaDon.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
-                        listChiTietHoaDon.Add(new ChiTietHoaDon { 
-                            MaSanPham = row.Cells[1].Value.ToString(),
-                            TenSanPham = row.Cells[2].Value.ToString()
+                        listChiTietHoaDon.Add(new ChiTietHoaDon
+                        {
+                            MaHoaDon = MaHoaDon,
+                            MaSanPham = row.Cells[2].Value.ToString(),
+                            SoLuong = Convert.ToInt32(row.Cells[4].Value.ToString())
                         });
                 }
 
                 foreach (ChiTietHoaDon ChiTietHoaDon in listChiTietHoaDon)
                 {
-                    if (BUS_ChiTietHoaDon.QueryData(ChiTietHoaDon, "delete"))
-                        MessageBox.Show($"Xoá dữ liệu hoá đơn sản phẩm {ChiTietHoaDon.TenSanPham} thành công", "Xoá hoá đơn", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Lỗi không xoá được dữ liệu hoá đơn khách hàng với mã sản phẩm " + ChiTietHoaDon.TenSanPham, "Xoá hoá đơn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!BUS_ChiTietHoaDon.QueryData(ChiTietHoaDon, "delete"))
+                        MessageBox.Show($"Lỗi không xoá được dữ liệu hoá đơn của khách hàng {TenKhachHang} với sản phẩm có mã {ChiTietHoaDon.MaSanPham}" + ChiTietHoaDon.TenSanPham, "Xoá sản phẩm khỏi hoá đơn", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", TenKhachHang);
+                MessageBox.Show("Xoá dữ liệu sản phẩm khỏi hoá đơn thành công", "Xoá sản phẩm khỏi hoá đơn", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvChiTietHoaDon.DataSource = BUS_ChiTietHoaDon.QueryData("data", MaHoaDon);
                 dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
+            }
+        }
+
+        private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSanPham.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvSanPham.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvSanPham.Rows[selectedrowindex];
+                string cellValue = Convert.ToString(selectedRow.Cells[8].Value.ToString());
+
+                try
+                {
+                    Bitmap bitmap = new Bitmap(cellValue);
+                    picAnhSanPham.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picAnhSanPham.Image = Image.FromFile(cellValue);
+                    bitmap.Dispose();
+                }
+                catch 
+                {
+                    picAnhSanPham.Image = null;
+                }
             }
         }
     }

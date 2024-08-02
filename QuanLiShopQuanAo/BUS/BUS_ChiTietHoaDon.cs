@@ -7,13 +7,13 @@ namespace QuanLiShopQuanAo.BUS
 {
     public class BUS_ChiTietHoaDon
     {
-        public static DataTable QueryData(string command, string maKhachHang)
+        public static DataTable QueryData(string command, string maHoaDon)
         {
             IProcChiTietHoaDon proc = new DAL_ChiTietHoaDon();
             switch (command)
             {
                 case "data":
-                    return proc.LoadChiTietHoaDon(maKhachHang);
+                    return proc.LoadChiTietHoaDon(maHoaDon);
                 default:
                     return new DataTable();
             }
@@ -23,6 +23,8 @@ namespace QuanLiShopQuanAo.BUS
             IProcChiTietHoaDon proc = new DAL_ChiTietHoaDon();
             switch (command)
             {
+                case "stop":
+                    return proc.NgungLapHoaDon(data);
                 case "insert":
                     return proc.Insert(data);
                 case "update":

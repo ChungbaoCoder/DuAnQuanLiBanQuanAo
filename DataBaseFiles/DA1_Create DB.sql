@@ -1,9 +1,9 @@
 ﻿INSERT INTO nhanvien (MaNhanVien,TenNhanVien,ChucVu,Luong,Email,TrangThai,MatKhau) VALUES
-('NV1', N'Nguyễn Văn A', N'Quản Trị', 15000000.00, 'ChungBao@gmail', N'Chưa đi làm', '7372'),
-('NV2', N'Trần Thị B', N'Nhân Viên', 12000000.00, 'loginus@1234', N'Chưa đi làm', '1234'),
-('NV3', N'Lê Văn C', N'Nhân Viên', 8000000.00, 'thinh@gmail.com', N'Chưa đi làm', '8931'),
-('NV4', N'Phạm Thị D', N'Nhân Viên', 7000000.00, 'd.pham@example.com', N'Chưa đi làm', '2871'),
-('NV5', N'Vũ Văn E', N'Nhân Viên', 9000000.00, 'e.vu@example.com', N'Chưa đi làm', '2344');
+('NV1', N'Nguyễn Văn A', N'Quản Trị', 15000000.00, 'ChungBao@gmail', N'Chưa đilàm', '7372'),
+('NV2', N'Trần Thị B', N'Nhân Viên', 12000000.00, 'loginus@1234', N'Chưa đilàm', '1234'),
+('NV3', N'Lê Văn C', N'Nhân Viên', 8000000.00, 'thinh@gmail.com', N'Chưa đilàm', '8931'),
+('NV4', N'Phạm Thị D', N'Nhân Viên', 7000000.00, 'd.pham@example.com', N'Chưa đilàm', '2871'),
+('NV5', N'Vũ Văn E', N'Nhân Viên', 9000000.00, 'e.vu@example.com', N'Chưa đilàm', '2344');
 
 INSERT INTO khachhang (MaKhachHang,TenKhachHang,SDT,DiaChi) VALUES
 ('KH1', N'Nguyễn Văn A', '0901234567', N'123 Đường ABC, Quận 1, TP. Hồ Chí Minh'),
@@ -49,11 +49,13 @@ INSERT INTO chitiethoadon (MaHoaDon,MaSanPham, SoLuong) VALUES
 ('HD5', 'SP2', 2),  -- Hóa đơn 5, Sản phẩm 2, Số lượng 2
 ('HD5', 'SP3', 1);  -- Hóa đơn 5, Sản phẩm 3, Số lượng 1
 
+-- RESET IDENTITY
 DBCC CHECKIDENT (SanPham, RESEED, 0);
 DBCC CHECKIDENT (NhanVien, RESEED, 0);
 DBCC CHECKIDENT (KhachHang, RESEED, 0);
 DBCC CHECKIDENT (NhaCungCap, RESEED, 0);
 DBCC CHECKIDENT (HoaDon, RESEED, 0);
+-- RESET IDENTITY
 
 --DELETE FROM ChiTietHoaDon
 --DELETE FROM HoaDon
@@ -61,3 +63,8 @@ DBCC CHECKIDENT (HoaDon, RESEED, 0);
 --DELETE FROM SanPham
 --DELETE FROM NhanVien
 --DELETE FROM KhachHang
+
+-- DROP Hết Store Procedures
+SELECT 'DROP PROCEDURE [' + SCHEMA_NAME(p.schema_id) + '].[' + p.NAME + '];'
+FROM sys.procedures p
+-- DROP Hết Store Procedures
