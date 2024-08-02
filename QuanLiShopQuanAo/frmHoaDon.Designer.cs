@@ -52,12 +52,12 @@
             lblNgayLapHDMoi = new Label();
             txtSDTKhachMua = new TextBox();
             txtTenKhachMua = new TextBox();
-            txtTaoMaHoaDon = new TextBox();
             lblSDT = new Label();
             lblTenKhachMua = new Label();
-            lblTaoMaHoaDon = new Label();
             lblTrangThai = new Label();
             grpSuaHoaDon = new GroupBox();
+            txtSuaMaKhachHang = new TextBox();
+            lblSuaMaKhachHang = new Label();
             txtSuaMaHoaDon = new TextBox();
             btnSuaHoaDon = new Button();
             lblSuaMaHoaDon = new Label();
@@ -181,7 +181,7 @@
             lblTenKhach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTenKhach.AutoSize = true;
             lblTenKhach.Font = new Font("Segoe UI", 13F);
-            lblTenKhach.Location = new Point(6, 128);
+            lblTenKhach.Location = new Point(6, 179);
             lblTenKhach.Name = "lblTenKhach";
             lblTenKhach.Size = new Size(169, 30);
             lblTenKhach.TabIndex = 11;
@@ -190,7 +190,7 @@
             // txtSuaTenKhach
             // 
             txtSuaTenKhach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtSuaTenKhach.Location = new Point(196, 128);
+            txtSuaTenKhach.Location = new Point(196, 179);
             txtSuaTenKhach.Name = "txtSuaTenKhach";
             txtSuaTenKhach.Size = new Size(380, 34);
             txtSuaTenKhach.TabIndex = 12;
@@ -200,7 +200,7 @@
             lblNgayLap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblNgayLap.AutoSize = true;
             lblNgayLap.Font = new Font("Segoe UI", 13F);
-            lblNgayLap.Location = new Point(6, 176);
+            lblNgayLap.Location = new Point(6, 227);
             lblNgayLap.Name = "lblNgayLap";
             lblNgayLap.Size = new Size(104, 30);
             lblNgayLap.TabIndex = 13;
@@ -210,7 +210,7 @@
             // 
             dtpSuaNgayLap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtpSuaNgayLap.CustomFormat = "dd-MM-yyyy";
-            dtpSuaNgayLap.Location = new Point(196, 176);
+            dtpSuaNgayLap.Location = new Point(196, 227);
             dtpSuaNgayLap.Name = "dtpSuaNgayLap";
             dtpSuaNgayLap.Size = new Size(380, 34);
             dtpSuaNgayLap.TabIndex = 14;
@@ -251,11 +251,9 @@
             grpTaoHoaDon.Controls.Add(lblNgayLapHDMoi);
             grpTaoHoaDon.Controls.Add(txtSDTKhachMua);
             grpTaoHoaDon.Controls.Add(txtTenKhachMua);
-            grpTaoHoaDon.Controls.Add(txtTaoMaHoaDon);
             grpTaoHoaDon.Controls.Add(lblSDT);
             grpTaoHoaDon.Controls.Add(lblTenKhachMua);
             grpTaoHoaDon.Controls.Add(lblTaoHoaDon);
-            grpTaoHoaDon.Controls.Add(lblTaoMaHoaDon);
             grpTaoHoaDon.Location = new Point(639, 527);
             grpTaoHoaDon.Name = "grpTaoHoaDon";
             grpTaoHoaDon.Size = new Size(567, 343);
@@ -268,7 +266,7 @@
             btnLapHoaDon.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLapHoaDon.Image = Properties.Resources.icons8_add_30;
             btnLapHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLapHoaDon.Location = new Point(327, 277);
+            btnLapHoaDon.Location = new Point(327, 257);
             btnLapHoaDon.Name = "btnLapHoaDon";
             btnLapHoaDon.Size = new Size(215, 50);
             btnLapHoaDon.TabIndex = 26;
@@ -281,7 +279,7 @@
             // 
             dtpLapHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtpLapHoaDon.CustomFormat = "dd-MM-yyyy";
-            dtpLapHoaDon.Location = new Point(192, 226);
+            dtpLapHoaDon.Location = new Point(192, 177);
             dtpLapHoaDon.Name = "dtpLapHoaDon";
             dtpLapHoaDon.Size = new Size(350, 34);
             dtpLapHoaDon.TabIndex = 22;
@@ -291,7 +289,7 @@
             lblNgayLapHDMoi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblNgayLapHDMoi.AutoSize = true;
             lblNgayLapHDMoi.Font = new Font("Segoe UI", 13F);
-            lblNgayLapHDMoi.Location = new Point(6, 230);
+            lblNgayLapHDMoi.Location = new Point(6, 181);
             lblNgayLapHDMoi.Name = "lblNgayLapHDMoi";
             lblNgayLapHDMoi.Size = new Size(104, 30);
             lblNgayLapHDMoi.TabIndex = 21;
@@ -300,7 +298,7 @@
             // txtSDTKhachMua
             // 
             txtSDTKhachMua.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtSDTKhachMua.Location = new Point(192, 177);
+            txtSDTKhachMua.Location = new Point(192, 128);
             txtSDTKhachMua.Name = "txtSDTKhachMua";
             txtSDTKhachMua.Size = new Size(350, 34);
             txtSDTKhachMua.TabIndex = 25;
@@ -308,26 +306,17 @@
             // txtTenKhachMua
             // 
             txtTenKhachMua.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtTenKhachMua.Location = new Point(192, 126);
+            txtTenKhachMua.Location = new Point(192, 77);
             txtTenKhachMua.Name = "txtTenKhachMua";
             txtTenKhachMua.Size = new Size(350, 34);
             txtTenKhachMua.TabIndex = 24;
-            // 
-            // txtTaoMaHoaDon
-            // 
-            txtTaoMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtTaoMaHoaDon.Location = new Point(192, 77);
-            txtTaoMaHoaDon.Name = "txtTaoMaHoaDon";
-            txtTaoMaHoaDon.ReadOnly = true;
-            txtTaoMaHoaDon.Size = new Size(350, 34);
-            txtTaoMaHoaDon.TabIndex = 21;
             // 
             // lblSDT
             // 
             lblSDT.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblSDT.AutoSize = true;
             lblSDT.Font = new Font("Segoe UI", 13F);
-            lblSDT.Location = new Point(6, 179);
+            lblSDT.Location = new Point(6, 130);
             lblSDT.Name = "lblSDT";
             lblSDT.Size = new Size(147, 30);
             lblSDT.TabIndex = 23;
@@ -338,29 +327,18 @@
             lblTenKhachMua.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTenKhachMua.AutoSize = true;
             lblTenKhachMua.Font = new Font("Segoe UI", 13F);
-            lblTenKhachMua.Location = new Point(6, 128);
+            lblTenKhachMua.Location = new Point(6, 79);
             lblTenKhachMua.Name = "lblTenKhachMua";
             lblTenKhachMua.Size = new Size(111, 30);
             lblTenKhachMua.TabIndex = 22;
             lblTenKhachMua.Text = "Tên Khách";
-            // 
-            // lblTaoMaHoaDon
-            // 
-            lblTaoMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblTaoMaHoaDon.AutoSize = true;
-            lblTaoMaHoaDon.Font = new Font("Segoe UI", 13F);
-            lblTaoMaHoaDon.Location = new Point(6, 77);
-            lblTaoMaHoaDon.Name = "lblTaoMaHoaDon";
-            lblTaoMaHoaDon.Size = new Size(136, 30);
-            lblTaoMaHoaDon.TabIndex = 21;
-            lblTaoMaHoaDon.Text = "Mã Hoá Đơn";
             // 
             // lblTrangThai
             // 
             lblTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblTrangThai.AutoSize = true;
             lblTrangThai.Font = new Font("Segoe UI", 13F);
-            lblTrangThai.Location = new Point(6, 226);
+            lblTrangThai.Location = new Point(6, 277);
             lblTrangThai.Name = "lblTrangThai";
             lblTrangThai.Size = new Size(113, 30);
             lblTrangThai.TabIndex = 21;
@@ -369,6 +347,8 @@
             // grpSuaHoaDon
             // 
             grpSuaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            grpSuaHoaDon.Controls.Add(txtSuaMaKhachHang);
+            grpSuaHoaDon.Controls.Add(lblSuaMaKhachHang);
             grpSuaHoaDon.Controls.Add(txtSuaMaHoaDon);
             grpSuaHoaDon.Controls.Add(btnSuaHoaDon);
             grpSuaHoaDon.Controls.Add(lblSuaMaHoaDon);
@@ -385,6 +365,25 @@
             grpSuaHoaDon.TabIndex = 23;
             grpSuaHoaDon.TabStop = false;
             // 
+            // txtSuaMaKhachHang
+            // 
+            txtSuaMaKhachHang.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSuaMaKhachHang.Location = new Point(196, 128);
+            txtSuaMaKhachHang.Name = "txtSuaMaKhachHang";
+            txtSuaMaKhachHang.Size = new Size(380, 34);
+            txtSuaMaKhachHang.TabIndex = 30;
+            // 
+            // lblSuaMaKhachHang
+            // 
+            lblSuaMaKhachHang.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblSuaMaKhachHang.AutoSize = true;
+            lblSuaMaKhachHang.Font = new Font("Segoe UI", 13F);
+            lblSuaMaKhachHang.Location = new Point(6, 128);
+            lblSuaMaKhachHang.Name = "lblSuaMaKhachHang";
+            lblSuaMaKhachHang.Size = new Size(166, 30);
+            lblSuaMaKhachHang.TabIndex = 29;
+            lblSuaMaKhachHang.Text = "Mã Khách Hàng";
+            // 
             // txtSuaMaHoaDon
             // 
             txtSuaMaHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -400,7 +399,7 @@
             btnSuaHoaDon.Font = new Font("Segoe UI", 13F);
             btnSuaHoaDon.Image = Properties.Resources.icons8_save_30;
             btnSuaHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSuaHoaDon.Location = new Point(475, 227);
+            btnSuaHoaDon.Location = new Point(475, 278);
             btnSuaHoaDon.Name = "btnSuaHoaDon";
             btnSuaHoaDon.Size = new Size(101, 33);
             btnSuaHoaDon.TabIndex = 23;
@@ -426,7 +425,7 @@
             cmbTrangThai.Font = new Font("Segoe UI", 11F);
             cmbTrangThai.FormattingEnabled = true;
             cmbTrangThai.Items.AddRange(new object[] { "Chưa Thanh Toán", "Đã Thanh Toán" });
-            cmbTrangThai.Location = new Point(196, 227);
+            cmbTrangThai.Location = new Point(196, 278);
             cmbTrangThai.Name = "cmbTrangThai";
             cmbTrangThai.Size = new Size(273, 33);
             cmbTrangThai.TabIndex = 22;
@@ -509,11 +508,9 @@
         private Button btnXoaHoaDon;
         private GroupBox grpTaoHoaDon;
         private Label lblTenKhachMua;
-        private Label lblTaoMaHoaDon;
         private Label lblSDT;
         private TextBox txtSDTKhachMua;
         private TextBox txtTenKhachMua;
-        private TextBox txtTaoMaHoaDon;
         private DateTimePicker dtpLapHoaDon;
         private Label lblNgayLapHDMoi;
         private Button btnLapHoaDon;
@@ -535,5 +532,7 @@
         private DataGridViewTextBoxColumn dgvhTongTien;
         private DataGridViewTextBoxColumn dgvhTrangThai;
         private DataGridViewTextBoxColumn dgvhNhanVien;
+        private TextBox txtSuaMaKhachHang;
+        private Label lblSuaMaKhachHang;
     }
 }

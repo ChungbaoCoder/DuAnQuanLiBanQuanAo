@@ -43,6 +43,9 @@ namespace QuanLiShopQuanAo
             if (!form.IsHandleCreated)
                 closed = true;
 
+            if (form.closed)
+                this.Show();
+
             if (chucVu != "Quản Trị")
                 pnlNhanVien.Hide();
         }

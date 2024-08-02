@@ -34,7 +34,7 @@
             lblThemAnhNhanVien = new Label();
             lblThemNhanVien = new Label();
             btnClearThemNhanVien = new Button();
-            txtThemLuong = new TextBox();
+            txtThemLuongNhanVien = new TextBox();
             cmbThemChucVuNhanVien = new ComboBox();
             lblThemEmailNhanVien = new Label();
             txtThemTrangThai = new TextBox();
@@ -72,7 +72,7 @@
             txtSuaLuongNhanVien = new TextBox();
             btnLuuSuaNhanVien = new Button();
             lblSuaLuongNhanVien = new Label();
-            txtSuaTrangThaiNhanVien = new TextBox();
+            txtSuaTrangThai = new TextBox();
             lblSuaChucVuNhanVien = new Label();
             cmbSuaChucVuNhanVien = new ComboBox();
             lblSuaTrangThaiNhanVien = new Label();
@@ -96,7 +96,7 @@
             grpThemNhanVien.Controls.Add(lblThemAnhNhanVien);
             grpThemNhanVien.Controls.Add(lblThemNhanVien);
             grpThemNhanVien.Controls.Add(btnClearThemNhanVien);
-            grpThemNhanVien.Controls.Add(txtThemLuong);
+            grpThemNhanVien.Controls.Add(txtThemLuongNhanVien);
             grpThemNhanVien.Controls.Add(cmbThemChucVuNhanVien);
             grpThemNhanVien.Controls.Add(lblThemEmailNhanVien);
             grpThemNhanVien.Controls.Add(txtThemTrangThai);
@@ -169,14 +169,14 @@
             btnClearThemNhanVien.UseVisualStyleBackColor = true;
             btnClearThemNhanVien.Click += btnClearThemNhanVien_Click;
             // 
-            // txtThemLuong
+            // txtThemLuongNhanVien
             // 
-            txtThemLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtThemLuong.Font = new Font("Segoe UI", 12F);
-            txtThemLuong.Location = new Point(183, 209);
-            txtThemLuong.Name = "txtThemLuong";
-            txtThemLuong.Size = new Size(300, 34);
-            txtThemLuong.TabIndex = 47;
+            txtThemLuongNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtThemLuongNhanVien.Font = new Font("Segoe UI", 12F);
+            txtThemLuongNhanVien.Location = new Point(183, 209);
+            txtThemLuongNhanVien.Name = "txtThemLuongNhanVien";
+            txtThemLuongNhanVien.Size = new Size(300, 34);
+            txtThemLuongNhanVien.TabIndex = 47;
             // 
             // cmbThemChucVuNhanVien
             // 
@@ -422,7 +422,7 @@
             grpSuaNhanVien.Controls.Add(txtSuaLuongNhanVien);
             grpSuaNhanVien.Controls.Add(btnLuuSuaNhanVien);
             grpSuaNhanVien.Controls.Add(lblSuaLuongNhanVien);
-            grpSuaNhanVien.Controls.Add(txtSuaTrangThaiNhanVien);
+            grpSuaNhanVien.Controls.Add(txtSuaTrangThai);
             grpSuaNhanVien.Controls.Add(lblSuaChucVuNhanVien);
             grpSuaNhanVien.Controls.Add(cmbSuaChucVuNhanVien);
             grpSuaNhanVien.Controls.Add(lblSuaTrangThaiNhanVien);
@@ -586,14 +586,14 @@
             lblSuaLuongNhanVien.TabIndex = 24;
             lblSuaLuongNhanVien.Text = "Lương";
             // 
-            // txtSuaTrangThaiNhanVien
+            // txtSuaTrangThai
             // 
-            txtSuaTrangThaiNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtSuaTrangThaiNhanVien.Font = new Font("Segoe UI", 12F);
-            txtSuaTrangThaiNhanVien.Location = new Point(187, 303);
-            txtSuaTrangThaiNhanVien.Name = "txtSuaTrangThaiNhanVien";
-            txtSuaTrangThaiNhanVien.Size = new Size(298, 34);
-            txtSuaTrangThaiNhanVien.TabIndex = 25;
+            txtSuaTrangThai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSuaTrangThai.Font = new Font("Segoe UI", 12F);
+            txtSuaTrangThai.Location = new Point(187, 303);
+            txtSuaTrangThai.Name = "txtSuaTrangThai";
+            txtSuaTrangThai.Size = new Size(298, 34);
+            txtSuaTrangThai.TabIndex = 25;
             // 
             // lblSuaChucVuNhanVien
             // 
@@ -736,7 +736,7 @@
         #endregion
 
         private GroupBox grpThemNhanVien;
-        private TextBox txtThemLuong;
+        private TextBox txtThemLuongNhanVien;
         private ComboBox cmbThemChucVuNhanVien;
         private Label lblThemEmailNhanVien;
         private TextBox txtThemTrangThai;
@@ -760,7 +760,7 @@
         private TextBox txtSuaLuongNhanVien;
         private Button btnLuuSuaNhanVien;
         private Label lblSuaLuongNhanVien;
-        private TextBox txtSuaTrangThaiNhanVien;
+        private TextBox txtSuaTrangThai;
         private Label lblSuaChucVuNhanVien;
         private ComboBox cmbSuaChucVuNhanVien;
         private Label lblSuaTrangThaiNhanVien;

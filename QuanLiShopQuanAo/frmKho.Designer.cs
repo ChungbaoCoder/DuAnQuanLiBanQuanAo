@@ -33,10 +33,11 @@
             dgvhMaSanPham = new DataGridViewTextBoxColumn();
             dgvhTenSanPham = new DataGridViewTextBoxColumn();
             dgvhLoaiSanPham = new DataGridViewTextBoxColumn();
-            dgvhSoLuong = new DataGridViewTextBoxColumn();
             dgvhGiaSanPham = new DataGridViewTextBoxColumn();
-            dgvhMaNhaCC = new DataGridViewTextBoxColumn();
+            dgvhSoLuong = new DataGridViewTextBoxColumn();
             dgvhTrangThai = new DataGridViewTextBoxColumn();
+            dgvhMaNhaCC = new DataGridViewTextBoxColumn();
+            dgvhHinhAnhSanPham = new DataGridViewTextBoxColumn();
             btnTaiLaiDanhSach = new Button();
             btnTimSanPham = new Button();
             txtTimKiemSanPham = new TextBox();
@@ -103,7 +104,7 @@
             dgvSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSanPham.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxSanPham, dgvhMaSanPham, dgvhTenSanPham, dgvhLoaiSanPham, dgvhSoLuong, dgvhGiaSanPham, dgvhMaNhaCC, dgvhTrangThai });
+            dgvSanPham.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxSanPham, dgvhMaSanPham, dgvhTenSanPham, dgvhLoaiSanPham, dgvhGiaSanPham, dgvhSoLuong, dgvhTrangThai, dgvhMaNhaCC, dgvhHinhAnhSanPham });
             dgvSanPham.Location = new Point(29, 2);
             dgvSanPham.Name = "dgvSanPham";
             dgvSanPham.RowHeadersVisible = false;
@@ -141,6 +142,13 @@
             dgvhLoaiSanPham.Name = "dgvhLoaiSanPham";
             dgvhLoaiSanPham.ReadOnly = true;
             // 
+            // dgvhGiaSanPham
+            // 
+            dgvhGiaSanPham.HeaderText = "Giá";
+            dgvhGiaSanPham.MinimumWidth = 6;
+            dgvhGiaSanPham.Name = "dgvhGiaSanPham";
+            dgvhGiaSanPham.ReadOnly = true;
+            // 
             // dgvhSoLuong
             // 
             dgvhSoLuong.HeaderText = "Số Lượng";
@@ -148,12 +156,12 @@
             dgvhSoLuong.Name = "dgvhSoLuong";
             dgvhSoLuong.ReadOnly = true;
             // 
-            // dgvhGiaSanPham
+            // dgvhTrangThai
             // 
-            dgvhGiaSanPham.HeaderText = "Giá";
-            dgvhGiaSanPham.MinimumWidth = 6;
-            dgvhGiaSanPham.Name = "dgvhGiaSanPham";
-            dgvhGiaSanPham.ReadOnly = true;
+            dgvhTrangThai.HeaderText = "Trạng Thái";
+            dgvhTrangThai.MinimumWidth = 6;
+            dgvhTrangThai.Name = "dgvhTrangThai";
+            dgvhTrangThai.ReadOnly = true;
             // 
             // dgvhMaNhaCC
             // 
@@ -162,12 +170,12 @@
             dgvhMaNhaCC.Name = "dgvhMaNhaCC";
             dgvhMaNhaCC.ReadOnly = true;
             // 
-            // dgvhTrangThai
+            // dgvhHinhAnhSanPham
             // 
-            dgvhTrangThai.HeaderText = "Trạng Thái";
-            dgvhTrangThai.MinimumWidth = 6;
-            dgvhTrangThai.Name = "dgvhTrangThai";
-            dgvhTrangThai.ReadOnly = true;
+            dgvhHinhAnhSanPham.HeaderText = "Hình Ảnh";
+            dgvhHinhAnhSanPham.MinimumWidth = 6;
+            dgvhHinhAnhSanPham.Name = "dgvhHinhAnhSanPham";
+            dgvhHinhAnhSanPham.ReadOnly = true;
             // 
             // btnTaiLaiDanhSach
             // 
@@ -867,9 +875,10 @@
         private DataGridViewTextBoxColumn dgvhMaSanPham;
         private DataGridViewTextBoxColumn dgvhTenSanPham;
         private DataGridViewTextBoxColumn dgvhLoaiSanPham;
-        private DataGridViewTextBoxColumn dgvhSoLuong;
         private DataGridViewTextBoxColumn dgvhGiaSanPham;
-        private DataGridViewTextBoxColumn dgvhMaNhaCC;
+        private DataGridViewTextBoxColumn dgvhSoLuong;
         private DataGridViewTextBoxColumn dgvhTrangThai;
+        private DataGridViewTextBoxColumn dgvhMaNhaCC;
+        private DataGridViewTextBoxColumn dgvhHinhAnhSanPham;
     }
 }

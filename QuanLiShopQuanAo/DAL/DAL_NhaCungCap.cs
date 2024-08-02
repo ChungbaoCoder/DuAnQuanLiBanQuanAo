@@ -82,7 +82,7 @@ namespace QuanLiShopQuanAo.DAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_CapNhatNhanVien";
+                    cmd.CommandText = "dbo.sp_CapNhatNhaCungCap";
                     cmd.Parameters.AddWithValue("@MaNhaCungCap", nhaCungCap.MaNhaCungCap);
                     cmd.Parameters.AddWithValue("@TenNhaCungCap", nhaCungCap.TenNhaCungCap);
                     cmd.Parameters.AddWithValue("@SDT", nhaCungCap.SDT);
@@ -105,7 +105,7 @@ namespace QuanLiShopQuanAo.DAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_XoaNhanVien";
+                    cmd.CommandText = "dbo.sp_XoaNhaCungCap";
                     cmd.Parameters.AddWithValue("@MaNhaCungCap", nhaCungCap.MaNhaCungCap);
                     cmd.Parameters.AddWithValue("@SDT", nhaCungCap.SDT);
                     cmd.Connection = conn;

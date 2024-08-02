@@ -1,13 +1,13 @@
-﻿ALTER PROCEDURE dbo.sp_DangNhap @Email varchar(50),@MatKhau varchar(20)
+﻿CREATE PROCEDURE dbo.sp_DangNhap @Email varchar(50),@MatKhau varchar(20)
 AS
 BEGIN
 	SET NOCOUNT	ON
-	declare @status int
-	if exists(select Email, MatKhau from NhanVien where Email = @Email and MatKhau = @MatKhau)
-		set @status = 1
-	else
-		set @status = 0
-select @status
+	DECLARE @status int
+	IF EXISTS(SELECT Email, MatKhau FROM NhanVien WHERE Email = @Email and MatKhau = @MatKhau)
+		SET @status = 1
+	ELSE
+		SET @status = 0
+SELECT @status
 END
 GO
 
@@ -25,36 +25,36 @@ GO
 --END
 --GO
 
-ALTER PROCEDURE dbo.sp_QuenMatKhau @Email varchar(50), @NewGenPassword varchar(20)
+CREATE PROCEDURE dbo.sp_QuenMatKhau @Email varchar(50), @NewGenPassword varchar(20)
 AS
 BEGIN
 	SET NOCOUNT	ON
-	if exists(select Email from NhanVien where Email = @Email)
-		BEGIN
-			UPDATE NhanVien SET MatKhau = @NewGenPassword where Email = @Email
-		END
+	IF EXISTS(SELECT Email FROM NhanVien WHERE Email = @Email)
+	BEGIN
+		UPDATE NhanVien SET MatKhau = @NewGenPassword WHERE Email = @Email
+	END
 END
 GO
 
-ALTER PROCEDURE dbo.sp_DoiMatKhau @Email varchar(50),@OldPass varchar(20),@NewPass varchar(20),@NewPassAgain varchar(20)
+CREATE PROCEDURE dbo.sp_DoiMatKhau @Email varchar(50),@OldPass varchar(20),@NewPass varchar(20),@NewPassAgain varchar(20)
 AS
 BEGIN
-	declare @old varchar(20)
-	declare @status int
-	select @old = MatKhau from NhanVien where Email = @Email
+	DECLARE @old varchar(20)
+	DECLARE @status int
+	SELECT @old = MatKhau FROM NhanVien WHERE Email = @Email
 
-	if (@old = @OldPass)
-		begin
-		update NhanVien set MatKhau = @NewPass where Email = @Email and @NewPass = @NewPassAgain
+	IF (@old = @OldPass)
+	BEGIN
+		UPDATE NhanVien SET MatKhau = @NewPass WHERE Email = @Email AND @NewPass = @NewPassAgain
 		SET @status = 1
-		end
-	else 
+	END
+	ELSE
 		SET @status = 0
 SELECT @status
 END
 GO
 
-ALTER PROCEDURE dbo.sp_MaNguoiDN @Email varchar(50)
+CREATE PROCEDURE dbo.sp_MaNguoiDN @Email varchar(50)
 AS
 BEGIN
 	SET NOCOUNT ON
@@ -62,7 +62,7 @@ BEGIN
 END
 GO
 
-ALTER PROCEDURE dbo.sp_ChucVuNguoiDN @Email varchar(50)
+CREATE PROCEDURE dbo.sp_ChucVuNguoiDN @Email varchar(50)
 AS
 BEGIN
 	SET NOCOUNT ON
