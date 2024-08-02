@@ -61,8 +61,8 @@
             dgvhCheckBoxNhaCungCap = new DataGridViewCheckBoxColumn();
             dgvhMaNhaCungCap = new DataGridViewTextBoxColumn();
             dgvhTenNhaCungCap = new DataGridViewTextBoxColumn();
-            dgvhDiaChiNhaCungCap = new DataGridViewTextBoxColumn();
             dgvhSDTNhaCungCap = new DataGridViewTextBoxColumn();
+            dgvhDiaChiNhaCungCap = new DataGridViewTextBoxColumn();
             grpThemNhaCungCap.SuspendLayout();
             grpSuaNhaCungCap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNhaCungCap).BeginInit();
@@ -431,7 +431,7 @@
             dgvNhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvNhaCungCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhaCungCap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNhaCungCap.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxNhaCungCap, dgvhMaNhaCungCap, dgvhTenNhaCungCap, dgvhDiaChiNhaCungCap, dgvhSDTNhaCungCap });
+            dgvNhaCungCap.Columns.AddRange(new DataGridViewColumn[] { dgvhCheckBoxNhaCungCap, dgvhMaNhaCungCap, dgvhTenNhaCungCap, dgvhSDTNhaCungCap, dgvhDiaChiNhaCungCap });
             dgvNhaCungCap.Location = new Point(28, 12);
             dgvNhaCungCap.Name = "dgvNhaCungCap";
             dgvNhaCungCap.RowHeadersVisible = false;
@@ -462,19 +462,19 @@
             dgvhTenNhaCungCap.Name = "dgvhTenNhaCungCap";
             dgvhTenNhaCungCap.ReadOnly = true;
             // 
-            // dgvhDiaChiNhaCungCap
-            // 
-            dgvhDiaChiNhaCungCap.HeaderText = "Địa Chỉ";
-            dgvhDiaChiNhaCungCap.MinimumWidth = 6;
-            dgvhDiaChiNhaCungCap.Name = "dgvhDiaChiNhaCungCap";
-            dgvhDiaChiNhaCungCap.ReadOnly = true;
-            // 
             // dgvhSDTNhaCungCap
             // 
             dgvhSDTNhaCungCap.HeaderText = "Số Điện Thoại";
             dgvhSDTNhaCungCap.MinimumWidth = 6;
             dgvhSDTNhaCungCap.Name = "dgvhSDTNhaCungCap";
             dgvhSDTNhaCungCap.ReadOnly = true;
+            // 
+            // dgvhDiaChiNhaCungCap
+            // 
+            dgvhDiaChiNhaCungCap.HeaderText = "Địa Chỉ";
+            dgvhDiaChiNhaCungCap.MinimumWidth = 6;
+            dgvhDiaChiNhaCungCap.Name = "dgvhDiaChiNhaCungCap";
+            dgvhDiaChiNhaCungCap.ReadOnly = true;
             // 
             // frmNhaCungCap
             // 
@@ -539,7 +539,7 @@
         private DataGridViewCheckBoxColumn dgvhCheckBoxNhaCungCap;
         private DataGridViewTextBoxColumn dgvhMaNhaCungCap;
         private DataGridViewTextBoxColumn dgvhTenNhaCungCap;
-        private DataGridViewTextBoxColumn dgvhDiaChiNhaCungCap;
         private DataGridViewTextBoxColumn dgvhSDTNhaCungCap;
+        private DataGridViewTextBoxColumn dgvhDiaChiNhaCungCap;
     }
 }

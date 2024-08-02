@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Diagnostics;
 using QuanLiShopQuanAo.BUS;
 using QuanLiShopQuanAo.BUS.Entities;
 
@@ -6,6 +7,9 @@ namespace QuanLiShopQuanAo
 {
     public partial class frmKho : Form
     {
+        private bool clickthem = false;
+        private bool clicksua = false;
+        private bool clickdgv = false;
         public frmKho()
         {
             InitializeComponent();
@@ -13,8 +17,7 @@ namespace QuanLiShopQuanAo
 
         private void frmKho_Load(object sender, EventArgs e)
         {
-            HideTextControl();
-            HideButtonControl();
+            HideControl();
             SetColumns();
             rdoThemChuaBan.Checked = true;
             rdoSuaChuaBan.Checked = true;
@@ -27,46 +30,51 @@ namespace QuanLiShopQuanAo
             var columnsName = BUS_SanPham.QueryData("data").Columns.
                 Cast<DataColumn>().Select(columns => columns.ColumnName).ToArray();
 
-            for (int i = 0; i < columnsName.Length - 1; i++)
+            for (int i = 0; i < columnsName.Length; i++)
                 dgvSanPham.Columns[i + 1].DataPropertyName = columnsName[i];
+        }
+
+        private void HideControl()
+        {
+            foreach (Control control in grpThemSanPham.Controls)
+            {
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = false;
+            }
+            foreach (Control control in grpSuaSanPham.Controls)
+            {
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = false;
+            }
+        }
+
+        private void EnableThemControl()
+        {
+            foreach (Control control in grpThemSanPham.Controls)
+            {
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = true;
+            }
+        }
+
+        private void EnableSuaControl()
+        {
+            foreach (Control control in grpSuaSanPham.Controls)
+            {
+                if (control.GetType() == typeof(TextBox) || control.GetType() == typeof(Button) || control.GetType() == typeof(RadioButton) || control.GetType() == typeof(ComboBox))
+                    control.Enabled = true;
+            }
         }
 
         private void LoadComboBox()
         {
+            cmbThemNhaCungCap.Items.Clear();
+            cmbSuaNhaCungCap.Items.Clear();
+
             foreach (DataRow row in BUS_NhaCungCap.QueryData("data").Rows)
             {
                 cmbThemNhaCungCap.Items.Add(row[0]);
                 cmbSuaNhaCungCap.Items.Add(row[0]);
-            } 
-        }
-
-        private void HideTextControl()
-        {
-            foreach (Control gb in this.Controls)
-            {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is TextBox)
-                            ((TextBox)tb).ReadOnly = true;
-                    }
-                }
-            }
-        }
-
-        private void HideButtonControl()
-        {
-            foreach (Control gb in this.Controls)
-            {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is Button)
-                            ((Button)tb).Enabled = false;
-                    }
-                }
             }
         }
 
@@ -91,14 +99,46 @@ namespace QuanLiShopQuanAo
                     foreach (TextBox textBox in grpThemSanPham.Controls.OfType<TextBox>())
                     {
                         if (string.IsNullOrEmpty(textBox.Text))
+                        {
+                            MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return true;
+                        }
                     }
                     break;
                 case 1:
                     foreach (TextBox textBox in grpSuaSanPham.Controls.OfType<TextBox>())
                     {
                         if (string.IsNullOrEmpty(textBox.Text))
+                        {
+                            MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return true;
+                        }
+                    }
+                    break;
+            }
+            return false;
+        }
+
+        private bool CheckIsNumber(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    if (!int.TryParse(txtThemSoLuongSanPham.Text, out _) || !float.TryParse(txtThemGiaSanPham.Text, out _))
+                    {
+                        MessageBox.Show("Dữ liệu số lượng và sản phẩm phải là dạng số", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return true;
+                    }
+                    break;
+                case 1:
+                    if (!int.TryParse(txtSuaSoLuongSanPham.Text, out _) || !float.TryParse(txtSuaGiaSanPham.Text, out _))
+                    {
+                        MessageBox.Show("Dữ liệu số lượng và sản phẩm phải là dạng số", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return true;
                     }
                     break;
             }
@@ -107,13 +147,29 @@ namespace QuanLiShopQuanAo
 
         private void btnChonTatCa_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvSanPham.Rows)
+            if (clickdgv)
             {
-                if (row.Cells[0] is DataGridViewButtonCell button)
-                    dgvSanPham.EndEdit();
+                foreach (DataGridViewRow row in dgvSanPham.Rows)
+                {
+                    if (row.Cells[0] is DataGridViewButtonCell button)
+                        dgvSanPham.EndEdit();
 
-                row.Cells[0].Value = ((Button)sender).Enabled;
+                    row.Cells[0].Value = ((Button)sender).Enabled = false;
+                    btnChonTatCa.Enabled = true;
+                }
+                clickdgv = false;
             }
+            else
+            {
+                foreach (DataGridViewRow row in dgvSanPham.Rows)
+                {
+                    if (row.Cells[0] is DataGridViewButtonCell button)
+                        dgvSanPham.EndEdit();
+
+                    row.Cells[0].Value = ((Button)sender).Enabled = true;
+                }
+                clickdgv = true;
+            }     
         }
 
         private void btnTaiLaiDanhSach_Click(object sender, EventArgs e)
@@ -129,23 +185,39 @@ namespace QuanLiShopQuanAo
 
         private void btnThemSanPham_Click(object sender, EventArgs e)
         {
-            foreach (Control c in grpThemSanPham.Controls)
+            if (!clickthem)
             {
-                if (c is TextBox)
-                    ((TextBox)c).ReadOnly = false;
-                if (c is Button)
-                    ((Button)c).Enabled = true;
+                if (clicksua)
+                {
+                    HideControl();
+                    clicksua = false;
+                }
+                EnableThemControl();
+                clickthem = true;
+            }
+            else
+            {
+                HideControl();
+                clickthem = false;
             }
         }
 
         private void btnSuaSanPham_Click(object sender, EventArgs e)
         {
-            foreach (Control c in grpSuaSanPham.Controls)
+            if (!clicksua)
             {
-                if (c is TextBox)
-                    ((TextBox)c).ReadOnly = false;
-                if (c is Button)
-                    ((Button)c).Enabled = true;
+                if (clickthem)
+                {
+                    HideControl();
+                    clickthem = false;
+                }
+                EnableSuaControl();
+                clicksua = true;
+            }
+            else
+            {
+                HideControl();
+                clicksua = false;
             }
         }
 
@@ -163,18 +235,18 @@ namespace QuanLiShopQuanAo
         {
             string trangThai = "";
             if (rdoThemDangBan.Checked)
-                trangThai = "Đang bán";
+                trangThai = "Đang Bán";
             else
-                trangThai = "Chưa bán";
+                trangThai = "Chưa Bán";
 
-            if (MessageBox.Show("Bạn có muốn lưu thông tin sản phẩm", "Lưu thông tin sản phẩm?",
+            if (MessageBox.Show("Bạn có muốn lưu thông tin sản phẩm " + txtThemTenSanPham.Text, "Lưu thông tin sản phẩm?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(0))
-                {
-                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
+
+                if (CheckIsNumber(0))
+                    return;
 
                 SanPham SanPham = new SanPham()
                 {
@@ -187,12 +259,14 @@ namespace QuanLiShopQuanAo
                     MaNhaCungCap = cmbThemNhaCungCap.Text,
                 };
                 if (BUS_SanPham.QueryData(SanPham, "insert"))
-                    MessageBox.Show("Thêm thông tin sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show($"Thêm thông tin sản phẩm {SanPham.TenSanPham} thành công", "Thêm thông tin sản phẩm",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin sản phẩm có tên " + SanPham.TenSanPham, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin sản phẩm có tên " + SanPham.TenSanPham, "Lỗi thêm thông tin sản phẩm",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                HideTextControl();
-                HideButtonControl();
+                HideControl();
+                ClearTextValue();
                 dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
                 LoadComboBox();
             }
@@ -202,18 +276,18 @@ namespace QuanLiShopQuanAo
         {
             string trangThai = "";
             if (rdoSuaDangBan.Enabled)
-                trangThai = "Đang bán";
+                trangThai = "Đang Bán";
             else
-                trangThai = "Chưa bán";
+                trangThai = "Chưa Bán";
 
-            if (MessageBox.Show("Bạn có muốn sửa thông tin sản phẩm", "Sửa thông tin sản phẩm?",
+            if (MessageBox.Show("Bạn có muốn sửa thông tin sản phẩm " + txtSuaTenSanPham.Text, "Sửa thông tin sản phẩm?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CheckTextBoxEmpty(1))
-                {
-                    MessageBox.Show("Điền đầy đủ thông tin vào", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
+
+                if (CheckIsNumber(1))
+                    return;
 
                 SanPham SanPham = new SanPham()
                 {
@@ -227,12 +301,14 @@ namespace QuanLiShopQuanAo
                     MaNhaCungCap = cmbSuaNhaCungCap.Text,
                 };
                 if (BUS_SanPham.QueryData(SanPham, "update"))
-                    MessageBox.Show("Cập nhật thông tin khách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show($"Cập nhật thông tin sản phẩm có mã {SanPham.MaSanPham} thành công", "Cập nhật thông tin sản phẩm",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Không cập nhật được thông tin sản phẩm có mã " + SanPham.MaSanPham, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không cập nhật được thông tin sản phẩm có mã " + SanPham.MaSanPham, "Lỗi cập nhật thông tin sản phẩm",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                HideTextControl();
-                HideButtonControl();
+                HideControl();
+                ClearTextValue();
                 dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
                 LoadComboBox();
             }
@@ -243,8 +319,8 @@ namespace QuanLiShopQuanAo
             if (MessageBox.Show("Bạn có muốn xoá dữ liệu", "Xoá sản phẩm?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                bool deleted = true;
                 List<SanPham> listSanPham = new List<SanPham>();
-
                 foreach (DataGridViewRow row in dgvSanPham.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
@@ -256,13 +332,18 @@ namespace QuanLiShopQuanAo
 
                 foreach (SanPham SanPham in listSanPham)
                 {
-                    if (BUS_SanPham.QueryData(SanPham, "delete"))
-                        MessageBox.Show("Xoá dữ liệu sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    else
-                        MessageBox.Show("Lỗi không xoá được dữ liệu sản phẩm với mã số " + SanPham.MaSanPham,"Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!BUS_SanPham.QueryData(SanPham, "delete"))
+                    {
+                        MessageBox.Show("Lỗi không xoá được dữ liệu sản phẩm với mã số " + SanPham.MaSanPham, "Lỗi xoá dữ liệu",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        deleted = false;
+                    }
                 }
-                HideTextControl();
-                HideButtonControl();
+
+                if (deleted)
+                    MessageBox.Show("Xoá dữ liệu sản phẩm thành công", "Cập nhật thành công", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                HideControl();
                 dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
                 LoadComboBox();
             }
@@ -273,6 +354,17 @@ namespace QuanLiShopQuanAo
             int row = dgvSanPham.SelectedCells[0].RowIndex;
             DataGridViewRow data = dgvSanPham.Rows[row];
             txtSuaMaSanPham.Text = data.Cells[1].Value.ToString();
+            txtSuaTenSanPham.Text = data.Cells[2].Value.ToString();
+            txtSuaLoaiSanPham.Text = data.Cells[3].Value.ToString();
+            txtSuaSoLuongSanPham.Text = data.Cells[4].Value.ToString();
+            txtSuaHinhAnhSanPham.Text = data.Cells[8].Value.ToString();
+            txtSuaGiaSanPham.Text = data.Cells[5].Value.ToString();
+            cmbSuaNhaCungCap.Text = data.Cells[7].Value.ToString();
+
+            if (data.Cells[6].Value.ToString() == "Đang Bán")
+                rdoSuaDangBan.Checked = true;
+            else
+                rdoSuaChuaBan.Checked = true;
 
             if (dgvSanPham.SelectedCells.Count > 0)
             {
@@ -287,7 +379,10 @@ namespace QuanLiShopQuanAo
                     picAnhSanPham.Image = Image.FromFile(cellValue);
                     bitmap.Dispose();
                 }
-                catch { }
+                catch 
+                {
+                    picAnhSanPham.Image = null;
+                }
             }
         }
 
@@ -314,6 +409,7 @@ namespace QuanLiShopQuanAo
                 catch
                 {
                     MessageBox.Show("Không tải lên được hình ảnh", "Tải ảnh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    picAnhSanPham.Image = null;
                 }
             }
         }
@@ -341,6 +437,7 @@ namespace QuanLiShopQuanAo
                 catch
                 {
                     MessageBox.Show("Không tải lên được hình ảnh", "Tải ảnh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    picAnhSanPham.Image = null;
                 }
             }
         }
