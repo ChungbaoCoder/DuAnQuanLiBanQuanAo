@@ -53,7 +53,6 @@ namespace QuanLiShopQuanAo
                 byte[] array = new byte[System.Convert.ToInt32(len)+1];
                 dr.GetBytes(0, 0, array, 0, System.Convert.ToInt32(len));
                 pic = new PictureBox();
-
             }
         }
 
