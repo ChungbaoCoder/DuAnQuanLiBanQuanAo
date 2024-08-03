@@ -457,7 +457,7 @@ namespace QuanLiShopQuanAo
             {
                 string sFileName = choofdlog.FileName;
                 string[] arrAllFiles = choofdlog.FileNames; //used when Multiselect = true
-                txtThemHinhAnhSanPham.Text = sFileName;
+                txtSuaHinhAnhSanPham.Text = sFileName;
 
                 try
                 {

@@ -209,7 +209,8 @@
             // dtpSuaNgayLap
             // 
             dtpSuaNgayLap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtpSuaNgayLap.CustomFormat = "dd-MM-yyyy";
+            dtpSuaNgayLap.CustomFormat = "";
+            dtpSuaNgayLap.Format = DateTimePickerFormat.Short;
             dtpSuaNgayLap.Location = new Point(196, 227);
             dtpSuaNgayLap.Name = "dtpSuaNgayLap";
             dtpSuaNgayLap.Size = new Size(380, 34);
@@ -218,7 +219,7 @@
             // btnChonTatCa
             // 
             btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnChonTatCa.Image = Properties.Resources.icons8_all_30;
+            btnChonTatCa.Image = Properties.Resources.tickbox_icon;
             btnChonTatCa.ImageAlign = ContentAlignment.MiddleLeft;
             btnChonTatCa.Location = new Point(28, 476);
             btnChonTatCa.Name = "btnChonTatCa";
@@ -232,7 +233,7 @@
             // btnXoaHoaDon
             // 
             btnXoaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnXoaHoaDon.Image = Properties.Resources.icons8_delete_30;
+            btnXoaHoaDon.Image = Properties.Resources.backspace_icon;
             btnXoaHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
             btnXoaHoaDon.Location = new Point(184, 476);
             btnXoaHoaDon.Name = "btnXoaHoaDon";
@@ -264,7 +265,7 @@
             // 
             btnLapHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLapHoaDon.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLapHoaDon.Image = Properties.Resources.icons8_add_30;
+            btnLapHoaDon.Image = Properties.Resources.save_icon;
             btnLapHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
             btnLapHoaDon.Location = new Point(327, 257);
             btnLapHoaDon.Name = "btnLapHoaDon";
@@ -278,11 +279,13 @@
             // dtpLapHoaDon
             // 
             dtpLapHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtpLapHoaDon.CustomFormat = "dd-MM-yyyy";
+            dtpLapHoaDon.CustomFormat = "";
+            dtpLapHoaDon.Format = DateTimePickerFormat.Short;
             dtpLapHoaDon.Location = new Point(192, 177);
             dtpLapHoaDon.Name = "dtpLapHoaDon";
             dtpLapHoaDon.Size = new Size(350, 34);
             dtpLapHoaDon.TabIndex = 22;
+            dtpLapHoaDon.Value = new DateTime(2024, 8, 14, 0, 0, 0, 0);
             // 
             // lblNgayLapHDMoi
             // 
@@ -397,7 +400,7 @@
             // 
             btnSuaHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSuaHoaDon.Font = new Font("Segoe UI", 13F);
-            btnSuaHoaDon.Image = Properties.Resources.icons8_save_30;
+            btnSuaHoaDon.Image = Properties.Resources.update_icon;
             btnSuaHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
             btnSuaHoaDon.Location = new Point(475, 278);
             btnSuaHoaDon.Name = "btnSuaHoaDon";
@@ -434,7 +437,7 @@
             // btnTaiLaiDanhSach
             // 
             btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnTaiLaiDanhSach.Image = Properties.Resources.icons8_reload_30;
+            btnTaiLaiDanhSach.Image = Properties.Resources.reload_icon;
             btnTaiLaiDanhSach.ImageAlign = ContentAlignment.MiddleLeft;
             btnTaiLaiDanhSach.Location = new Point(361, 476);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
@@ -449,7 +452,7 @@
             // 
             btnTimHoaDon.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnTimHoaDon.Font = new Font("Segoe UI", 12F);
-            btnTimHoaDon.Image = Properties.Resources.icons8_find_30;
+            btnTimHoaDon.Image = Properties.Resources.find_icon;
             btnTimHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
             btnTimHoaDon.Location = new Point(1105, 481);
             btnTimHoaDon.Name = "btnTimHoaDon";

@@ -82,7 +82,7 @@ namespace QuanLiShopQuanAo.DAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_TaoHoaDonMoi";
+                    cmd.CommandText = "dbo.sp_CapNhatHoaDon";
                     cmd.Parameters.AddWithValue("@MaHoaDon", hoaDon.MaHoaDon);
                     cmd.Parameters.AddWithValue("@MaKhachHang", hoaDon.MaKhachHang);
                     cmd.Parameters.AddWithValue("@TenKhachHang", hoaDon.TenKhachHang);

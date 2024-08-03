@@ -71,7 +71,7 @@
             // btnXoaNhaCungCap
             // 
             btnXoaNhaCungCap.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnXoaNhaCungCap.Image = Properties.Resources.icons8_delete_30;
+            btnXoaNhaCungCap.Image = Properties.Resources.backspace_icon;
             btnXoaNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
             btnXoaNhaCungCap.Location = new Point(199, 327);
             btnXoaNhaCungCap.Name = "btnXoaNhaCungCap";
@@ -85,7 +85,7 @@
             // btnSuaNhaCungCap
             // 
             btnSuaNhaCungCap.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSuaNhaCungCap.Image = Properties.Resources.icons8_update_30;
+            btnSuaNhaCungCap.Image = Properties.Resources.update_icon;
             btnSuaNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
             btnSuaNhaCungCap.Location = new Point(199, 378);
             btnSuaNhaCungCap.Name = "btnSuaNhaCungCap";
@@ -99,9 +99,9 @@
             // btnTaiLaiDanhSach
             // 
             btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnTaiLaiDanhSach.Image = Properties.Resources.icons8_reload_30;
+            btnTaiLaiDanhSach.Image = Properties.Resources.reload_icon;
             btnTaiLaiDanhSach.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTaiLaiDanhSach.Location = new Point(362, 327);
+            btnTaiLaiDanhSach.Location = new Point(356, 327);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
             btnTaiLaiDanhSach.Size = new Size(199, 45);
             btnTaiLaiDanhSach.TabIndex = 66;
@@ -114,7 +114,7 @@
             // 
             btnTimNhaCungCap.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnTimNhaCungCap.Font = new Font("Segoe UI", 12F);
-            btnTimNhaCungCap.Image = Properties.Resources.icons8_find_30;
+            btnTimNhaCungCap.Image = Properties.Resources.find_icon;
             btnTimNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
             btnTimNhaCungCap.Location = new Point(891, 332);
             btnTimNhaCungCap.Name = "btnTimNhaCungCap";
@@ -167,8 +167,7 @@
             // 
             btnClearThemNhaCungCap.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnClearThemNhaCungCap.Font = new Font("Segoe UI", 12F);
-            btnClearThemNhaCungCap.Image = Properties.Resources.icons8_delete_30;
-            btnClearThemNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClearThemNhaCungCap.Image = Properties.Resources.backspace_icon;
             btnClearThemNhaCungCap.Location = new Point(214, 208);
             btnClearThemNhaCungCap.Name = "btnClearThemNhaCungCap";
             btnClearThemNhaCungCap.Size = new Size(87, 34);
@@ -182,7 +181,7 @@
             // 
             btnLuuThemNhaCungCap.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLuuThemNhaCungCap.Font = new Font("Segoe UI", 12F);
-            btnLuuThemNhaCungCap.Image = Properties.Resources.icons8_save_30;
+            btnLuuThemNhaCungCap.Image = Properties.Resources.save_icon;
             btnLuuThemNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
             btnLuuThemNhaCungCap.Location = new Point(307, 208);
             btnLuuThemNhaCungCap.Name = "btnLuuThemNhaCungCap";
@@ -256,7 +255,7 @@
             // btnChonTatCa
             // 
             btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnChonTatCa.Image = Properties.Resources.icons8_all_30;
+            btnChonTatCa.Image = Properties.Resources.tickbox_icon;
             btnChonTatCa.ImageAlign = ContentAlignment.MiddleLeft;
             btnChonTatCa.Location = new Point(28, 327);
             btnChonTatCa.Name = "btnChonTatCa";
@@ -292,7 +291,7 @@
             // 
             btnClearSuaNhaCungCap.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnClearSuaNhaCungCap.Font = new Font("Segoe UI", 12F);
-            btnClearSuaNhaCungCap.Image = Properties.Resources.icons8_delete_30;
+            btnClearSuaNhaCungCap.Image = Properties.Resources.backspace_icon;
             btnClearSuaNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
             btnClearSuaNhaCungCap.Location = new Point(229, 253);
             btnClearSuaNhaCungCap.Name = "btnClearSuaNhaCungCap";
@@ -388,7 +387,7 @@
             // 
             btnLuuSuaNhaCungCap.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnLuuSuaNhaCungCap.Font = new Font("Segoe UI", 12F);
-            btnLuuSuaNhaCungCap.Image = Properties.Resources.icons8_save_30;
+            btnLuuSuaNhaCungCap.Image = Properties.Resources.save_icon;
             btnLuuSuaNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
             btnLuuSuaNhaCungCap.Location = new Point(319, 253);
             btnLuuSuaNhaCungCap.Name = "btnLuuSuaNhaCungCap";
@@ -413,7 +412,7 @@
             // btnThemNhaCungCap
             // 
             btnThemNhaCungCap.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnThemNhaCungCap.Image = Properties.Resources.icons8_add_30;
+            btnThemNhaCungCap.Image = Properties.Resources.add_icon;
             btnThemNhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
             btnThemNhaCungCap.Location = new Point(28, 378);
             btnThemNhaCungCap.Name = "btnThemNhaCungCap";

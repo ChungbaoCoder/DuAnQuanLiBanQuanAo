@@ -1,6 +1,9 @@
 ﻿using QuanLiShopQuanAo.BUS;
 using QuanLiShopQuanAo.BUS.Entities;
 using System.Data;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Globalization;
+using System.Windows.Forms;
 
 namespace QuanLiShopQuanAo
 {
@@ -124,7 +127,7 @@ namespace QuanLiShopQuanAo
                 {
                     TenKhachHang = txtTenKhachMua.Text,
                     SDTKhach = txtSDTKhachMua.Text,
-                    NgayTao = dtpLapHoaDon.Value.ToString("dd-MM-yyyy"),
+                    NgayTao = dtpLapHoaDon.Value.ToString("MM/dd/yyyy"),
                     MaNhanVienGhi = maNhanVien
                 };
                 if (BUS_HoaDon.QueryData(HoaDon, "insert"))
@@ -147,7 +150,7 @@ namespace QuanLiShopQuanAo
                     {
                         MaHoaDon = maHoaDon,
                         MaKhachHang = maKhachHang,
-                        TenKhachHang = txtTenKhachMua.Text
+                        TenKhachHang = txtTenKhachMua.Text,
                     });
                 }    
 
@@ -223,6 +226,7 @@ namespace QuanLiShopQuanAo
             txtSuaMaHoaDon.Text = selectedRow.Cells[1].Value.ToString();
             txtSuaMaKhachHang.Text = selectedRow.Cells[2].Value.ToString();
             txtSuaTenKhach.Text = selectedRow.Cells[3].Value.ToString();
+            dtpLapHoaDon.Text = selectedRow.Cells[5].Value.ToString();
             dtpSuaNgayLap.Text = selectedRow.Cells[5].Value.ToString();
             cmbTrangThai.Text = selectedRow.Cells[7].Value.ToString();
         }

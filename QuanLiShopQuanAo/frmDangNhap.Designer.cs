@@ -120,7 +120,7 @@
             // picIcon1
             // 
             picIcon1.Anchor = AnchorStyles.None;
-            picIcon1.Image = Properties.Resources.user;
+            picIcon1.Image = Properties.Resources.user_icon;
             picIcon1.Location = new Point(32, 157);
             picIcon1.Name = "picIcon1";
             picIcon1.Size = new Size(65, 61);
