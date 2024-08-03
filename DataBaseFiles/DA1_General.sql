@@ -6,7 +6,7 @@ BEGIN
 	SET NOCOUNT ON
 	UPDATE SanPham SET TrangThai = N'Hết Hàng' WHERE SoLuong < 1
 	SELECT MaSanPham,TenSanPham,LoaiSanPham,SoLuong,Gia,TrangThai,MaNCC,HinhAnh
-	FROM SanPham
+	FROM SanPham ORDER BY Id
 END
 GO
 
@@ -14,7 +14,7 @@ CREATE PROCEDURE dbo.sp_DanhSachKhachHang
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT MaKhachHang,TenKhachHang,SDT,DiaChi FROM KhachHang
+	SELECT MaKhachHang,TenKhachHang,SDT,DiaChi FROM KhachHang ORDER BY Id
 END
 GO
 
@@ -22,7 +22,7 @@ CREATE PROCEDURE dbo.sp_DanhSachNhanVien
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT MaNhanVien,TenNhanVien,ChucVu,Luong,Email,TrangThai,HinhAnh FROM NhanVien
+	SELECT MaNhanVien,TenNhanVien,ChucVu,Luong,Email,TrangThai,HinhAnh FROM NhanVien ORDER BY Id
 END
 GO
 
@@ -30,7 +30,7 @@ CREATE PROCEDURE dbo.sp_DanhSachNhaCungCap
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT MaNCC,TenNCC,SDT,DiaChi FROM NhaCungCap
+	SELECT MaNCC,TenNCC,SDT,DiaChi FROM NhaCungCap ORDER BY Id
 END
 GO
 
@@ -39,7 +39,7 @@ AS
 BEGIN
 	SET NOCOUNT ON
 	SELECT a.MaHoaDon,a.MaKhachHang,b.TenKhachHang,b.SDT,a.NgayTao,a.TongTien,a.TrangThai,a.MaNhanVien 
-	FROM HoaDon a inner join KhachHang b on a.MaKhachHang = b.MaKhachHang
+	FROM HoaDon a inner join KhachHang b on a.MaKhachHang = b.MaKhachHang ORDER BY a.Id
 END
 GO
 
@@ -47,7 +47,7 @@ CREATE PROCEDURE dbo.sp_DanhSachChiTietHoaDon @MaHoaDon varchar(20)
 AS
 BEGIN
 	SELECT a.MaHoaDon,a.MaSanPham,b.TenSanPham,a.SoLuong,b.Gia,(b.Gia * a.SoLuong) AS 'TongThanhTien' 
-	FROM ChiTietHoaDon a inner join SanPham b on a.MaSanPham = b.MaSanPham WHERE a.MaHoaDon = @MaHoaDon
+	FROM ChiTietHoaDon a inner join SanPham b on a.MaSanPham = b.MaSanPham WHERE a.MaHoaDon = @MaHoaDon ORDER BY b.Id
 END
 GO
 

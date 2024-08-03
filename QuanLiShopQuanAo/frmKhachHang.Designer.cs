@@ -71,7 +71,7 @@
             // btnTaiLaiDanhSach
             // 
             btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnTaiLaiDanhSach.Image = Properties.Resources.icons8_reload_30;
+            btnTaiLaiDanhSach.Image = Properties.Resources.reload_icon;
             btnTaiLaiDanhSach.ImageAlign = ContentAlignment.MiddleLeft;
             btnTaiLaiDanhSach.Location = new Point(339, 427);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
@@ -86,7 +86,7 @@
             // 
             btnTimKhachHang.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnTimKhachHang.Font = new Font("Segoe UI", 12F);
-            btnTimKhachHang.Image = Properties.Resources.icons8_find_30;
+            btnTimKhachHang.Image = Properties.Resources.find_icon;
             btnTimKhachHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnTimKhachHang.Location = new Point(781, 432);
             btnTimKhachHang.Name = "btnTimKhachHang";
@@ -139,7 +139,7 @@
             // 
             btnClearThemKhachHang.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnClearThemKhachHang.Font = new Font("Segoe UI", 12F);
-            btnClearThemKhachHang.Image = Properties.Resources.icons8_clear_30;
+            btnClearThemKhachHang.Image = Properties.Resources.backspace_icon;
             btnClearThemKhachHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnClearThemKhachHang.Location = new Point(209, 203);
             btnClearThemKhachHang.Name = "btnClearThemKhachHang";
@@ -154,7 +154,7 @@
             // 
             btnLuuThemKhachHang.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLuuThemKhachHang.Font = new Font("Segoe UI", 12F);
-            btnLuuThemKhachHang.Image = Properties.Resources.icons8_save_30;
+            btnLuuThemKhachHang.Image = Properties.Resources.save_icon;
             btnLuuThemKhachHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnLuuThemKhachHang.Location = new Point(310, 204);
             btnLuuThemKhachHang.Name = "btnLuuThemKhachHang";
@@ -228,7 +228,7 @@
             // btnChonTatCa
             // 
             btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnChonTatCa.Image = Properties.Resources.icons8_all_30;
+            btnChonTatCa.Image = Properties.Resources.tickbox_icon;
             btnChonTatCa.ImageAlign = ContentAlignment.MiddleLeft;
             btnChonTatCa.Location = new Point(31, 427);
             btnChonTatCa.Name = "btnChonTatCa";
@@ -319,7 +319,7 @@
             // 
             btnClearSuaKhachHang.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnClearSuaKhachHang.Font = new Font("Segoe UI", 12F);
-            btnClearSuaKhachHang.Image = Properties.Resources.icons8_clear_30;
+            btnClearSuaKhachHang.Image = Properties.Resources.backspace_icon;
             btnClearSuaKhachHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnClearSuaKhachHang.Location = new Point(47, 248);
             btnClearSuaKhachHang.Name = "btnClearSuaKhachHang";
@@ -415,7 +415,7 @@
             // 
             btnLuuSuaKhachHang.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLuuSuaKhachHang.Font = new Font("Segoe UI", 12F);
-            btnLuuSuaKhachHang.Image = Properties.Resources.icons8_save_30;
+            btnLuuSuaKhachHang.Image = Properties.Resources.save_icon;
             btnLuuSuaKhachHang.ImageAlign = ContentAlignment.MiddleLeft;
             btnLuuSuaKhachHang.Location = new Point(154, 249);
             btnLuuSuaKhachHang.Name = "btnLuuSuaKhachHang";
@@ -440,7 +440,7 @@
             // btnSuaKhach
             // 
             btnSuaKhach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSuaKhach.Image = Properties.Resources.icons8_update_30;
+            btnSuaKhach.Image = Properties.Resources.update_icon;
             btnSuaKhach.ImageAlign = ContentAlignment.MiddleLeft;
             btnSuaKhach.Location = new Point(193, 478);
             btnSuaKhach.Name = "btnSuaKhach";
@@ -454,7 +454,7 @@
             // btnXoaKhach
             // 
             btnXoaKhach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnXoaKhach.Image = Properties.Resources.icons8_delete_30;
+            btnXoaKhach.Image = Properties.Resources.backspace_icon;
             btnXoaKhach.ImageAlign = ContentAlignment.MiddleLeft;
             btnXoaKhach.Location = new Point(193, 427);
             btnXoaKhach.Name = "btnXoaKhach";
@@ -468,7 +468,7 @@
             // btnThemKhach
             // 
             btnThemKhach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnThemKhach.Image = Properties.Resources.icons8_add_30;
+            btnThemKhach.Image = Properties.Resources.add_icon;
             btnThemKhach.ImageAlign = ContentAlignment.MiddleLeft;
             btnThemKhach.Location = new Point(31, 478);
             btnThemKhach.Name = "btnThemKhach";

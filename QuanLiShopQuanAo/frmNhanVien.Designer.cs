@@ -158,7 +158,7 @@
             // btnClearThemNhanVien
             // 
             btnClearThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnClearThemNhanVien.Image = Properties.Resources.icons8_delete_30;
+            btnClearThemNhanVien.Image = Properties.Resources.backspace_icon;
             btnClearThemNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnClearThemNhanVien.Location = new Point(317, 297);
             btnClearThemNhanVien.Name = "btnClearThemNhanVien";
@@ -242,7 +242,7 @@
             // btnLuuThemNhanVien
             // 
             btnLuuThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLuuThemNhanVien.Image = Properties.Resources.icons8_save_30;
+            btnLuuThemNhanVien.Image = Properties.Resources.save_icon;
             btnLuuThemNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnLuuThemNhanVien.Location = new Point(403, 297);
             btnLuuThemNhanVien.Name = "btnLuuThemNhanVien";
@@ -289,7 +289,7 @@
             // btnSuaNhanVien
             // 
             btnSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSuaNhanVien.Image = Properties.Resources.icons8_update_30;
+            btnSuaNhanVien.Image = Properties.Resources.update_icon;
             btnSuaNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnSuaNhanVien.Location = new Point(207, 478);
             btnSuaNhanVien.Name = "btnSuaNhanVien";
@@ -303,7 +303,7 @@
             // btnChonTatCa
             // 
             btnChonTatCa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnChonTatCa.Image = Properties.Resources.icons8_all_30;
+            btnChonTatCa.Image = Properties.Resources.tickbox_icon;
             btnChonTatCa.ImageAlign = ContentAlignment.MiddleLeft;
             btnChonTatCa.Location = new Point(12, 427);
             btnChonTatCa.Name = "btnChonTatCa";
@@ -317,11 +317,11 @@
             // btnXoaNhanVien
             // 
             btnXoaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnXoaNhanVien.Image = Properties.Resources.icons8_delete_30;
+            btnXoaNhanVien.Image = Properties.Resources.backspace_icon;
             btnXoaNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnXoaNhanVien.Location = new Point(175, 427);
             btnXoaNhanVien.Name = "btnXoaNhanVien";
-            btnXoaNhanVien.Size = new Size(172, 45);
+            btnXoaNhanVien.Size = new Size(184, 45);
             btnXoaNhanVien.TabIndex = 38;
             btnXoaNhanVien.Text = "Xoá Nhân Viên";
             btnXoaNhanVien.TextAlign = ContentAlignment.MiddleRight;
@@ -468,7 +468,7 @@
             // 
             btnClearSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnClearSuaNhanVien.Font = new Font("Segoe UI", 12F);
-            btnClearSuaNhanVien.Image = Properties.Resources.icons8_delete_30;
+            btnClearSuaNhanVien.Image = Properties.Resources.backspace_icon;
             btnClearSuaNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnClearSuaNhanVien.Location = new Point(319, 345);
             btnClearSuaNhanVien.Name = "btnClearSuaNhanVien";
@@ -564,7 +564,7 @@
             // 
             btnLuuSuaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLuuSuaNhanVien.Font = new Font("Segoe UI", 12F);
-            btnLuuSuaNhanVien.Image = Properties.Resources.icons8_save_30;
+            btnLuuSuaNhanVien.Image = Properties.Resources.save_icon;
             btnLuuSuaNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnLuuSuaNhanVien.Location = new Point(405, 345);
             btnLuuSuaNhanVien.Name = "btnLuuSuaNhanVien";
@@ -642,7 +642,7 @@
             // 
             btnTimNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnTimNhanVien.Font = new Font("Segoe UI", 12F);
-            btnTimNhanVien.Image = Properties.Resources.icons8_find_30;
+            btnTimNhanVien.Image = Properties.Resources.find_icon;
             btnTimNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnTimNhanVien.Location = new Point(1170, 432);
             btnTimNhanVien.Name = "btnTimNhanVien";
@@ -656,9 +656,9 @@
             // btnTaiLaiDanhSach
             // 
             btnTaiLaiDanhSach.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnTaiLaiDanhSach.Image = Properties.Resources.icons8_reload_30;
+            btnTaiLaiDanhSach.Image = Properties.Resources.reload_icon;
             btnTaiLaiDanhSach.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTaiLaiDanhSach.Location = new Point(353, 427);
+            btnTaiLaiDanhSach.Location = new Point(365, 427);
             btnTaiLaiDanhSach.Name = "btnTaiLaiDanhSach";
             btnTaiLaiDanhSach.Size = new Size(201, 45);
             btnTaiLaiDanhSach.TabIndex = 49;
@@ -690,7 +690,7 @@
             // btnThemNhanVien
             // 
             btnThemNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnThemNhanVien.Image = Properties.Resources.icons8_add_30;
+            btnThemNhanVien.Image = Properties.Resources.add_icon;
             btnThemNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnThemNhanVien.Location = new Point(12, 478);
             btnThemNhanVien.Name = "btnThemNhanVien";

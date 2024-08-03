@@ -34,21 +34,21 @@
             pnlHoaDon = new Panel();
             picHoaDonIcon = new PictureBox();
             btnHoaDon = new Button();
-            pnlSanPham = new Panel();
-            picSanPhamIcon = new PictureBox();
-            btnSanPham = new Button();
             pnlKhachHang = new Panel();
             picKhachHangIcon = new PictureBox();
             btnKhachHang = new Button();
-            pnlKho = new Panel();
-            picKhoIcon = new PictureBox();
-            btnKho = new Button();
-            pnlNhaCungCap = new Panel();
-            picNhaCungCapIcon = new PictureBox();
-            btnNhaCungCap = new Button();
             pnlNhanVien = new Panel();
             picNhanVienIcon = new PictureBox();
             btnNhanVien = new Button();
+            pnlNhaCungCap = new Panel();
+            picNhaCungCapIcon = new PictureBox();
+            btnNhaCungCap = new Button();
+            pnlKho = new Panel();
+            picKhoIcon = new PictureBox();
+            btnKho = new Button();
+            pnlHoTro = new Panel();
+            picHoTro = new PictureBox();
+            btnHoTro = new Button();
             pnlTop = new Panel();
             lblTrangChu = new Label();
             picIconTrangChu = new PictureBox();
@@ -63,16 +63,16 @@
             pnlDashBoard.SuspendLayout();
             pnlHoaDon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picHoaDonIcon).BeginInit();
-            pnlSanPham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picSanPhamIcon).BeginInit();
             pnlKhachHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picKhachHangIcon).BeginInit();
-            pnlKho.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picKhoIcon).BeginInit();
-            pnlNhaCungCap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picNhaCungCapIcon).BeginInit();
             pnlNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picNhanVienIcon).BeginInit();
+            pnlNhaCungCap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picNhaCungCapIcon).BeginInit();
+            pnlKho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picKhoIcon).BeginInit();
+            pnlHoTro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picHoTro).BeginInit();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picIconTrangChu).BeginInit();
             pnlHelloUser.SuspendLayout();
@@ -86,11 +86,11 @@
             flpDashBoard.BackColor = SystemColors.ActiveCaption;
             flpDashBoard.Controls.Add(pnlDashBoard);
             flpDashBoard.Controls.Add(pnlHoaDon);
-            flpDashBoard.Controls.Add(pnlSanPham);
             flpDashBoard.Controls.Add(pnlKhachHang);
             flpDashBoard.Controls.Add(pnlNhanVien);
             flpDashBoard.Controls.Add(pnlNhaCungCap);
             flpDashBoard.Controls.Add(pnlKho);
+            flpDashBoard.Controls.Add(pnlHoTro);
             flpDashBoard.Dock = DockStyle.Left;
             flpDashBoard.Location = new Point(0, 0);
             flpDashBoard.Name = "flpDashBoard";
@@ -131,7 +131,7 @@
             // 
             // picHoaDonIcon
             // 
-            picHoaDonIcon.Image = Properties.Resources.icons8_bill_50;
+            picHoaDonIcon.Image = Properties.Resources.list_icon;
             picHoaDonIcon.Location = new Point(3, 3);
             picHoaDonIcon.Name = "picHoaDonIcon";
             picHoaDonIcon.Size = new Size(48, 45);
@@ -151,49 +151,18 @@
             btnHoaDon.UseVisualStyleBackColor = true;
             btnHoaDon.Click += btnHoaDon_Click;
             // 
-            // pnlSanPham
-            // 
-            pnlSanPham.Controls.Add(picSanPhamIcon);
-            pnlSanPham.Controls.Add(btnSanPham);
-            pnlSanPham.Location = new Point(3, 133);
-            pnlSanPham.Name = "pnlSanPham";
-            pnlSanPham.Size = new Size(185, 53);
-            pnlSanPham.TabIndex = 7;
-            // 
-            // picSanPhamIcon
-            // 
-            picSanPhamIcon.Image = Properties.Resources.icons8_bag_50;
-            picSanPhamIcon.Location = new Point(3, 3);
-            picSanPhamIcon.Name = "picSanPhamIcon";
-            picSanPhamIcon.Size = new Size(48, 45);
-            picSanPhamIcon.SizeMode = PictureBoxSizeMode.Zoom;
-            picSanPhamIcon.TabIndex = 0;
-            picSanPhamIcon.TabStop = false;
-            // 
-            // btnSanPham
-            // 
-            btnSanPham.AutoSize = true;
-            btnSanPham.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSanPham.Location = new Point(3, 3);
-            btnSanPham.Name = "btnSanPham";
-            btnSanPham.Size = new Size(218, 45);
-            btnSanPham.TabIndex = 1;
-            btnSanPham.Text = "Sản Phẩm";
-            btnSanPham.UseVisualStyleBackColor = true;
-            btnSanPham.Click += btnSanPham_Click;
-            // 
             // pnlKhachHang
             // 
             pnlKhachHang.Controls.Add(picKhachHangIcon);
             pnlKhachHang.Controls.Add(btnKhachHang);
-            pnlKhachHang.Location = new Point(3, 192);
+            pnlKhachHang.Location = new Point(3, 133);
             pnlKhachHang.Name = "pnlKhachHang";
             pnlKhachHang.Size = new Size(185, 53);
             pnlKhachHang.TabIndex = 8;
             // 
             // picKhachHangIcon
             // 
-            picKhachHangIcon.Image = Properties.Resources.icons8_customer_50;
+            picKhachHangIcon.Image = Properties.Resources.customer_icon;
             picKhachHangIcon.Location = new Point(3, 3);
             picKhachHangIcon.Name = "picKhachHangIcon";
             picKhachHangIcon.Size = new Size(48, 45);
@@ -213,49 +182,49 @@
             btnKhachHang.UseVisualStyleBackColor = true;
             btnKhachHang.Click += btnKhachHang_Click;
             // 
-            // pnlKho
+            // pnlNhanVien
             // 
-            pnlKho.Controls.Add(picKhoIcon);
-            pnlKho.Controls.Add(btnKho);
-            pnlKho.Location = new Point(3, 369);
-            pnlKho.Name = "pnlKho";
-            pnlKho.Size = new Size(185, 53);
-            pnlKho.TabIndex = 5;
+            pnlNhanVien.Controls.Add(picNhanVienIcon);
+            pnlNhanVien.Controls.Add(btnNhanVien);
+            pnlNhanVien.Location = new Point(3, 192);
+            pnlNhanVien.Name = "pnlNhanVien";
+            pnlNhanVien.Size = new Size(185, 53);
+            pnlNhanVien.TabIndex = 9;
             // 
-            // picKhoIcon
+            // picNhanVienIcon
             // 
-            picKhoIcon.Image = Properties.Resources.icons8_shop_50;
-            picKhoIcon.Location = new Point(3, 3);
-            picKhoIcon.Name = "picKhoIcon";
-            picKhoIcon.Size = new Size(48, 45);
-            picKhoIcon.SizeMode = PictureBoxSizeMode.Zoom;
-            picKhoIcon.TabIndex = 0;
-            picKhoIcon.TabStop = false;
+            picNhanVienIcon.Image = Properties.Resources.staff_icon;
+            picNhanVienIcon.Location = new Point(3, 3);
+            picNhanVienIcon.Name = "picNhanVienIcon";
+            picNhanVienIcon.Size = new Size(48, 45);
+            picNhanVienIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            picNhanVienIcon.TabIndex = 0;
+            picNhanVienIcon.TabStop = false;
             // 
-            // btnKho
+            // btnNhanVien
             // 
-            btnKho.AutoSize = true;
-            btnKho.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnKho.Location = new Point(3, 3);
-            btnKho.Name = "btnKho";
-            btnKho.Size = new Size(218, 45);
-            btnKho.TabIndex = 1;
-            btnKho.Text = "Kho";
-            btnKho.UseVisualStyleBackColor = true;
-            btnKho.Click += btnKho_Click;
+            btnNhanVien.AutoSize = true;
+            btnNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNhanVien.Location = new Point(3, 3);
+            btnNhanVien.Name = "btnNhanVien";
+            btnNhanVien.Size = new Size(218, 45);
+            btnNhanVien.TabIndex = 1;
+            btnNhanVien.Text = "Nhân Viên";
+            btnNhanVien.UseVisualStyleBackColor = true;
+            btnNhanVien.Click += btnNhanVien_Click;
             // 
             // pnlNhaCungCap
             // 
             pnlNhaCungCap.Controls.Add(picNhaCungCapIcon);
             pnlNhaCungCap.Controls.Add(btnNhaCungCap);
-            pnlNhaCungCap.Location = new Point(3, 310);
+            pnlNhaCungCap.Location = new Point(3, 251);
             pnlNhaCungCap.Name = "pnlNhaCungCap";
             pnlNhaCungCap.Size = new Size(185, 53);
             pnlNhaCungCap.TabIndex = 10;
             // 
             // picNhaCungCapIcon
             // 
-            picNhaCungCapIcon.Image = Properties.Resources.icons8_supplies_50;
+            picNhaCungCapIcon.Image = Properties.Resources.shop_icon;
             picNhaCungCapIcon.Location = new Point(3, 3);
             picNhaCungCapIcon.Name = "picNhaCungCapIcon";
             picNhaCungCapIcon.Size = new Size(48, 45);
@@ -275,36 +244,67 @@
             btnNhaCungCap.UseVisualStyleBackColor = true;
             btnNhaCungCap.Click += btnNhaCungCap_Click;
             // 
-            // pnlNhanVien
+            // pnlKho
             // 
-            pnlNhanVien.Controls.Add(picNhanVienIcon);
-            pnlNhanVien.Controls.Add(btnNhanVien);
-            pnlNhanVien.Location = new Point(3, 251);
-            pnlNhanVien.Name = "pnlNhanVien";
-            pnlNhanVien.Size = new Size(185, 53);
-            pnlNhanVien.TabIndex = 9;
+            pnlKho.Controls.Add(picKhoIcon);
+            pnlKho.Controls.Add(btnKho);
+            pnlKho.Location = new Point(3, 310);
+            pnlKho.Name = "pnlKho";
+            pnlKho.Size = new Size(185, 53);
+            pnlKho.TabIndex = 5;
             // 
-            // picNhanVienIcon
+            // picKhoIcon
             // 
-            picNhanVienIcon.Image = Properties.Resources.icons8_staff_50;
-            picNhanVienIcon.Location = new Point(3, 3);
-            picNhanVienIcon.Name = "picNhanVienIcon";
-            picNhanVienIcon.Size = new Size(48, 45);
-            picNhanVienIcon.SizeMode = PictureBoxSizeMode.Zoom;
-            picNhanVienIcon.TabIndex = 0;
-            picNhanVienIcon.TabStop = false;
+            picKhoIcon.Image = Properties.Resources.supplies_icon;
+            picKhoIcon.Location = new Point(3, 3);
+            picKhoIcon.Name = "picKhoIcon";
+            picKhoIcon.Size = new Size(48, 45);
+            picKhoIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            picKhoIcon.TabIndex = 0;
+            picKhoIcon.TabStop = false;
             // 
-            // btnNhanVien
+            // btnKho
             // 
-            btnNhanVien.AutoSize = true;
-            btnNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnNhanVien.Location = new Point(3, 3);
-            btnNhanVien.Name = "btnNhanVien";
-            btnNhanVien.Size = new Size(218, 45);
-            btnNhanVien.TabIndex = 1;
-            btnNhanVien.Text = "Nhân Viên";
-            btnNhanVien.UseVisualStyleBackColor = true;
-            btnNhanVien.Click += btnNhanVien_Click;
+            btnKho.AutoSize = true;
+            btnKho.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnKho.Location = new Point(3, 3);
+            btnKho.Name = "btnKho";
+            btnKho.Size = new Size(218, 45);
+            btnKho.TabIndex = 1;
+            btnKho.Text = "Kho";
+            btnKho.UseVisualStyleBackColor = true;
+            btnKho.Click += btnKho_Click;
+            // 
+            // pnlHoTro
+            // 
+            pnlHoTro.Controls.Add(picHoTro);
+            pnlHoTro.Controls.Add(btnHoTro);
+            pnlHoTro.Location = new Point(3, 369);
+            pnlHoTro.Name = "pnlHoTro";
+            pnlHoTro.Size = new Size(185, 53);
+            pnlHoTro.TabIndex = 11;
+            // 
+            // picHoTro
+            // 
+            picHoTro.Image = Properties.Resources.con_nice;
+            picHoTro.Location = new Point(3, 3);
+            picHoTro.Name = "picHoTro";
+            picHoTro.Size = new Size(48, 45);
+            picHoTro.SizeMode = PictureBoxSizeMode.Zoom;
+            picHoTro.TabIndex = 2;
+            picHoTro.TabStop = false;
+            // 
+            // btnHoTro
+            // 
+            btnHoTro.AutoSize = true;
+            btnHoTro.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnHoTro.Location = new Point(48, 3);
+            btnHoTro.Name = "btnHoTro";
+            btnHoTro.Size = new Size(134, 45);
+            btnHoTro.TabIndex = 1;
+            btnHoTro.Text = "Hỗ Trợ";
+            btnHoTro.UseVisualStyleBackColor = true;
+            btnHoTro.Click += btnHoTro_Click;
             // 
             // pnlTop
             // 
@@ -354,6 +354,7 @@
             picAnhNhanVien.Location = new Point(97, 3);
             picAnhNhanVien.Name = "picAnhNhanVien";
             picAnhNhanVien.Size = new Size(54, 62);
+            picAnhNhanVien.SizeMode = PictureBoxSizeMode.StretchImage;
             picAnhNhanVien.TabIndex = 5;
             picAnhNhanVien.TabStop = false;
             // 
@@ -382,6 +383,7 @@
             lblUserName.TabIndex = 5;
             lblUserName.Text = "Admin";
             lblUserName.TextAlign = ContentAlignment.TopCenter;
+            lblUserName.Click += lblUserName_Click;
             // 
             // pnlContent
             // 
@@ -436,21 +438,21 @@
             pnlHoaDon.ResumeLayout(false);
             pnlHoaDon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picHoaDonIcon).EndInit();
-            pnlSanPham.ResumeLayout(false);
-            pnlSanPham.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picSanPhamIcon).EndInit();
             pnlKhachHang.ResumeLayout(false);
             pnlKhachHang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picKhachHangIcon).EndInit();
-            pnlKho.ResumeLayout(false);
-            pnlKho.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picKhoIcon).EndInit();
-            pnlNhaCungCap.ResumeLayout(false);
-            pnlNhaCungCap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picNhaCungCapIcon).EndInit();
             pnlNhanVien.ResumeLayout(false);
             pnlNhanVien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picNhanVienIcon).EndInit();
+            pnlNhaCungCap.ResumeLayout(false);
+            pnlNhaCungCap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picNhaCungCapIcon).EndInit();
+            pnlKho.ResumeLayout(false);
+            pnlKho.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picKhoIcon).EndInit();
+            pnlHoTro.ResumeLayout(false);
+            pnlHoTro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picHoTro).EndInit();
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picIconTrangChu).EndInit();
@@ -473,9 +475,6 @@
         private Panel pnlHoaDon;
         private Button btnHoaDon;
         private PictureBox picHoaDonIcon;
-        private Panel pnlSanPham;
-        private Button btnSanPham;
-        private PictureBox picSanPhamIcon;
         private Panel pnlKhachHang;
         private Button btnKhachHang;
         private PictureBox picKhachHangIcon;
@@ -496,5 +495,8 @@
         private PictureBox picAnhNhanVien;
         private PictureBox picAnhMainMenu;
         private Label lblTitleWelcome;
+        private Panel pnlHoTro;
+        private Button btnHoTro;
+        private PictureBox picHoTro;
     }
 }
