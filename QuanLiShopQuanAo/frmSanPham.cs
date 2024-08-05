@@ -1,77 +1,91 @@
-﻿using QuanLiShopQuanAo.BUS;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
+using QuanLiShopQuanAo.BUS;
+using QuanLiShopQuanAo.BUS.Entities;
 
 namespace QuanLiShopQuanAo
 {
     public partial class frmSanPham : Form
     {
+        public bool closed = false;
+        SqlConnection cn;
+        SqlCommand cmd;
+        SqlDataReader dr;
+        PictureBox pic;
         public frmSanPham()
         {
             InitializeComponent();
+            cn = new SqlConnection();
+            cn.ConnectionString = @"Data Source=LOGINUS\SQLEXPRESS;Initial Catalog=QuanLiCuaHang;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProductControl pC = new();
+            pC.lblTenSanPham.Text = textBox1.Text;
+            pC.label2.Text = textBox2.Text;
+            pC.lblGiaTien.Text = textBox3.Text;
+            pC.picSanPham.Image = picture.Image;
+            flowLayoutPanel1.Controls.Add(pC);
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new();
+            if (ofd.ShowDialog() == DialogResult.OK)
+                picture.ImageLocation = ofd.FileName;
+        }
+
+        private void getdata()
+        {
+            cn.Open();
+            cmd = new SqlCommand("select TenSanPham,HinhAnh,Gia from SanPham");
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                long len = dr.GetBytes(0, 0, null, 0, 0);
+                byte[] array = new byte[System.Convert.ToInt32(len) + 1];
+                dr.GetBytes(0, 0, array, 0, System.Convert.ToInt32(len));
+                pic = new PictureBox();
+            }
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void frmSanPham_Load(object sender, EventArgs e)
         {
+            DataTable dt = BUS_SanPham.QueryData("data");
 
-        }
+            List<SanPham> listSanPham = new List<SanPham>();
 
-        private void SetColumns()
-        {
-            var columnsName = BUS_SanPham.QueryData("data").Columns.
-                Cast<DataColumn>().Select(columns => columns.ColumnName).ToArray();
-
-            for (int i = 0; i < columnsName.Length - 1; i++)
-                dgvSanPham.Columns[i + 1].DataPropertyName = columnsName[i];
-        }
-
-        private void LoadComboBox()
-        {
-            foreach (DataRow row in BUS_NhaCungCap.QueryData("data").Rows)
+            foreach (DataRow dataRow  in dt.Rows)
             {
-                cmbThemNhaCungCap.Items.Add(row[0]);
-                cmbSuaNhaCungCap.Items.Add(row[0]);
-            }
-        }
-
-        private void HideTextControl()
-        {
-            foreach (Control gb in this.Controls)
-            {
-                if (gb is GroupBox)
+                listSanPham.Add(new SanPham
                 {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is TextBox)
-                            ((TextBox)tb).ReadOnly = true;
-                    }
-                }
+                    TenSanPham = dataRow["TenSanPham"].ToString(),
+                    Gia = Convert.ToInt32(dataRow["Gia"].ToString()),
+                    HinhAnh = dataRow["HinhAnh"].ToString()
+                });
             }
-        }
 
-        private void HideButtonControl()
-        {
-            foreach (Control gb in this.Controls)
-            {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                    {
-                        if (tb is Button)
-                            ((Button)tb).Enabled = false;
-                    }
-                }
-            }
-        }
+            ProductControl pc = new ProductControl();
 
-        private void ClearTextValue()
-        {
-            foreach (Control gb in this.Controls)
+            foreach (SanPham sanPhams in listSanPham)
             {
-                if (gb is GroupBox)
-                {
-                    foreach (Control tb in gb.Controls)
-                        ((TextBox)tb).Text = string.Empty;
-                }
+                pc.lblTenSanPham.Text = sanPhams.TenSanPham;
+                pc.lblGiaTien.Text = sanPhams.Gia.ToString();
+                pc.picSanPham.Load(sanPhams.HinhAnh);
             }
         }
     }

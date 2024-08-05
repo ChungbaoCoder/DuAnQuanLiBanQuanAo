@@ -78,6 +78,36 @@ namespace QuanLiShopQuanAo
             }
         }
 
+        private void HideTextControl()
+        {
+            foreach (Control gb in this.Controls)
+            {
+                if (gb is GroupBox)
+                {
+                    foreach (Control tb in gb.Controls)
+                    {
+                        if (tb is TextBox)
+                            ((TextBox)tb).ReadOnly = true;
+                    }
+                }
+            }
+        }
+
+        private void HideButtonControl()
+        {
+            foreach (Control gb in this.Controls)
+            {
+                if (gb is GroupBox)
+                {
+                    foreach (Control tb in gb.Controls)
+                    {
+                        if (tb is Button)
+                            ((Button)tb).Enabled = false;
+                    }
+                }
+            }
+        }
+
         private void ClearTextValue()
         {
             foreach (Control gb in this.Controls)
@@ -233,11 +263,12 @@ namespace QuanLiShopQuanAo
 
         private void btnLuuThemSanPham_Click(object sender, EventArgs e)
         {
-            string trangThai = "";
-            if (rdoThemDangBan.Checked)
-                trangThai = "Đang Bán";
-            else
-                trangThai = "Chưa Bán";
+            
+                string trangThai = "";
+                if (rdoThemDangBan.Checked)
+                    trangThai = "Đang bán";
+                else
+                    trangThai = "Chưa bán";
 
             if (MessageBox.Show("Bạn có muốn lưu thông tin sản phẩm " + txtThemTenSanPham.Text, "Lưu thông tin sản phẩm?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -269,6 +300,7 @@ namespace QuanLiShopQuanAo
                 ClearTextValue();
                 dgvSanPham.DataSource = BUS_SanPham.QueryData("data");
                 LoadComboBox();
+
             }
         }
 
@@ -441,5 +473,7 @@ namespace QuanLiShopQuanAo
                 }
             }
         }
+
+      
     }
 }
