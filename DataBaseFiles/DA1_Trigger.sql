@@ -1,0 +1,44 @@
+CREATE TRIGGER ResetIdHoaDon ON dbo.HoaDon FOR DELETE
+AS
+BEGIN
+	DECLARE @maxId int;
+	SELECT @maxId = MAX(Id) FROM HoaDon
+	DBCC CHECKIDENT (HoaDon, RESEED, @maxId);
+END
+GO
+
+CREATE TRIGGER ResetIdKhachHang ON dbo.KhachHang FOR DELETE
+AS
+BEGIN
+	DECLARE @maxId int;
+	SELECT @maxId = MAX(Id) FROM KhachHang
+	DBCC CHECKIDENT (KhachHang, RESEED, @maxId);
+END
+GO
+
+CREATE TRIGGER ResetIdNhaCungCap ON dbo.NhaCungCap FOR DELETE
+AS
+BEGIN
+	DECLARE @maxId int;
+	SELECT @maxId = MAX(Id) FROM NhaCungCap
+	DBCC CHECKIDENT (NhaCungCap, RESEED, @maxId);
+END
+GO
+
+CREATE TRIGGER ResetIdNhanVien ON dbo.NhanVien FOR DELETE
+AS
+BEGIN
+	DECLARE @maxId int;
+	SELECT @maxId = MAX(Id) FROM NhanVien
+	DBCC CHECKIDENT (NhanVien, RESEED, @maxId);
+END
+GO
+
+CREATE TRIGGER ResetIdSanPham ON dbo.SanPham FOR DELETE
+AS
+BEGIN
+	DECLARE @maxId int;
+	SELECT @maxId = MAX(Id) FROM SanPham
+	DBCC CHECKIDENT (SanPham, RESEED, @maxId);
+END
+GO
