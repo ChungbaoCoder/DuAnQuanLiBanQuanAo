@@ -48,6 +48,7 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(921, 750);
             flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // button1
             // 
@@ -64,7 +65,7 @@
             textBox1.Location = new Point(15, 11);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Tên Sản Phẩm";
-            textBox1.Size = new Size(181, 29);
+            textBox1.Size = new Size(181, 34);
             textBox1.TabIndex = 2;
             // 
             // textBox2
@@ -72,7 +73,7 @@
             textBox2.Location = new Point(15, 55);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Mô Tả";
-            textBox2.Size = new Size(181, 29);
+            textBox2.Size = new Size(181, 34);
             textBox2.TabIndex = 3;
             // 
             // textBox3
@@ -80,7 +81,7 @@
             textBox3.Location = new Point(15, 103);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "Giá";
-            textBox3.Size = new Size(181, 29);
+            textBox3.Size = new Size(181, 34);
             textBox3.TabIndex = 4;
             // 
             // panel1
@@ -111,7 +112,7 @@
             // 
             // frmSanPham
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1401, 750);
@@ -122,6 +123,7 @@
             Margin = new Padding(4);
             Name = "frmSanPham";
             Text = "Quản Lí Sản Phẩm";
+            Load += frmSanPham_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picture).EndInit();
