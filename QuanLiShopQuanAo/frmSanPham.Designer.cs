@@ -28,87 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            button1 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            panel1 = new Panel();
-            picture = new PictureBox();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
+            fpnlSanPham = new FlowLayoutPanel();
+            btnThem = new Button();
+            txtTenSanPham = new TextBox();
+            txtMoTaSanPham = new TextBox();
+            txtGiaSanPham = new TextBox();
+            pnlSanPham = new Panel();
+            picAddHinhSanPham = new PictureBox();
+            pnlSanPham.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picAddHinhSanPham).BeginInit();
             SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // fpnlSanPham
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.BackColor = SystemColors.ActiveCaption;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(921, 750);
-            flowLayoutPanel1.TabIndex = 0;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            fpnlSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            fpnlSanPham.AutoScroll = true;
+            fpnlSanPham.BackColor = SystemColors.ActiveCaption;
+            fpnlSanPham.Location = new Point(0, 0);
+            fpnlSanPham.Name = "fpnlSanPham";
+            fpnlSanPham.Size = new Size(921, 750);
+            fpnlSanPham.TabIndex = 0;
             // 
-            // button1
+            // btnThem
             // 
-            button1.Location = new Point(15, 195);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 40);
-            button1.TabIndex = 1;
-            button1.Text = "Thêm";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnThem.Location = new Point(15, 195);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(94, 40);
+            btnThem.TabIndex = 1;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
-            // textBox1
+            // txtTenSanPham
             // 
-            textBox1.Location = new Point(15, 11);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Tên Sản Phẩm";
-            textBox1.Size = new Size(181, 34);
-            textBox1.TabIndex = 2;
+            txtTenSanPham.Location = new Point(15, 11);
+            txtTenSanPham.Name = "txtTenSanPham";
+            txtTenSanPham.PlaceholderText = "Tên Sản Phẩm";
+            txtTenSanPham.Size = new Size(181, 34);
+            txtTenSanPham.TabIndex = 2;
             // 
-            // textBox2
+            // txtMoTaSanPham
             // 
-            textBox2.Location = new Point(15, 55);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Mô Tả";
-            textBox2.Size = new Size(181, 34);
-            textBox2.TabIndex = 3;
+            txtMoTaSanPham.Location = new Point(15, 55);
+            txtMoTaSanPham.Name = "txtMoTaSanPham";
+            txtMoTaSanPham.PlaceholderText = "Mô Tả";
+            txtMoTaSanPham.Size = new Size(181, 34);
+            txtMoTaSanPham.TabIndex = 3;
             // 
-            // textBox3
+            // txtGiaSanPham
             // 
-            textBox3.Location = new Point(15, 103);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Giá";
-            textBox3.Size = new Size(181, 34);
-            textBox3.TabIndex = 4;
+            txtGiaSanPham.Location = new Point(15, 103);
+            txtGiaSanPham.Name = "txtGiaSanPham";
+            txtGiaSanPham.PlaceholderText = "Giá";
+            txtGiaSanPham.Size = new Size(181, 34);
+            txtGiaSanPham.TabIndex = 4;
             // 
-            // panel1
+            // pnlSanPham
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(picture);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(button1);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(927, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(474, 750);
-            panel1.TabIndex = 5;
+            pnlSanPham.BackColor = SystemColors.ActiveCaption;
+            pnlSanPham.Controls.Add(picAddHinhSanPham);
+            pnlSanPham.Controls.Add(txtGiaSanPham);
+            pnlSanPham.Controls.Add(txtMoTaSanPham);
+            pnlSanPham.Controls.Add(txtTenSanPham);
+            pnlSanPham.Controls.Add(btnThem);
+            pnlSanPham.Dock = DockStyle.Right;
+            pnlSanPham.Location = new Point(927, 0);
+            pnlSanPham.Name = "pnlSanPham";
+            pnlSanPham.Size = new Size(474, 750);
+            pnlSanPham.TabIndex = 5;
             // 
-            // picture
+            // picAddHinhSanPham
             // 
-            picture.BackColor = SystemColors.ActiveBorder;
-            picture.BorderStyle = BorderStyle.FixedSingle;
-            picture.Location = new Point(15, 147);
-            picture.Name = "picture";
-            picture.Size = new Size(181, 10);
-            picture.SizeMode = PictureBoxSizeMode.Zoom;
-            picture.TabIndex = 5;
-            picture.TabStop = false;
-            picture.Click += pictureBox1_Click;
+            picAddHinhSanPham.BackColor = SystemColors.ActiveBorder;
+            picAddHinhSanPham.BorderStyle = BorderStyle.FixedSingle;
+            picAddHinhSanPham.Location = new Point(15, 147);
+            picAddHinhSanPham.Name = "picAddHinhSanPham";
+            picAddHinhSanPham.Size = new Size(181, 10);
+            picAddHinhSanPham.SizeMode = PictureBoxSizeMode.Zoom;
+            picAddHinhSanPham.TabIndex = 5;
+            picAddHinhSanPham.TabStop = false;
+            picAddHinhSanPham.Click += picAddHinhSanPham_Click;
             // 
             // frmSanPham
             // 
@@ -116,28 +115,28 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1401, 750);
-            Controls.Add(panel1);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(pnlSanPham);
+            Controls.Add(fpnlSanPham);
             Font = new Font("Segoe UI", 12F);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             Name = "frmSanPham";
             Text = "Quản Lí Sản Phẩm";
             Load += frmSanPham_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picture).EndInit();
+            pnlSanPham.ResumeLayout(false);
+            pnlSanPham.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picAddHinhSanPham).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button button1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Panel panel1;
-        public PictureBox picture;
+        private FlowLayoutPanel fpnlSanPham;
+        private Button btnThem;
+        private TextBox txtTenSanPham;
+        private TextBox txtMoTaSanPham;
+        private TextBox txtGiaSanPham;
+        private Panel pnlSanPham;
+        public PictureBox picAddHinhSanPham;
     }
 }
