@@ -806,7 +806,7 @@
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
             Name = "frmKho";
-            Text = "Quản Lí Kho";
+            Text = "frmKho";
             Load += frmKho_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).EndInit();
             grpThemSanPham.ResumeLayout(false);
