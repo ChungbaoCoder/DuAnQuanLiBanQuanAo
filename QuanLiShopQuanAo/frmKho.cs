@@ -307,7 +307,7 @@ namespace QuanLiShopQuanAo
         private void btnLuuSuaSanPham_Click(object sender, EventArgs e)
         {
             string trangThai = "";
-            if (rdoSuaDangBan.Enabled)
+            if (rdoSuaDangBan.Checked)
                 trangThai = "Đang Bán";
             else
                 trangThai = "Chưa Bán";

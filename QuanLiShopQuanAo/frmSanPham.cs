@@ -23,17 +23,26 @@ namespace QuanLiShopQuanAo
                 {
                     TenSanPham = dataRow["TenSanPham"].ToString(),
                     Gia = Convert.ToInt32(dataRow["Gia"].ToString()),
-                    HinhAnh = dataRow["HinhAnh"].ToString()
+                    HinhAnh = dataRow["HinhAnh"].ToString(),
+                    TrangThai = dataRow["TrangThai"].ToString()
                 });
             }
 
             foreach (SanPham sanPhams in listSanPham)
             {
-                ProductControl pc = new ProductControl();
-                pc.lblTenSanPham.Text = sanPhams.TenSanPham;
-                pc.lblGiaTien.Text = sanPhams.Gia.ToString();
-                pc.picSanPham.Load(sanPhams.HinhAnh);
-                fpnlSanPham.Controls.Add(pc);
+                if (sanPhams.TrangThai != "Chưa Bán")
+                {
+                    ProductControl pc = new ProductControl();
+                    pc.lblTenSanPham.Text = sanPhams.TenSanPham;
+                    pc.lblGiaTien.Text = sanPhams.Gia.ToString();
+
+                    try
+                    {
+                        pc.picSanPham.Load(sanPhams.HinhAnh);
+                    }
+                    catch { }
+                    fpnlSanPham.Controls.Add(pc); 
+                }
             }
         }
 
