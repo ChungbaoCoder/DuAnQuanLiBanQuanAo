@@ -49,6 +49,9 @@
             pnlHoTro = new Panel();
             picHoTro = new PictureBox();
             btnHoTro = new Button();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            btnViewSanPham = new Button();
             pnlTop = new Panel();
             lblTrangChu = new Label();
             picIconTrangChu = new PictureBox();
@@ -73,6 +76,8 @@
             ((System.ComponentModel.ISupportInitialize)picKhoIcon).BeginInit();
             pnlHoTro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picHoTro).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picIconTrangChu).BeginInit();
             pnlHelloUser.SuspendLayout();
@@ -91,6 +96,7 @@
             flpDashBoard.Controls.Add(pnlNhaCungCap);
             flpDashBoard.Controls.Add(pnlKho);
             flpDashBoard.Controls.Add(pnlHoTro);
+            flpDashBoard.Controls.Add(panel1);
             flpDashBoard.Dock = DockStyle.Left;
             flpDashBoard.Location = new Point(0, 0);
             flpDashBoard.Name = "flpDashBoard";
@@ -286,7 +292,8 @@
             // 
             // picHoTro
             // 
-            picHoTro.Image = Properties.Resources.con_nice;
+            picHoTro.BackgroundImageLayout = ImageLayout.None;
+            picHoTro.Image = Properties.Resources.help;
             picHoTro.Location = new Point(3, 3);
             picHoTro.Name = "picHoTro";
             picHoTro.Size = new Size(48, 45);
@@ -305,6 +312,37 @@
             btnHoTro.Text = "Hỗ Trợ";
             btnHoTro.UseVisualStyleBackColor = true;
             btnHoTro.Click += btnHoTro_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnViewSanPham);
+            panel1.Location = new Point(3, 428);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(185, 53);
+            panel1.TabIndex = 12;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.view;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 45);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // btnViewSanPham
+            // 
+            btnViewSanPham.AutoSize = true;
+            btnViewSanPham.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnViewSanPham.Location = new Point(48, 3);
+            btnViewSanPham.Name = "btnViewSanPham";
+            btnViewSanPham.Size = new Size(152, 45);
+            btnViewSanPham.TabIndex = 1;
+            btnViewSanPham.Text = "Xem Sản Phẩm";
+            btnViewSanPham.UseVisualStyleBackColor = true;
+            btnViewSanPham.Click += btnViewSanPham_Click;
             // 
             // pnlTop
             // 
@@ -410,7 +448,7 @@
             // picAnhMainMenu
             // 
             picAnhMainMenu.Dock = DockStyle.Fill;
-            picAnhMainMenu.Image = Properties.Resources.chào_mừng_bạn_đến_với;
+            picAnhMainMenu.Image = Properties.Resources.welcome;
             picAnhMainMenu.Location = new Point(0, 0);
             picAnhMainMenu.Name = "picAnhMainMenu";
             picAnhMainMenu.Size = new Size(667, 442);
@@ -453,6 +491,9 @@
             pnlHoTro.ResumeLayout(false);
             pnlHoTro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picHoTro).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picIconTrangChu).EndInit();
@@ -498,5 +539,8 @@
         private Panel pnlHoTro;
         private Button btnHoTro;
         private PictureBox picHoTro;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Button btnViewSanPham;
     }
 }

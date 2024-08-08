@@ -37,43 +37,43 @@ namespace QuanLiShopQuanAo
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-            //frmDangNhap form = new frmDangNhap();
-            //this.Hide();
-            //form.ShowDialog();
-            //maNhanVien = form.maNhanVien;
-            //chucVu = form.chucVu;
+            frmDangNhap form = new frmDangNhap();
+            this.Hide();
+            form.ShowDialog();
+            maNhanVien = form.maNhanVien;
+            chucVu = form.chucVu;
 
-            //if (!form.IsHandleCreated)
-            //    closed = true;
+            if (!form.IsHandleCreated)
+                closed = true;
 
-            //if (form.closed)
-            //    this.Show();
+            if (form.closed)
+                this.Show();
 
-            //if (chucVu != "Quản Trị")
-            //{
-            //    pnlKho.Hide();
-            //    pnlNhaCungCap.Hide();
-            //    pnlNhanVien.Hide();
-            //}
+            if (chucVu != "Quản Trị")
+            {
+                pnlKho.Hide();
+                pnlNhaCungCap.Hide();
+                pnlNhanVien.Hide();
+            }
 
-            //using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
-            //{
-            //    string command = "SELECT TenNhanVien, HinhAnh FROM NhanVien WHERE MaNhanVien = '" + maNhanVien + "'";
-            //    SqlCommand sqlCommand = new SqlCommand(command, conn);
-            //    conn.Open();
+            using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
+            {
+                string command = "SELECT TenNhanVien, HinhAnh FROM NhanVien WHERE MaNhanVien = '" + maNhanVien + "'";
+                SqlCommand sqlCommand = new SqlCommand(command, conn);
+                conn.Open();
 
-            //    SqlDataReader reader = sqlCommand.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        lblUserName.Text = (string)reader["TenNhanVien"];
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    lblUserName.Text = (string)reader["TenNhanVien"];
 
-            //        try
-            //        {
-            //            picAnhNhanVien.ImageLocation = (string)reader["HinhAnh"];
-            //        }
-            //        catch { }
-            //    }
-            //}
+                    try
+                    {
+                        picAnhNhanVien.ImageLocation = (string)reader["HinhAnh"];
+                    }
+                    catch { }
+                }
+            }
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
@@ -117,6 +117,11 @@ namespace QuanLiShopQuanAo
             }
         }
 
+        private void btnViewSanPham_Click(object sender, EventArgs e)
+        {
+            Openchildform(new frmSanPham());
+        }
+
         private void picIconTrangChu_Click(object sender, EventArgs e)
         {
             if (currentform != null)
@@ -130,6 +135,7 @@ namespace QuanLiShopQuanAo
         {
             if (MessageBox.Show("Bạn có muốn đăng xuất", "Đăng xuất", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                closed = false;
                 this.Hide();
                 frmDangNhap form = new frmDangNhap();
                 this.Hide();

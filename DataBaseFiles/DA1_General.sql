@@ -110,10 +110,17 @@ GO
 CREATE PROCEDURE dbo.sp_ThemKhachHang @TenKhachHang nvarchar(100),@SDT varchar(20),@DiaChi nvarchar(255)
 AS
 BEGIN
-	DECLARE @MaKH varchar(20)
-	SET @MaKH = CONCAT('KH',CAST((SELECT IDENT_CURRENT('KhachHang')+1) AS varchar))
-	INSERT INTO KhachHang (MaKhachHang,TenKhachHang,SDT,DiaChi) VALUES
-	(@MaKH,@TenKhachHang,@SDT,@DiaChi)
+	IF NOT EXISTS (SELECT SDT FROM KhachHang WHERE SDT = @SDT)
+	BEGIN
+		DECLARE @MaKH varchar(20)
+		SET @MaKH = CONCAT('KH',CAST((SELECT IDENT_CURRENT('KhachHang')+1) AS varchar))
+		INSERT INTO KhachHang (MaKhachHang,TenKhachHang,SDT,DiaChi) VALUES
+		(@MaKH,@TenKhachHang,@SDT,@DiaChi)
+	END
+	ELSE
+	BEGIN
+		SELECT 0;
+	END
 END
 GO
 
@@ -123,7 +130,7 @@ CREATE PROCEDURE dbo.sp_CapNhatKhachHang @MaKhachHang varchar(20),@TenKhachHang 
 AS
 BEGIN
 	UPDATE KhachHang SET TenKhachHang = @TenKhachHang,SDT = @SDT,DiaChi = @DiaChi
-	WHERE MaKhachHang = @MaKhachHang AND SDT = @SDT
+	WHERE MaKhachHang = @MaKhachHang
 END
 GO
 
@@ -133,9 +140,14 @@ CREATE PROCEDURE dbo.sp_XoaKhachHang @MaKhachHang varchar(20),@SDT varchar(20)
 AS
 BEGIN
 	DECLARE @MaHD varchar(20)
-	SET @MaHD = (SELECT MaHoaDon FROM HoaDon WHERE MaKhachHang = @MaKhachHang)
-	DELETE FROM ChiTietHoaDon WHERE MaHoaDon = @MaHD
-	DELETE FROM HoaDon WHERE MaKhachHang = @MaKhachHang
+
+	WHILE EXISTS (SELECT TOP 1 MaHoaDon FROM HoaDon WHERE MaKhachHang = @MaKhachHang)
+	BEGIN
+		SET @MaHD = (SELECT TOP 1 MaHoaDon FROM HoaDon WHERE MaKhachHang = @MaKhachHang)
+		DELETE FROM ChiTietHoaDon WHERE MaHoaDon = @MaHD
+		DELETE FROM HoaDon WHERE MaKhachHang = @MaKhachHang
+	END
+
 	DELETE FROM KhachHang WHERE MaKhachHang = @MaKhachHang AND SDT = @SDT
 END
 GO
@@ -224,7 +236,7 @@ CREATE PROCEDURE dbo.sp_XoaSanPham @MaSanPham varchar(20)
 AS
 BEGIN
 	DECLARE @MaHD varchar(20)
-	SET @MaHD = (SELECT MaHoaDon FROM ChiTietHoaDon WHERE MaSanPham = @MaSanPham)
+	SET @MaHD = (SELECT TOP 1 MaHoaDon FROM ChiTietHoaDon WHERE MaSanPham = @MaSanPham)
 	DELETE FROM ChiTietHoaDon WHERE MaSanPham = @MaSanPham
 	DELETE FROM HoaDon WHERE MaHoaDon = @MaHD
 	DELETE FROM SanPham WHERE MaSanPham = @MaSanPham
