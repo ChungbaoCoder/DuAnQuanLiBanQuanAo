@@ -1,44 +1,79 @@
 CREATE TRIGGER ResetIdHoaDon ON dbo.HoaDon FOR DELETE
 AS
 BEGIN
-	DECLARE @maxId int;
-	SELECT @maxId = MAX(Id) FROM HoaDon
-	DBCC CHECKIDENT (HoaDon, RESEED, @maxId);
+	IF NOT EXISTS(SELECT Id FROM HoaDon)
+	BEGIN
+		DBCC CHECKIDENT (HoaDon, RESEED, 0);
+	END
+	ELSE
+	BEGIN
+		DECLARE @maxId int;
+		SELECT @maxId = MAX(Id) FROM HoaDon
+		DBCC CHECKIDENT (HoaDon, RESEED, @maxId);
+	END
 END
 GO
 
 CREATE TRIGGER ResetIdKhachHang ON dbo.KhachHang FOR DELETE
 AS
 BEGIN
-	DECLARE @maxId int;
-	SELECT @maxId = MAX(Id) FROM KhachHang
-	DBCC CHECKIDENT (KhachHang, RESEED, @maxId);
+	IF NOT EXISTS(SELECT Id FROM KhachHang)
+	BEGIN
+		DBCC CHECKIDENT (KhachHang, RESEED, 0);
+	END
+	ELSE
+	BEGIN
+		DECLARE @maxId int;
+		SELECT @maxId = MAX(Id) FROM KhachHang
+		DBCC CHECKIDENT (KhachHang, RESEED, @maxId);
+	END
 END
 GO
 
 CREATE TRIGGER ResetIdNhaCungCap ON dbo.NhaCungCap FOR DELETE
 AS
 BEGIN
-	DECLARE @maxId int;
-	SELECT @maxId = MAX(Id) FROM NhaCungCap
-	DBCC CHECKIDENT (NhaCungCap, RESEED, @maxId);
+	IF NOT EXISTS(SELECT Id FROM NhaCungCap)
+	BEGIN
+		DBCC CHECKIDENT (NhaCungCap, RESEED, 0);
+	END
+	ELSE
+	BEGIN
+		DECLARE @maxId int;
+		SELECT @maxId = MAX(Id) FROM NhaCungCap
+		DBCC CHECKIDENT (NhaCungCap, RESEED, @maxId);
+	END
 END
 GO
 
 CREATE TRIGGER ResetIdNhanVien ON dbo.NhanVien FOR DELETE
 AS
 BEGIN
-	DECLARE @maxId int;
-	SELECT @maxId = MAX(Id) FROM NhanVien
-	DBCC CHECKIDENT (NhanVien, RESEED, @maxId);
+	IF NOT EXISTS(SELECT Id FROM NhanVien)
+	BEGIN
+		DBCC CHECKIDENT (NhanVien, RESEED, 0);
+	END
+	ELSE
+	BEGIN
+		DECLARE @maxId int;
+		SELECT @maxId = MAX(Id) FROM NhanVien
+		DBCC CHECKIDENT (NhanVien, RESEED, @maxId);
+	END
 END
 GO
 
 CREATE TRIGGER ResetIdSanPham ON dbo.SanPham FOR DELETE
 AS
 BEGIN
-	DECLARE @maxId int;
-	SELECT @maxId = MAX(Id) FROM SanPham
-	DBCC CHECKIDENT (SanPham, RESEED, @maxId);
+	IF NOT EXISTS(SELECT Id FROM SanPham)
+	BEGIN
+		DBCC CHECKIDENT (SanPham, RESEED, 0);
+	END
+	ELSE
+	BEGIN
+		DECLARE @maxId int;
+		SELECT @maxId = MAX(Id) FROM SanPham
+		DBCC CHECKIDENT (SanPham, RESEED, @maxId);
+	END
 END
 GO
