@@ -1,9 +1,6 @@
 ﻿using QuanLiShopQuanAo.BUS;
 using QuanLiShopQuanAo.BUS.Entities;
 using System.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Globalization;
-using System.Windows.Forms;
 
 namespace QuanLiShopQuanAo
 {
@@ -137,7 +134,7 @@ namespace QuanLiShopQuanAo
                     create = true;
                 }
                 else
-                    MessageBox.Show("Không lập được hoá đơn mới có tên khách " + HoaDon.TenKhachHang, "Lỗi lập hoá đơn mới", 
+                    MessageBox.Show("Không lập được hoá đơn mới có tên khách " + HoaDon.TenKhachHang, "Lỗi lập hoá đơn mới",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 dgvHoaDon.DataSource = BUS_HoaDon.QueryData("data");
@@ -152,7 +149,7 @@ namespace QuanLiShopQuanAo
                         MaKhachHang = maKhachHang,
                         TenKhachHang = txtTenKhachMua.Text,
                     });
-                }    
+                }
 
                 ClearTextValue();
             }
@@ -229,6 +226,22 @@ namespace QuanLiShopQuanAo
             dtpLapHoaDon.Text = selectedRow.Cells[5].Value.ToString();
             dtpSuaNgayLap.Text = selectedRow.Cells[5].Value.ToString();
             cmbTrangThai.Text = selectedRow.Cells[7].Value.ToString();
+        }
+
+        private void dgvHoaDon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedrow = dgvHoaDon.Rows[e.RowIndex];
+
+                try
+                {
+                    frmShowChiTiet chiTietHoaDon = new frmShowChiTiet();
+                    chiTietHoaDon.MaHoaDon = selectedrow.Cells[1].Value.ToString();
+                    chiTietHoaDon.ShowDialog();
+                }
+                catch { }
+            }
         }
     }
 }

@@ -55,6 +55,12 @@ namespace QuanLiShopQuanAo
                 pnlNhaCungCap.Hide();
                 pnlNhanVien.Hide();
             }
+            else
+            {
+                pnlKho.Show();
+                pnlNhaCungCap.Show();
+                pnlNhanVien.Show();
+            }
 
             using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
             {
@@ -71,7 +77,10 @@ namespace QuanLiShopQuanAo
                     {
                         picAnhNhanVien.ImageLocation = (string)reader["HinhAnh"];
                     }
-                    catch { }
+                    catch 
+                    {
+                        picAnhNhanVien.ImageLocation = null;
+                    }
                 }
             }
         }
@@ -138,7 +147,6 @@ namespace QuanLiShopQuanAo
                 closed = false;
                 this.Hide();
                 frmDangNhap form = new frmDangNhap();
-                this.Hide();
                 form.ShowDialog();
                 maNhanVien = form.maNhanVien;
                 chucVu = form.chucVu;
@@ -155,7 +163,12 @@ namespace QuanLiShopQuanAo
                     pnlNhaCungCap.Hide();
                     pnlNhanVien.Hide();
                 }
-
+                else
+                {
+                    pnlKho.Show();
+                    pnlNhaCungCap.Show();
+                    pnlNhanVien.Show();
+                }
 
                 using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
                 {
@@ -172,7 +185,10 @@ namespace QuanLiShopQuanAo
                         {
                             picAnhNhanVien.ImageLocation = (string)reader["HinhAnh"];
                         }
-                        catch { }
+                        catch 
+                        {
+                            picAnhNhanVien.ImageLocation = null;
+                        }
                     }
                 }
             }

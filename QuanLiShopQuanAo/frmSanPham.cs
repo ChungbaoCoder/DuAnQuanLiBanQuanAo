@@ -45,22 +45,5 @@ namespace QuanLiShopQuanAo
                 }
             }
         }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            ProductControl pC = new();
-            pC.lblTenSanPham.Text = txtTenSanPham.Text;
-            pC.label2.Text = txtMoTaSanPham.Text;
-            pC.lblGiaTien.Text = txtGiaSanPham.Text;
-            pC.picSanPham.Image = picAddHinhSanPham.Image;
-            fpnlSanPham.Controls.Add(pC);
-        }
-
-        private void picAddHinhSanPham_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new();
-            if (ofd.ShowDialog() == DialogResult.OK)
-                picAddHinhSanPham.ImageLocation = ofd.FileName;
-        }
     }
 }

@@ -249,9 +249,9 @@
             // picAnhSanPham
             // 
             picAnhSanPham.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            picAnhSanPham.Location = new Point(846, 503);
+            picAnhSanPham.Location = new Point(846, 485);
             picAnhSanPham.Name = "picAnhSanPham";
-            picAnhSanPham.Size = new Size(310, 320);
+            picAnhSanPham.Size = new Size(310, 338);
             picAnhSanPham.TabIndex = 11;
             picAnhSanPham.TabStop = false;
             // 
@@ -260,7 +260,7 @@
             lblHinhAnh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblHinhAnh.AutoSize = true;
             lblHinhAnh.Font = new Font("Segoe UI", 13F);
-            lblHinhAnh.Location = new Point(846, 470);
+            lblHinhAnh.Location = new Point(846, 452);
             lblHinhAnh.Name = "lblHinhAnh";
             lblHinhAnh.Size = new Size(102, 30);
             lblHinhAnh.TabIndex = 12;

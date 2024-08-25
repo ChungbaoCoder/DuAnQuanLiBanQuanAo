@@ -47,7 +47,7 @@
             lblUserName.Anchor = AnchorStyles.None;
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Segoe UI Light", 12F);
-            lblUserName.Location = new Point(113, 142);
+            lblUserName.Location = new Point(109, 144);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(92, 28);
             lblUserName.TabIndex = 1;
@@ -58,7 +58,7 @@
             lblPassWord.Anchor = AnchorStyles.None;
             lblPassWord.AutoSize = true;
             lblPassWord.Font = new Font("Segoe UI Light", 12F);
-            lblPassWord.Location = new Point(113, 224);
+            lblPassWord.Location = new Point(109, 226);
             lblPassWord.Name = "lblPassWord";
             lblPassWord.Size = new Size(93, 28);
             lblPassWord.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             txtUserEmail.Anchor = AnchorStyles.None;
             txtUserEmail.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
-            txtUserEmail.Location = new Point(113, 173);
+            txtUserEmail.Location = new Point(109, 175);
             txtUserEmail.Name = "txtUserEmail";
             txtUserEmail.PlaceholderText = "NHẬP TÀI KHOẢN";
             txtUserEmail.Size = new Size(308, 30);
@@ -80,7 +80,7 @@
             txtPassWord.Anchor = AnchorStyles.None;
             txtPassWord.Font = new Font("Gadugi", 10.2F, FontStyle.Italic);
             txtPassWord.ForeColor = Color.Black;
-            txtPassWord.Location = new Point(113, 255);
+            txtPassWord.Location = new Point(109, 257);
             txtPassWord.Name = "txtPassWord";
             txtPassWord.PasswordChar = '*';
             txtPassWord.PlaceholderText = "NHẬP MẬT KHẨU";
@@ -94,7 +94,7 @@
             llblQuenMatKhau.AutoSize = true;
             llblQuenMatKhau.BackColor = Color.Black;
             llblQuenMatKhau.ForeColor = Color.Cornsilk;
-            llblQuenMatKhau.Location = new Point(113, 320);
+            llblQuenMatKhau.Location = new Point(109, 322);
             llblQuenMatKhau.Name = "llblQuenMatKhau";
             llblQuenMatKhau.Size = new Size(120, 20);
             llblQuenMatKhau.TabIndex = 7;
@@ -109,7 +109,7 @@
             btnLogin.FlatStyle = FlatStyle.Popup;
             btnLogin.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(271, 304);
+            btnLogin.Location = new Point(267, 306);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(150, 50);
             btnLogin.TabIndex = 6;
@@ -121,7 +121,7 @@
             // 
             picIcon1.Anchor = AnchorStyles.None;
             picIcon1.Image = Properties.Resources.user_icon;
-            picIcon1.Location = new Point(32, 157);
+            picIcon1.Location = new Point(28, 159);
             picIcon1.Name = "picIcon1";
             picIcon1.Size = new Size(65, 61);
             picIcon1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -132,7 +132,7 @@
             // 
             picIcon2.Anchor = AnchorStyles.None;
             picIcon2.Image = Properties.Resources.padlock;
-            picIcon2.Location = new Point(32, 224);
+            picIcon2.Location = new Point(28, 226);
             picIcon2.Name = "picIcon2";
             picIcon2.Size = new Size(65, 61);
             picIcon2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -171,7 +171,7 @@
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(478, 478);
+            ClientSize = new Size(470, 482);
             Controls.Add(btnClose);
             Controls.Add(lblTitle);
             Controls.Add(picIcon2);

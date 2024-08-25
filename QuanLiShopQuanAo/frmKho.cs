@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using QuanLiShopQuanAo.BUS;
 using QuanLiShopQuanAo.BUS.Entities;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace QuanLiShopQuanAo
 {
@@ -175,6 +176,35 @@ namespace QuanLiShopQuanAo
             return false;
         }
 
+        private bool CheckIsNegative()
+        {
+            if (int.Parse(txtThemGiaSanPham.Text) <= 0)
+            {
+                MessageBox.Show("Số lượng sản phẩm phải từ 0 trở lên", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            if (int.Parse(txtSuaGiaSanPham.Text) <= 0)
+            {
+                MessageBox.Show("Giá sản phẩm phải từ 0 trở lên", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            if (int.Parse(txtThemSoLuongSanPham.Text) <= 0)
+            {
+                MessageBox.Show("Số lượng sản phẩm phải từ 0 trở lên", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            if (int.Parse(txtSuaSoLuongSanPham.Text) <= 0)
+            {
+                MessageBox.Show("Giá sản phẩm phải từ 0 trở lên", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            return false;
+        }
+
         private void btnChonTatCa_Click(object sender, EventArgs e)
         {
             if (clickdgv)
@@ -263,12 +293,11 @@ namespace QuanLiShopQuanAo
 
         private void btnLuuThemSanPham_Click(object sender, EventArgs e)
         {
-            
-                string trangThai = "";
-                if (rdoThemDangBan.Checked)
-                    trangThai = "Đang bán";
-                else
-                    trangThai = "Chưa bán";
+            string trangThai = "";
+            if (rdoThemDangBan.Checked)
+                trangThai = "Đang bán";
+            else
+                trangThai = "Chưa bán";
 
             if (MessageBox.Show("Bạn có muốn lưu thông tin sản phẩm " + txtThemTenSanPham.Text, "Lưu thông tin sản phẩm?",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -277,6 +306,9 @@ namespace QuanLiShopQuanAo
                     return;
 
                 if (CheckIsNumber(0))
+                    return;
+
+                if (CheckIsNegative())
                     return;
 
                 SanPham SanPham = new SanPham()

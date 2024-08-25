@@ -88,6 +88,7 @@
             dgvHoaDon.Size = new Size(1178, 447);
             dgvHoaDon.TabIndex = 5;
             dgvHoaDon.CellClick += dgvHoaDon_CellClick;
+            dgvHoaDon.CellDoubleClick += dgvHoaDon_CellDoubleClick;
             // 
             // dgvhCheckBox
             // 
