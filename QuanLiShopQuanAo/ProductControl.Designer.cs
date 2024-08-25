@@ -30,8 +30,6 @@
         {
             panel1 = new Panel();
             lblGiaTien = new Label();
-            button1 = new Button();
-            label2 = new Label();
             picSanPham = new PictureBox();
             lblTenSanPham = new Label();
             panel1.SuspendLayout();
@@ -42,8 +40,6 @@
             // 
             panel1.BackColor = SystemColors.ControlLight;
             panel1.Controls.Add(lblGiaTien);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(label2);
             panel1.Controls.Add(picSanPham);
             panel1.Controls.Add(lblTenSanPham);
             panel1.Location = new Point(0, 0);
@@ -57,34 +53,11 @@
             lblGiaTien.AutoSize = true;
             lblGiaTien.Font = new Font("Century Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGiaTien.ForeColor = Color.FromArgb(0, 192, 0);
-            lblGiaTien.Location = new Point(3, 428);
+            lblGiaTien.Location = new Point(3, 386);
             lblGiaTien.Name = "lblGiaTien";
             lblGiaTien.Size = new Size(121, 34);
             lblGiaTien.TabIndex = 4;
             lblGiaTien.Text = "Giá tiền";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.DarkOliveGreen;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(162, 428);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(107, 51);
-            button1.TabIndex = 3;
-            button1.Text = "Xem";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(16, 371);
-            label2.Name = "label2";
-            label2.Size = new Size(87, 24);
-            label2.TabIndex = 2;
-            label2.Text = "Mô tả áo";
             // 
             // picSanPham
             // 
@@ -124,8 +97,6 @@
 
         private Panel panel1;
         public Label lblGiaTien;
-        public Button button1;
-        public Label label2;
         public PictureBox picSanPham;
         public Label lblTenSanPham;
     }

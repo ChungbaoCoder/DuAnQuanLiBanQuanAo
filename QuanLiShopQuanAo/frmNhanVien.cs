@@ -177,6 +177,7 @@ namespace QuanLiShopQuanAo
                 EnableThemControl();
                 clickthem = true;
             }
+
             else
             {
                 HideControl();

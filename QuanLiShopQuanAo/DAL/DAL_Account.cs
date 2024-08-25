@@ -83,7 +83,7 @@ namespace QuanLiShopQuanAo.DAL
             return res.ToString();
         }
         public bool ChangePassword(string email, string oldPass, string newPass, string newPassAgain)
-        {
+        {   
             try
             {
                 using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
