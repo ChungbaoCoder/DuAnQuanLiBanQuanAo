@@ -321,13 +321,16 @@ CREATE PROCEDURE dbo.sp_ThemChiTietHoaDon @MaHoaDon varchar(20),@MaKhachHang var
 AS
 BEGIN
 	DECLARE @SoLuongSanPham int
+	DECLARE @GiaSanPham float
 	SET @SoLuongSanPham = (SELECT SoLuong FROM SanPham WHERE MaSanPham = @MaSanPham)
+	SET @GiaSanPham = (SELECT Gia FROM SanPham WHERE MaSanPham = @MaSanPham)
 
 	IF (@SoLuongSanPham >= @SoLuong)
 	BEGIN
 		INSERT INTO ChiTietHoaDon (MaHoaDon, MaSanPham, SoLuong) VALUES
 		(@MaHoaDon, @MaSanPham, @SoLuong)
 		UPDATE SanPham SET SoLuong = @SoLuongSanPham - @SoLuong WHERE MaSanPham = @MaSanPham
+		UPDATE HoaDon SET TongTien += @SoLuong * @GiaSanPham
 	END
 END
 GO
