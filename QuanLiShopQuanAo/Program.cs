@@ -1,5 +1,3 @@
-using QuanLiShopQuanAo.DataBaseConnection;
-
 namespace QuanLiShopQuanAo
 {
     internal static class Program

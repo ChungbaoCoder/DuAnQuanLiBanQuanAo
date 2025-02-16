@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using QuanLiShopQuanAo.BUS.Entities;
 using QuanLiShopQuanAo.DAL.Interfaces;
+using QuanLiShopQuanAo.DataBaseConnection;
 using System.Data;
 
 namespace QuanLiShopQuanAo.DAL
@@ -12,7 +13,7 @@ namespace QuanLiShopQuanAo.DAL
             DataTable dt = new DataTable();
             try
             {
-                using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
+                using (SqlConnection conn = new SqlConnection(DBConnection.ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -31,7 +32,7 @@ namespace QuanLiShopQuanAo.DAL
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
+                using (SqlConnection conn = new SqlConnection(DBConnection.ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -53,7 +54,7 @@ namespace QuanLiShopQuanAo.DAL
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
+                using (SqlConnection conn = new SqlConnection(DBConnection.ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -76,7 +77,7 @@ namespace QuanLiShopQuanAo.DAL
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
+                using (SqlConnection conn = new SqlConnection(DBConnection.ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -98,7 +99,7 @@ namespace QuanLiShopQuanAo.DAL
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(DataBaseConnection.DBConnection.ConnectionString))
+                using (SqlConnection conn = new SqlConnection(DBConnection.ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;

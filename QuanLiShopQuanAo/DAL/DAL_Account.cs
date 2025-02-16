@@ -4,7 +4,6 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using QuanLiShopQuanAo.DAL.Interfaces;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLiShopQuanAo.DAL
 {
