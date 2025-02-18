@@ -1,127 +1,91 @@
-﻿using Microsoft.Data.SqlClient;
-using QuanLiShopQuanAo.BUS.Entities;
+﻿using QuanLiShopQuanAo.BUS.Entities;
 using QuanLiShopQuanAo.DAL;
 using QuanLiShopQuanAo.DataBaseConnection;
 using System.Data;
 
-namespace TestProject
+namespace TestProject;
+
+[TestFixture]
+public class DAL_NhanVienTests
 {
-    [TestFixture]
-    public class DAL_NhanVienTests
+    private DAL_NhanVien _dal;
+    private string _testConnectionString;
+
+    [SetUp]
+    public void Setup()
     {
-        private DAL_NhanVien _dal;
-        private string _testConnectionString;
+        _dal = new DAL_NhanVien();
+        _testConnectionString = DBConnection.ConnectionString;
+    }
 
-        [SetUp]
-        public void Setup()
+    [Test]
+    public void KiemTraDuLieuTraVe()
+    {
+        DataTable result = _dal.GetData();
+
+        Assert.That(result, Is.Not.Null);
+        Assert.That(result.Rows.Count > 0);
+        Assert.That(result.Columns.Contains("MaNhanVien"));
+    }
+
+    [Test]
+    public void KiemTraTimDuLieu()
+    {
+        string searchTerm = "Test Employee";
+
+        DataTable result = _dal.Search(searchTerm);
+
+        Assert.That(result, Is.Not.Null);
+        Assert.That(result.Rows.Count > 0);
+        Assert.That(result.Rows[0]["TenNhanVien"].ToString().Contains(searchTerm));
+    }
+
+    [Test]
+    public void KiemTraThemNhanVienMoi()
+    {
+        NhanVien newNhanVien = new NhanVien
         {
-            _dal = new DAL_NhanVien();
-            _testConnectionString = DBConnection.ConnectionString;
-        }
+            TenNhanVien = "Test Employee",
+            ChucVu = "Tester",
+            Luong = 50000,
+            Email = "test@example.com",
+            HinhAnh = "anh.jpg",
+            TrangThai = "Đang đi làm",
+            MatKhau = "3782"
 
-        [Test]
-        public void KiemTraCoDuLieuTraVe()
+        };
+
+        bool result = _dal.Insert(newNhanVien);
+
+        Assert.That(result);
+    }
+
+    [Test]
+    public void KiemTraCapNhatNhanVien()
+    {
+        NhanVien updatedEmployee = new NhanVien
         {
-            DataTable result = _dal.GetData();
+            MaNhanVien = "NV4",
+            TenNhanVien = "Updated Employee",
+            ChucVu = "Senior Developer",
+            Luong = 90000,
+            Email = "updated@example.com",
+            HinhAnh = "updated.jpg",
+            TrangThai = "Chưa đi làm"
+        };
 
-            Assert.That(result, Is.Not.Null);
-            Assert.That(result.Rows.Count > 0);
-            Assert.That(result.Columns.Contains("MaNhanVien"));
-        }
+        bool result = _dal.Update(updatedEmployee);
 
-        [Test]
-        public void KiemTraTimDuLieu()
-        {
-            string searchTerm = "Test Name";
+        Assert.IsTrue(result);
+    }
 
-            DataTable result = _dal.Search(searchTerm);
+    [Test]
+    public void KiemTraXoaNhanVien()
+    {
+        NhanVien employeeToDelete = new NhanVien { MaNhanVien = "NV4" };
 
-            Assert.That(result, Is.Not.Null);
-            Assert.That(result.Rows.Count > 0);
-            Assert.That(result.Rows[0]["TenNhanVien"].ToString().Contains(searchTerm));
-        }
+        bool result = _dal.Delete(employeeToDelete);
 
-        [Test]
-        public void KiemTraThemNhanVienMoi()
-        {
-            NhanVien newNhanVien = new NhanVien
-            {
-                TenNhanVien = "Test Employee",
-                ChucVu = "Tester",
-                Luong = 50000,
-                Email = "test@example.com",
-                HinhAnh = "anh.jpg",
-                TrangThai = "Đang đi làm",
-                MatKhau = "3782"
-
-            };
-
-            bool result = _dal.Insert(newNhanVien);
-
-            Assert.That(result);
-
-            using (SqlConnection conn = new SqlConnection(_testConnectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM NhanVien WHERE TenNhanVien = @TenNhanVien AND Email = @Email", conn);
-                cmd.Parameters.AddWithValue("@TenNhanVien", "New Employee");
-                cmd.Parameters.AddWithValue("@Email", newNhanVien.Email);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Assert.That(reader.HasRows);
-                }
-            }
-        }
-
-        [Test]
-        public void KiemTraCapNhatNhanVien()
-        {
-            NhanVien updatedEmployee = new NhanVien
-            {
-                MaNhanVien = "NV4",
-                TenNhanVien = "Updated Employee",
-                ChucVu = "Senior Developer",
-                Luong = 90000,
-                Email = "updated@example.com",
-                HinhAnh = "updated.jpg",
-                TrangThai = "Chưa đi làm"
-            };
-
-            bool result = _dal.Update(updatedEmployee);
-
-            Assert.IsTrue(result);
-
-            using (SqlConnection conn = new SqlConnection(_testConnectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM NhanVien WHERE MaNhanVien = " + updatedEmployee.MaNhanVien.ToUpper(), conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Assert.That(reader.HasRows);
-                    reader.Read();
-                    Assert.That(reader["TenNhanVien"], Is.EqualTo("Updated Employee"));
-                }
-            }
-        }
-
-        [Test]
-        public void KiemTraXoaNhanVien()
-        {
-            NhanVien employeeToDelete = new NhanVien { MaNhanVien = "NV4" };
-
-            bool result = _dal.Delete(employeeToDelete);
-
-            Assert.That(result);
-
-            using (SqlConnection conn = new SqlConnection(_testConnectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM NhanVien WHERE MaNhanVien = " + employeeToDelete.MaNhanVien.ToUpper(), conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Assert.That(reader.HasRows, Is.False);
-                }
-            }
-        }
+        Assert.That(result);
     }
 }

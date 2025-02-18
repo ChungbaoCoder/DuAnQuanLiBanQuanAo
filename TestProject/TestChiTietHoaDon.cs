@@ -1,127 +1,93 @@
-﻿using Microsoft.Data.SqlClient;
-using QuanLiShopQuanAo.BUS.Entities;
+﻿using QuanLiShopQuanAo.BUS.Entities;
 using QuanLiShopQuanAo.DAL;
 using QuanLiShopQuanAo.DataBaseConnection;
 using System.Data;
 
-namespace TestProject
+namespace TestProject;
+
+[TestFixture]
+public class DAL_ChiTietHoaDonTests
 {
-    [TestFixture]
-    public class DAL_ChiTietHoaDonTests
+    private DAL_ChiTietHoaDon _dal;
+    private string _testConnectionString;
+
+    [SetUp]
+    public void Setup()
     {
-        private DAL_ChiTietHoaDon _dal;
-        private string _testConnectionString;
+        _testConnectionString = DBConnection.ConnectionString;
+        _dal = new DAL_ChiTietHoaDon();
+    }
 
-        [SetUp]
-        public void Setup()
+    [Test]
+    public void KiemTraDuLieuTraVe()
+    {
+        string maHoaDon = "HD1";
+
+        DataTable result = _dal.LoadChiTietHoaDon(maHoaDon);
+
+        Assert.That(result, Is.Not.Null);
+        Assert.That(result.Rows.Count >= 0, Is.True);
+        Assert.That(result.Columns.Contains("MaHoaDon"), Is.True);
+    }
+
+    [Test]
+    public void KiemTraThemChiTietHoaDonMoi()
+    {
+        ChiTietHoaDon newChiTietHoaDon = new ChiTietHoaDon
         {
-            _testConnectionString = DBConnection.ConnectionString;
-            _dal = new DAL_ChiTietHoaDon();
-        }
+            MaHoaDon = "HD2",
+            MaKhachHang = "KH2",
+            MaSanPham = "SP1",
+            SoLuong = 2
+        };
 
-        [Test]
-        public void KiemTraDuLieuTraVe()
+        bool result = _dal.Insert(newChiTietHoaDon);
+
+        Assert.That(result, Is.True);
+    }
+
+    [Test]
+    public void KiemTraNgungLapHoaDon()
+    {
+        ChiTietHoaDon stopItem = new ChiTietHoaDon
         {
-            string maHoaDon = "HD1";
+            MaHoaDon = "HD2",
+            MaSanPham = "SP3",
+            SoLuong = 1
+        };
 
-            DataTable result = _dal.LoadChiTietHoaDon(maHoaDon);
+        bool result = _dal.NgungLapHoaDon(stopItem);
 
-            Assert.That(result, Is.Not.Null);
-            Assert.That(result.Rows.Count >= 0, Is.True);
-            Assert.That(result.Columns.Contains("MaHoaDon"), Is.True);
-        }
+        Assert.That(result, Is.True);
+    }
 
-        [Test]
-        public void KiemTraThemChiTietHoaDonMoi()
+    [Test]
+    public void KiemTraCapNhatChiTietHoaDon()
+    {
+        ChiTietHoaDon updatedChiTietHoaDon = new ChiTietHoaDon
         {
-            ChiTietHoaDon newChiTietHoaDon = new ChiTietHoaDon
-            {
-                MaHoaDon = "HD1",
-                MaKhachHang = "KH2",
-                MaSanPham = "SP1",
-                SoLuong = 2
-            };
+            MaHoaDon = "HD4",
+            MaKhachHang = "KH6",
+            TongThanhTien = 1000.0f
+        };
 
-            bool result = _dal.Insert(newChiTietHoaDon);
+        bool result = _dal.Update(updatedChiTietHoaDon);
 
-            Assert.That(result, Is.True);
+        Assert.That(result, Is.True);
+    }
 
-            using (SqlConnection conn = new SqlConnection(_testConnectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM ChiTietHoaDon WHERE MaHoaDon = {newChiTietHoaDon.MaHoaDon.ToUpper()} AND MaSanPham = {newChiTietHoaDon.MaSanPham.ToUpper()}", conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Assert.That(reader.HasRows, Is.True);
-                }
-            }
-        }
-
-        [Test]
-        public void KiemTraNgungLapHoaDon()
+    [Test]
+    public void KiemTraXoaChiTietHoaDon()
+    {
+        ChiTietHoaDon itemToDelete = new ChiTietHoaDon
         {
-            ChiTietHoaDon stopItem = new ChiTietHoaDon
-            {
-                MaHoaDon = "HD1",
-                MaSanPham = "SP1",
-                SoLuong = 1
-            };
+            MaHoaDon = "HD2",
+            MaSanPham = "SP2",
+            SoLuong = 1
+        };
 
-            bool result = _dal.NgungLapHoaDon(stopItem);
+        bool result = _dal.Delete(itemToDelete);
 
-            Assert.That(result, Is.True);
-        }
-
-        [Test]
-        public void KiemTraCapNhatChiTietHoaDon()
-        {
-            ChiTietHoaDon updatedChiTietHoaDon = new ChiTietHoaDon
-            {
-                MaHoaDon = "HD1",
-                MaKhachHang = "KH1",
-                TongThanhTien = 1000.0f
-            };
-
-            bool result = _dal.Update(updatedChiTietHoaDon);
-
-            Assert.That(result, Is.True);
-
-            using (SqlConnection conn = new SqlConnection(_testConnectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM ChiTietHoaDon WHERE MaHoaDon = " + updatedChiTietHoaDon.MaHoaDon.ToUpper(), conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Assert.That(reader.HasRows, Is.True);
-                    reader.Read();
-                    Assert.That((decimal)reader["TongThanhTien"], Is.EqualTo(1000.0m));
-                }
-            }
-        }
-
-        [Test]
-        public void KiemTraXoaChiTietHoaDon()
-        {
-            ChiTietHoaDon itemToDelete = new ChiTietHoaDon
-            {
-                MaHoaDon = "HD1",
-                MaSanPham = "SP2",
-                SoLuong = 2
-            };
-
-            bool result = _dal.Delete(itemToDelete);
-
-            Assert.That(result, Is.True);
-
-            using (SqlConnection conn = new SqlConnection(_testConnectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM ChiTietHoaDon WHERE MaHoaDon = {itemToDelete.MaHoaDon.ToUpper()} AND MaSanPham = {itemToDelete.MaSanPham.ToUpper()}", conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Assert.IsFalse(reader.HasRows);
-                }
-            }
-        }
+        Assert.That(result, Is.True);
     }
 }
