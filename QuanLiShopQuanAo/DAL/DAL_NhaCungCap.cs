@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using QuanLiShopQuanAo.BUS.Entities;
 using QuanLiShopQuanAo.DAL.Interfaces;
 using QuanLiShopQuanAo.DataBaseConnection;
