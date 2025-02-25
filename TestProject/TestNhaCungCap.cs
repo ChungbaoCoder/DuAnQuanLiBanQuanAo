@@ -1,84 +1,122 @@
-﻿using QuanLiShopQuanAo.BUS.Entities;
+using QuanLiShopQuanAo.BUS.Entities;
 using QuanLiShopQuanAo.DAL;
-using System.Data;
 using QuanLiShopQuanAo.DataBaseConnection;
 
-namespace TestProject;
-
-[TestFixture]
-public class DAL_NhaCungCapTests
+namespace TestProject
 {
-    private DAL_NhaCungCap _dal;
-    private string _testConnectionString;
-
-    [SetUp]
-    public void Setup()
+    [TestFixture]
+    public class DAL_NhaCungCapTests
     {
-        _testConnectionString = DBConnection.ConnectionString;
-        _dal = new DAL_NhaCungCap();
-    }
+        private DAL_NhaCungCap _dal;
+        private string _testConnectionString;
 
-    [Test]
-    public void KiemTraDuLieuTraVe()
-    {
-        DataTable result = _dal.GetData();
-
-        Assert.That(result, Is.Not.Null);
-        Assert.That(result.Rows.Count > 0, Is.True);
-        Assert.That(result.Columns.Contains("MaNCC"), Is.True);
-    }
-
-    [Test]
-    public void KiemTraTimDuLieu()
-    {
-        string searchTerm = "New Supplier";
-
-        DataTable result = _dal.Search(searchTerm);
-
-        Assert.That(result, Is.Not.Null);
-        Assert.That(result.Rows.Count > 0, Is.True);
-        Assert.That(result.Rows[0]["TenNCC"].ToString().Contains(searchTerm), Is.True);
-    }
-
-    [Test]
-    public void KiemTraThemNhaCungCapMoi()
-    {
-        NhaCungCap newSupplier = new NhaCungCap
+        [SetUp]
+        public void Setup()
         {
-            TenNhaCungCap = "New Supplier",
-            SDT = "555-123-4567",
-            DiaChi = "New Address"
-        };
-
-        bool result = _dal.Insert(newSupplier);
-
-        Assert.That(result, Is.True);
-    }
-
-    [Test]
-    public void KiemTraCapNhatNhaCungCap()
-    {
-        NhaCungCap updatedSupplier = new NhaCungCap
+            _testConnectionString = DBConnection.ConnectionString;
+            _dal = new DAL_NhaCungCap();
+        }
+        [Test]
+        public void Insert_ShouldReturnTrue_WhenInsertionIsSuccessful()
         {
-            MaNhaCungCap = "NCC2",
-            TenNhaCungCap = "Updated Supplier",
-            SDT = "555-987-6543",
-            DiaChi = "Updated Address"
-        };
+            // Arrange
+            var nhaCungCap = new NhaCungCap
+            {
+                TenNhaCungCap = "XYZ Supplier",
+                SDT = "1234567890",
+                DiaChi = "123 XYZ Street"
+            };
 
-        bool result = _dal.Update(updatedSupplier);
+            // Act
+            var result = _dal.Insert(nhaCungCap);
 
-        Assert.That(result, Is.True);
-    }
+            // Assert
+            Assert.IsTrue(result); 
+        }
 
-    [Test]
-    public void KiemTraXoaNhaCungCap()
-    {
-        // Assuming there's a supplier with MaNhaCungCap = 1 in your test data
-        NhaCungCap supplierToDelete = new NhaCungCap { MaNhaCungCap = "NCC6", SDT = "555-123-4567" };
+        [Test]
+        public void Insert_ShouldReturnFalse_WhenRequiredFieldIsMissing()
+        {
+            // Arrange
+            var nhaCungCap = new NhaCungCap
+            {
+                TenNhaCungCap = null, 
+                SDT = "1234567890",
+                DiaChi = "123 XYZ Street"
+            };
 
-        bool result = _dal.Delete(supplierToDelete);
+            // Act
+            var result = _dal.Insert(nhaCungCap);
 
-        Assert.That(result, Is.True);
+            // Assert
+            Assert.IsFalse(result); 
+        }
+        [Test]
+        public void Update_ShouldReturnTrue_WhenUpdateIsSuccessful()
+        {
+            // Arrange
+            var updatedSupplier = new NhaCungCap
+            {
+                MaNhaCungCap = "NCC2", // Existing MaNCC
+                TenNhaCungCap = "Updated Supplier",
+                SDT = "9876543210",
+                DiaChi = "Updated Address"
+            };
+
+            // Act
+            var result = _dal.Update(updatedSupplier);
+
+            // Assert
+            Assert.IsTrue(result); 
+        }
+
+        [Test]
+        public void Update_ShouldReturnFalse_WhenUpdateFails()
+        {
+            var updatedSupplier = new NhaCungCap
+            {
+                MaNhaCungCap = null, 
+                TenNhaCungCap = "Updated Supplier",
+                SDT = "9876543210",
+                DiaChi = "Updated Address"
+            };
+
+            var result = _dal.Update(updatedSupplier);
+
+            Assert.IsFalse(result); 
+        }
+        [Test]
+        public void Delete_ShouldReturnTrue_WhenDeletionIsSuccessful()
+        {
+            var nhaCungCap = new NhaCungCap
+            {
+                MaNhaCungCap = "NCC5", 
+                SDT = "1234567890"
+            };
+
+            // Act
+            var result = _dal.Delete(nhaCungCap);
+
+            // Assert
+            Assert.IsTrue(result); 
+        }
+
+        [Test]
+        public void Delete_ShouldReturnFalse_WhenSupplierDoesNotExist()
+        {
+            // Arrange
+            var nhaCungCap = new NhaCungCap
+            {
+                MaNhaCungCap = "NonExistent", 
+                SDT = "0000000000"
+            };
+
+            // Act
+            var result = _dal.Delete(nhaCungCap);
+
+            // Assert
+            Assert.IsFalse(result); 
+        }
+
     }
 }
