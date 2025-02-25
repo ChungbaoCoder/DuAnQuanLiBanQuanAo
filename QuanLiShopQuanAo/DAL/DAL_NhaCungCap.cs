@@ -4,7 +4,7 @@ using QuanLiShopQuanAo.DAL.Interfaces;
 using QuanLiShopQuanAo.DataBaseConnection;
 using System.Data;
 
-namespace QuanLiShopQuanAo.DAL
+namespace QuanLiShopQuanAo.DAL 
 {
     public class DAL_NhaCungCap : IProcNhaCungCap
     {
