@@ -35,25 +35,18 @@ public class DAL_AccountTests
     [Test]
     public void ChangePassword_ValidCredentials_ReturnsTrue()
     {
-        // Note: The ChangePassword method currently does not validate email and password
-        // To make the test valuable, you must refactor your method and add that validation
         bool result = _dal.ChangePassword("test@example.com", "password", "newpassword", "newpassword");
 
         Assert.That(result, Is.True);
-
-        //Verify successful password change by trying to log in with new password
         Assert.That(_dal.Login("test@example.com", "newpassword"), Is.True);
-        Assert.That(_dal.Login("test@example.com", "password"), Is.False);//Verify that previous password no longer works
+        Assert.That(_dal.Login("test@example.com", "password"), Is.False);
     }
 
     [Test]
     public void ChangePassword_InvalidOldPassword_ReturnsFalse()
     {
-        // Note: The ChangePassword method currently does not validate email and password
-        // To make the test valuable, you must refactor your method and add that validation
         bool result = _dal.ChangePassword("test@example.com", "wrongpassword", "newpassword", "newpassword");
 
-        //Password should fail to change
         Assert.That(result, Is.False);
     }
     public void Login_ValidCredentials_ReturnsTrue()
