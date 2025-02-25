@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using QuanLiShopQuanAo.BUS.Entities;
 using QuanLiShopQuanAo.DAL.Interfaces;
 using QuanLiShopQuanAo.DataBaseConnection;
@@ -34,19 +34,27 @@ namespace QuanLiShopQuanAo.DAL
             {
                 using (SqlConnection conn = new SqlConnection(DBConnection.ConnectionString))
                 {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_TimKhachHang";
-                    cmd.Parameters.AddWithValue("@Varible", tim);
-                    cmd.Connection = conn;
-                    conn.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    dt.Load(dr);
+                    using (SqlCommand cmd = new SqlCommand("dbo.sp_TimKhachHang", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Varible", tim);
+                        conn.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            dt.Load(reader); // Nạp dữ liệu vào DataTable
+                        }
+                    }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROR: {ex.Message}");
+            }
             return dt;
         }
+
+
         public bool Insert(KhachHang khachHang)
         {
             try
@@ -66,7 +74,10 @@ namespace QuanLiShopQuanAo.DAL
                         return true;
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR]: {ex.Message}");
+            }
             return false;
         }
         public bool Update(KhachHang khachHang)
@@ -96,22 +107,39 @@ namespace QuanLiShopQuanAo.DAL
         {
             try
             {
+                // Create the SQL connection using the connection string
                 using (SqlConnection conn = new SqlConnection(DBConnection.ConnectionString))
                 {
+                    // Define the SQL command to call the stored procedure
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.sp_XoaKhachHang";
+                    cmd.CommandText = "dbo.sp_XoaKhachHang"; // Name of the stored procedure
+
+                    // Add parameters for MaKhachHang and SDT
                     cmd.Parameters.AddWithValue("@MaKhachHang", khachHang.MaKhachHang);
                     cmd.Parameters.AddWithValue("@SDT", khachHang.SDT);
+
+                    // Set the connection for the command
                     cmd.Connection = conn;
+
+                    // Open the connection
                     conn.Open();
 
-                    if (cmd.ExecuteNonQuery() > 0)
-                        return true;
+                    // Execute the stored procedure and check if any rows were affected
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // If rows were affected, the deletion was successful
+                    return rowsAffected > 0;
                 }
             }
-            catch { }
-            return false;
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the execution
+                Console.WriteLine($"Error: {ex.Message}");
+                return false;
+            }
         }
+
+
     }
 }
