@@ -7,7 +7,7 @@ namespace TestProject
     [TestFixture]
     public class DAL_NhaCungCapTests
     {
-        private DAL_NhaCungCap _dal;
+        private DAL_NhaCungCap _dal; 
         private string _testConnectionString;
 
         [SetUp]
