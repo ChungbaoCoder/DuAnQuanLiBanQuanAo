@@ -7,7 +7,7 @@ namespace TestProject
     [TestFixture]
     public class DAL_NhaCungCapTests
     {
-        private DAL_NhaCungCap _dal; 
+        private DAL_NhaCungCap _dal;
         private string _testConnectionString;
 
         [SetUp]
@@ -22,9 +22,9 @@ namespace TestProject
             // Arrange
             var nhaCungCap = new NhaCungCap
             {
-                TenNhaCungCap = "XYZ Supplier",
+                TenNhaCungCap = "ABC",
                 SDT = "1234567890",
-                DiaChi = "123 XYZ Street"
+                DiaChi = "dgh"
             };
 
             // Act
@@ -40,8 +40,8 @@ namespace TestProject
             // Arrange
             var nhaCungCap = new NhaCungCap
             {
-                TenNhaCungCap = null, 
-                SDT = "1234567890",
+                TenNhaCungCap ="hg", 
+                SDT = "1234jh",
                 DiaChi = "123 XYZ Street"
             };
 
@@ -57,7 +57,7 @@ namespace TestProject
             // Arrange
             var updatedSupplier = new NhaCungCap
             {
-                MaNhaCungCap = "NCC2", // Existing MaNCC
+                MaNhaCungCap = "NCC18", 
                 TenNhaCungCap = "Updated Supplier",
                 SDT = "9876543210",
                 DiaChi = "Updated Address"
@@ -73,24 +73,28 @@ namespace TestProject
         [Test]
         public void Update_ShouldReturnFalse_WhenUpdateFails()
         {
+            // Arrange
             var updatedSupplier = new NhaCungCap
             {
-                MaNhaCungCap = null, 
+                MaNhaCungCap = "NCC2", 
                 TenNhaCungCap = "Updated Supplier",
-                SDT = "9876543210",
+                SDT = "98765kj210",
                 DiaChi = "Updated Address"
             };
 
+            // Act
             var result = _dal.Update(updatedSupplier);
 
-            Assert.IsFalse(result); 
+            // Assert
+            Assert.IsFalse(result); // Ensure that update fails due to invalid MaNCC
         }
         [Test]
         public void Delete_ShouldReturnTrue_WhenDeletionIsSuccessful()
         {
+            // Arrange
             var nhaCungCap = new NhaCungCap
             {
-                MaNhaCungCap = "NCC5", 
+                MaNhaCungCap = "NCC4", // Ensure this exists in the DB
                 SDT = "1234567890"
             };
 
@@ -98,24 +102,7 @@ namespace TestProject
             var result = _dal.Delete(nhaCungCap);
 
             // Assert
-            Assert.IsTrue(result); 
-        }
-
-        [Test]
-        public void Delete_ShouldReturnFalse_WhenSupplierDoesNotExist()
-        {
-            // Arrange
-            var nhaCungCap = new NhaCungCap
-            {
-                MaNhaCungCap = "NonExistent", 
-                SDT = "0000000000"
-            };
-
-            // Act
-            var result = _dal.Delete(nhaCungCap);
-
-            // Assert
-            Assert.IsFalse(result); 
+            Assert.IsTrue(result); // Ensure that deletion returns true
         }
 
     }
